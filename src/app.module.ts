@@ -2,6 +2,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { CategoriesModule } from './categories/categories.module';
+import { PrismaService } from './prisma/prisma.service';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -12,8 +13,9 @@ import { CategoriesModule } from './categories/categories.module';
     playground:true,
     context: ({ req, res }) => ({ req, res }),
   }),
-  CategoriesModule
+  CategoriesModule,
   ],
+  providers:[PrismaService]
 })
 export class AppModule {}
 

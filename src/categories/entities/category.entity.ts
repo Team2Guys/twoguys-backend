@@ -1,7 +1,12 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Field, ObjectType} from '@nestjs/graphql';
+import { CategoryBase } from '../CategoryBase';
 
 @ObjectType()
-export class Category {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+export class Category extends CategoryBase {
+
+    @Field()
+  id: number;
 }
+
+
+

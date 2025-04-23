@@ -1,9 +1,8 @@
-import { Field, InputType } from '@nestjs/graphql';
-import { CategoryBase } from '../CategoryBase';
-import GraphQLJSON from 'graphql-type-json';
+import { Field, ObjectType } from '@nestjs/graphql';
+import { GraphQLJSON } from 'graphql-type-json';
 
-@InputType()
-export class CreateCategoryInput  {
+@ObjectType({ isAbstract: true })
+export abstract class  CategoryBase  {
     @Field()
     name: string;
   
@@ -103,5 +102,3 @@ export class CreateCategoryInput  {
     @Field({ nullable: true })
     Meta_Title?: string;
   }
-
-
