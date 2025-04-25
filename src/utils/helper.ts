@@ -19,5 +19,5 @@ export const customHttpException = (error: any, status?: string) => {
       }
    }
 
-   throw new ApolloError(error.message || 'An unexpected error occurredsdfds.', status || 'INTERNAL_SERVER_ERROR');
+   throw new ApolloError(error || 'An unexpected error occur.', status || 'INTERNAL_SERVER_ERROR');
 };

@@ -6,6 +6,11 @@ export class Category extends CategoryBase {
 
     @Field()
   id: number;
+
+  @Field({nullable:true})
+  updatedAt?:Date
+  @Field({nullable:true})
+  createdAt?:Date
 }
 
 

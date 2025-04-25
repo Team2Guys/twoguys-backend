@@ -3,6 +3,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { CategoriesModule } from './categories/categories.module';
 import { PrismaService } from './prisma/prisma.service';
+import { FileUploadingModule } from 'file_uploading/file_uploading.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -14,6 +15,7 @@ import { PrismaService } from './prisma/prisma.service';
     context: ({ req, res }) => ({ req, res }),
   }),
   CategoriesModule,
+  FileUploadingModule
   ],
   providers:[PrismaService]
 })

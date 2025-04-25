@@ -29,6 +29,7 @@ model categories {
   BannerHeading       String?
   RecallUrl           String?
   breadCrum           String?
+  
   // ToHeading
   topHeading          String?
   topDescription      String?
