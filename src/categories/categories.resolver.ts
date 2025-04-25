@@ -3,6 +3,7 @@ import { CategoriesService } from './categories.service';
 import { Category } from './entities/category.entity';
 import { CreateCategoryInput } from './dto/create-category.input';
 import { UpdateCategoryInput } from './dto/update-category.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => Category)
 export class CategoriesResolver {
@@ -20,10 +21,14 @@ export class CategoriesResolver {
     return this.categoriesService.findAll();
   }
 
-  @Query(() => Category, { name: 'category' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.categoriesService.findOne(id);
+  @Public()
+  @Query(() => Category, { name: 'category', nullable:true })
+  findOne(
+    @Args('customUrl', { type: () => String }) customUrl: string
+  ) {
+    return this.categoriesService.findOne(customUrl);
   }
+
 
   @Mutation(() => Category)
   updateCategory(@Args('updateCategoryInput') updateCategoryInput: UpdateCategoryInput) {
@@ -34,4 +39,7 @@ export class CategoriesResolver {
   removeCategory(@Args('id', { type: () => Int }) id: number) {
     return this.categoriesService.remove(id);
   }
+
+
+  
 }

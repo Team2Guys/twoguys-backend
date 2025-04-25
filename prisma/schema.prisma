@@ -39,14 +39,16 @@ model categories {
   categoryHeroHeading String?
   categoryHeroText    Json[]    @default([])
   categoryFaqs        Json[]    @default([])
-  // 
+  // heroBottom  
   leftHeading         String?
   categoryText        Json[]    @default([])
 
-  // After Body
+   // flooring
+
   Heading         String?
   paras           Json[]  @default([])
-  bottomText      String?
+
+  bottomText      String?       
   bodyHeading     String?
   bodyMainHeading String?
   bodyText        String?

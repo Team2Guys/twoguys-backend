@@ -39,8 +39,12 @@ export class CategoriesService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} category`;
+  async findOne(customUrl: string) {
+    try {
+      return await this.prisma.categories.findFirst({ where: { custom_url: customUrl } });
+    } catch (error) {
+      customHttpException(error, 'INTERNAL_SERVER_ERROR');
+    }
   }
 
   async withAcessory(customUrl: string, accessoryFlag?: boolean) {
