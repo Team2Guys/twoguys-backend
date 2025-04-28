@@ -86,6 +86,3 @@ model Admins {
   posterImageUrl         Json?
   role                   String  @default("Admin")
 }
-
-
-
