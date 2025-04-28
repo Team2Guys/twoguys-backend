@@ -15,36 +15,39 @@ datasource db {
 }
 
 model categories {
-  id                  Int       @id @default(autoincrement())
-  name                String    @unique
-  description         String?
-  createdAt           DateTime? @default(now())
-  updatedAt           DateTime? @updatedAt
-  posterImageUrl      Json
-  last_editedBy       String?
-  short_description   String?
-  custom_url          String
-  Banners             Json?
-  BannerText          String?
-  BannerHeading       String?
-  RecallUrl           String?
-  breadCrum           String?
+  id                Int       @id @default(autoincrement())
+  name              String    @unique
+  description       String?
+  createdAt         DateTime? @default(now())
+  updatedAt         DateTime? @updatedAt
+  posterImageUrl    Json
+  last_editedBy     String?
+  short_description String?
+  custom_url        String
+  Banners           Json?
+  BannerText        String?
+  BannerHeading     String?
+  RecallUrl         String?
+  breadCrum         String?
+
   // ToHeading
   topHeading          String?
   topDescription      String?
   // HeroText
-  categoryHeroImages  Json[]    @default([])
+  categoryHeroImages  Json[]  @default([])
   categoryHeroToptext String?
   categoryHeroHeading String?
-  categoryHeroText    Json[]    @default([])
-  categoryFaqs        Json[]    @default([])
-  // 
+  categoryHeroText    Json[]  @default([])
+  categoryFaqs        Json[]  @default([])
+  // heroBottom  
   leftHeading         String?
-  categoryText        Json[]    @default([])
+  categoryText        Json[]  @default([])
 
-  // After Body
-  Heading         String?
-  paras           Json[]  @default([])
+  // flooring
+
+  Heading String?
+  paras   Json[]  @default([])
+
   bottomText      String?
   bodyHeading     String?
   bodyMainHeading String?
