@@ -2,7 +2,7 @@ import { ExecutionContext, Injectable, CanActivate, UnauthorizedException } from
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { Reflector } from '@nestjs/core';
 import * as jwt from 'jsonwebtoken';
-import { IS_PUBLIC_KEY } from 'decorators/public.decorator';
+import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
