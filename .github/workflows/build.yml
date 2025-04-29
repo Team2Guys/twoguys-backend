@@ -18,7 +18,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install Dependencies
         run: npm install
@@ -46,6 +46,6 @@ jobs:
           
           npm install 
           npm run build
-          pm2 restart easyfloors_be
+          npm run start:prod
           exit
           EOF
