@@ -58,31 +58,32 @@ model categories {
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
-
-  Canonical_Tag    String?
-  Meta_Description String?
-  Meta_Title       String?
+  Canonical_Tag      String?
+  Meta_Description   String?
+  Meta_Title         String?
 }
 
 model Admins {
-  id                     Int     @id @default(autoincrement())
+  id                     Int       @id @default(autoincrement())
   fullname               String
-  email                  String  @unique
+  email                  String    @unique
   password               String
-  canAddProduct          Boolean @default(false)
-  canEditProduct         Boolean @default(false)
-  canDeleteProduct       Boolean @default(false)
-  canAddCategory         Boolean @default(false)
-  canDeleteCategory      Boolean @default(false)
-  canEditCategory        Boolean @default(false)
-  canCheckProfit         Boolean @default(false)
-  canCheckRevenue        Boolean @default(false)
-  canCheckVisitors       Boolean @default(false)
-  canViewUsers           Boolean @default(false)
-  canViewSales           Boolean @default(false)
-  canVeiwAdmins          Boolean @default(false)
-  canVeiwTotalproducts   Boolean @default(false)
-  canVeiwTotalCategories Boolean @default(false)
+  canAddProduct          Boolean   @default(false)
+  canEditProduct         Boolean   @default(false)
+  canDeleteProduct       Boolean   @default(false)
+  canAddCategory         Boolean   @default(false)
+  canDeleteCategory      Boolean   @default(false)
+  canEditCategory        Boolean   @default(false)
+  canCheckProfit         Boolean   @default(false)
+  canCheckRevenue        Boolean   @default(false)
+  canCheckVisitors       Boolean   @default(false)
+  canViewUsers           Boolean   @default(false)
+  canViewSales           Boolean   @default(false)
+  canVeiwAdmins          Boolean   @default(false)
+  canVeiwTotalproducts   Boolean   @default(false)
+  canVeiwTotalCategories Boolean   @default(false)
   posterImageUrl         Json?
-  role                   String  @default("Admin")
+  role                   String    @default("Admin")
+  createdAt              DateTime? @default(now())
+  updatedAt              DateTime? @updatedAt
 }

@@ -58,7 +58,6 @@ model categories {
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
-
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
@@ -85,4 +84,6 @@ model Admins {
   canVeiwTotalCategories Boolean @default(false)
   posterImageUrl         Json?
   role                   String  @default("Admin")
+   createdAt           DateTime? @default(now())
+  updatedAt           DateTime? @updatedAt
 }
