@@ -2404,6 +2404,8 @@ export namespace Prisma {
     canVeiwTotalproducts: boolean | null
     canVeiwTotalCategories: boolean | null
     role: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type AdminsMaxAggregateOutputType = {
@@ -2426,6 +2428,8 @@ export namespace Prisma {
     canVeiwTotalproducts: boolean | null
     canVeiwTotalCategories: boolean | null
     role: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type AdminsCountAggregateOutputType = {
@@ -2449,6 +2453,8 @@ export namespace Prisma {
     canVeiwTotalCategories: number
     posterImageUrl: number
     role: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -2481,6 +2487,8 @@ export namespace Prisma {
     canVeiwTotalproducts?: true
     canVeiwTotalCategories?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type AdminsMaxAggregateInputType = {
@@ -2503,6 +2511,8 @@ export namespace Prisma {
     canVeiwTotalproducts?: true
     canVeiwTotalCategories?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type AdminsCountAggregateInputType = {
@@ -2526,6 +2536,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: true
     posterImageUrl?: true
     role?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -2636,6 +2648,8 @@ export namespace Prisma {
     canVeiwTotalCategories: boolean
     posterImageUrl: JsonValue | null
     role: string
+    createdAt: Date | null
+    updatedAt: Date | null
     _count: AdminsCountAggregateOutputType | null
     _avg: AdminsAvgAggregateOutputType | null
     _sum: AdminsSumAggregateOutputType | null
@@ -2678,6 +2692,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2701,6 +2717,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2724,6 +2742,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectScalar = {
@@ -2747,9 +2767,11 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: boolean
     role?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type AdminsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "email" | "password" | "canAddProduct" | "canEditProduct" | "canDeleteProduct" | "canAddCategory" | "canDeleteCategory" | "canEditCategory" | "canCheckProfit" | "canCheckRevenue" | "canCheckVisitors" | "canViewUsers" | "canViewSales" | "canVeiwAdmins" | "canVeiwTotalproducts" | "canVeiwTotalCategories" | "posterImageUrl" | "role", ExtArgs["result"]["admins"]>
+  export type AdminsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "email" | "password" | "canAddProduct" | "canEditProduct" | "canDeleteProduct" | "canAddCategory" | "canDeleteCategory" | "canEditCategory" | "canCheckProfit" | "canCheckRevenue" | "canCheckVisitors" | "canViewUsers" | "canViewSales" | "canVeiwAdmins" | "canVeiwTotalproducts" | "canVeiwTotalCategories" | "posterImageUrl" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["admins"]>
 
   export type $AdminsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Admins"
@@ -2775,6 +2797,8 @@ export namespace Prisma {
       canVeiwTotalCategories: boolean
       posterImageUrl: Prisma.JsonValue | null
       role: string
+      createdAt: Date | null
+      updatedAt: Date | null
     }, ExtArgs["result"]["admins"]>
     composites: {}
   }
@@ -3218,6 +3242,8 @@ export namespace Prisma {
     readonly canVeiwTotalCategories: FieldRef<"Admins", 'Boolean'>
     readonly posterImageUrl: FieldRef<"Admins", 'Json'>
     readonly role: FieldRef<"Admins", 'String'>
+    readonly createdAt: FieldRef<"Admins", 'DateTime'>
+    readonly updatedAt: FieldRef<"Admins", 'DateTime'>
   }
     
 
@@ -3660,7 +3686,9 @@ export namespace Prisma {
     canVeiwTotalproducts: 'canVeiwTotalproducts',
     canVeiwTotalCategories: 'canVeiwTotalCategories',
     posterImageUrl: 'posterImageUrl',
-    role: 'role'
+    role: 'role',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type AdminsScalarFieldEnum = (typeof AdminsScalarFieldEnum)[keyof typeof AdminsScalarFieldEnum]
@@ -4039,6 +4067,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFilter<"Admins"> | boolean
     posterImageUrl?: JsonNullableFilter<"Admins">
     role?: StringFilter<"Admins"> | string
+    createdAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
   }
 
   export type AdminsOrderByWithRelationInput = {
@@ -4062,6 +4092,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: SortOrder
     posterImageUrl?: SortOrderInput | SortOrder
     role?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type AdminsWhereUniqueInput = Prisma.AtLeast<{
@@ -4088,6 +4120,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFilter<"Admins"> | boolean
     posterImageUrl?: JsonNullableFilter<"Admins">
     role?: StringFilter<"Admins"> | string
+    createdAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
   }, "id" | "email">
 
   export type AdminsOrderByWithAggregationInput = {
@@ -4111,6 +4145,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: SortOrder
     posterImageUrl?: SortOrderInput | SortOrder
     role?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: AdminsCountOrderByAggregateInput
     _avg?: AdminsAvgOrderByAggregateInput
     _max?: AdminsMaxOrderByAggregateInput
@@ -4142,6 +4178,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolWithAggregatesFilter<"Admins"> | boolean
     posterImageUrl?: JsonNullableWithAggregatesFilter<"Admins">
     role?: StringWithAggregatesFilter<"Admins"> | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
   }
 
   export type categoriesCreateInput = {
@@ -4434,6 +4472,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AdminsUncheckedCreateInput = {
@@ -4457,6 +4497,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AdminsUpdateInput = {
@@ -4479,6 +4521,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFieldUpdateOperationsInput | boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AdminsUncheckedUpdateInput = {
@@ -4502,6 +4546,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFieldUpdateOperationsInput | boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AdminsCreateManyInput = {
@@ -4525,6 +4571,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AdminsUpdateManyMutationInput = {
@@ -4547,6 +4595,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFieldUpdateOperationsInput | boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AdminsUncheckedUpdateManyInput = {
@@ -4570,6 +4620,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: BoolFieldUpdateOperationsInput | boolean
     posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
     role?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4944,6 +4996,8 @@ export namespace Prisma {
     canVeiwTotalCategories?: SortOrder
     posterImageUrl?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AdminsAvgOrderByAggregateInput = {
@@ -4970,6 +5024,8 @@ export namespace Prisma {
     canVeiwTotalproducts?: SortOrder
     canVeiwTotalCategories?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AdminsMinOrderByAggregateInput = {
@@ -4992,6 +5048,8 @@ export namespace Prisma {
     canVeiwTotalproducts?: SortOrder
     canVeiwTotalCategories?: SortOrder
     role?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AdminsSumOrderByAggregateInput = {

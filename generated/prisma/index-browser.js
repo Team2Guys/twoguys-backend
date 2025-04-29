@@ -176,7 +176,9 @@ exports.Prisma.AdminsScalarFieldEnum = {
   canVeiwTotalproducts: 'canVeiwTotalproducts',
   canVeiwTotalCategories: 'canVeiwTotalCategories',
   posterImageUrl: 'posterImageUrl',
-  role: 'role'
+  role: 'role',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
