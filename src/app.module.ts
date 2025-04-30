@@ -4,13 +4,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { CategoriesModule } from './categories/categories.module';
 import { PrismaService } from './prisma/prisma.service';
 import { FileUploadingModule } from './file_uploading/file_uploading.module';
-import { join } from 'path';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
-    autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+    // autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
     driver:ApolloDriver,
-    // autoSchemaFile:true,
+    autoSchemaFile:true,
     csrfPrevention:false,
     playground:true,
     context: ({ req, res }) => ({ req, res }),
@@ -21,5 +20,7 @@ import { join } from 'path';
   providers:[PrismaService]
 })
 export class AppModule {}
+
+
 
 
