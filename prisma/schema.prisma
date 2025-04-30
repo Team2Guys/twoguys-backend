@@ -15,75 +15,86 @@ datasource db {
 }
 
 model categories {
-  id                  Int       @id @default(autoincrement())
-  name                String    @unique
-  description         String?
-  createdAt           DateTime? @default(now())
-  updatedAt           DateTime? @updatedAt
-  posterImageUrl      Json
-  last_editedBy       String?
-  short_description   String?
-  custom_url          String
-  Banners             Json?
-  BannerText          String?
-  BannerHeading       String?
-  RecallUrl           String?
-  breadCrum           String?
-  
+  id                Int       @id @default(autoincrement())
+  name              String    @unique
+  description       String?
+  createdAt         DateTime? @default(now())
+  updatedAt         DateTime? @updatedAt
+  posterImageUrl    Json
+  last_editedBy     String?
+  short_description String?
+  custom_url        String
+  Banners           Json?
+  BannerText        String?
+  BannerHeading     String?
+  RecallUrl         String?
+  breadCrum         String?
+
   // ToHeading
   topHeading          String?
   topDescription      String?
   // HeroText
-  categoryHeroImages  Json[]    @default([])
+  categoryHeroImages  Json[]  @default([])
   categoryHeroToptext String?
   categoryHeroHeading String?
-  categoryHeroText    Json[]    @default([])
-  categoryFaqs        Json[]    @default([])
+  categoryHeroText    Json[]  @default([])
+  categoryFaqs        Json[]  @default([])
+
   // heroBottom  
-  leftHeading         String?
-  categoryText        Json[]    @default([])
+  leftHeading  String?
+  categoryText Json[]  @default([])
 
-   // flooring
+  // flooring                   
+  Heading String?
+  paras   Json[]  @default([])
 
-  Heading         String?
-  paras           Json[]  @default([])
-
-  bottomText      String?       
+  // Instalation
   bodyHeading     String?
   bodyMainHeading String?
   bodyText        String?
 
   // Banner
-  Bannerdiscount           String?
+  Bannerdiscount     String?
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
+
+  // on Procuts Main Heading
+  Product_Section_heading String?
+  bottomText              String?
+
+  // explor flooring Options
+  explore_Heading      String?
+  explore_main_heading String?
+  explore_description  String?
+
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
 }
 
 model Admins {
-  id                     Int     @id @default(autoincrement())
+  id                     Int       @id @default(autoincrement())
   fullname               String
-  email                  String  @unique
+  email                  String    @unique
   password               String
-  canAddProduct          Boolean @default(false)
-  canEditProduct         Boolean @default(false)
-  canDeleteProduct       Boolean @default(false)
-  canAddCategory         Boolean @default(false)
-  canDeleteCategory      Boolean @default(false)
-  canEditCategory        Boolean @default(false)
-  canCheckProfit         Boolean @default(false)
-  canCheckRevenue        Boolean @default(false)
-  canCheckVisitors       Boolean @default(false)
-  canViewUsers           Boolean @default(false)
-  canViewSales           Boolean @default(false)
-  canVeiwAdmins          Boolean @default(false)
-  canVeiwTotalproducts   Boolean @default(false)
-  canVeiwTotalCategories Boolean @default(false)
+  canAddProduct          Boolean   @default(false)
+  canEditProduct         Boolean   @default(false)
+  canDeleteProduct       Boolean   @default(false)
+  canAddCategory         Boolean   @default(false)
+  canDeleteCategory      Boolean   @default(false)
+  canEditCategory        Boolean   @default(false)
+  canCheckProfit         Boolean   @default(false)
+  canCheckRevenue        Boolean   @default(false)
+  canCheckVisitors       Boolean   @default(false)
+  canViewUsers           Boolean   @default(false)
+  canViewSales           Boolean   @default(false)
+  canVeiwAdmins          Boolean   @default(false)
+  canVeiwTotalproducts   Boolean   @default(false)
+  canVeiwTotalCategories Boolean   @default(false)
   posterImageUrl         Json?
-  role                   String  @default("Admin")
-   createdAt           DateTime? @default(now())
-  updatedAt           DateTime? @updatedAt
+  role                   String    @default("Admin")
+  createdAt              DateTime? @default(now())
+  updatedAt              DateTime? @updatedAt
+  last_editedBy          String?
 }

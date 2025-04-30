@@ -226,8 +226,8 @@ export namespace Prisma {
   export import Exact = $Public.Exact
 
   /**
-   * Prisma Client JS version: 6.6.0
-   * Query Engine version: f676762280b54cd07c770017ed3711ddde35f37a
+   * Prisma Client JS version: 6.7.0
+   * Query Engine version: 3cff47a7f5d65c3ea74883f1d736e41d68ce91ed
    */
   export type PrismaVersion = {
     client: string
@@ -999,7 +999,6 @@ export namespace Prisma {
     categoryHeroHeading: string | null
     leftHeading: string | null
     Heading: string | null
-    bottomText: string | null
     bodyHeading: string | null
     bodyMainHeading: string | null
     bodyText: string | null
@@ -1007,6 +1006,11 @@ export namespace Prisma {
     salesBannerHeading: string | null
     paraText: string | null
     Bannercounter: Date | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
@@ -1031,7 +1035,6 @@ export namespace Prisma {
     categoryHeroHeading: string | null
     leftHeading: string | null
     Heading: string | null
-    bottomText: string | null
     bodyHeading: string | null
     bodyMainHeading: string | null
     bodyText: string | null
@@ -1039,6 +1042,11 @@ export namespace Prisma {
     salesBannerHeading: string | null
     paraText: string | null
     Bannercounter: Date | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
@@ -1070,7 +1078,6 @@ export namespace Prisma {
     categoryText: number
     Heading: number
     paras: number
-    bottomText: number
     bodyHeading: number
     bodyMainHeading: number
     bodyText: number
@@ -1078,6 +1085,11 @@ export namespace Prisma {
     salesBannerHeading: number
     paraText: number
     Bannercounter: number
+    Product_Section_heading: number
+    bottomText: number
+    explore_Heading: number
+    explore_main_heading: number
+    explore_description: number
     Canonical_Tag: number
     Meta_Description: number
     Meta_Title: number
@@ -1112,7 +1124,6 @@ export namespace Prisma {
     categoryHeroHeading?: true
     leftHeading?: true
     Heading?: true
-    bottomText?: true
     bodyHeading?: true
     bodyMainHeading?: true
     bodyText?: true
@@ -1120,6 +1131,11 @@ export namespace Prisma {
     salesBannerHeading?: true
     paraText?: true
     Bannercounter?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
@@ -1144,7 +1160,6 @@ export namespace Prisma {
     categoryHeroHeading?: true
     leftHeading?: true
     Heading?: true
-    bottomText?: true
     bodyHeading?: true
     bodyMainHeading?: true
     bodyText?: true
@@ -1152,6 +1167,11 @@ export namespace Prisma {
     salesBannerHeading?: true
     paraText?: true
     Bannercounter?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
@@ -1183,7 +1203,6 @@ export namespace Prisma {
     categoryText?: true
     Heading?: true
     paras?: true
-    bottomText?: true
     bodyHeading?: true
     bodyMainHeading?: true
     bodyText?: true
@@ -1191,6 +1210,11 @@ export namespace Prisma {
     salesBannerHeading?: true
     paraText?: true
     Bannercounter?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
@@ -1309,7 +1333,6 @@ export namespace Prisma {
     categoryText: JsonValue[]
     Heading: string | null
     paras: JsonValue[]
-    bottomText: string | null
     bodyHeading: string | null
     bodyMainHeading: string | null
     bodyText: string | null
@@ -1317,6 +1340,11 @@ export namespace Prisma {
     salesBannerHeading: string | null
     paraText: string | null
     Bannercounter: Date | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
@@ -1367,7 +1395,6 @@ export namespace Prisma {
     categoryText?: boolean
     Heading?: boolean
     paras?: boolean
-    bottomText?: boolean
     bodyHeading?: boolean
     bodyMainHeading?: boolean
     bodyText?: boolean
@@ -1375,6 +1402,11 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
@@ -1406,7 +1438,6 @@ export namespace Prisma {
     categoryText?: boolean
     Heading?: boolean
     paras?: boolean
-    bottomText?: boolean
     bodyHeading?: boolean
     bodyMainHeading?: boolean
     bodyText?: boolean
@@ -1414,6 +1445,11 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
@@ -1445,7 +1481,6 @@ export namespace Prisma {
     categoryText?: boolean
     Heading?: boolean
     paras?: boolean
-    bottomText?: boolean
     bodyHeading?: boolean
     bodyMainHeading?: boolean
     bodyText?: boolean
@@ -1453,6 +1488,11 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
@@ -1484,7 +1524,6 @@ export namespace Prisma {
     categoryText?: boolean
     Heading?: boolean
     paras?: boolean
-    bottomText?: boolean
     bodyHeading?: boolean
     bodyMainHeading?: boolean
     bodyText?: boolean
@@ -1492,12 +1531,17 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
   }
 
-  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["categories"]>
+  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["categories"]>
 
   export type $categoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "categories"
@@ -1528,7 +1572,6 @@ export namespace Prisma {
       categoryText: Prisma.JsonValue[]
       Heading: string | null
       paras: Prisma.JsonValue[]
-      bottomText: string | null
       bodyHeading: string | null
       bodyMainHeading: string | null
       bodyText: string | null
@@ -1536,6 +1579,11 @@ export namespace Prisma {
       salesBannerHeading: string | null
       paraText: string | null
       Bannercounter: Date | null
+      Product_Section_heading: string | null
+      bottomText: string | null
+      explore_Heading: string | null
+      explore_main_heading: string | null
+      explore_description: string | null
       Canonical_Tag: string | null
       Meta_Description: string | null
       Meta_Title: string | null
@@ -1987,7 +2035,6 @@ export namespace Prisma {
     readonly categoryText: FieldRef<"categories", 'Json[]'>
     readonly Heading: FieldRef<"categories", 'String'>
     readonly paras: FieldRef<"categories", 'Json[]'>
-    readonly bottomText: FieldRef<"categories", 'String'>
     readonly bodyHeading: FieldRef<"categories", 'String'>
     readonly bodyMainHeading: FieldRef<"categories", 'String'>
     readonly bodyText: FieldRef<"categories", 'String'>
@@ -1995,6 +2042,11 @@ export namespace Prisma {
     readonly salesBannerHeading: FieldRef<"categories", 'String'>
     readonly paraText: FieldRef<"categories", 'String'>
     readonly Bannercounter: FieldRef<"categories", 'DateTime'>
+    readonly Product_Section_heading: FieldRef<"categories", 'String'>
+    readonly bottomText: FieldRef<"categories", 'String'>
+    readonly explore_Heading: FieldRef<"categories", 'String'>
+    readonly explore_main_heading: FieldRef<"categories", 'String'>
+    readonly explore_description: FieldRef<"categories", 'String'>
     readonly Canonical_Tag: FieldRef<"categories", 'String'>
     readonly Meta_Description: FieldRef<"categories", 'String'>
     readonly Meta_Title: FieldRef<"categories", 'String'>
@@ -2406,6 +2458,7 @@ export namespace Prisma {
     role: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    last_editedBy: string | null
   }
 
   export type AdminsMaxAggregateOutputType = {
@@ -2430,6 +2483,7 @@ export namespace Prisma {
     role: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    last_editedBy: string | null
   }
 
   export type AdminsCountAggregateOutputType = {
@@ -2455,6 +2509,7 @@ export namespace Prisma {
     role: number
     createdAt: number
     updatedAt: number
+    last_editedBy: number
     _all: number
   }
 
@@ -2489,6 +2544,7 @@ export namespace Prisma {
     role?: true
     createdAt?: true
     updatedAt?: true
+    last_editedBy?: true
   }
 
   export type AdminsMaxAggregateInputType = {
@@ -2513,6 +2569,7 @@ export namespace Prisma {
     role?: true
     createdAt?: true
     updatedAt?: true
+    last_editedBy?: true
   }
 
   export type AdminsCountAggregateInputType = {
@@ -2538,6 +2595,7 @@ export namespace Prisma {
     role?: true
     createdAt?: true
     updatedAt?: true
+    last_editedBy?: true
     _all?: true
   }
 
@@ -2650,6 +2708,7 @@ export namespace Prisma {
     role: string
     createdAt: Date | null
     updatedAt: Date | null
+    last_editedBy: string | null
     _count: AdminsCountAggregateOutputType | null
     _avg: AdminsAvgAggregateOutputType | null
     _sum: AdminsSumAggregateOutputType | null
@@ -2694,6 +2753,7 @@ export namespace Prisma {
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    last_editedBy?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2719,6 +2779,7 @@ export namespace Prisma {
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    last_editedBy?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2744,6 +2805,7 @@ export namespace Prisma {
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    last_editedBy?: boolean
   }, ExtArgs["result"]["admins"]>
 
   export type AdminsSelectScalar = {
@@ -2769,9 +2831,10 @@ export namespace Prisma {
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    last_editedBy?: boolean
   }
 
-  export type AdminsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "email" | "password" | "canAddProduct" | "canEditProduct" | "canDeleteProduct" | "canAddCategory" | "canDeleteCategory" | "canEditCategory" | "canCheckProfit" | "canCheckRevenue" | "canCheckVisitors" | "canViewUsers" | "canViewSales" | "canVeiwAdmins" | "canVeiwTotalproducts" | "canVeiwTotalCategories" | "posterImageUrl" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["admins"]>
+  export type AdminsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "fullname" | "email" | "password" | "canAddProduct" | "canEditProduct" | "canDeleteProduct" | "canAddCategory" | "canDeleteCategory" | "canEditCategory" | "canCheckProfit" | "canCheckRevenue" | "canCheckVisitors" | "canViewUsers" | "canViewSales" | "canVeiwAdmins" | "canVeiwTotalproducts" | "canVeiwTotalCategories" | "posterImageUrl" | "role" | "createdAt" | "updatedAt" | "last_editedBy", ExtArgs["result"]["admins"]>
 
   export type $AdminsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Admins"
@@ -2799,6 +2862,7 @@ export namespace Prisma {
       role: string
       createdAt: Date | null
       updatedAt: Date | null
+      last_editedBy: string | null
     }, ExtArgs["result"]["admins"]>
     composites: {}
   }
@@ -3244,6 +3308,7 @@ export namespace Prisma {
     readonly role: FieldRef<"Admins", 'String'>
     readonly createdAt: FieldRef<"Admins", 'DateTime'>
     readonly updatedAt: FieldRef<"Admins", 'DateTime'>
+    readonly last_editedBy: FieldRef<"Admins", 'String'>
   }
     
 
@@ -3650,7 +3715,6 @@ export namespace Prisma {
     categoryText: 'categoryText',
     Heading: 'Heading',
     paras: 'paras',
-    bottomText: 'bottomText',
     bodyHeading: 'bodyHeading',
     bodyMainHeading: 'bodyMainHeading',
     bodyText: 'bodyText',
@@ -3658,6 +3722,11 @@ export namespace Prisma {
     salesBannerHeading: 'salesBannerHeading',
     paraText: 'paraText',
     Bannercounter: 'Bannercounter',
+    Product_Section_heading: 'Product_Section_heading',
+    bottomText: 'bottomText',
+    explore_Heading: 'explore_Heading',
+    explore_main_heading: 'explore_main_heading',
+    explore_description: 'explore_description',
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
     Meta_Title: 'Meta_Title'
@@ -3688,7 +3757,8 @@ export namespace Prisma {
     posterImageUrl: 'posterImageUrl',
     role: 'role',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    last_editedBy: 'last_editedBy'
   };
 
   export type AdminsScalarFieldEnum = (typeof AdminsScalarFieldEnum)[keyof typeof AdminsScalarFieldEnum]
@@ -3863,7 +3933,6 @@ export namespace Prisma {
     categoryText?: JsonNullableListFilter<"categories">
     Heading?: StringNullableFilter<"categories"> | string | null
     paras?: JsonNullableListFilter<"categories">
-    bottomText?: StringNullableFilter<"categories"> | string | null
     bodyHeading?: StringNullableFilter<"categories"> | string | null
     bodyMainHeading?: StringNullableFilter<"categories"> | string | null
     bodyText?: StringNullableFilter<"categories"> | string | null
@@ -3871,6 +3940,11 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableFilter<"categories"> | string | null
     paraText?: StringNullableFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableFilter<"categories"> | Date | string | null
+    Product_Section_heading?: StringNullableFilter<"categories"> | string | null
+    bottomText?: StringNullableFilter<"categories"> | string | null
+    explore_Heading?: StringNullableFilter<"categories"> | string | null
+    explore_main_heading?: StringNullableFilter<"categories"> | string | null
+    explore_description?: StringNullableFilter<"categories"> | string | null
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
@@ -3902,7 +3976,6 @@ export namespace Prisma {
     categoryText?: SortOrder
     Heading?: SortOrderInput | SortOrder
     paras?: SortOrder
-    bottomText?: SortOrderInput | SortOrder
     bodyHeading?: SortOrderInput | SortOrder
     bodyMainHeading?: SortOrderInput | SortOrder
     bodyText?: SortOrderInput | SortOrder
@@ -3910,6 +3983,11 @@ export namespace Prisma {
     salesBannerHeading?: SortOrderInput | SortOrder
     paraText?: SortOrderInput | SortOrder
     Bannercounter?: SortOrderInput | SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
@@ -3944,7 +4022,6 @@ export namespace Prisma {
     categoryText?: JsonNullableListFilter<"categories">
     Heading?: StringNullableFilter<"categories"> | string | null
     paras?: JsonNullableListFilter<"categories">
-    bottomText?: StringNullableFilter<"categories"> | string | null
     bodyHeading?: StringNullableFilter<"categories"> | string | null
     bodyMainHeading?: StringNullableFilter<"categories"> | string | null
     bodyText?: StringNullableFilter<"categories"> | string | null
@@ -3952,6 +4029,11 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableFilter<"categories"> | string | null
     paraText?: StringNullableFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableFilter<"categories"> | Date | string | null
+    Product_Section_heading?: StringNullableFilter<"categories"> | string | null
+    bottomText?: StringNullableFilter<"categories"> | string | null
+    explore_Heading?: StringNullableFilter<"categories"> | string | null
+    explore_main_heading?: StringNullableFilter<"categories"> | string | null
+    explore_description?: StringNullableFilter<"categories"> | string | null
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
@@ -3983,7 +4065,6 @@ export namespace Prisma {
     categoryText?: SortOrder
     Heading?: SortOrderInput | SortOrder
     paras?: SortOrder
-    bottomText?: SortOrderInput | SortOrder
     bodyHeading?: SortOrderInput | SortOrder
     bodyMainHeading?: SortOrderInput | SortOrder
     bodyText?: SortOrderInput | SortOrder
@@ -3991,6 +4072,11 @@ export namespace Prisma {
     salesBannerHeading?: SortOrderInput | SortOrder
     paraText?: SortOrderInput | SortOrder
     Bannercounter?: SortOrderInput | SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
@@ -4030,7 +4116,6 @@ export namespace Prisma {
     categoryText?: JsonNullableListFilter<"categories">
     Heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     paras?: JsonNullableListFilter<"categories">
-    bottomText?: StringNullableWithAggregatesFilter<"categories"> | string | null
     bodyHeading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     bodyMainHeading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     bodyText?: StringNullableWithAggregatesFilter<"categories"> | string | null
@@ -4038,6 +4123,11 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     paraText?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableWithAggregatesFilter<"categories"> | Date | string | null
+    Product_Section_heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    bottomText?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    explore_Heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    explore_main_heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    explore_description?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Canonical_Tag?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Description?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"categories"> | string | null
@@ -4069,6 +4159,7 @@ export namespace Prisma {
     role?: StringFilter<"Admins"> | string
     createdAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
+    last_editedBy?: StringNullableFilter<"Admins"> | string | null
   }
 
   export type AdminsOrderByWithRelationInput = {
@@ -4094,6 +4185,7 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
   }
 
   export type AdminsWhereUniqueInput = Prisma.AtLeast<{
@@ -4122,6 +4214,7 @@ export namespace Prisma {
     role?: StringFilter<"Admins"> | string
     createdAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"Admins"> | Date | string | null
+    last_editedBy?: StringNullableFilter<"Admins"> | string | null
   }, "id" | "email">
 
   export type AdminsOrderByWithAggregationInput = {
@@ -4147,6 +4240,7 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
     _count?: AdminsCountOrderByAggregateInput
     _avg?: AdminsAvgOrderByAggregateInput
     _max?: AdminsMaxOrderByAggregateInput
@@ -4180,6 +4274,7 @@ export namespace Prisma {
     role?: StringWithAggregatesFilter<"Admins"> | string
     createdAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
+    last_editedBy?: StringNullableWithAggregatesFilter<"Admins"> | string | null
   }
 
   export type categoriesCreateInput = {
@@ -4207,7 +4302,6 @@ export namespace Prisma {
     categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
     Heading?: string | null
     paras?: categoriesCreateparasInput | InputJsonValue[]
-    bottomText?: string | null
     bodyHeading?: string | null
     bodyMainHeading?: string | null
     bodyText?: string | null
@@ -4215,6 +4309,11 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
@@ -4246,7 +4345,6 @@ export namespace Prisma {
     categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
     Heading?: string | null
     paras?: categoriesCreateparasInput | InputJsonValue[]
-    bottomText?: string | null
     bodyHeading?: string | null
     bodyMainHeading?: string | null
     bodyText?: string | null
@@ -4254,6 +4352,11 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
@@ -4284,7 +4387,6 @@ export namespace Prisma {
     categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
     Heading?: NullableStringFieldUpdateOperationsInput | string | null
     paras?: categoriesUpdateparasInput | InputJsonValue[]
-    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyText?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4292,6 +4394,11 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4323,7 +4430,6 @@ export namespace Prisma {
     categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
     Heading?: NullableStringFieldUpdateOperationsInput | string | null
     paras?: categoriesUpdateparasInput | InputJsonValue[]
-    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyText?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4331,6 +4437,11 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4362,7 +4473,6 @@ export namespace Prisma {
     categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
     Heading?: string | null
     paras?: categoriesCreateparasInput | InputJsonValue[]
-    bottomText?: string | null
     bodyHeading?: string | null
     bodyMainHeading?: string | null
     bodyText?: string | null
@@ -4370,6 +4480,11 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
@@ -4400,7 +4515,6 @@ export namespace Prisma {
     categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
     Heading?: NullableStringFieldUpdateOperationsInput | string | null
     paras?: categoriesUpdateparasInput | InputJsonValue[]
-    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyText?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4408,6 +4522,11 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4439,7 +4558,6 @@ export namespace Prisma {
     categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
     Heading?: NullableStringFieldUpdateOperationsInput | string | null
     paras?: categoriesUpdateparasInput | InputJsonValue[]
-    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
     bodyText?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4447,6 +4565,11 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4474,6 +4597,7 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
+    last_editedBy?: string | null
   }
 
   export type AdminsUncheckedCreateInput = {
@@ -4499,6 +4623,7 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
+    last_editedBy?: string | null
   }
 
   export type AdminsUpdateInput = {
@@ -4523,6 +4648,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminsUncheckedUpdateInput = {
@@ -4548,6 +4674,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminsCreateManyInput = {
@@ -4573,6 +4700,7 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
+    last_editedBy?: string | null
   }
 
   export type AdminsUpdateManyMutationInput = {
@@ -4597,6 +4725,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminsUncheckedUpdateManyInput = {
@@ -4622,6 +4751,7 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -4767,7 +4897,6 @@ export namespace Prisma {
     categoryText?: SortOrder
     Heading?: SortOrder
     paras?: SortOrder
-    bottomText?: SortOrder
     bodyHeading?: SortOrder
     bodyMainHeading?: SortOrder
     bodyText?: SortOrder
@@ -4775,6 +4904,11 @@ export namespace Prisma {
     salesBannerHeading?: SortOrder
     paraText?: SortOrder
     Bannercounter?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
@@ -4803,7 +4937,6 @@ export namespace Prisma {
     categoryHeroHeading?: SortOrder
     leftHeading?: SortOrder
     Heading?: SortOrder
-    bottomText?: SortOrder
     bodyHeading?: SortOrder
     bodyMainHeading?: SortOrder
     bodyText?: SortOrder
@@ -4811,6 +4944,11 @@ export namespace Prisma {
     salesBannerHeading?: SortOrder
     paraText?: SortOrder
     Bannercounter?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
@@ -4835,7 +4973,6 @@ export namespace Prisma {
     categoryHeroHeading?: SortOrder
     leftHeading?: SortOrder
     Heading?: SortOrder
-    bottomText?: SortOrder
     bodyHeading?: SortOrder
     bodyMainHeading?: SortOrder
     bodyText?: SortOrder
@@ -4843,6 +4980,11 @@ export namespace Prisma {
     salesBannerHeading?: SortOrder
     paraText?: SortOrder
     Bannercounter?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
@@ -4998,6 +5140,7 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    last_editedBy?: SortOrder
   }
 
   export type AdminsAvgOrderByAggregateInput = {
@@ -5026,6 +5169,7 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    last_editedBy?: SortOrder
   }
 
   export type AdminsMinOrderByAggregateInput = {
@@ -5050,6 +5194,7 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    last_editedBy?: SortOrder
   }
 
   export type AdminsSumOrderByAggregateInput = {

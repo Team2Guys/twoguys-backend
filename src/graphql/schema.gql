@@ -1,0 +1,164 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Category {
+  name: String!
+  description: String
+  posterImageUrl: JSON!
+  last_editedBy: String
+  short_description: String
+  custom_url: String!
+  Banners: JSON
+  BannerText: String
+  BannerHeading: String
+  RecallUrl: String
+  breadCrum: String
+  topHeading: String
+  topDescription: String
+  categoryHeroImages: [JSON!]
+  categoryHeroToptext: String
+  categoryHeroHeading: String
+  categoryHeroText: [JSON!]
+  categoryFaqs: [JSON!]
+  leftHeading: String
+  categoryText: [JSON!]
+  Heading: String
+  paras: [JSON!]
+  bottomText: String
+  bodyHeading: String
+  bodyMainHeading: String
+  bodyText: String
+  Bannerdiscount: String
+  salesBannerHeading: String
+  paraText: String
+  Bannercounter: DateTime
+  explore_Heading: String
+  explore_main_heading: String
+  explore_description: String
+  Product_Section_heading: String
+  Canonical_Tag: String
+  Meta_Description: String
+  Meta_Title: String
+  id: Float!
+  updatedAt: DateTime
+  createdAt: DateTime
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type FileUploading {
+  imageUrl: String!
+  public_id: String!
+  resource_type: String!
+}
+
+type Query {
+  categories: [Category!]!
+  category(customUrl: String!): Category
+}
+
+type Mutation {
+  createCategory(createCategoryInput: CreateCategoryInput!): Category!
+  updateCategory(updateCategoryInput: UpdateCategoryInput!): Category!
+  removeCategory(id: Int!): Category!
+  createFileUploading(file: Upload!): FileUploading!
+  DeleteImage(RemoveUImage: UpdateFileUploadingInput!): Boolean!
+}
+
+input CreateCategoryInput {
+  name: String!
+  description: String
+  posterImageUrl: JSON!
+  last_editedBy: String
+  short_description: String
+  custom_url: String!
+  Banners: JSON
+  BannerText: String
+  BannerHeading: String
+  RecallUrl: String
+  breadCrum: String
+  topHeading: String
+  topDescription: String
+  categoryHeroImages: [JSON!]
+  categoryHeroToptext: String
+  categoryHeroHeading: String
+  categoryHeroText: [JSON!]
+  categoryFaqs: [JSON!]
+  leftHeading: String
+  categoryText: [JSON!]
+  Heading: String
+  paras: [JSON!]
+  bottomText: String
+  bodyHeading: String
+  bodyMainHeading: String
+  bodyText: String
+  Bannerdiscount: String
+  salesBannerHeading: String
+  paraText: String
+  Bannercounter: DateTime
+  explore_Heading: String
+  explore_main_heading: String
+  explore_description: String
+  Product_Section_heading: String
+  Canonical_Tag: String
+  Meta_Description: String
+  Meta_Title: String
+}
+
+input UpdateCategoryInput {
+  name: String
+  description: String
+  posterImageUrl: JSON
+  last_editedBy: String
+  short_description: String
+  custom_url: String
+  Banners: JSON
+  BannerText: String
+  BannerHeading: String
+  RecallUrl: String
+  breadCrum: String
+  topHeading: String
+  topDescription: String
+  categoryHeroImages: [JSON!]
+  categoryHeroToptext: String
+  categoryHeroHeading: String
+  categoryHeroText: [JSON!]
+  categoryFaqs: [JSON!]
+  leftHeading: String
+  categoryText: [JSON!]
+  Heading: String
+  paras: [JSON!]
+  bottomText: String
+  bodyHeading: String
+  bodyMainHeading: String
+  bodyText: String
+  Bannerdiscount: String
+  salesBannerHeading: String
+  paraText: String
+  Bannercounter: DateTime
+  explore_Heading: String
+  explore_main_heading: String
+  explore_description: String
+  Product_Section_heading: String
+  Canonical_Tag: String
+  Meta_Description: String
+  Meta_Title: String
+  id: Int!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input UpdateFileUploadingInput {
+  image: Upload
+  public_id: String!
+}

@@ -92,6 +92,21 @@ export abstract class  CategoryBase  {
   
     @Field({ nullable: true })
     Bannercounter?: Date;
+
+
+    @Field({ nullable: true })
+    explore_Heading?: string;
+
+    @Field({ nullable: true })
+    explore_main_heading?: string;
+
+    @Field({ nullable: true })
+    explore_description?: string;
+
+    @Field({ nullable: true })
+    Product_Section_heading?: string;
+
+
   
     @Field({ nullable: true })
     Canonical_Tag?: string;
@@ -101,4 +116,6 @@ export abstract class  CategoryBase  {
   
     @Field({ nullable: true })
     Meta_Title?: string;
+
+
   }
