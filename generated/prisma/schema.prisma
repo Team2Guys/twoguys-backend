@@ -39,16 +39,16 @@ model categories {
   categoryHeroHeading String?
   categoryHeroText    Json[]  @default([])
   categoryFaqs        Json[]  @default([])
+
   // heroBottom  
-  leftHeading         String?
-  categoryText        Json[]  @default([])
+  leftHeading  String?
+  categoryText Json[]  @default([])
 
-  // flooring
-
+  // flooring                   
   Heading String?
   paras   Json[]  @default([])
 
-  bottomText      String?
+  // Instalation
   bodyHeading     String?
   bodyMainHeading String?
   bodyText        String?
@@ -58,9 +58,19 @@ model categories {
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
-  Canonical_Tag      String?
-  Meta_Description   String?
-  Meta_Title         String?
+
+  // on Procuts Main Heading
+  Product_Section_heading String?
+  bottomText              String?
+
+  // explor flooring Options
+  explore_Heading      String?
+  explore_main_heading String?
+  explore_description  String?
+
+  Canonical_Tag    String?
+  Meta_Description String?
+  Meta_Title       String?
 }
 
 model Admins {
@@ -86,4 +96,5 @@ model Admins {
   role                   String    @default("Admin")
   createdAt              DateTime? @default(now())
   updatedAt              DateTime? @updatedAt
+  last_editedBy          String?
 }

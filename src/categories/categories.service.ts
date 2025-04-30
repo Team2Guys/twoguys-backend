@@ -65,6 +65,8 @@ export class CategoriesService {
 
 
       if (!category) return customHttpException("Category not found", "NOT_FOUND")
+        console.log(updateCategoryInput.explore_Heading, "create Input")
+
       const updatedCategory = await this.prisma.categories.update({
         where: { id: id },
         data: { ...updateCategoryInput, last_editedBy: email, updatedAt: updateDate },
