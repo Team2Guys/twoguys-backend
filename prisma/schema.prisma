@@ -104,33 +104,33 @@ model subCategories {
   categoryFaqs        Json[]  @default([]) //shutters
 
   // Collecton (Shutters)
-  collectionHeading     String? //Wallpaper  ++
-  collectionMainHeading String? //Wallpaper++
+  collectionHeading     String? //Wallpaper  ++  ✅
+  collectionMainHeading String? //Wallpaper++  ✅
 
   // hightestQuelity Sectons (Blinds, Curtains)
 
-  QualityHeadings Json[] @default([]) // shutters soft velvet finish
-  QualityText     Json[] @default([]) //soft velvet finish
-  QualityImages   Json[] @default([])
+  QualityHeadings Json[] @default([]) // shutters soft velvet finish ✅
+  QualityText     Json[] @default([]) //soft velvet finish ✅
+  QualityImages   Json[] @default([]) //✅
 
   // Custome Made louved
-  CustomHeading Json[] @default([]) // shutters
-  CustomText    Json[] @default([])
+  CustomHeading Json[] @default([]) // shutters ✅
+  CustomText    Json[] @default([]) //✅
 
   // on Procuts Main Heading (shutters)
-  Product_Section_heading String?
-  bottomText              String?
+  Product_Section_heading String? // //✅
+  bottomText              String? ////✅
 
   // Instalation
-  bodyHeading     String?
-  bodyMainHeading String?
-  bodyText        String?
+  bodyHeading     String? ////✅
+  bodyMainHeading String? //v//✅
+  bodyText        String? ////✅
 
   // Professional services
-  explore_Heading          String?
-  explore_main_heading     String?
-  explore_description      String?
-  professionalServiceImage Json?
+  explore_Heading          String? // ✅
+  explore_main_heading     String? // ✅
+  explore_description      String? //✅
+  professionalServiceImage Json? //
 
   // seo
   Canonical_Tag    String?
