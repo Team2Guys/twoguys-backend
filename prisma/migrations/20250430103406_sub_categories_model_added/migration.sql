@@ -1,0 +1,47 @@
+-- CreateTable
+CREATE TABLE "subCategories" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "description" TEXT,
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3),
+    "posterImageUrl" JSONB,
+    "last_editedBy" TEXT,
+    "short_description" TEXT,
+    "custom_url" TEXT NOT NULL,
+    "categoryId" INTEGER,
+    "Banners" JSONB,
+    "BannerText" TEXT,
+    "BannerHeading" TEXT,
+    "leftHeading" TEXT,
+    "categoryText" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "categoryHeroImages" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "categoryHeroToptext" TEXT,
+    "categoryHeroHeading" TEXT,
+    "categoryHeroText" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "categoryFaqs" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "collectionHeading" TEXT,
+    "collectionMainHeading" TEXT,
+    "QualityHeadings" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "QualityText" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "QualityImages" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "CustomHeading" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "CustomText" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "Product_Section_heading" TEXT,
+    "bottomText" TEXT,
+    "bodyHeading" TEXT,
+    "bodyMainHeading" TEXT,
+    "bodyText" TEXT,
+    "explore_Heading" TEXT,
+    "explore_main_heading" TEXT,
+    "explore_description" TEXT,
+    "professionalServiceImage" JSONB,
+    "Canonical_Tag" TEXT,
+    "Meta_Description" TEXT,
+    "Meta_Title" TEXT,
+
+    CONSTRAINT "subCategories_pkey" PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "subCategories" ADD CONSTRAINT "subCategories_categoryId_fkey" FOREIGN KEY ("categoryId") REFERENCES "categories"("id") ON DELETE SET NULL ON UPDATE CASCADE;
