@@ -163,6 +163,48 @@ exports.Prisma.CategoriesScalarFieldEnum = {
   Meta_Title: 'Meta_Title'
 };
 
+exports.Prisma.SubCategoriesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  posterImageUrl: 'posterImageUrl',
+  last_editedBy: 'last_editedBy',
+  short_description: 'short_description',
+  custom_url: 'custom_url',
+  categoryId: 'categoryId',
+  Banners: 'Banners',
+  BannerText: 'BannerText',
+  BannerHeading: 'BannerHeading',
+  leftHeading: 'leftHeading',
+  categoryText: 'categoryText',
+  categoryHeroImages: 'categoryHeroImages',
+  categoryHeroToptext: 'categoryHeroToptext',
+  categoryHeroHeading: 'categoryHeroHeading',
+  categoryHeroText: 'categoryHeroText',
+  categoryFaqs: 'categoryFaqs',
+  collectionHeading: 'collectionHeading',
+  collectionMainHeading: 'collectionMainHeading',
+  QualityHeadings: 'QualityHeadings',
+  QualityText: 'QualityText',
+  QualityImages: 'QualityImages',
+  CustomHeading: 'CustomHeading',
+  CustomText: 'CustomText',
+  Product_Section_heading: 'Product_Section_heading',
+  bottomText: 'bottomText',
+  bodyHeading: 'bodyHeading',
+  bodyMainHeading: 'bodyMainHeading',
+  bodyText: 'bodyText',
+  explore_Heading: 'explore_Heading',
+  explore_main_heading: 'explore_main_heading',
+  explore_description: 'explore_description',
+  professionalServiceImage: 'professionalServiceImage',
+  Canonical_Tag: 'Canonical_Tag',
+  Meta_Description: 'Meta_Description',
+  Meta_Title: 'Meta_Title'
+};
+
 exports.Prisma.AdminsScalarFieldEnum = {
   id: 'id',
   fullname: 'fullname',
@@ -222,6 +264,7 @@ exports.Prisma.NullsOrder = {
 
 exports.Prisma.ModelName = {
   categories: 'categories',
+  subCategories: 'subCategories',
   Admins: 'Admins'
 };
 

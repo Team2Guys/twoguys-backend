@@ -15,11 +15,11 @@ datasource db {
 }
 
 model categories {
-  id                Int       @id @default(autoincrement())
-  name              String    @unique
+  id                Int             @id @default(autoincrement())
+  name              String          @unique
   description       String?
-  createdAt         DateTime? @default(now())
-  updatedAt         DateTime? @updatedAt
+  createdAt         DateTime?       @default(now())
+  updatedAt         DateTime?       @updatedAt
   posterImageUrl    Json
   last_editedBy     String?
   short_description String?
@@ -29,6 +29,7 @@ model categories {
   BannerHeading     String?
   RecallUrl         String?
   breadCrum         String?
+  subCategories     subCategories[] @relation()
 
   // ToHeading
   topHeading          String?
@@ -68,6 +69,70 @@ model categories {
   explore_main_heading String?
   explore_description  String?
 
+  Canonical_Tag    String?
+  Meta_Description String?
+  Meta_Title       String?
+}
+
+model subCategories {
+  id                Int         @id @default(autoincrement())
+  name              String
+  description       String?
+  createdAt         DateTime?   @default(now())
+  updatedAt         DateTime?   @updatedAt
+  posterImageUrl    Json?
+  last_editedBy     String?
+  short_description String?
+  custom_url        String
+  categoryId        Int?
+  category          categories? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+
+  // BannersData
+  Banners       Json?
+  BannerText    String?
+  BannerHeading String?
+
+  // Serivce Section(Blinds)  
+  leftHeading  String? //curtains   Soft Velvet Finish
+  categoryText Json[]  @default([]) //Soft velvet Fisish
+
+  // After hero Sectons (blinds, Curtains)
+  categoryHeroImages  Json[]  @default([]) //shutters
+  categoryHeroToptext String? //shutters Wallpaper++
+  categoryHeroHeading String? //shutters Wallpaper soft velvet finish
+  categoryHeroText    Json[]  @default([]) //shutters
+  categoryFaqs        Json[]  @default([]) //shutters
+
+  // Collecton (Shutters)
+  collectionHeading     String? //Wallpaper  ++
+  collectionMainHeading String? //Wallpaper++
+
+  // hightestQuelity Sectons (Blinds, Curtains)
+
+  QualityHeadings Json[] @default([]) // shutters soft velvet finish
+  QualityText     Json[] @default([]) //soft velvet finish
+  QualityImages   Json[] @default([])
+
+  // Custome Made louved
+  CustomHeading Json[] @default([]) // shutters
+  CustomText    Json[] @default([])
+
+  // on Procuts Main Heading (shutters)
+  Product_Section_heading String?
+  bottomText              String?
+
+  // Instalation
+  bodyHeading     String?
+  bodyMainHeading String?
+  bodyText        String?
+
+  // Professional services
+  explore_Heading          String?
+  explore_main_heading     String?
+  explore_description      String?
+  professionalServiceImage Json?
+
+  // seo
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?

@@ -19,6 +19,11 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
  */
 export type categories = $Result.DefaultSelection<Prisma.$categoriesPayload>
 /**
+ * Model subCategories
+ * 
+ */
+export type subCategories = $Result.DefaultSelection<Prisma.$subCategoriesPayload>
+/**
  * Model Admins
  * 
  */
@@ -158,6 +163,16 @@ export class PrismaClient<
     * ```
     */
   get categories(): Prisma.categoriesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.subCategories`: Exposes CRUD operations for the **subCategories** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SubCategories
+    * const subCategories = await prisma.subCategories.findMany()
+    * ```
+    */
+  get subCategories(): Prisma.subCategoriesDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.admins`: Exposes CRUD operations for the **Admins** model.
@@ -609,6 +624,7 @@ export namespace Prisma {
 
   export const ModelName: {
     categories: 'categories',
+    subCategories: 'subCategories',
     Admins: 'Admins'
   };
 
@@ -628,7 +644,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "admins"
+      modelProps: "categories" | "subCategories" | "admins"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -703,6 +719,80 @@ export namespace Prisma {
           count: {
             args: Prisma.categoriesCountArgs<ExtArgs>
             result: $Utils.Optional<CategoriesCountAggregateOutputType> | number
+          }
+        }
+      }
+      subCategories: {
+        payload: Prisma.$subCategoriesPayload<ExtArgs>
+        fields: Prisma.subCategoriesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.subCategoriesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.subCategoriesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          findFirst: {
+            args: Prisma.subCategoriesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.subCategoriesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          findMany: {
+            args: Prisma.subCategoriesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>[]
+          }
+          create: {
+            args: Prisma.subCategoriesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          createMany: {
+            args: Prisma.subCategoriesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.subCategoriesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>[]
+          }
+          delete: {
+            args: Prisma.subCategoriesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          update: {
+            args: Prisma.subCategoriesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          deleteMany: {
+            args: Prisma.subCategoriesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.subCategoriesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.subCategoriesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>[]
+          }
+          upsert: {
+            args: Prisma.subCategoriesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$subCategoriesPayload>
+          }
+          aggregate: {
+            args: Prisma.SubCategoriesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSubCategories>
+          }
+          groupBy: {
+            args: Prisma.subCategoriesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SubCategoriesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.subCategoriesCountArgs<ExtArgs>
+            result: $Utils.Optional<SubCategoriesCountAggregateOutputType> | number
           }
         }
       }
@@ -865,6 +955,7 @@ export namespace Prisma {
   }
   export type GlobalOmitConfig = {
     categories?: categoriesOmit
+    subCategories?: subCategoriesOmit
     admins?: AdminsOmit
   }
 
@@ -954,6 +1045,36 @@ export namespace Prisma {
    * Count Types
    */
 
+
+  /**
+   * Count Type CategoriesCountOutputType
+   */
+
+  export type CategoriesCountOutputType = {
+    subCategories: number
+  }
+
+  export type CategoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCategories?: boolean | CategoriesCountOutputTypeCountSubCategoriesArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * CategoriesCountOutputType without action
+   */
+  export type CategoriesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CategoriesCountOutputType
+     */
+    select?: CategoriesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * CategoriesCountOutputType without action
+   */
+  export type CategoriesCountOutputTypeCountSubCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: subCategoriesWhereInput
+  }
 
 
   /**
@@ -1410,6 +1531,8 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
+    _count?: boolean | CategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categories"]>
 
   export type categoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1542,10 +1665,18 @@ export namespace Prisma {
   }
 
   export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["categories"]>
+  export type categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
+    _count?: boolean | CategoriesCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type categoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type categoriesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $categoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "categories"
-    objects: {}
+    objects: {
+      subCategories: Prisma.$subCategoriesPayload<ExtArgs>[]
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
@@ -1981,6 +2112,7 @@ export namespace Prisma {
    */
   export interface Prisma__categoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    subCategories<T extends categories$subCategoriesArgs<ExtArgs> = {}>(args?: Subset<T, categories$subCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2067,6 +2199,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which categories to fetch.
      */
     where: categoriesWhereUniqueInput
@@ -2085,6 +2221,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which categories to fetch.
      */
     where: categoriesWhereUniqueInput
@@ -2102,6 +2242,10 @@ export namespace Prisma {
      * Omit specific fields from the categories
      */
     omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
     /**
      * Filter, which categories to fetch.
      */
@@ -2151,6 +2295,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which categories to fetch.
      */
     where?: categoriesWhereInput
@@ -2199,6 +2347,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * Filter, which categories to fetch.
      */
     where?: categoriesWhereInput
@@ -2241,6 +2393,10 @@ export namespace Prisma {
      * Omit specific fields from the categories
      */
     omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
     /**
      * The data needed to create a categories.
      */
@@ -2289,6 +2445,10 @@ export namespace Prisma {
      * Omit specific fields from the categories
      */
     omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
     /**
      * The data needed to update a categories.
      */
@@ -2356,6 +2516,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * The filter to search for the categories to update in case it exists.
      */
     where: categoriesWhereUniqueInput
@@ -2382,6 +2546,10 @@ export namespace Prisma {
      */
     omit?: categoriesOmit<ExtArgs> | null
     /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    /**
      * Filter which categories to delete.
      */
     where: categoriesWhereUniqueInput
@@ -2402,6 +2570,30 @@ export namespace Prisma {
   }
 
   /**
+   * categories.subCategories
+   */
+  export type categories$subCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    where?: subCategoriesWhereInput
+    orderBy?: subCategoriesOrderByWithRelationInput | subCategoriesOrderByWithRelationInput[]
+    cursor?: subCategoriesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: SubCategoriesScalarFieldEnum | SubCategoriesScalarFieldEnum[]
+  }
+
+  /**
    * categories without action
    */
   export type categoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2413,6 +2605,1519 @@ export namespace Prisma {
      * Omit specific fields from the categories
      */
     omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model subCategories
+   */
+
+  export type AggregateSubCategories = {
+    _count: SubCategoriesCountAggregateOutputType | null
+    _avg: SubCategoriesAvgAggregateOutputType | null
+    _sum: SubCategoriesSumAggregateOutputType | null
+    _min: SubCategoriesMinAggregateOutputType | null
+    _max: SubCategoriesMaxAggregateOutputType | null
+  }
+
+  export type SubCategoriesAvgAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+  }
+
+  export type SubCategoriesSumAggregateOutputType = {
+    id: number | null
+    categoryId: number | null
+  }
+
+  export type SubCategoriesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    last_editedBy: string | null
+    short_description: string | null
+    custom_url: string | null
+    categoryId: number | null
+    BannerText: string | null
+    BannerHeading: string | null
+    leftHeading: string | null
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    collectionHeading: string | null
+    collectionMainHeading: string | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    bodyHeading: string | null
+    bodyMainHeading: string | null
+    bodyText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+  }
+
+  export type SubCategoriesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    last_editedBy: string | null
+    short_description: string | null
+    custom_url: string | null
+    categoryId: number | null
+    BannerText: string | null
+    BannerHeading: string | null
+    leftHeading: string | null
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    collectionHeading: string | null
+    collectionMainHeading: string | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    bodyHeading: string | null
+    bodyMainHeading: string | null
+    bodyText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+  }
+
+  export type SubCategoriesCountAggregateOutputType = {
+    id: number
+    name: number
+    description: number
+    createdAt: number
+    updatedAt: number
+    posterImageUrl: number
+    last_editedBy: number
+    short_description: number
+    custom_url: number
+    categoryId: number
+    Banners: number
+    BannerText: number
+    BannerHeading: number
+    leftHeading: number
+    categoryText: number
+    categoryHeroImages: number
+    categoryHeroToptext: number
+    categoryHeroHeading: number
+    categoryHeroText: number
+    categoryFaqs: number
+    collectionHeading: number
+    collectionMainHeading: number
+    QualityHeadings: number
+    QualityText: number
+    QualityImages: number
+    CustomHeading: number
+    CustomText: number
+    Product_Section_heading: number
+    bottomText: number
+    bodyHeading: number
+    bodyMainHeading: number
+    bodyText: number
+    explore_Heading: number
+    explore_main_heading: number
+    explore_description: number
+    professionalServiceImage: number
+    Canonical_Tag: number
+    Meta_Description: number
+    Meta_Title: number
+    _all: number
+  }
+
+
+  export type SubCategoriesAvgAggregateInputType = {
+    id?: true
+    categoryId?: true
+  }
+
+  export type SubCategoriesSumAggregateInputType = {
+    id?: true
+    categoryId?: true
+  }
+
+  export type SubCategoriesMinAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    last_editedBy?: true
+    short_description?: true
+    custom_url?: true
+    categoryId?: true
+    BannerText?: true
+    BannerHeading?: true
+    leftHeading?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    collectionHeading?: true
+    collectionMainHeading?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    bodyHeading?: true
+    bodyMainHeading?: true
+    bodyText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+  }
+
+  export type SubCategoriesMaxAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    last_editedBy?: true
+    short_description?: true
+    custom_url?: true
+    categoryId?: true
+    BannerText?: true
+    BannerHeading?: true
+    leftHeading?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    collectionHeading?: true
+    collectionMainHeading?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    bodyHeading?: true
+    bodyMainHeading?: true
+    bodyText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+  }
+
+  export type SubCategoriesCountAggregateInputType = {
+    id?: true
+    name?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    posterImageUrl?: true
+    last_editedBy?: true
+    short_description?: true
+    custom_url?: true
+    categoryId?: true
+    Banners?: true
+    BannerText?: true
+    BannerHeading?: true
+    leftHeading?: true
+    categoryText?: true
+    categoryHeroImages?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    categoryHeroText?: true
+    categoryFaqs?: true
+    collectionHeading?: true
+    collectionMainHeading?: true
+    QualityHeadings?: true
+    QualityText?: true
+    QualityImages?: true
+    CustomHeading?: true
+    CustomText?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    bodyHeading?: true
+    bodyMainHeading?: true
+    bodyText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    professionalServiceImage?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+    _all?: true
+  }
+
+  export type SubCategoriesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which subCategories to aggregate.
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of subCategories to fetch.
+     */
+    orderBy?: subCategoriesOrderByWithRelationInput | subCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: subCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` subCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` subCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned subCategories
+    **/
+    _count?: true | SubCategoriesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SubCategoriesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SubCategoriesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SubCategoriesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SubCategoriesMaxAggregateInputType
+  }
+
+  export type GetSubCategoriesAggregateType<T extends SubCategoriesAggregateArgs> = {
+        [P in keyof T & keyof AggregateSubCategories]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSubCategories[P]>
+      : GetScalarType<T[P], AggregateSubCategories[P]>
+  }
+
+
+
+
+  export type subCategoriesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: subCategoriesWhereInput
+    orderBy?: subCategoriesOrderByWithAggregationInput | subCategoriesOrderByWithAggregationInput[]
+    by: SubCategoriesScalarFieldEnum[] | SubCategoriesScalarFieldEnum
+    having?: subCategoriesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SubCategoriesCountAggregateInputType | true
+    _avg?: SubCategoriesAvgAggregateInputType
+    _sum?: SubCategoriesSumAggregateInputType
+    _min?: SubCategoriesMinAggregateInputType
+    _max?: SubCategoriesMaxAggregateInputType
+  }
+
+  export type SubCategoriesGroupByOutputType = {
+    id: number
+    name: string
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    posterImageUrl: JsonValue | null
+    last_editedBy: string | null
+    short_description: string | null
+    custom_url: string
+    categoryId: number | null
+    Banners: JsonValue | null
+    BannerText: string | null
+    BannerHeading: string | null
+    leftHeading: string | null
+    categoryText: JsonValue[]
+    categoryHeroImages: JsonValue[]
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    categoryHeroText: JsonValue[]
+    categoryFaqs: JsonValue[]
+    collectionHeading: string | null
+    collectionMainHeading: string | null
+    QualityHeadings: JsonValue[]
+    QualityText: JsonValue[]
+    QualityImages: JsonValue[]
+    CustomHeading: JsonValue[]
+    CustomText: JsonValue[]
+    Product_Section_heading: string | null
+    bottomText: string | null
+    bodyHeading: string | null
+    bodyMainHeading: string | null
+    bodyText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    professionalServiceImage: JsonValue | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+    _count: SubCategoriesCountAggregateOutputType | null
+    _avg: SubCategoriesAvgAggregateOutputType | null
+    _sum: SubCategoriesSumAggregateOutputType | null
+    _min: SubCategoriesMinAggregateOutputType | null
+    _max: SubCategoriesMaxAggregateOutputType | null
+  }
+
+  type GetSubCategoriesGroupByPayload<T extends subCategoriesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SubCategoriesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SubCategoriesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SubCategoriesGroupByOutputType[P]>
+            : GetScalarType<T[P], SubCategoriesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type subCategoriesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    posterImageUrl?: boolean
+    last_editedBy?: boolean
+    short_description?: boolean
+    custom_url?: boolean
+    categoryId?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    leftHeading?: boolean
+    categoryText?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    collectionHeading?: boolean
+    collectionMainHeading?: boolean
+    QualityHeadings?: boolean
+    QualityText?: boolean
+    QualityImages?: boolean
+    CustomHeading?: boolean
+    CustomText?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    bodyHeading?: boolean
+    bodyMainHeading?: boolean
+    bodyText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["subCategories"]>
+
+  export type subCategoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    posterImageUrl?: boolean
+    last_editedBy?: boolean
+    short_description?: boolean
+    custom_url?: boolean
+    categoryId?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    leftHeading?: boolean
+    categoryText?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    collectionHeading?: boolean
+    collectionMainHeading?: boolean
+    QualityHeadings?: boolean
+    QualityText?: boolean
+    QualityImages?: boolean
+    CustomHeading?: boolean
+    CustomText?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    bodyHeading?: boolean
+    bodyMainHeading?: boolean
+    bodyText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["subCategories"]>
+
+  export type subCategoriesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    posterImageUrl?: boolean
+    last_editedBy?: boolean
+    short_description?: boolean
+    custom_url?: boolean
+    categoryId?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    leftHeading?: boolean
+    categoryText?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    collectionHeading?: boolean
+    collectionMainHeading?: boolean
+    QualityHeadings?: boolean
+    QualityText?: boolean
+    QualityImages?: boolean
+    CustomHeading?: boolean
+    CustomText?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    bodyHeading?: boolean
+    bodyMainHeading?: boolean
+    bodyText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }, ExtArgs["result"]["subCategories"]>
+
+  export type subCategoriesSelectScalar = {
+    id?: boolean
+    name?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    posterImageUrl?: boolean
+    last_editedBy?: boolean
+    short_description?: boolean
+    custom_url?: boolean
+    categoryId?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    leftHeading?: boolean
+    categoryText?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    collectionHeading?: boolean
+    collectionMainHeading?: boolean
+    QualityHeadings?: boolean
+    QualityText?: boolean
+    QualityImages?: boolean
+    CustomHeading?: boolean
+    CustomText?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    bodyHeading?: boolean
+    bodyMainHeading?: boolean
+    bodyText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+  }
+
+  export type subCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "categoryId" | "Banners" | "BannerText" | "BannerHeading" | "leftHeading" | "categoryText" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "collectionHeading" | "collectionMainHeading" | "QualityHeadings" | "QualityText" | "QualityImages" | "CustomHeading" | "CustomText" | "Product_Section_heading" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["subCategories"]>
+  export type subCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }
+  export type subCategoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }
+  export type subCategoriesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | subCategories$categoryArgs<ExtArgs>
+  }
+
+  export type $subCategoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "subCategories"
+    objects: {
+      category: Prisma.$categoriesPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      description: string | null
+      createdAt: Date | null
+      updatedAt: Date | null
+      posterImageUrl: Prisma.JsonValue | null
+      last_editedBy: string | null
+      short_description: string | null
+      custom_url: string
+      categoryId: number | null
+      Banners: Prisma.JsonValue | null
+      BannerText: string | null
+      BannerHeading: string | null
+      leftHeading: string | null
+      categoryText: Prisma.JsonValue[]
+      categoryHeroImages: Prisma.JsonValue[]
+      categoryHeroToptext: string | null
+      categoryHeroHeading: string | null
+      categoryHeroText: Prisma.JsonValue[]
+      categoryFaqs: Prisma.JsonValue[]
+      collectionHeading: string | null
+      collectionMainHeading: string | null
+      QualityHeadings: Prisma.JsonValue[]
+      QualityText: Prisma.JsonValue[]
+      QualityImages: Prisma.JsonValue[]
+      CustomHeading: Prisma.JsonValue[]
+      CustomText: Prisma.JsonValue[]
+      Product_Section_heading: string | null
+      bottomText: string | null
+      bodyHeading: string | null
+      bodyMainHeading: string | null
+      bodyText: string | null
+      explore_Heading: string | null
+      explore_main_heading: string | null
+      explore_description: string | null
+      professionalServiceImage: Prisma.JsonValue | null
+      Canonical_Tag: string | null
+      Meta_Description: string | null
+      Meta_Title: string | null
+    }, ExtArgs["result"]["subCategories"]>
+    composites: {}
+  }
+
+  type subCategoriesGetPayload<S extends boolean | null | undefined | subCategoriesDefaultArgs> = $Result.GetResult<Prisma.$subCategoriesPayload, S>
+
+  type subCategoriesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<subCategoriesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SubCategoriesCountAggregateInputType | true
+    }
+
+  export interface subCategoriesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['subCategories'], meta: { name: 'subCategories' } }
+    /**
+     * Find zero or one SubCategories that matches the filter.
+     * @param {subCategoriesFindUniqueArgs} args - Arguments to find a SubCategories
+     * @example
+     * // Get one SubCategories
+     * const subCategories = await prisma.subCategories.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends subCategoriesFindUniqueArgs>(args: SelectSubset<T, subCategoriesFindUniqueArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SubCategories that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {subCategoriesFindUniqueOrThrowArgs} args - Arguments to find a SubCategories
+     * @example
+     * // Get one SubCategories
+     * const subCategories = await prisma.subCategories.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends subCategoriesFindUniqueOrThrowArgs>(args: SelectSubset<T, subCategoriesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesFindFirstArgs} args - Arguments to find a SubCategories
+     * @example
+     * // Get one SubCategories
+     * const subCategories = await prisma.subCategories.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends subCategoriesFindFirstArgs>(args?: SelectSubset<T, subCategoriesFindFirstArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SubCategories that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesFindFirstOrThrowArgs} args - Arguments to find a SubCategories
+     * @example
+     * // Get one SubCategories
+     * const subCategories = await prisma.subCategories.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends subCategoriesFindFirstOrThrowArgs>(args?: SelectSubset<T, subCategoriesFindFirstOrThrowArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SubCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SubCategories
+     * const subCategories = await prisma.subCategories.findMany()
+     * 
+     * // Get first 10 SubCategories
+     * const subCategories = await prisma.subCategories.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const subCategoriesWithIdOnly = await prisma.subCategories.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends subCategoriesFindManyArgs>(args?: SelectSubset<T, subCategoriesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SubCategories.
+     * @param {subCategoriesCreateArgs} args - Arguments to create a SubCategories.
+     * @example
+     * // Create one SubCategories
+     * const SubCategories = await prisma.subCategories.create({
+     *   data: {
+     *     // ... data to create a SubCategories
+     *   }
+     * })
+     * 
+     */
+    create<T extends subCategoriesCreateArgs>(args: SelectSubset<T, subCategoriesCreateArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SubCategories.
+     * @param {subCategoriesCreateManyArgs} args - Arguments to create many SubCategories.
+     * @example
+     * // Create many SubCategories
+     * const subCategories = await prisma.subCategories.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends subCategoriesCreateManyArgs>(args?: SelectSubset<T, subCategoriesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SubCategories and returns the data saved in the database.
+     * @param {subCategoriesCreateManyAndReturnArgs} args - Arguments to create many SubCategories.
+     * @example
+     * // Create many SubCategories
+     * const subCategories = await prisma.subCategories.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SubCategories and only return the `id`
+     * const subCategoriesWithIdOnly = await prisma.subCategories.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends subCategoriesCreateManyAndReturnArgs>(args?: SelectSubset<T, subCategoriesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SubCategories.
+     * @param {subCategoriesDeleteArgs} args - Arguments to delete one SubCategories.
+     * @example
+     * // Delete one SubCategories
+     * const SubCategories = await prisma.subCategories.delete({
+     *   where: {
+     *     // ... filter to delete one SubCategories
+     *   }
+     * })
+     * 
+     */
+    delete<T extends subCategoriesDeleteArgs>(args: SelectSubset<T, subCategoriesDeleteArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SubCategories.
+     * @param {subCategoriesUpdateArgs} args - Arguments to update one SubCategories.
+     * @example
+     * // Update one SubCategories
+     * const subCategories = await prisma.subCategories.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends subCategoriesUpdateArgs>(args: SelectSubset<T, subCategoriesUpdateArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SubCategories.
+     * @param {subCategoriesDeleteManyArgs} args - Arguments to filter SubCategories to delete.
+     * @example
+     * // Delete a few SubCategories
+     * const { count } = await prisma.subCategories.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends subCategoriesDeleteManyArgs>(args?: SelectSubset<T, subCategoriesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SubCategories
+     * const subCategories = await prisma.subCategories.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends subCategoriesUpdateManyArgs>(args: SelectSubset<T, subCategoriesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SubCategories and returns the data updated in the database.
+     * @param {subCategoriesUpdateManyAndReturnArgs} args - Arguments to update many SubCategories.
+     * @example
+     * // Update many SubCategories
+     * const subCategories = await prisma.subCategories.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SubCategories and only return the `id`
+     * const subCategoriesWithIdOnly = await prisma.subCategories.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends subCategoriesUpdateManyAndReturnArgs>(args: SelectSubset<T, subCategoriesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SubCategories.
+     * @param {subCategoriesUpsertArgs} args - Arguments to update or create a SubCategories.
+     * @example
+     * // Update or create a SubCategories
+     * const subCategories = await prisma.subCategories.upsert({
+     *   create: {
+     *     // ... data to create a SubCategories
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SubCategories we want to update
+     *   }
+     * })
+     */
+    upsert<T extends subCategoriesUpsertArgs>(args: SelectSubset<T, subCategoriesUpsertArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesCountArgs} args - Arguments to filter SubCategories to count.
+     * @example
+     * // Count the number of SubCategories
+     * const count = await prisma.subCategories.count({
+     *   where: {
+     *     // ... the filter for the SubCategories we want to count
+     *   }
+     * })
+    **/
+    count<T extends subCategoriesCountArgs>(
+      args?: Subset<T, subCategoriesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SubCategoriesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SubCategoriesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SubCategoriesAggregateArgs>(args: Subset<T, SubCategoriesAggregateArgs>): Prisma.PrismaPromise<GetSubCategoriesAggregateType<T>>
+
+    /**
+     * Group by SubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {subCategoriesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends subCategoriesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: subCategoriesGroupByArgs['orderBy'] }
+        : { orderBy?: subCategoriesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, subCategoriesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSubCategoriesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the subCategories model
+   */
+  readonly fields: subCategoriesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for subCategories.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__subCategoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends subCategories$categoryArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the subCategories model
+   */
+  interface subCategoriesFieldRefs {
+    readonly id: FieldRef<"subCategories", 'Int'>
+    readonly name: FieldRef<"subCategories", 'String'>
+    readonly description: FieldRef<"subCategories", 'String'>
+    readonly createdAt: FieldRef<"subCategories", 'DateTime'>
+    readonly updatedAt: FieldRef<"subCategories", 'DateTime'>
+    readonly posterImageUrl: FieldRef<"subCategories", 'Json'>
+    readonly last_editedBy: FieldRef<"subCategories", 'String'>
+    readonly short_description: FieldRef<"subCategories", 'String'>
+    readonly custom_url: FieldRef<"subCategories", 'String'>
+    readonly categoryId: FieldRef<"subCategories", 'Int'>
+    readonly Banners: FieldRef<"subCategories", 'Json'>
+    readonly BannerText: FieldRef<"subCategories", 'String'>
+    readonly BannerHeading: FieldRef<"subCategories", 'String'>
+    readonly leftHeading: FieldRef<"subCategories", 'String'>
+    readonly categoryText: FieldRef<"subCategories", 'Json[]'>
+    readonly categoryHeroImages: FieldRef<"subCategories", 'Json[]'>
+    readonly categoryHeroToptext: FieldRef<"subCategories", 'String'>
+    readonly categoryHeroHeading: FieldRef<"subCategories", 'String'>
+    readonly categoryHeroText: FieldRef<"subCategories", 'Json[]'>
+    readonly categoryFaqs: FieldRef<"subCategories", 'Json[]'>
+    readonly collectionHeading: FieldRef<"subCategories", 'String'>
+    readonly collectionMainHeading: FieldRef<"subCategories", 'String'>
+    readonly QualityHeadings: FieldRef<"subCategories", 'Json[]'>
+    readonly QualityText: FieldRef<"subCategories", 'Json[]'>
+    readonly QualityImages: FieldRef<"subCategories", 'Json[]'>
+    readonly CustomHeading: FieldRef<"subCategories", 'Json[]'>
+    readonly CustomText: FieldRef<"subCategories", 'Json[]'>
+    readonly Product_Section_heading: FieldRef<"subCategories", 'String'>
+    readonly bottomText: FieldRef<"subCategories", 'String'>
+    readonly bodyHeading: FieldRef<"subCategories", 'String'>
+    readonly bodyMainHeading: FieldRef<"subCategories", 'String'>
+    readonly bodyText: FieldRef<"subCategories", 'String'>
+    readonly explore_Heading: FieldRef<"subCategories", 'String'>
+    readonly explore_main_heading: FieldRef<"subCategories", 'String'>
+    readonly explore_description: FieldRef<"subCategories", 'String'>
+    readonly professionalServiceImage: FieldRef<"subCategories", 'Json'>
+    readonly Canonical_Tag: FieldRef<"subCategories", 'String'>
+    readonly Meta_Description: FieldRef<"subCategories", 'String'>
+    readonly Meta_Title: FieldRef<"subCategories", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * subCategories findUnique
+   */
+  export type subCategoriesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which subCategories to fetch.
+     */
+    where: subCategoriesWhereUniqueInput
+  }
+
+  /**
+   * subCategories findUniqueOrThrow
+   */
+  export type subCategoriesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which subCategories to fetch.
+     */
+    where: subCategoriesWhereUniqueInput
+  }
+
+  /**
+   * subCategories findFirst
+   */
+  export type subCategoriesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which subCategories to fetch.
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of subCategories to fetch.
+     */
+    orderBy?: subCategoriesOrderByWithRelationInput | subCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for subCategories.
+     */
+    cursor?: subCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` subCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` subCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of subCategories.
+     */
+    distinct?: SubCategoriesScalarFieldEnum | SubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * subCategories findFirstOrThrow
+   */
+  export type subCategoriesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which subCategories to fetch.
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of subCategories to fetch.
+     */
+    orderBy?: subCategoriesOrderByWithRelationInput | subCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for subCategories.
+     */
+    cursor?: subCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` subCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` subCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of subCategories.
+     */
+    distinct?: SubCategoriesScalarFieldEnum | SubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * subCategories findMany
+   */
+  export type subCategoriesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which subCategories to fetch.
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of subCategories to fetch.
+     */
+    orderBy?: subCategoriesOrderByWithRelationInput | subCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing subCategories.
+     */
+    cursor?: subCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` subCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` subCategories.
+     */
+    skip?: number
+    distinct?: SubCategoriesScalarFieldEnum | SubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * subCategories create
+   */
+  export type subCategoriesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a subCategories.
+     */
+    data: XOR<subCategoriesCreateInput, subCategoriesUncheckedCreateInput>
+  }
+
+  /**
+   * subCategories createMany
+   */
+  export type subCategoriesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many subCategories.
+     */
+    data: subCategoriesCreateManyInput | subCategoriesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * subCategories createManyAndReturn
+   */
+  export type subCategoriesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * The data used to create many subCategories.
+     */
+    data: subCategoriesCreateManyInput | subCategoriesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * subCategories update
+   */
+  export type subCategoriesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a subCategories.
+     */
+    data: XOR<subCategoriesUpdateInput, subCategoriesUncheckedUpdateInput>
+    /**
+     * Choose, which subCategories to update.
+     */
+    where: subCategoriesWhereUniqueInput
+  }
+
+  /**
+   * subCategories updateMany
+   */
+  export type subCategoriesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update subCategories.
+     */
+    data: XOR<subCategoriesUpdateManyMutationInput, subCategoriesUncheckedUpdateManyInput>
+    /**
+     * Filter which subCategories to update
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * Limit how many subCategories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * subCategories updateManyAndReturn
+   */
+  export type subCategoriesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * The data used to update subCategories.
+     */
+    data: XOR<subCategoriesUpdateManyMutationInput, subCategoriesUncheckedUpdateManyInput>
+    /**
+     * Filter which subCategories to update
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * Limit how many subCategories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * subCategories upsert
+   */
+  export type subCategoriesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the subCategories to update in case it exists.
+     */
+    where: subCategoriesWhereUniqueInput
+    /**
+     * In case the subCategories found by the `where` argument doesn't exist, create a new subCategories with this data.
+     */
+    create: XOR<subCategoriesCreateInput, subCategoriesUncheckedCreateInput>
+    /**
+     * In case the subCategories was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<subCategoriesUpdateInput, subCategoriesUncheckedUpdateInput>
+  }
+
+  /**
+   * subCategories delete
+   */
+  export type subCategoriesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter which subCategories to delete.
+     */
+    where: subCategoriesWhereUniqueInput
+  }
+
+  /**
+   * subCategories deleteMany
+   */
+  export type subCategoriesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which subCategories to delete
+     */
+    where?: subCategoriesWhereInput
+    /**
+     * Limit how many subCategories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * subCategories.category
+   */
+  export type subCategories$categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categories
+     */
+    select?: categoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categories
+     */
+    omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    where?: categoriesWhereInput
+  }
+
+  /**
+   * subCategories without action
+   */
+  export type subCategoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
   }
 
 
@@ -3735,6 +5440,51 @@ export namespace Prisma {
   export type CategoriesScalarFieldEnum = (typeof CategoriesScalarFieldEnum)[keyof typeof CategoriesScalarFieldEnum]
 
 
+  export const SubCategoriesScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    posterImageUrl: 'posterImageUrl',
+    last_editedBy: 'last_editedBy',
+    short_description: 'short_description',
+    custom_url: 'custom_url',
+    categoryId: 'categoryId',
+    Banners: 'Banners',
+    BannerText: 'BannerText',
+    BannerHeading: 'BannerHeading',
+    leftHeading: 'leftHeading',
+    categoryText: 'categoryText',
+    categoryHeroImages: 'categoryHeroImages',
+    categoryHeroToptext: 'categoryHeroToptext',
+    categoryHeroHeading: 'categoryHeroHeading',
+    categoryHeroText: 'categoryHeroText',
+    categoryFaqs: 'categoryFaqs',
+    collectionHeading: 'collectionHeading',
+    collectionMainHeading: 'collectionMainHeading',
+    QualityHeadings: 'QualityHeadings',
+    QualityText: 'QualityText',
+    QualityImages: 'QualityImages',
+    CustomHeading: 'CustomHeading',
+    CustomText: 'CustomText',
+    Product_Section_heading: 'Product_Section_heading',
+    bottomText: 'bottomText',
+    bodyHeading: 'bodyHeading',
+    bodyMainHeading: 'bodyMainHeading',
+    bodyText: 'bodyText',
+    explore_Heading: 'explore_Heading',
+    explore_main_heading: 'explore_main_heading',
+    explore_description: 'explore_description',
+    professionalServiceImage: 'professionalServiceImage',
+    Canonical_Tag: 'Canonical_Tag',
+    Meta_Description: 'Meta_Description',
+    Meta_Title: 'Meta_Title'
+  };
+
+  export type SubCategoriesScalarFieldEnum = (typeof SubCategoriesScalarFieldEnum)[keyof typeof SubCategoriesScalarFieldEnum]
+
+
   export const AdminsScalarFieldEnum: {
     id: 'id',
     fullname: 'fullname',
@@ -3948,6 +5698,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
+    subCategories?: SubCategoriesListRelationFilter
   }
 
   export type categoriesOrderByWithRelationInput = {
@@ -3991,6 +5742,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    subCategories?: subCategoriesOrderByRelationAggregateInput
   }
 
   export type categoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -4037,6 +5789,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
+    subCategories?: SubCategoriesListRelationFilter
   }, "id" | "name">
 
   export type categoriesOrderByWithAggregationInput = {
@@ -4131,6 +5884,233 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Description?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"categories"> | string | null
+  }
+
+  export type subCategoriesWhereInput = {
+    AND?: subCategoriesWhereInput | subCategoriesWhereInput[]
+    OR?: subCategoriesWhereInput[]
+    NOT?: subCategoriesWhereInput | subCategoriesWhereInput[]
+    id?: IntFilter<"subCategories"> | number
+    name?: StringFilter<"subCategories"> | string
+    description?: StringNullableFilter<"subCategories"> | string | null
+    createdAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    posterImageUrl?: JsonNullableFilter<"subCategories">
+    last_editedBy?: StringNullableFilter<"subCategories"> | string | null
+    short_description?: StringNullableFilter<"subCategories"> | string | null
+    custom_url?: StringFilter<"subCategories"> | string
+    categoryId?: IntNullableFilter<"subCategories"> | number | null
+    Banners?: JsonNullableFilter<"subCategories">
+    BannerText?: StringNullableFilter<"subCategories"> | string | null
+    BannerHeading?: StringNullableFilter<"subCategories"> | string | null
+    leftHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryText?: JsonNullableListFilter<"subCategories">
+    categoryHeroImages?: JsonNullableListFilter<"subCategories">
+    categoryHeroToptext?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"subCategories">
+    categoryFaqs?: JsonNullableListFilter<"subCategories">
+    collectionHeading?: StringNullableFilter<"subCategories"> | string | null
+    collectionMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    QualityHeadings?: JsonNullableListFilter<"subCategories">
+    QualityText?: JsonNullableListFilter<"subCategories">
+    QualityImages?: JsonNullableListFilter<"subCategories">
+    CustomHeading?: JsonNullableListFilter<"subCategories">
+    CustomText?: JsonNullableListFilter<"subCategories">
+    Product_Section_heading?: StringNullableFilter<"subCategories"> | string | null
+    bottomText?: StringNullableFilter<"subCategories"> | string | null
+    bodyHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyText?: StringNullableFilter<"subCategories"> | string | null
+    explore_Heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_main_heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_description?: StringNullableFilter<"subCategories"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"subCategories">
+    Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Description?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+    category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+  }
+
+  export type subCategoriesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    short_description?: SortOrderInput | SortOrder
+    custom_url?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    Banners?: SortOrderInput | SortOrder
+    BannerText?: SortOrderInput | SortOrder
+    BannerHeading?: SortOrderInput | SortOrder
+    leftHeading?: SortOrderInput | SortOrder
+    categoryText?: SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrderInput | SortOrder
+    categoryHeroHeading?: SortOrderInput | SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    collectionHeading?: SortOrderInput | SortOrder
+    collectionMainHeading?: SortOrderInput | SortOrder
+    QualityHeadings?: SortOrder
+    QualityText?: SortOrder
+    QualityImages?: SortOrder
+    CustomHeading?: SortOrder
+    CustomText?: SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    bodyHeading?: SortOrderInput | SortOrder
+    bodyMainHeading?: SortOrderInput | SortOrder
+    bodyText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
+    professionalServiceImage?: SortOrderInput | SortOrder
+    Canonical_Tag?: SortOrderInput | SortOrder
+    Meta_Description?: SortOrderInput | SortOrder
+    Meta_Title?: SortOrderInput | SortOrder
+    category?: categoriesOrderByWithRelationInput
+  }
+
+  export type subCategoriesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: subCategoriesWhereInput | subCategoriesWhereInput[]
+    OR?: subCategoriesWhereInput[]
+    NOT?: subCategoriesWhereInput | subCategoriesWhereInput[]
+    name?: StringFilter<"subCategories"> | string
+    description?: StringNullableFilter<"subCategories"> | string | null
+    createdAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    posterImageUrl?: JsonNullableFilter<"subCategories">
+    last_editedBy?: StringNullableFilter<"subCategories"> | string | null
+    short_description?: StringNullableFilter<"subCategories"> | string | null
+    custom_url?: StringFilter<"subCategories"> | string
+    categoryId?: IntNullableFilter<"subCategories"> | number | null
+    Banners?: JsonNullableFilter<"subCategories">
+    BannerText?: StringNullableFilter<"subCategories"> | string | null
+    BannerHeading?: StringNullableFilter<"subCategories"> | string | null
+    leftHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryText?: JsonNullableListFilter<"subCategories">
+    categoryHeroImages?: JsonNullableListFilter<"subCategories">
+    categoryHeroToptext?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"subCategories">
+    categoryFaqs?: JsonNullableListFilter<"subCategories">
+    collectionHeading?: StringNullableFilter<"subCategories"> | string | null
+    collectionMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    QualityHeadings?: JsonNullableListFilter<"subCategories">
+    QualityText?: JsonNullableListFilter<"subCategories">
+    QualityImages?: JsonNullableListFilter<"subCategories">
+    CustomHeading?: JsonNullableListFilter<"subCategories">
+    CustomText?: JsonNullableListFilter<"subCategories">
+    Product_Section_heading?: StringNullableFilter<"subCategories"> | string | null
+    bottomText?: StringNullableFilter<"subCategories"> | string | null
+    bodyHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyText?: StringNullableFilter<"subCategories"> | string | null
+    explore_Heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_main_heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_description?: StringNullableFilter<"subCategories"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"subCategories">
+    Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Description?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+    category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+  }, "id">
+
+  export type subCategoriesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    short_description?: SortOrderInput | SortOrder
+    custom_url?: SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    Banners?: SortOrderInput | SortOrder
+    BannerText?: SortOrderInput | SortOrder
+    BannerHeading?: SortOrderInput | SortOrder
+    leftHeading?: SortOrderInput | SortOrder
+    categoryText?: SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrderInput | SortOrder
+    categoryHeroHeading?: SortOrderInput | SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    collectionHeading?: SortOrderInput | SortOrder
+    collectionMainHeading?: SortOrderInput | SortOrder
+    QualityHeadings?: SortOrder
+    QualityText?: SortOrder
+    QualityImages?: SortOrder
+    CustomHeading?: SortOrder
+    CustomText?: SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    bodyHeading?: SortOrderInput | SortOrder
+    bodyMainHeading?: SortOrderInput | SortOrder
+    bodyText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
+    professionalServiceImage?: SortOrderInput | SortOrder
+    Canonical_Tag?: SortOrderInput | SortOrder
+    Meta_Description?: SortOrderInput | SortOrder
+    Meta_Title?: SortOrderInput | SortOrder
+    _count?: subCategoriesCountOrderByAggregateInput
+    _avg?: subCategoriesAvgOrderByAggregateInput
+    _max?: subCategoriesMaxOrderByAggregateInput
+    _min?: subCategoriesMinOrderByAggregateInput
+    _sum?: subCategoriesSumOrderByAggregateInput
+  }
+
+  export type subCategoriesScalarWhereWithAggregatesInput = {
+    AND?: subCategoriesScalarWhereWithAggregatesInput | subCategoriesScalarWhereWithAggregatesInput[]
+    OR?: subCategoriesScalarWhereWithAggregatesInput[]
+    NOT?: subCategoriesScalarWhereWithAggregatesInput | subCategoriesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"subCategories"> | number
+    name?: StringWithAggregatesFilter<"subCategories"> | string
+    description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    createdAt?: DateTimeNullableWithAggregatesFilter<"subCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"subCategories"> | Date | string | null
+    posterImageUrl?: JsonNullableWithAggregatesFilter<"subCategories">
+    last_editedBy?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    short_description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    custom_url?: StringWithAggregatesFilter<"subCategories"> | string
+    categoryId?: IntNullableWithAggregatesFilter<"subCategories"> | number | null
+    Banners?: JsonNullableWithAggregatesFilter<"subCategories">
+    BannerText?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    BannerHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    leftHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    categoryText?: JsonNullableListFilter<"subCategories">
+    categoryHeroImages?: JsonNullableListFilter<"subCategories">
+    categoryHeroToptext?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    categoryHeroHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"subCategories">
+    categoryFaqs?: JsonNullableListFilter<"subCategories">
+    collectionHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    collectionMainHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    QualityHeadings?: JsonNullableListFilter<"subCategories">
+    QualityText?: JsonNullableListFilter<"subCategories">
+    QualityImages?: JsonNullableListFilter<"subCategories">
+    CustomHeading?: JsonNullableListFilter<"subCategories">
+    CustomText?: JsonNullableListFilter<"subCategories">
+    Product_Section_heading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    bottomText?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    bodyHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    bodyMainHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    bodyText?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    explore_Heading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    explore_main_heading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    explore_description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    professionalServiceImage?: JsonNullableWithAggregatesFilter<"subCategories">
+    Canonical_Tag?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    Meta_Description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    Meta_Title?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
   }
 
   export type AdminsWhereInput = {
@@ -4317,6 +6297,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesUncheckedCreateInput = {
@@ -4360,6 +6341,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesUpdateInput = {
@@ -4402,6 +6384,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoriesUncheckedUpdateInput = {
@@ -4445,6 +6428,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoriesCreateManyInput = {
@@ -4570,6 +6554,296 @@ export namespace Prisma {
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
     explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesCreateInput = {
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    category?: categoriesCreateNestedOneWithoutSubCategoriesInput
+  }
+
+  export type subCategoriesUncheckedCreateInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    categoryId?: number | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type subCategoriesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
+  }
+
+  export type subCategoriesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesCreateManyInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    categoryId?: number | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type subCategoriesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
@@ -4866,9 +7140,19 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type SubCategoriesListRelationFilter = {
+    every?: subCategoriesWhereInput
+    some?: subCategoriesWhereInput
+    none?: subCategoriesWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
+  }
+
+  export type subCategoriesOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type categoriesCountOrderByAggregateInput = {
@@ -5112,6 +7396,150 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type IntNullableFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type CategoriesNullableScalarRelationFilter = {
+    is?: categoriesWhereInput | null
+    isNot?: categoriesWhereInput | null
+  }
+
+  export type subCategoriesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    posterImageUrl?: SortOrder
+    last_editedBy?: SortOrder
+    short_description?: SortOrder
+    custom_url?: SortOrder
+    categoryId?: SortOrder
+    Banners?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    leftHeading?: SortOrder
+    categoryText?: SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    collectionHeading?: SortOrder
+    collectionMainHeading?: SortOrder
+    QualityHeadings?: SortOrder
+    QualityText?: SortOrder
+    QualityImages?: SortOrder
+    CustomHeading?: SortOrder
+    CustomText?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    bodyHeading?: SortOrder
+    bodyMainHeading?: SortOrder
+    bodyText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    professionalServiceImage?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+  }
+
+  export type subCategoriesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+  }
+
+  export type subCategoriesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    last_editedBy?: SortOrder
+    short_description?: SortOrder
+    custom_url?: SortOrder
+    categoryId?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    leftHeading?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    collectionHeading?: SortOrder
+    collectionMainHeading?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    bodyHeading?: SortOrder
+    bodyMainHeading?: SortOrder
+    bodyText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+  }
+
+  export type subCategoriesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    last_editedBy?: SortOrder
+    short_description?: SortOrder
+    custom_url?: SortOrder
+    categoryId?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    leftHeading?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    collectionHeading?: SortOrder
+    collectionMainHeading?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    bodyHeading?: SortOrder
+    bodyMainHeading?: SortOrder
+    bodyText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+  }
+
+  export type subCategoriesSumOrderByAggregateInput = {
+    id?: SortOrder
+    categoryId?: SortOrder
+  }
+
+  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
   export type BoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -5229,6 +7657,20 @@ export namespace Prisma {
     set: InputJsonValue[]
   }
 
+  export type subCategoriesCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput> | subCategoriesCreateWithoutCategoryInput[] | subCategoriesUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutCategoryInput | subCategoriesCreateOrConnectWithoutCategoryInput[]
+    createMany?: subCategoriesCreateManyCategoryInputEnvelope
+    connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+  }
+
+  export type subCategoriesUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput> | subCategoriesCreateWithoutCategoryInput[] | subCategoriesUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutCategoryInput | subCategoriesCreateOrConnectWithoutCategoryInput[]
+    createMany?: subCategoriesCreateManyCategoryInputEnvelope
+    connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -5266,8 +7708,141 @@ export namespace Prisma {
     push?: InputJsonValue | InputJsonValue[]
   }
 
+  export type subCategoriesUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput> | subCategoriesCreateWithoutCategoryInput[] | subCategoriesUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutCategoryInput | subCategoriesCreateOrConnectWithoutCategoryInput[]
+    upsert?: subCategoriesUpsertWithWhereUniqueWithoutCategoryInput | subCategoriesUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: subCategoriesCreateManyCategoryInputEnvelope
+    set?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    disconnect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    delete?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    update?: subCategoriesUpdateWithWhereUniqueWithoutCategoryInput | subCategoriesUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: subCategoriesUpdateManyWithWhereWithoutCategoryInput | subCategoriesUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput> | subCategoriesCreateWithoutCategoryInput[] | subCategoriesUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutCategoryInput | subCategoriesCreateOrConnectWithoutCategoryInput[]
+    upsert?: subCategoriesUpsertWithWhereUniqueWithoutCategoryInput | subCategoriesUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: subCategoriesCreateManyCategoryInputEnvelope
+    set?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    disconnect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    delete?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+    update?: subCategoriesUpdateWithWhereUniqueWithoutCategoryInput | subCategoriesUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: subCategoriesUpdateManyWithWhereWithoutCategoryInput | subCategoriesUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
+  }
+
+  export type subCategoriesCreatecategoryTextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreatecategoryHeroImagesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreatecategoryHeroTextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreatecategoryFaqsInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreateQualityHeadingsInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreateQualityTextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreateQualityImagesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreateCustomHeadingInput = {
+    set: InputJsonValue[]
+  }
+
+  export type subCategoriesCreateCustomTextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type categoriesCreateNestedOneWithoutSubCategoriesInput = {
+    create?: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
+    connectOrCreate?: categoriesCreateOrConnectWithoutSubCategoriesInput
+    connect?: categoriesWhereUniqueInput
+  }
+
+  export type subCategoriesUpdatecategoryTextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdatecategoryHeroImagesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdatecategoryHeroTextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdatecategoryFaqsInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdateQualityHeadingsInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdateQualityTextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdateQualityImagesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdateCustomHeadingInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesUpdateCustomTextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type categoriesUpdateOneWithoutSubCategoriesNestedInput = {
+    create?: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
+    connectOrCreate?: categoriesCreateOrConnectWithoutSubCategoriesInput
+    upsert?: categoriesUpsertWithoutSubCategoriesInput
+    disconnect?: categoriesWhereInput | boolean
+    delete?: categoriesWhereInput | boolean
+    connect?: categoriesWhereUniqueInput
+    update?: XOR<XOR<categoriesUpdateToOneWithWhereWithoutSubCategoriesInput, categoriesUpdateWithoutSubCategoriesInput>, categoriesUncheckedUpdateWithoutSubCategoriesInput>
+  }
+
+  export type NullableIntFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -5460,6 +8035,33 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedIntNullableFilter<$PrismaModel>
+    _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -5471,6 +8073,507 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type subCategoriesCreateWithoutCategoryInput = {
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type subCategoriesUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type subCategoriesCreateOrConnectWithoutCategoryInput = {
+    where: subCategoriesWhereUniqueInput
+    create: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type subCategoriesCreateManyCategoryInputEnvelope = {
+    data: subCategoriesCreateManyCategoryInput | subCategoriesCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type subCategoriesUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: subCategoriesWhereUniqueInput
+    update: XOR<subCategoriesUpdateWithoutCategoryInput, subCategoriesUncheckedUpdateWithoutCategoryInput>
+    create: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type subCategoriesUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: subCategoriesWhereUniqueInput
+    data: XOR<subCategoriesUpdateWithoutCategoryInput, subCategoriesUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type subCategoriesUpdateManyWithWhereWithoutCategoryInput = {
+    where: subCategoriesScalarWhereInput
+    data: XOR<subCategoriesUpdateManyMutationInput, subCategoriesUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type subCategoriesScalarWhereInput = {
+    AND?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
+    OR?: subCategoriesScalarWhereInput[]
+    NOT?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
+    id?: IntFilter<"subCategories"> | number
+    name?: StringFilter<"subCategories"> | string
+    description?: StringNullableFilter<"subCategories"> | string | null
+    createdAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"subCategories"> | Date | string | null
+    posterImageUrl?: JsonNullableFilter<"subCategories">
+    last_editedBy?: StringNullableFilter<"subCategories"> | string | null
+    short_description?: StringNullableFilter<"subCategories"> | string | null
+    custom_url?: StringFilter<"subCategories"> | string
+    categoryId?: IntNullableFilter<"subCategories"> | number | null
+    Banners?: JsonNullableFilter<"subCategories">
+    BannerText?: StringNullableFilter<"subCategories"> | string | null
+    BannerHeading?: StringNullableFilter<"subCategories"> | string | null
+    leftHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryText?: JsonNullableListFilter<"subCategories">
+    categoryHeroImages?: JsonNullableListFilter<"subCategories">
+    categoryHeroToptext?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"subCategories"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"subCategories">
+    categoryFaqs?: JsonNullableListFilter<"subCategories">
+    collectionHeading?: StringNullableFilter<"subCategories"> | string | null
+    collectionMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    QualityHeadings?: JsonNullableListFilter<"subCategories">
+    QualityText?: JsonNullableListFilter<"subCategories">
+    QualityImages?: JsonNullableListFilter<"subCategories">
+    CustomHeading?: JsonNullableListFilter<"subCategories">
+    CustomText?: JsonNullableListFilter<"subCategories">
+    Product_Section_heading?: StringNullableFilter<"subCategories"> | string | null
+    bottomText?: StringNullableFilter<"subCategories"> | string | null
+    bodyHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyMainHeading?: StringNullableFilter<"subCategories"> | string | null
+    bodyText?: StringNullableFilter<"subCategories"> | string | null
+    explore_Heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_main_heading?: StringNullableFilter<"subCategories"> | string | null
+    explore_description?: StringNullableFilter<"subCategories"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"subCategories">
+    Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Description?: StringNullableFilter<"subCategories"> | string | null
+    Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+  }
+
+  export type categoriesCreateWithoutSubCategoriesInput = {
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    RecallUrl?: string | null
+    breadCrum?: string | null
+    topHeading?: string | null
+    topDescription?: string | null
+    categoryHeroImages?: categoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: categoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesCreatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: string | null
+    categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
+    Heading?: string | null
+    paras?: categoriesCreateparasInput | InputJsonValue[]
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    Bannerdiscount?: string | null
+    salesBannerHeading?: string | null
+    paraText?: string | null
+    Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type categoriesUncheckedCreateWithoutSubCategoriesInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    RecallUrl?: string | null
+    breadCrum?: string | null
+    topHeading?: string | null
+    topDescription?: string | null
+    categoryHeroImages?: categoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: categoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesCreatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: string | null
+    categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
+    Heading?: string | null
+    paras?: categoriesCreateparasInput | InputJsonValue[]
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    Bannerdiscount?: string | null
+    salesBannerHeading?: string | null
+    paraText?: string | null
+    Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type categoriesCreateOrConnectWithoutSubCategoriesInput = {
+    where: categoriesWhereUniqueInput
+    create: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
+  }
+
+  export type categoriesUpsertWithoutSubCategoriesInput = {
+    update: XOR<categoriesUpdateWithoutSubCategoriesInput, categoriesUncheckedUpdateWithoutSubCategoriesInput>
+    create: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
+    where?: categoriesWhereInput
+  }
+
+  export type categoriesUpdateToOneWithWhereWithoutSubCategoriesInput = {
+    where?: categoriesWhereInput
+    data: XOR<categoriesUpdateWithoutSubCategoriesInput, categoriesUncheckedUpdateWithoutSubCategoriesInput>
+  }
+
+  export type categoriesUpdateWithoutSubCategoriesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    RecallUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    topHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    topDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroImages?: categoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: categoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
+    Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    paras?: categoriesUpdateparasInput | InputJsonValue[]
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannerdiscount?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    paraText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type categoriesUncheckedUpdateWithoutSubCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    RecallUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    topHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    topDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroImages?: categoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: categoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
+    Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    paras?: categoriesUpdateparasInput | InputJsonValue[]
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannerdiscount?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    paraText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesCreateManyCategoryInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+  }
+
+  export type subCategoriesUpdateWithoutCategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesUncheckedUpdateManyWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 
