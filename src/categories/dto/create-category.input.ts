@@ -119,6 +119,9 @@ export class CreateCategoryInput {
 
   @Field(() => [GraphQLJSON], { nullable: true })
   salesBannerImage?: any[];
+
+  @Field({ nullable: true })
+  seoSchema?: string;
 }
 
 
