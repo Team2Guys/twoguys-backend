@@ -116,6 +116,9 @@ export class CreateCategoryInput {
 
   @Field({ nullable: true })
   Meta_Title?: string;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  salesBannerImage?: any[];
 }
 
 

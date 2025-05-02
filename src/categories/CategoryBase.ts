@@ -68,7 +68,7 @@ export abstract class  CategoryBase  {
   
     @Field(() => [GraphQLJSON], { nullable: true })
     paras?: any[];
-  
+
     @Field({ nullable: true })
     bottomText?: string;
   
@@ -121,5 +121,8 @@ export abstract class  CategoryBase  {
     @Field({ nullable: true })
     seoSchema?: string;
 
+
+    @Field(() => [GraphQLJSON], { nullable: true })
+    salesBannerImage?: any[];
 
   }

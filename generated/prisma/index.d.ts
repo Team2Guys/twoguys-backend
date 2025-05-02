@@ -1339,6 +1339,7 @@ export namespace Prisma {
     salesBannerHeading: number
     paraText: number
     Bannercounter: number
+    salesBannerImage: number
     Product_Section_heading: number
     bottomText: number
     explore_Heading: number
@@ -1467,6 +1468,7 @@ export namespace Prisma {
     salesBannerHeading?: true
     paraText?: true
     Bannercounter?: true
+    salesBannerImage?: true
     Product_Section_heading?: true
     bottomText?: true
     explore_Heading?: true
@@ -1598,6 +1600,7 @@ export namespace Prisma {
     salesBannerHeading: string | null
     paraText: string | null
     Bannercounter: Date | null
+    salesBannerImage: JsonValue | null
     Product_Section_heading: string | null
     bottomText: string | null
     explore_Heading: string | null
@@ -1661,6 +1664,7 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    salesBannerImage?: boolean
     Product_Section_heading?: boolean
     bottomText?: boolean
     explore_Heading?: boolean
@@ -1708,6 +1712,7 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    salesBannerImage?: boolean
     Product_Section_heading?: boolean
     bottomText?: boolean
     explore_Heading?: boolean
@@ -1752,6 +1757,7 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    salesBannerImage?: boolean
     Product_Section_heading?: boolean
     bottomText?: boolean
     explore_Heading?: boolean
@@ -1796,6 +1802,7 @@ export namespace Prisma {
     salesBannerHeading?: boolean
     paraText?: boolean
     Bannercounter?: boolean
+    salesBannerImage?: boolean
     Product_Section_heading?: boolean
     bottomText?: boolean
     explore_Heading?: boolean
@@ -1807,7 +1814,7 @@ export namespace Prisma {
     seoSchema?: boolean
   }
 
-  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["categories"]>
+  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "salesBannerImage" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["categories"]>
   export type categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
     products?: boolean | categories$productsArgs<ExtArgs>
@@ -1855,6 +1862,7 @@ export namespace Prisma {
       salesBannerHeading: string | null
       paraText: string | null
       Bannercounter: Date | null
+      salesBannerImage: Prisma.JsonValue | null
       Product_Section_heading: string | null
       bottomText: string | null
       explore_Heading: string | null
@@ -2321,6 +2329,7 @@ export namespace Prisma {
     readonly salesBannerHeading: FieldRef<"categories", 'String'>
     readonly paraText: FieldRef<"categories", 'String'>
     readonly Bannercounter: FieldRef<"categories", 'DateTime'>
+    readonly salesBannerImage: FieldRef<"categories", 'Json'>
     readonly Product_Section_heading: FieldRef<"categories", 'String'>
     readonly bottomText: FieldRef<"categories", 'String'>
     readonly explore_Heading: FieldRef<"categories", 'String'>
@@ -4469,7 +4478,6 @@ export namespace Prisma {
     Banners: number
     BannerText: number
     BannerHeading: number
-    salesBannerImage: number
     categoryHeroImages: number
     categoryHeroToptext: number
     categoryHeroHeading: number
@@ -4590,7 +4598,6 @@ export namespace Prisma {
     Banners?: true
     BannerText?: true
     BannerHeading?: true
-    salesBannerImage?: true
     categoryHeroImages?: true
     categoryHeroToptext?: true
     categoryHeroHeading?: true
@@ -4718,7 +4725,6 @@ export namespace Prisma {
     Banners: JsonValue | null
     BannerText: string | null
     BannerHeading: string | null
-    salesBannerImage: JsonValue | null
     categoryHeroImages: JsonValue[]
     categoryHeroToptext: string | null
     categoryHeroHeading: string | null
@@ -4778,7 +4784,6 @@ export namespace Prisma {
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
-    salesBannerImage?: boolean
     categoryHeroImages?: boolean
     categoryHeroToptext?: boolean
     categoryHeroHeading?: boolean
@@ -4821,7 +4826,6 @@ export namespace Prisma {
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
-    salesBannerImage?: boolean
     categoryHeroImages?: boolean
     categoryHeroToptext?: boolean
     categoryHeroHeading?: boolean
@@ -4864,7 +4868,6 @@ export namespace Prisma {
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
-    salesBannerImage?: boolean
     categoryHeroImages?: boolean
     categoryHeroToptext?: boolean
     categoryHeroHeading?: boolean
@@ -4907,7 +4910,6 @@ export namespace Prisma {
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
-    salesBannerImage?: boolean
     categoryHeroImages?: boolean
     categoryHeroToptext?: boolean
     categoryHeroHeading?: boolean
@@ -4927,7 +4929,7 @@ export namespace Prisma {
     seoSchema?: boolean
   }
 
-  export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "salesBannerImage" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "right_side_Heading" | "left_side_Text" | "left_side_image" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "categoryId" | "subCategoryId" | "seoSchema", ExtArgs["result"]["products"]>
+  export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "right_side_Heading" | "left_side_Text" | "left_side_image" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "categoryId" | "subCategoryId" | "seoSchema", ExtArgs["result"]["products"]>
   export type ProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | Products$categoryArgs<ExtArgs>
     subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
@@ -4968,7 +4970,6 @@ export namespace Prisma {
       Banners: Prisma.JsonValue | null
       BannerText: string | null
       BannerHeading: string | null
-      salesBannerImage: Prisma.JsonValue | null
       categoryHeroImages: Prisma.JsonValue[]
       categoryHeroToptext: string | null
       categoryHeroHeading: string | null
@@ -5431,7 +5432,6 @@ export namespace Prisma {
     readonly Banners: FieldRef<"Products", 'Json'>
     readonly BannerText: FieldRef<"Products", 'String'>
     readonly BannerHeading: FieldRef<"Products", 'String'>
-    readonly salesBannerImage: FieldRef<"Products", 'Json'>
     readonly categoryHeroImages: FieldRef<"Products", 'Json[]'>
     readonly categoryHeroToptext: FieldRef<"Products", 'String'>
     readonly categoryHeroHeading: FieldRef<"Products", 'String'>
@@ -7207,6 +7207,7 @@ export namespace Prisma {
     salesBannerHeading: 'salesBannerHeading',
     paraText: 'paraText',
     Bannercounter: 'Bannercounter',
+    salesBannerImage: 'salesBannerImage',
     Product_Section_heading: 'Product_Section_heading',
     bottomText: 'bottomText',
     explore_Heading: 'explore_Heading',
@@ -7289,7 +7290,6 @@ export namespace Prisma {
     Banners: 'Banners',
     BannerText: 'BannerText',
     BannerHeading: 'BannerHeading',
-    salesBannerImage: 'salesBannerImage',
     categoryHeroImages: 'categoryHeroImages',
     categoryHeroToptext: 'categoryHeroToptext',
     categoryHeroHeading: 'categoryHeroHeading',
@@ -7517,6 +7517,7 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableFilter<"categories"> | string | null
     paraText?: StringNullableFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableFilter<"categories"> | Date | string | null
+    salesBannerImage?: JsonNullableFilter<"categories">
     Product_Section_heading?: StringNullableFilter<"categories"> | string | null
     bottomText?: StringNullableFilter<"categories"> | string | null
     explore_Heading?: StringNullableFilter<"categories"> | string | null
@@ -7563,6 +7564,7 @@ export namespace Prisma {
     salesBannerHeading?: SortOrderInput | SortOrder
     paraText?: SortOrderInput | SortOrder
     Bannercounter?: SortOrderInput | SortOrder
+    salesBannerImage?: SortOrderInput | SortOrder
     Product_Section_heading?: SortOrderInput | SortOrder
     bottomText?: SortOrderInput | SortOrder
     explore_Heading?: SortOrderInput | SortOrder
@@ -7612,6 +7614,7 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableFilter<"categories"> | string | null
     paraText?: StringNullableFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableFilter<"categories"> | Date | string | null
+    salesBannerImage?: JsonNullableFilter<"categories">
     Product_Section_heading?: StringNullableFilter<"categories"> | string | null
     bottomText?: StringNullableFilter<"categories"> | string | null
     explore_Heading?: StringNullableFilter<"categories"> | string | null
@@ -7658,6 +7661,7 @@ export namespace Prisma {
     salesBannerHeading?: SortOrderInput | SortOrder
     paraText?: SortOrderInput | SortOrder
     Bannercounter?: SortOrderInput | SortOrder
+    salesBannerImage?: SortOrderInput | SortOrder
     Product_Section_heading?: SortOrderInput | SortOrder
     bottomText?: SortOrderInput | SortOrder
     explore_Heading?: SortOrderInput | SortOrder
@@ -7710,6 +7714,7 @@ export namespace Prisma {
     salesBannerHeading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     paraText?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Bannercounter?: DateTimeNullableWithAggregatesFilter<"categories"> | Date | string | null
+    salesBannerImage?: JsonNullableWithAggregatesFilter<"categories">
     Product_Section_heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
     bottomText?: StringNullableWithAggregatesFilter<"categories"> | string | null
     explore_Heading?: StringNullableWithAggregatesFilter<"categories"> | string | null
@@ -7985,7 +7990,6 @@ export namespace Prisma {
     Banners?: JsonNullableFilter<"Products">
     BannerText?: StringNullableFilter<"Products"> | string | null
     BannerHeading?: StringNullableFilter<"Products"> | string | null
-    salesBannerImage?: JsonNullableFilter<"Products">
     categoryHeroImages?: JsonNullableListFilter<"Products">
     categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
     categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
@@ -8028,7 +8032,6 @@ export namespace Prisma {
     Banners?: SortOrderInput | SortOrder
     BannerText?: SortOrderInput | SortOrder
     BannerHeading?: SortOrderInput | SortOrder
-    salesBannerImage?: SortOrderInput | SortOrder
     categoryHeroImages?: SortOrder
     categoryHeroToptext?: SortOrderInput | SortOrder
     categoryHeroHeading?: SortOrderInput | SortOrder
@@ -8074,7 +8077,6 @@ export namespace Prisma {
     Banners?: JsonNullableFilter<"Products">
     BannerText?: StringNullableFilter<"Products"> | string | null
     BannerHeading?: StringNullableFilter<"Products"> | string | null
-    salesBannerImage?: JsonNullableFilter<"Products">
     categoryHeroImages?: JsonNullableListFilter<"Products">
     categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
     categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
@@ -8117,7 +8119,6 @@ export namespace Prisma {
     Banners?: SortOrderInput | SortOrder
     BannerText?: SortOrderInput | SortOrder
     BannerHeading?: SortOrderInput | SortOrder
-    salesBannerImage?: SortOrderInput | SortOrder
     categoryHeroImages?: SortOrder
     categoryHeroToptext?: SortOrderInput | SortOrder
     categoryHeroHeading?: SortOrderInput | SortOrder
@@ -8166,7 +8167,6 @@ export namespace Prisma {
     Banners?: JsonNullableWithAggregatesFilter<"Products">
     BannerText?: StringNullableWithAggregatesFilter<"Products"> | string | null
     BannerHeading?: StringNullableWithAggregatesFilter<"Products"> | string | null
-    salesBannerImage?: JsonNullableWithAggregatesFilter<"Products">
     categoryHeroImages?: JsonNullableListFilter<"Products">
     categoryHeroToptext?: StringNullableWithAggregatesFilter<"Products"> | string | null
     categoryHeroHeading?: StringNullableWithAggregatesFilter<"Products"> | string | null
@@ -8362,6 +8362,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -8408,6 +8409,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -8453,6 +8455,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8499,6 +8502,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8545,6 +8549,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -8588,6 +8593,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8632,6 +8638,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8971,7 +8978,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -9012,7 +9018,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -9052,7 +9057,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9093,7 +9097,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9134,7 +9137,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -9174,7 +9176,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9213,7 +9214,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -9582,6 +9582,7 @@ export namespace Prisma {
     salesBannerHeading?: SortOrder
     paraText?: SortOrder
     Bannercounter?: SortOrder
+    salesBannerImage?: SortOrder
     Product_Section_heading?: SortOrder
     bottomText?: SortOrder
     explore_Heading?: SortOrder
@@ -9969,7 +9970,6 @@ export namespace Prisma {
     Banners?: SortOrder
     BannerText?: SortOrder
     BannerHeading?: SortOrder
-    salesBannerImage?: SortOrder
     categoryHeroImages?: SortOrder
     categoryHeroToptext?: SortOrder
     categoryHeroHeading?: SortOrder
@@ -10880,7 +10880,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -10920,7 +10919,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -11052,7 +11050,6 @@ export namespace Prisma {
     Banners?: JsonNullableFilter<"Products">
     BannerText?: StringNullableFilter<"Products"> | string | null
     BannerHeading?: StringNullableFilter<"Products"> | string | null
-    salesBannerImage?: JsonNullableFilter<"Products">
     categoryHeroImages?: JsonNullableListFilter<"Products">
     categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
     categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
@@ -11104,6 +11101,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -11149,6 +11147,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -11186,7 +11185,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -11226,7 +11224,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -11298,6 +11295,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11343,6 +11341,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11403,6 +11402,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -11448,6 +11448,7 @@ export namespace Prisma {
     salesBannerHeading?: string | null
     paraText?: string | null
     Bannercounter?: Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: string | null
     bottomText?: string | null
     explore_Heading?: string | null
@@ -11600,6 +11601,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11645,6 +11647,7 @@ export namespace Prisma {
     salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
     paraText?: NullableStringFieldUpdateOperationsInput | string | null
     Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
     bottomText?: NullableStringFieldUpdateOperationsInput | string | null
     explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11819,7 +11822,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -11988,7 +11990,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12028,7 +12029,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12068,7 +12068,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12108,7 +12107,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: string | null
     categoryHeroHeading?: string | null
@@ -12147,7 +12145,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12187,7 +12184,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -12227,7 +12223,6 @@ export namespace Prisma {
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
-    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
     categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
     categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
     categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null

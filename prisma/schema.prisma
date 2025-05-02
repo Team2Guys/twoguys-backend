@@ -60,6 +60,7 @@ model categories {
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
+  salesBannerImage Json?
 
   // on Procuts Main Heading
   Product_Section_heading String?
@@ -170,7 +171,7 @@ model Products {
   Banners          Json? //✅
   BannerText       String? //✅
   BannerHeading    String? //✅
-  salesBannerImage Json?
+
 
   // After hero Sectons (/3d)
   categoryHeroImages  Json[]  @default([]) //3d
