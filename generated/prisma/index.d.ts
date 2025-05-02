@@ -24,6 +24,11 @@ export type categories = $Result.DefaultSelection<Prisma.$categoriesPayload>
  */
 export type subCategories = $Result.DefaultSelection<Prisma.$subCategoriesPayload>
 /**
+ * Model Products
+ * 
+ */
+export type Products = $Result.DefaultSelection<Prisma.$ProductsPayload>
+/**
  * Model Admins
  * 
  */
@@ -173,6 +178,16 @@ export class PrismaClient<
     * ```
     */
   get subCategories(): Prisma.subCategoriesDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.products`: Exposes CRUD operations for the **Products** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Products
+    * const products = await prisma.products.findMany()
+    * ```
+    */
+  get products(): Prisma.ProductsDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.admins`: Exposes CRUD operations for the **Admins** model.
@@ -625,6 +640,7 @@ export namespace Prisma {
   export const ModelName: {
     categories: 'categories',
     subCategories: 'subCategories',
+    Products: 'Products',
     Admins: 'Admins'
   };
 
@@ -644,7 +660,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "admins"
+      modelProps: "categories" | "subCategories" | "products" | "admins"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -793,6 +809,80 @@ export namespace Prisma {
           count: {
             args: Prisma.subCategoriesCountArgs<ExtArgs>
             result: $Utils.Optional<SubCategoriesCountAggregateOutputType> | number
+          }
+        }
+      }
+      Products: {
+        payload: Prisma.$ProductsPayload<ExtArgs>
+        fields: Prisma.ProductsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProductsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProductsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProductsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProductsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          findMany: {
+            args: Prisma.ProductsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>[]
+          }
+          create: {
+            args: Prisma.ProductsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          createMany: {
+            args: Prisma.ProductsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProductsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProductsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          update: {
+            args: Prisma.ProductsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProductsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProductsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProductsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProductsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProductsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProducts>
+          }
+          groupBy: {
+            args: Prisma.ProductsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProductsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProductsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProductsCountAggregateOutputType> | number
           }
         }
       }
@@ -956,6 +1046,7 @@ export namespace Prisma {
   export type GlobalOmitConfig = {
     categories?: categoriesOmit
     subCategories?: subCategoriesOmit
+    products?: ProductsOmit
     admins?: AdminsOmit
   }
 
@@ -1052,10 +1143,12 @@ export namespace Prisma {
 
   export type CategoriesCountOutputType = {
     subCategories: number
+    products: number
   }
 
   export type CategoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategories?: boolean | CategoriesCountOutputTypeCountSubCategoriesArgs
+    products?: boolean | CategoriesCountOutputTypeCountProductsArgs
   }
 
   // Custom InputTypes
@@ -1074,6 +1167,44 @@ export namespace Prisma {
    */
   export type CategoriesCountOutputTypeCountSubCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: subCategoriesWhereInput
+  }
+
+  /**
+   * CategoriesCountOutputType without action
+   */
+  export type CategoriesCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsWhereInput
+  }
+
+
+  /**
+   * Count Type SubCategoriesCountOutputType
+   */
+
+  export type SubCategoriesCountOutputType = {
+    products: number
+  }
+
+  export type SubCategoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    products?: boolean | SubCategoriesCountOutputTypeCountProductsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SubCategoriesCountOutputType without action
+   */
+  export type SubCategoriesCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SubCategoriesCountOutputType
+     */
+    select?: SubCategoriesCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SubCategoriesCountOutputType without action
+   */
+  export type SubCategoriesCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsWhereInput
   }
 
 
@@ -1135,6 +1266,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
   }
 
   export type CategoriesMaxAggregateOutputType = {
@@ -1171,6 +1303,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
   }
 
   export type CategoriesCountAggregateOutputType = {
@@ -1214,6 +1347,7 @@ export namespace Prisma {
     Canonical_Tag: number
     Meta_Description: number
     Meta_Title: number
+    seoSchema: number
     _all: number
   }
 
@@ -1260,6 +1394,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
   }
 
   export type CategoriesMaxAggregateInputType = {
@@ -1296,6 +1431,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
   }
 
   export type CategoriesCountAggregateInputType = {
@@ -1339,6 +1475,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
     _all?: true
   }
 
@@ -1469,6 +1606,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
     _count: CategoriesCountAggregateOutputType | null
     _avg: CategoriesAvgAggregateOutputType | null
     _sum: CategoriesSumAggregateOutputType | null
@@ -1531,7 +1669,9 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
     subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
+    products?: boolean | categories$productsArgs<ExtArgs>
     _count?: boolean | CategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["categories"]>
 
@@ -1576,6 +1716,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
   }, ExtArgs["result"]["categories"]>
 
   export type categoriesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -1619,6 +1760,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
   }, ExtArgs["result"]["categories"]>
 
   export type categoriesSelectScalar = {
@@ -1662,11 +1804,13 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
   }
 
-  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["categories"]>
+  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["categories"]>
   export type categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
+    products?: boolean | categories$productsArgs<ExtArgs>
     _count?: boolean | CategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type categoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1676,6 +1820,7 @@ export namespace Prisma {
     name: "categories"
     objects: {
       subCategories: Prisma.$subCategoriesPayload<ExtArgs>[]
+      products: Prisma.$ProductsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -1718,6 +1863,7 @@ export namespace Prisma {
       Canonical_Tag: string | null
       Meta_Description: string | null
       Meta_Title: string | null
+      seoSchema: string | null
     }, ExtArgs["result"]["categories"]>
     composites: {}
   }
@@ -2113,6 +2259,7 @@ export namespace Prisma {
   export interface Prisma__categoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     subCategories<T extends categories$subCategoriesArgs<ExtArgs> = {}>(args?: Subset<T, categories$subCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    products<T extends categories$productsArgs<ExtArgs> = {}>(args?: Subset<T, categories$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2182,6 +2329,7 @@ export namespace Prisma {
     readonly Canonical_Tag: FieldRef<"categories", 'String'>
     readonly Meta_Description: FieldRef<"categories", 'String'>
     readonly Meta_Title: FieldRef<"categories", 'String'>
+    readonly seoSchema: FieldRef<"categories", 'String'>
   }
     
 
@@ -2594,6 +2742,30 @@ export namespace Prisma {
   }
 
   /**
+   * categories.products
+   */
+  export type categories$productsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    where?: ProductsWhereInput
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    cursor?: ProductsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
    * categories without action
    */
   export type categoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2644,6 +2816,7 @@ export namespace Prisma {
     short_description: string | null
     custom_url: string | null
     categoryId: number | null
+    breadCrum: string | null
     BannerText: string | null
     BannerHeading: string | null
     leftHeading: string | null
@@ -2662,6 +2835,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
   }
 
   export type SubCategoriesMaxAggregateOutputType = {
@@ -2674,6 +2848,7 @@ export namespace Prisma {
     short_description: string | null
     custom_url: string | null
     categoryId: number | null
+    breadCrum: string | null
     BannerText: string | null
     BannerHeading: string | null
     leftHeading: string | null
@@ -2692,6 +2867,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
   }
 
   export type SubCategoriesCountAggregateOutputType = {
@@ -2705,6 +2881,7 @@ export namespace Prisma {
     short_description: number
     custom_url: number
     categoryId: number
+    breadCrum: number
     Banners: number
     BannerText: number
     BannerHeading: number
@@ -2734,6 +2911,7 @@ export namespace Prisma {
     Canonical_Tag: number
     Meta_Description: number
     Meta_Title: number
+    seoSchema: number
     _all: number
   }
 
@@ -2758,6 +2936,7 @@ export namespace Prisma {
     short_description?: true
     custom_url?: true
     categoryId?: true
+    breadCrum?: true
     BannerText?: true
     BannerHeading?: true
     leftHeading?: true
@@ -2776,6 +2955,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
   }
 
   export type SubCategoriesMaxAggregateInputType = {
@@ -2788,6 +2968,7 @@ export namespace Prisma {
     short_description?: true
     custom_url?: true
     categoryId?: true
+    breadCrum?: true
     BannerText?: true
     BannerHeading?: true
     leftHeading?: true
@@ -2806,6 +2987,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
   }
 
   export type SubCategoriesCountAggregateInputType = {
@@ -2819,6 +3001,7 @@ export namespace Prisma {
     short_description?: true
     custom_url?: true
     categoryId?: true
+    breadCrum?: true
     Banners?: true
     BannerText?: true
     BannerHeading?: true
@@ -2848,6 +3031,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    seoSchema?: true
     _all?: true
   }
 
@@ -2948,6 +3132,7 @@ export namespace Prisma {
     short_description: string | null
     custom_url: string
     categoryId: number | null
+    breadCrum: string | null
     Banners: JsonValue | null
     BannerText: string | null
     BannerHeading: string | null
@@ -2977,6 +3162,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    seoSchema: string | null
     _count: SubCategoriesCountAggregateOutputType | null
     _avg: SubCategoriesAvgAggregateOutputType | null
     _sum: SubCategoriesSumAggregateOutputType | null
@@ -3009,6 +3195,7 @@ export namespace Prisma {
     short_description?: boolean
     custom_url?: boolean
     categoryId?: boolean
+    breadCrum?: boolean
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
@@ -3038,7 +3225,10 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
+    products?: boolean | subCategories$productsArgs<ExtArgs>
+    _count?: boolean | SubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
   export type subCategoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3052,6 +3242,7 @@ export namespace Prisma {
     short_description?: boolean
     custom_url?: boolean
     categoryId?: boolean
+    breadCrum?: boolean
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
@@ -3081,6 +3272,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
@@ -3095,6 +3287,7 @@ export namespace Prisma {
     short_description?: boolean
     custom_url?: boolean
     categoryId?: boolean
+    breadCrum?: boolean
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
@@ -3124,6 +3317,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
@@ -3138,6 +3332,7 @@ export namespace Prisma {
     short_description?: boolean
     custom_url?: boolean
     categoryId?: boolean
+    breadCrum?: boolean
     Banners?: boolean
     BannerText?: boolean
     BannerHeading?: boolean
@@ -3167,11 +3362,14 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    seoSchema?: boolean
   }
 
-  export type subCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "categoryId" | "Banners" | "BannerText" | "BannerHeading" | "leftHeading" | "categoryText" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "collectionHeading" | "collectionMainHeading" | "QualityHeadings" | "QualityText" | "QualityImages" | "CustomHeading" | "CustomText" | "Product_Section_heading" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["subCategories"]>
+  export type subCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "categoryId" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "leftHeading" | "categoryText" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "collectionHeading" | "collectionMainHeading" | "QualityHeadings" | "QualityText" | "QualityImages" | "CustomHeading" | "CustomText" | "Product_Section_heading" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["subCategories"]>
   export type subCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | subCategories$categoryArgs<ExtArgs>
+    products?: boolean | subCategories$productsArgs<ExtArgs>
+    _count?: boolean | SubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type subCategoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | subCategories$categoryArgs<ExtArgs>
@@ -3184,6 +3382,7 @@ export namespace Prisma {
     name: "subCategories"
     objects: {
       category: Prisma.$categoriesPayload<ExtArgs> | null
+      products: Prisma.$ProductsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -3196,6 +3395,7 @@ export namespace Prisma {
       short_description: string | null
       custom_url: string
       categoryId: number | null
+      breadCrum: string | null
       Banners: Prisma.JsonValue | null
       BannerText: string | null
       BannerHeading: string | null
@@ -3214,9 +3414,18 @@ export namespace Prisma {
       CustomHeading: Prisma.JsonValue[]
       CustomText: Prisma.JsonValue[]
       Product_Section_heading: string | null
+      /**
+       * /✅
+       */
       bottomText: string | null
+      /**
+       * /✅
+       */
       bodyHeading: string | null
       bodyMainHeading: string | null
+      /**
+       * /✅
+       */
       bodyText: string | null
       explore_Heading: string | null
       explore_main_heading: string | null
@@ -3225,6 +3434,7 @@ export namespace Prisma {
       Canonical_Tag: string | null
       Meta_Description: string | null
       Meta_Title: string | null
+      seoSchema: string | null
     }, ExtArgs["result"]["subCategories"]>
     composites: {}
   }
@@ -3620,6 +3830,7 @@ export namespace Prisma {
   export interface Prisma__subCategoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends subCategories$categoryArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    products<T extends subCategories$productsArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3659,6 +3870,7 @@ export namespace Prisma {
     readonly short_description: FieldRef<"subCategories", 'String'>
     readonly custom_url: FieldRef<"subCategories", 'String'>
     readonly categoryId: FieldRef<"subCategories", 'Int'>
+    readonly breadCrum: FieldRef<"subCategories", 'String'>
     readonly Banners: FieldRef<"subCategories", 'Json'>
     readonly BannerText: FieldRef<"subCategories", 'String'>
     readonly BannerHeading: FieldRef<"subCategories", 'String'>
@@ -3688,6 +3900,7 @@ export namespace Prisma {
     readonly Canonical_Tag: FieldRef<"subCategories", 'String'>
     readonly Meta_Description: FieldRef<"subCategories", 'String'>
     readonly Meta_Title: FieldRef<"subCategories", 'String'>
+    readonly seoSchema: FieldRef<"subCategories", 'String'>
   }
     
 
@@ -4103,6 +4316,30 @@ export namespace Prisma {
   }
 
   /**
+   * subCategories.products
+   */
+  export type subCategories$productsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    where?: ProductsWhereInput
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    cursor?: ProductsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
    * subCategories without action
    */
   export type subCategoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4118,6 +4355,1549 @@ export namespace Prisma {
      * Choose, which related nodes to fetch as well
      */
     include?: subCategoriesInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Products
+   */
+
+  export type AggregateProducts = {
+    _count: ProductsCountAggregateOutputType | null
+    _avg: ProductsAvgAggregateOutputType | null
+    _sum: ProductsSumAggregateOutputType | null
+    _min: ProductsMinAggregateOutputType | null
+    _max: ProductsMaxAggregateOutputType | null
+  }
+
+  export type ProductsAvgAggregateOutputType = {
+    id: number | null
+    price: number | null
+    stock: number | null
+    discountPrice: number | null
+    categoryId: number | null
+    subCategoryId: number | null
+  }
+
+  export type ProductsSumAggregateOutputType = {
+    id: number | null
+    price: number | null
+    stock: number | null
+    discountPrice: number | null
+    categoryId: number | null
+    subCategoryId: number | null
+  }
+
+  export type ProductsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    price: number | null
+    description: string | null
+    stock: number | null
+    discountPrice: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+    last_editedBy: string | null
+    custom_url: string | null
+    breadCrum: string | null
+    BannerText: string | null
+    BannerHeading: string | null
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    right_side_Heading: string | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    categoryId: number | null
+    subCategoryId: number | null
+    seoSchema: string | null
+  }
+
+  export type ProductsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    price: number | null
+    description: string | null
+    stock: number | null
+    discountPrice: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+    last_editedBy: string | null
+    custom_url: string | null
+    breadCrum: string | null
+    BannerText: string | null
+    BannerHeading: string | null
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    right_side_Heading: string | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    categoryId: number | null
+    subCategoryId: number | null
+    seoSchema: string | null
+  }
+
+  export type ProductsCountAggregateOutputType = {
+    id: number
+    name: number
+    price: number
+    description: number
+    stock: number
+    discountPrice: number
+    posterImageUrl: number
+    hoverImageUrl: number
+    productImages: number
+    createdAt: number
+    updatedAt: number
+    Canonical_Tag: number
+    Meta_Description: number
+    Meta_Title: number
+    last_editedBy: number
+    custom_url: number
+    breadCrum: number
+    Banners: number
+    BannerText: number
+    BannerHeading: number
+    salesBannerImage: number
+    categoryHeroImages: number
+    categoryHeroToptext: number
+    categoryHeroHeading: number
+    categoryHeroText: number
+    categoryFaqs: number
+    right_side_Heading: number
+    left_side_Text: number
+    left_side_image: number
+    Product_Section_heading: number
+    bottomText: number
+    explore_Heading: number
+    explore_main_heading: number
+    explore_description: number
+    professionalServiceImage: number
+    categoryId: number
+    subCategoryId: number
+    seoSchema: number
+    _all: number
+  }
+
+
+  export type ProductsAvgAggregateInputType = {
+    id?: true
+    price?: true
+    stock?: true
+    discountPrice?: true
+    categoryId?: true
+    subCategoryId?: true
+  }
+
+  export type ProductsSumAggregateInputType = {
+    id?: true
+    price?: true
+    stock?: true
+    discountPrice?: true
+    categoryId?: true
+    subCategoryId?: true
+  }
+
+  export type ProductsMinAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    stock?: true
+    discountPrice?: true
+    createdAt?: true
+    updatedAt?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+    last_editedBy?: true
+    custom_url?: true
+    breadCrum?: true
+    BannerText?: true
+    BannerHeading?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    right_side_Heading?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    categoryId?: true
+    subCategoryId?: true
+    seoSchema?: true
+  }
+
+  export type ProductsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    stock?: true
+    discountPrice?: true
+    createdAt?: true
+    updatedAt?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+    last_editedBy?: true
+    custom_url?: true
+    breadCrum?: true
+    BannerText?: true
+    BannerHeading?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    right_side_Heading?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    categoryId?: true
+    subCategoryId?: true
+    seoSchema?: true
+  }
+
+  export type ProductsCountAggregateInputType = {
+    id?: true
+    name?: true
+    price?: true
+    description?: true
+    stock?: true
+    discountPrice?: true
+    posterImageUrl?: true
+    hoverImageUrl?: true
+    productImages?: true
+    createdAt?: true
+    updatedAt?: true
+    Canonical_Tag?: true
+    Meta_Description?: true
+    Meta_Title?: true
+    last_editedBy?: true
+    custom_url?: true
+    breadCrum?: true
+    Banners?: true
+    BannerText?: true
+    BannerHeading?: true
+    salesBannerImage?: true
+    categoryHeroImages?: true
+    categoryHeroToptext?: true
+    categoryHeroHeading?: true
+    categoryHeroText?: true
+    categoryFaqs?: true
+    right_side_Heading?: true
+    left_side_Text?: true
+    left_side_image?: true
+    Product_Section_heading?: true
+    bottomText?: true
+    explore_Heading?: true
+    explore_main_heading?: true
+    explore_description?: true
+    professionalServiceImage?: true
+    categoryId?: true
+    subCategoryId?: true
+    seoSchema?: true
+    _all?: true
+  }
+
+  export type ProductsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Products to aggregate.
+     */
+    where?: ProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Products to fetch.
+     */
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Products from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Products.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Products
+    **/
+    _count?: true | ProductsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProductsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProductsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProductsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProductsMaxAggregateInputType
+  }
+
+  export type GetProductsAggregateType<T extends ProductsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProducts]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProducts[P]>
+      : GetScalarType<T[P], AggregateProducts[P]>
+  }
+
+
+
+
+  export type ProductsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductsWhereInput
+    orderBy?: ProductsOrderByWithAggregationInput | ProductsOrderByWithAggregationInput[]
+    by: ProductsScalarFieldEnum[] | ProductsScalarFieldEnum
+    having?: ProductsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProductsCountAggregateInputType | true
+    _avg?: ProductsAvgAggregateInputType
+    _sum?: ProductsSumAggregateInputType
+    _min?: ProductsMinAggregateInputType
+    _max?: ProductsMaxAggregateInputType
+  }
+
+  export type ProductsGroupByOutputType = {
+    id: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice: number | null
+    posterImageUrl: JsonValue
+    hoverImageUrl: JsonValue | null
+    productImages: JsonValue[]
+    createdAt: Date | null
+    updatedAt: Date | null
+    Canonical_Tag: string | null
+    Meta_Description: string | null
+    Meta_Title: string | null
+    last_editedBy: string | null
+    custom_url: string
+    breadCrum: string | null
+    Banners: JsonValue | null
+    BannerText: string | null
+    BannerHeading: string | null
+    salesBannerImage: JsonValue | null
+    categoryHeroImages: JsonValue[]
+    categoryHeroToptext: string | null
+    categoryHeroHeading: string | null
+    categoryHeroText: JsonValue[]
+    categoryFaqs: JsonValue[]
+    right_side_Heading: string | null
+    left_side_Text: JsonValue[]
+    left_side_image: JsonValue | null
+    Product_Section_heading: string | null
+    bottomText: string | null
+    explore_Heading: string | null
+    explore_main_heading: string | null
+    explore_description: string | null
+    professionalServiceImage: JsonValue | null
+    categoryId: number | null
+    subCategoryId: number | null
+    seoSchema: string | null
+    _count: ProductsCountAggregateOutputType | null
+    _avg: ProductsAvgAggregateOutputType | null
+    _sum: ProductsSumAggregateOutputType | null
+    _min: ProductsMinAggregateOutputType | null
+    _max: ProductsMaxAggregateOutputType | null
+  }
+
+  type GetProductsGroupByPayload<T extends ProductsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProductsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProductsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProductsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProductsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProductsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    stock?: boolean
+    discountPrice?: boolean
+    posterImageUrl?: boolean
+    hoverImageUrl?: boolean
+    productImages?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    last_editedBy?: boolean
+    custom_url?: boolean
+    breadCrum?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    salesBannerImage?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    right_side_Heading?: boolean
+    left_side_Text?: boolean
+    left_side_image?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    categoryId?: boolean
+    subCategoryId?: boolean
+    seoSchema?: boolean
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["products"]>
+
+  export type ProductsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    stock?: boolean
+    discountPrice?: boolean
+    posterImageUrl?: boolean
+    hoverImageUrl?: boolean
+    productImages?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    last_editedBy?: boolean
+    custom_url?: boolean
+    breadCrum?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    salesBannerImage?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    right_side_Heading?: boolean
+    left_side_Text?: boolean
+    left_side_image?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    categoryId?: boolean
+    subCategoryId?: boolean
+    seoSchema?: boolean
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["products"]>
+
+  export type ProductsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    stock?: boolean
+    discountPrice?: boolean
+    posterImageUrl?: boolean
+    hoverImageUrl?: boolean
+    productImages?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    last_editedBy?: boolean
+    custom_url?: boolean
+    breadCrum?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    salesBannerImage?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    right_side_Heading?: boolean
+    left_side_Text?: boolean
+    left_side_image?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    categoryId?: boolean
+    subCategoryId?: boolean
+    seoSchema?: boolean
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["products"]>
+
+  export type ProductsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    price?: boolean
+    description?: boolean
+    stock?: boolean
+    discountPrice?: boolean
+    posterImageUrl?: boolean
+    hoverImageUrl?: boolean
+    productImages?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    Canonical_Tag?: boolean
+    Meta_Description?: boolean
+    Meta_Title?: boolean
+    last_editedBy?: boolean
+    custom_url?: boolean
+    breadCrum?: boolean
+    Banners?: boolean
+    BannerText?: boolean
+    BannerHeading?: boolean
+    salesBannerImage?: boolean
+    categoryHeroImages?: boolean
+    categoryHeroToptext?: boolean
+    categoryHeroHeading?: boolean
+    categoryHeroText?: boolean
+    categoryFaqs?: boolean
+    right_side_Heading?: boolean
+    left_side_Text?: boolean
+    left_side_image?: boolean
+    Product_Section_heading?: boolean
+    bottomText?: boolean
+    explore_Heading?: boolean
+    explore_main_heading?: boolean
+    explore_description?: boolean
+    professionalServiceImage?: boolean
+    categoryId?: boolean
+    subCategoryId?: boolean
+    seoSchema?: boolean
+  }
+
+  export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "salesBannerImage" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "right_side_Heading" | "left_side_Text" | "left_side_image" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "categoryId" | "subCategoryId" | "seoSchema", ExtArgs["result"]["products"]>
+  export type ProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }
+  export type ProductsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }
+  export type ProductsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    category?: boolean | Products$categoryArgs<ExtArgs>
+    subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
+  }
+
+  export type $ProductsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Products"
+    objects: {
+      category: Prisma.$categoriesPayload<ExtArgs> | null
+      subcategory: Prisma.$subCategoriesPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      price: number
+      description: string
+      stock: number
+      discountPrice: number | null
+      posterImageUrl: Prisma.JsonValue
+      hoverImageUrl: Prisma.JsonValue | null
+      productImages: Prisma.JsonValue[]
+      createdAt: Date | null
+      updatedAt: Date | null
+      Canonical_Tag: string | null
+      Meta_Description: string | null
+      Meta_Title: string | null
+      last_editedBy: string | null
+      custom_url: string
+      breadCrum: string | null
+      Banners: Prisma.JsonValue | null
+      BannerText: string | null
+      BannerHeading: string | null
+      salesBannerImage: Prisma.JsonValue | null
+      categoryHeroImages: Prisma.JsonValue[]
+      categoryHeroToptext: string | null
+      categoryHeroHeading: string | null
+      categoryHeroText: Prisma.JsonValue[]
+      categoryFaqs: Prisma.JsonValue[]
+      right_side_Heading: string | null
+      left_side_Text: Prisma.JsonValue[]
+      left_side_image: Prisma.JsonValue | null
+      Product_Section_heading: string | null
+      bottomText: string | null
+      explore_Heading: string | null
+      explore_main_heading: string | null
+      explore_description: string | null
+      professionalServiceImage: Prisma.JsonValue | null
+      categoryId: number | null
+      subCategoryId: number | null
+      seoSchema: string | null
+    }, ExtArgs["result"]["products"]>
+    composites: {}
+  }
+
+  type ProductsGetPayload<S extends boolean | null | undefined | ProductsDefaultArgs> = $Result.GetResult<Prisma.$ProductsPayload, S>
+
+  type ProductsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProductsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProductsCountAggregateInputType | true
+    }
+
+  export interface ProductsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Products'], meta: { name: 'Products' } }
+    /**
+     * Find zero or one Products that matches the filter.
+     * @param {ProductsFindUniqueArgs} args - Arguments to find a Products
+     * @example
+     * // Get one Products
+     * const products = await prisma.products.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProductsFindUniqueArgs>(args: SelectSubset<T, ProductsFindUniqueArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Products that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProductsFindUniqueOrThrowArgs} args - Arguments to find a Products
+     * @example
+     * // Get one Products
+     * const products = await prisma.products.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProductsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProductsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Products that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsFindFirstArgs} args - Arguments to find a Products
+     * @example
+     * // Get one Products
+     * const products = await prisma.products.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProductsFindFirstArgs>(args?: SelectSubset<T, ProductsFindFirstArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Products that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsFindFirstOrThrowArgs} args - Arguments to find a Products
+     * @example
+     * // Get one Products
+     * const products = await prisma.products.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProductsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProductsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Products that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Products
+     * const products = await prisma.products.findMany()
+     * 
+     * // Get first 10 Products
+     * const products = await prisma.products.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const productsWithIdOnly = await prisma.products.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProductsFindManyArgs>(args?: SelectSubset<T, ProductsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Products.
+     * @param {ProductsCreateArgs} args - Arguments to create a Products.
+     * @example
+     * // Create one Products
+     * const Products = await prisma.products.create({
+     *   data: {
+     *     // ... data to create a Products
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProductsCreateArgs>(args: SelectSubset<T, ProductsCreateArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Products.
+     * @param {ProductsCreateManyArgs} args - Arguments to create many Products.
+     * @example
+     * // Create many Products
+     * const products = await prisma.products.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProductsCreateManyArgs>(args?: SelectSubset<T, ProductsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Products and returns the data saved in the database.
+     * @param {ProductsCreateManyAndReturnArgs} args - Arguments to create many Products.
+     * @example
+     * // Create many Products
+     * const products = await prisma.products.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Products and only return the `id`
+     * const productsWithIdOnly = await prisma.products.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProductsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Products.
+     * @param {ProductsDeleteArgs} args - Arguments to delete one Products.
+     * @example
+     * // Delete one Products
+     * const Products = await prisma.products.delete({
+     *   where: {
+     *     // ... filter to delete one Products
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProductsDeleteArgs>(args: SelectSubset<T, ProductsDeleteArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Products.
+     * @param {ProductsUpdateArgs} args - Arguments to update one Products.
+     * @example
+     * // Update one Products
+     * const products = await prisma.products.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProductsUpdateArgs>(args: SelectSubset<T, ProductsUpdateArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Products.
+     * @param {ProductsDeleteManyArgs} args - Arguments to filter Products to delete.
+     * @example
+     * // Delete a few Products
+     * const { count } = await prisma.products.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProductsDeleteManyArgs>(args?: SelectSubset<T, ProductsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Products.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Products
+     * const products = await prisma.products.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProductsUpdateManyArgs>(args: SelectSubset<T, ProductsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Products and returns the data updated in the database.
+     * @param {ProductsUpdateManyAndReturnArgs} args - Arguments to update many Products.
+     * @example
+     * // Update many Products
+     * const products = await prisma.products.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Products and only return the `id`
+     * const productsWithIdOnly = await prisma.products.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProductsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProductsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Products.
+     * @param {ProductsUpsertArgs} args - Arguments to update or create a Products.
+     * @example
+     * // Update or create a Products
+     * const products = await prisma.products.upsert({
+     *   create: {
+     *     // ... data to create a Products
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Products we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProductsUpsertArgs>(args: SelectSubset<T, ProductsUpsertArgs<ExtArgs>>): Prisma__ProductsClient<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Products.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsCountArgs} args - Arguments to filter Products to count.
+     * @example
+     * // Count the number of Products
+     * const count = await prisma.products.count({
+     *   where: {
+     *     // ... the filter for the Products we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProductsCountArgs>(
+      args?: Subset<T, ProductsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProductsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Products.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProductsAggregateArgs>(args: Subset<T, ProductsAggregateArgs>): Prisma.PrismaPromise<GetProductsAggregateType<T>>
+
+    /**
+     * Group by Products.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProductsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProductsGroupByArgs['orderBy'] }
+        : { orderBy?: ProductsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProductsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Products model
+   */
+  readonly fields: ProductsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Products.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProductsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    category<T extends Products$categoryArgs<ExtArgs> = {}>(args?: Subset<T, Products$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    subcategory<T extends Products$subcategoryArgs<ExtArgs> = {}>(args?: Subset<T, Products$subcategoryArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Products model
+   */
+  interface ProductsFieldRefs {
+    readonly id: FieldRef<"Products", 'Int'>
+    readonly name: FieldRef<"Products", 'String'>
+    readonly price: FieldRef<"Products", 'Int'>
+    readonly description: FieldRef<"Products", 'String'>
+    readonly stock: FieldRef<"Products", 'Int'>
+    readonly discountPrice: FieldRef<"Products", 'Int'>
+    readonly posterImageUrl: FieldRef<"Products", 'Json'>
+    readonly hoverImageUrl: FieldRef<"Products", 'Json'>
+    readonly productImages: FieldRef<"Products", 'Json[]'>
+    readonly createdAt: FieldRef<"Products", 'DateTime'>
+    readonly updatedAt: FieldRef<"Products", 'DateTime'>
+    readonly Canonical_Tag: FieldRef<"Products", 'String'>
+    readonly Meta_Description: FieldRef<"Products", 'String'>
+    readonly Meta_Title: FieldRef<"Products", 'String'>
+    readonly last_editedBy: FieldRef<"Products", 'String'>
+    readonly custom_url: FieldRef<"Products", 'String'>
+    readonly breadCrum: FieldRef<"Products", 'String'>
+    readonly Banners: FieldRef<"Products", 'Json'>
+    readonly BannerText: FieldRef<"Products", 'String'>
+    readonly BannerHeading: FieldRef<"Products", 'String'>
+    readonly salesBannerImage: FieldRef<"Products", 'Json'>
+    readonly categoryHeroImages: FieldRef<"Products", 'Json[]'>
+    readonly categoryHeroToptext: FieldRef<"Products", 'String'>
+    readonly categoryHeroHeading: FieldRef<"Products", 'String'>
+    readonly categoryHeroText: FieldRef<"Products", 'Json[]'>
+    readonly categoryFaqs: FieldRef<"Products", 'Json[]'>
+    readonly right_side_Heading: FieldRef<"Products", 'String'>
+    readonly left_side_Text: FieldRef<"Products", 'Json[]'>
+    readonly left_side_image: FieldRef<"Products", 'Json'>
+    readonly Product_Section_heading: FieldRef<"Products", 'String'>
+    readonly bottomText: FieldRef<"Products", 'String'>
+    readonly explore_Heading: FieldRef<"Products", 'String'>
+    readonly explore_main_heading: FieldRef<"Products", 'String'>
+    readonly explore_description: FieldRef<"Products", 'String'>
+    readonly professionalServiceImage: FieldRef<"Products", 'Json'>
+    readonly categoryId: FieldRef<"Products", 'Int'>
+    readonly subCategoryId: FieldRef<"Products", 'Int'>
+    readonly seoSchema: FieldRef<"Products", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Products findUnique
+   */
+  export type ProductsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter, which Products to fetch.
+     */
+    where: ProductsWhereUniqueInput
+  }
+
+  /**
+   * Products findUniqueOrThrow
+   */
+  export type ProductsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter, which Products to fetch.
+     */
+    where: ProductsWhereUniqueInput
+  }
+
+  /**
+   * Products findFirst
+   */
+  export type ProductsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter, which Products to fetch.
+     */
+    where?: ProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Products to fetch.
+     */
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Products.
+     */
+    cursor?: ProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Products from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Products.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Products.
+     */
+    distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
+   * Products findFirstOrThrow
+   */
+  export type ProductsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter, which Products to fetch.
+     */
+    where?: ProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Products to fetch.
+     */
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Products.
+     */
+    cursor?: ProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Products from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Products.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Products.
+     */
+    distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
+   * Products findMany
+   */
+  export type ProductsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter, which Products to fetch.
+     */
+    where?: ProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Products to fetch.
+     */
+    orderBy?: ProductsOrderByWithRelationInput | ProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Products.
+     */
+    cursor?: ProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Products from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Products.
+     */
+    skip?: number
+    distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
+   * Products create
+   */
+  export type ProductsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Products.
+     */
+    data: XOR<ProductsCreateInput, ProductsUncheckedCreateInput>
+  }
+
+  /**
+   * Products createMany
+   */
+  export type ProductsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Products.
+     */
+    data: ProductsCreateManyInput | ProductsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Products createManyAndReturn
+   */
+  export type ProductsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Products.
+     */
+    data: ProductsCreateManyInput | ProductsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Products update
+   */
+  export type ProductsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Products.
+     */
+    data: XOR<ProductsUpdateInput, ProductsUncheckedUpdateInput>
+    /**
+     * Choose, which Products to update.
+     */
+    where: ProductsWhereUniqueInput
+  }
+
+  /**
+   * Products updateMany
+   */
+  export type ProductsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Products.
+     */
+    data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyInput>
+    /**
+     * Filter which Products to update
+     */
+    where?: ProductsWhereInput
+    /**
+     * Limit how many Products to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Products updateManyAndReturn
+   */
+  export type ProductsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * The data used to update Products.
+     */
+    data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyInput>
+    /**
+     * Filter which Products to update
+     */
+    where?: ProductsWhereInput
+    /**
+     * Limit how many Products to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Products upsert
+   */
+  export type ProductsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Products to update in case it exists.
+     */
+    where: ProductsWhereUniqueInput
+    /**
+     * In case the Products found by the `where` argument doesn't exist, create a new Products with this data.
+     */
+    create: XOR<ProductsCreateInput, ProductsUncheckedCreateInput>
+    /**
+     * In case the Products was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProductsUpdateInput, ProductsUncheckedUpdateInput>
+  }
+
+  /**
+   * Products delete
+   */
+  export type ProductsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
+    /**
+     * Filter which Products to delete.
+     */
+    where: ProductsWhereUniqueInput
+  }
+
+  /**
+   * Products deleteMany
+   */
+  export type ProductsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Products to delete
+     */
+    where?: ProductsWhereInput
+    /**
+     * Limit how many Products to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Products.category
+   */
+  export type Products$categoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the categories
+     */
+    select?: categoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the categories
+     */
+    omit?: categoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: categoriesInclude<ExtArgs> | null
+    where?: categoriesWhereInput
+  }
+
+  /**
+   * Products.subcategory
+   */
+  export type Products$subcategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    where?: subCategoriesWhereInput
+  }
+
+  /**
+   * Products without action
+   */
+  export type ProductsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Products
+     */
+    select?: ProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Products
+     */
+    omit?: ProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductsInclude<ExtArgs> | null
   }
 
 
@@ -5434,7 +7214,8 @@ export namespace Prisma {
     explore_description: 'explore_description',
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
-    Meta_Title: 'Meta_Title'
+    Meta_Title: 'Meta_Title',
+    seoSchema: 'seoSchema'
   };
 
   export type CategoriesScalarFieldEnum = (typeof CategoriesScalarFieldEnum)[keyof typeof CategoriesScalarFieldEnum]
@@ -5451,6 +7232,7 @@ export namespace Prisma {
     short_description: 'short_description',
     custom_url: 'custom_url',
     categoryId: 'categoryId',
+    breadCrum: 'breadCrum',
     Banners: 'Banners',
     BannerText: 'BannerText',
     BannerHeading: 'BannerHeading',
@@ -5479,10 +7261,55 @@ export namespace Prisma {
     professionalServiceImage: 'professionalServiceImage',
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
-    Meta_Title: 'Meta_Title'
+    Meta_Title: 'Meta_Title',
+    seoSchema: 'seoSchema'
   };
 
   export type SubCategoriesScalarFieldEnum = (typeof SubCategoriesScalarFieldEnum)[keyof typeof SubCategoriesScalarFieldEnum]
+
+
+  export const ProductsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    price: 'price',
+    description: 'description',
+    stock: 'stock',
+    discountPrice: 'discountPrice',
+    posterImageUrl: 'posterImageUrl',
+    hoverImageUrl: 'hoverImageUrl',
+    productImages: 'productImages',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    Canonical_Tag: 'Canonical_Tag',
+    Meta_Description: 'Meta_Description',
+    Meta_Title: 'Meta_Title',
+    last_editedBy: 'last_editedBy',
+    custom_url: 'custom_url',
+    breadCrum: 'breadCrum',
+    Banners: 'Banners',
+    BannerText: 'BannerText',
+    BannerHeading: 'BannerHeading',
+    salesBannerImage: 'salesBannerImage',
+    categoryHeroImages: 'categoryHeroImages',
+    categoryHeroToptext: 'categoryHeroToptext',
+    categoryHeroHeading: 'categoryHeroHeading',
+    categoryHeroText: 'categoryHeroText',
+    categoryFaqs: 'categoryFaqs',
+    right_side_Heading: 'right_side_Heading',
+    left_side_Text: 'left_side_Text',
+    left_side_image: 'left_side_image',
+    Product_Section_heading: 'Product_Section_heading',
+    bottomText: 'bottomText',
+    explore_Heading: 'explore_Heading',
+    explore_main_heading: 'explore_main_heading',
+    explore_description: 'explore_description',
+    professionalServiceImage: 'professionalServiceImage',
+    categoryId: 'categoryId',
+    subCategoryId: 'subCategoryId',
+    seoSchema: 'seoSchema'
+  };
+
+  export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
 
 
   export const AdminsScalarFieldEnum: {
@@ -5698,7 +7525,9 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
+    seoSchema?: StringNullableFilter<"categories"> | string | null
     subCategories?: SubCategoriesListRelationFilter
+    products?: ProductsListRelationFilter
   }
 
   export type categoriesOrderByWithRelationInput = {
@@ -5742,7 +7571,9 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
     subCategories?: subCategoriesOrderByRelationAggregateInput
+    products?: ProductsOrderByRelationAggregateInput
   }
 
   export type categoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -5789,7 +7620,9 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"categories"> | string | null
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
+    seoSchema?: StringNullableFilter<"categories"> | string | null
     subCategories?: SubCategoriesListRelationFilter
+    products?: ProductsListRelationFilter
   }, "id" | "name">
 
   export type categoriesOrderByWithAggregationInput = {
@@ -5833,6 +7666,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
     _count?: categoriesCountOrderByAggregateInput
     _avg?: categoriesAvgOrderByAggregateInput
     _max?: categoriesMaxOrderByAggregateInput
@@ -5884,6 +7718,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Description?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    seoSchema?: StringNullableWithAggregatesFilter<"categories"> | string | null
   }
 
   export type subCategoriesWhereInput = {
@@ -5900,6 +7735,7 @@ export namespace Prisma {
     short_description?: StringNullableFilter<"subCategories"> | string | null
     custom_url?: StringFilter<"subCategories"> | string
     categoryId?: IntNullableFilter<"subCategories"> | number | null
+    breadCrum?: StringNullableFilter<"subCategories"> | string | null
     Banners?: JsonNullableFilter<"subCategories">
     BannerText?: StringNullableFilter<"subCategories"> | string | null
     BannerHeading?: StringNullableFilter<"subCategories"> | string | null
@@ -5929,7 +7765,9 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+    seoSchema?: StringNullableFilter<"subCategories"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+    products?: ProductsListRelationFilter
   }
 
   export type subCategoriesOrderByWithRelationInput = {
@@ -5943,6 +7781,7 @@ export namespace Prisma {
     short_description?: SortOrderInput | SortOrder
     custom_url?: SortOrder
     categoryId?: SortOrderInput | SortOrder
+    breadCrum?: SortOrderInput | SortOrder
     Banners?: SortOrderInput | SortOrder
     BannerText?: SortOrderInput | SortOrder
     BannerHeading?: SortOrderInput | SortOrder
@@ -5972,7 +7811,9 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
+    products?: ProductsOrderByRelationAggregateInput
   }
 
   export type subCategoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -5989,6 +7830,7 @@ export namespace Prisma {
     short_description?: StringNullableFilter<"subCategories"> | string | null
     custom_url?: StringFilter<"subCategories"> | string
     categoryId?: IntNullableFilter<"subCategories"> | number | null
+    breadCrum?: StringNullableFilter<"subCategories"> | string | null
     Banners?: JsonNullableFilter<"subCategories">
     BannerText?: StringNullableFilter<"subCategories"> | string | null
     BannerHeading?: StringNullableFilter<"subCategories"> | string | null
@@ -6018,7 +7860,9 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+    seoSchema?: StringNullableFilter<"subCategories"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+    products?: ProductsListRelationFilter
   }, "id">
 
   export type subCategoriesOrderByWithAggregationInput = {
@@ -6032,6 +7876,7 @@ export namespace Prisma {
     short_description?: SortOrderInput | SortOrder
     custom_url?: SortOrder
     categoryId?: SortOrderInput | SortOrder
+    breadCrum?: SortOrderInput | SortOrder
     Banners?: SortOrderInput | SortOrder
     BannerText?: SortOrderInput | SortOrder
     BannerHeading?: SortOrderInput | SortOrder
@@ -6061,6 +7906,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
     _count?: subCategoriesCountOrderByAggregateInput
     _avg?: subCategoriesAvgOrderByAggregateInput
     _max?: subCategoriesMaxOrderByAggregateInput
@@ -6082,6 +7928,7 @@ export namespace Prisma {
     short_description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     custom_url?: StringWithAggregatesFilter<"subCategories"> | string
     categoryId?: IntNullableWithAggregatesFilter<"subCategories"> | number | null
+    breadCrum?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     Banners?: JsonNullableWithAggregatesFilter<"subCategories">
     BannerText?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     BannerHeading?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
@@ -6111,6 +7958,232 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     Meta_Description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    seoSchema?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+  }
+
+  export type ProductsWhereInput = {
+    AND?: ProductsWhereInput | ProductsWhereInput[]
+    OR?: ProductsWhereInput[]
+    NOT?: ProductsWhereInput | ProductsWhereInput[]
+    id?: IntFilter<"Products"> | number
+    name?: StringFilter<"Products"> | string
+    price?: IntFilter<"Products"> | number
+    description?: StringFilter<"Products"> | string
+    stock?: IntFilter<"Products"> | number
+    discountPrice?: IntNullableFilter<"Products"> | number | null
+    posterImageUrl?: JsonFilter<"Products">
+    hoverImageUrl?: JsonNullableFilter<"Products">
+    productImages?: JsonNullableListFilter<"Products">
+    createdAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    Canonical_Tag?: StringNullableFilter<"Products"> | string | null
+    Meta_Description?: StringNullableFilter<"Products"> | string | null
+    Meta_Title?: StringNullableFilter<"Products"> | string | null
+    last_editedBy?: StringNullableFilter<"Products"> | string | null
+    custom_url?: StringFilter<"Products"> | string
+    breadCrum?: StringNullableFilter<"Products"> | string | null
+    Banners?: JsonNullableFilter<"Products">
+    BannerText?: StringNullableFilter<"Products"> | string | null
+    BannerHeading?: StringNullableFilter<"Products"> | string | null
+    salesBannerImage?: JsonNullableFilter<"Products">
+    categoryHeroImages?: JsonNullableListFilter<"Products">
+    categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"Products">
+    categoryFaqs?: JsonNullableListFilter<"Products">
+    right_side_Heading?: StringNullableFilter<"Products"> | string | null
+    left_side_Text?: JsonNullableListFilter<"Products">
+    left_side_image?: JsonNullableFilter<"Products">
+    Product_Section_heading?: StringNullableFilter<"Products"> | string | null
+    bottomText?: StringNullableFilter<"Products"> | string | null
+    explore_Heading?: StringNullableFilter<"Products"> | string | null
+    explore_main_heading?: StringNullableFilter<"Products"> | string | null
+    explore_description?: StringNullableFilter<"Products"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"Products">
+    categoryId?: IntNullableFilter<"Products"> | number | null
+    subCategoryId?: IntNullableFilter<"Products"> | number | null
+    seoSchema?: StringNullableFilter<"Products"> | string | null
+    category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+    subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+  }
+
+  export type ProductsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrderInput | SortOrder
+    posterImageUrl?: SortOrder
+    hoverImageUrl?: SortOrderInput | SortOrder
+    productImages?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    Canonical_Tag?: SortOrderInput | SortOrder
+    Meta_Description?: SortOrderInput | SortOrder
+    Meta_Title?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    custom_url?: SortOrder
+    breadCrum?: SortOrderInput | SortOrder
+    Banners?: SortOrderInput | SortOrder
+    BannerText?: SortOrderInput | SortOrder
+    BannerHeading?: SortOrderInput | SortOrder
+    salesBannerImage?: SortOrderInput | SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrderInput | SortOrder
+    categoryHeroHeading?: SortOrderInput | SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    right_side_Heading?: SortOrderInput | SortOrder
+    left_side_Text?: SortOrder
+    left_side_image?: SortOrderInput | SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
+    professionalServiceImage?: SortOrderInput | SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    subCategoryId?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
+    category?: categoriesOrderByWithRelationInput
+    subcategory?: subCategoriesOrderByWithRelationInput
+  }
+
+  export type ProductsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProductsWhereInput | ProductsWhereInput[]
+    OR?: ProductsWhereInput[]
+    NOT?: ProductsWhereInput | ProductsWhereInput[]
+    name?: StringFilter<"Products"> | string
+    price?: IntFilter<"Products"> | number
+    description?: StringFilter<"Products"> | string
+    stock?: IntFilter<"Products"> | number
+    discountPrice?: IntNullableFilter<"Products"> | number | null
+    posterImageUrl?: JsonFilter<"Products">
+    hoverImageUrl?: JsonNullableFilter<"Products">
+    productImages?: JsonNullableListFilter<"Products">
+    createdAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    Canonical_Tag?: StringNullableFilter<"Products"> | string | null
+    Meta_Description?: StringNullableFilter<"Products"> | string | null
+    Meta_Title?: StringNullableFilter<"Products"> | string | null
+    last_editedBy?: StringNullableFilter<"Products"> | string | null
+    custom_url?: StringFilter<"Products"> | string
+    breadCrum?: StringNullableFilter<"Products"> | string | null
+    Banners?: JsonNullableFilter<"Products">
+    BannerText?: StringNullableFilter<"Products"> | string | null
+    BannerHeading?: StringNullableFilter<"Products"> | string | null
+    salesBannerImage?: JsonNullableFilter<"Products">
+    categoryHeroImages?: JsonNullableListFilter<"Products">
+    categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"Products">
+    categoryFaqs?: JsonNullableListFilter<"Products">
+    right_side_Heading?: StringNullableFilter<"Products"> | string | null
+    left_side_Text?: JsonNullableListFilter<"Products">
+    left_side_image?: JsonNullableFilter<"Products">
+    Product_Section_heading?: StringNullableFilter<"Products"> | string | null
+    bottomText?: StringNullableFilter<"Products"> | string | null
+    explore_Heading?: StringNullableFilter<"Products"> | string | null
+    explore_main_heading?: StringNullableFilter<"Products"> | string | null
+    explore_description?: StringNullableFilter<"Products"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"Products">
+    categoryId?: IntNullableFilter<"Products"> | number | null
+    subCategoryId?: IntNullableFilter<"Products"> | number | null
+    seoSchema?: StringNullableFilter<"Products"> | string | null
+    category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
+    subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+  }, "id">
+
+  export type ProductsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrderInput | SortOrder
+    posterImageUrl?: SortOrder
+    hoverImageUrl?: SortOrderInput | SortOrder
+    productImages?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    Canonical_Tag?: SortOrderInput | SortOrder
+    Meta_Description?: SortOrderInput | SortOrder
+    Meta_Title?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    custom_url?: SortOrder
+    breadCrum?: SortOrderInput | SortOrder
+    Banners?: SortOrderInput | SortOrder
+    BannerText?: SortOrderInput | SortOrder
+    BannerHeading?: SortOrderInput | SortOrder
+    salesBannerImage?: SortOrderInput | SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrderInput | SortOrder
+    categoryHeroHeading?: SortOrderInput | SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    right_side_Heading?: SortOrderInput | SortOrder
+    left_side_Text?: SortOrder
+    left_side_image?: SortOrderInput | SortOrder
+    Product_Section_heading?: SortOrderInput | SortOrder
+    bottomText?: SortOrderInput | SortOrder
+    explore_Heading?: SortOrderInput | SortOrder
+    explore_main_heading?: SortOrderInput | SortOrder
+    explore_description?: SortOrderInput | SortOrder
+    professionalServiceImage?: SortOrderInput | SortOrder
+    categoryId?: SortOrderInput | SortOrder
+    subCategoryId?: SortOrderInput | SortOrder
+    seoSchema?: SortOrderInput | SortOrder
+    _count?: ProductsCountOrderByAggregateInput
+    _avg?: ProductsAvgOrderByAggregateInput
+    _max?: ProductsMaxOrderByAggregateInput
+    _min?: ProductsMinOrderByAggregateInput
+    _sum?: ProductsSumOrderByAggregateInput
+  }
+
+  export type ProductsScalarWhereWithAggregatesInput = {
+    AND?: ProductsScalarWhereWithAggregatesInput | ProductsScalarWhereWithAggregatesInput[]
+    OR?: ProductsScalarWhereWithAggregatesInput[]
+    NOT?: ProductsScalarWhereWithAggregatesInput | ProductsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Products"> | number
+    name?: StringWithAggregatesFilter<"Products"> | string
+    price?: IntWithAggregatesFilter<"Products"> | number
+    description?: StringWithAggregatesFilter<"Products"> | string
+    stock?: IntWithAggregatesFilter<"Products"> | number
+    discountPrice?: IntNullableWithAggregatesFilter<"Products"> | number | null
+    posterImageUrl?: JsonWithAggregatesFilter<"Products">
+    hoverImageUrl?: JsonNullableWithAggregatesFilter<"Products">
+    productImages?: JsonNullableListFilter<"Products">
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Products"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Products"> | Date | string | null
+    Canonical_Tag?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    Meta_Description?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    Meta_Title?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    last_editedBy?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    custom_url?: StringWithAggregatesFilter<"Products"> | string
+    breadCrum?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    Banners?: JsonNullableWithAggregatesFilter<"Products">
+    BannerText?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    BannerHeading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    salesBannerImage?: JsonNullableWithAggregatesFilter<"Products">
+    categoryHeroImages?: JsonNullableListFilter<"Products">
+    categoryHeroToptext?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    categoryHeroHeading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"Products">
+    categoryFaqs?: JsonNullableListFilter<"Products">
+    right_side_Heading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    left_side_Text?: JsonNullableListFilter<"Products">
+    left_side_image?: JsonNullableWithAggregatesFilter<"Products">
+    Product_Section_heading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    bottomText?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    explore_Heading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    explore_main_heading?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    explore_description?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    professionalServiceImage?: JsonNullableWithAggregatesFilter<"Products">
+    categoryId?: IntNullableWithAggregatesFilter<"Products"> | number | null
+    subCategoryId?: IntNullableWithAggregatesFilter<"Products"> | number | null
+    seoSchema?: StringNullableWithAggregatesFilter<"Products"> | string | null
   }
 
   export type AdminsWhereInput = {
@@ -6297,7 +8370,9 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
     subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
+    products?: ProductsCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesUncheckedCreateInput = {
@@ -6341,7 +8416,9 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
     subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
+    products?: ProductsUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesUpdateInput = {
@@ -6384,7 +8461,9 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
+    products?: ProductsUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoriesUncheckedUpdateInput = {
@@ -6428,7 +8507,9 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
+    products?: ProductsUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoriesCreateManyInput = {
@@ -6472,6 +8553,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
   }
 
   export type categoriesUpdateManyMutationInput = {
@@ -6514,6 +8596,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type categoriesUncheckedUpdateManyInput = {
@@ -6557,6 +8640,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type subCategoriesCreateInput = {
@@ -6568,6 +8652,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     short_description?: string | null
     custom_url: string
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -6597,7 +8682,9 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
+    products?: ProductsCreateNestedManyWithoutSubcategoryInput
   }
 
   export type subCategoriesUncheckedCreateInput = {
@@ -6611,6 +8698,7 @@ export namespace Prisma {
     short_description?: string | null
     custom_url: string
     categoryId?: number | null
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -6640,6 +8728,8 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
   }
 
   export type subCategoriesUpdateInput = {
@@ -6651,6 +8741,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6680,7 +8771,9 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
+    products?: ProductsUpdateManyWithoutSubcategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateInput = {
@@ -6694,6 +8787,7 @@ export namespace Prisma {
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6723,6 +8817,8 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
   }
 
   export type subCategoriesCreateManyInput = {
@@ -6736,6 +8832,7 @@ export namespace Prisma {
     short_description?: string | null
     custom_url: string
     categoryId?: number | null
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -6765,6 +8862,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
   }
 
   export type subCategoriesUpdateManyMutationInput = {
@@ -6776,6 +8874,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6805,6 +8904,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type subCategoriesUncheckedUpdateManyInput = {
@@ -6818,6 +8918,7 @@ export namespace Prisma {
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -6847,6 +8948,289 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsCreateInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutProductsInput
+    subcategory?: subCategoriesCreateNestedOneWithoutProductsInput
+  }
+
+  export type ProductsUncheckedCreateInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutProductsNestedInput
+    subcategory?: subCategoriesUpdateOneWithoutProductsNestedInput
+  }
+
+  export type ProductsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsCreateManyInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type AdminsCreateInput = {
@@ -7146,12 +9530,22 @@ export namespace Prisma {
     none?: subCategoriesWhereInput
   }
 
+  export type ProductsListRelationFilter = {
+    every?: ProductsWhereInput
+    some?: ProductsWhereInput
+    none?: ProductsWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
   export type subCategoriesOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProductsOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -7196,6 +9590,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type categoriesAvgOrderByAggregateInput = {
@@ -7236,6 +9631,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type categoriesMinOrderByAggregateInput = {
@@ -7272,6 +9668,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type categoriesSumOrderByAggregateInput = {
@@ -7423,6 +9820,7 @@ export namespace Prisma {
     short_description?: SortOrder
     custom_url?: SortOrder
     categoryId?: SortOrder
+    breadCrum?: SortOrder
     Banners?: SortOrder
     BannerText?: SortOrder
     BannerHeading?: SortOrder
@@ -7452,6 +9850,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type subCategoriesAvgOrderByAggregateInput = {
@@ -7469,6 +9868,7 @@ export namespace Prisma {
     short_description?: SortOrder
     custom_url?: SortOrder
     categoryId?: SortOrder
+    breadCrum?: SortOrder
     BannerText?: SortOrder
     BannerHeading?: SortOrder
     leftHeading?: SortOrder
@@ -7487,6 +9887,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type subCategoriesMinOrderByAggregateInput = {
@@ -7499,6 +9900,7 @@ export namespace Prisma {
     short_description?: SortOrder
     custom_url?: SortOrder
     categoryId?: SortOrder
+    breadCrum?: SortOrder
     BannerText?: SortOrder
     BannerHeading?: SortOrder
     leftHeading?: SortOrder
@@ -7517,6 +9919,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    seoSchema?: SortOrder
   }
 
   export type subCategoriesSumOrderByAggregateInput = {
@@ -7538,6 +9941,130 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type SubCategoriesNullableScalarRelationFilter = {
+    is?: subCategoriesWhereInput | null
+    isNot?: subCategoriesWhereInput | null
+  }
+
+  export type ProductsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrder
+    posterImageUrl?: SortOrder
+    hoverImageUrl?: SortOrder
+    productImages?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+    last_editedBy?: SortOrder
+    custom_url?: SortOrder
+    breadCrum?: SortOrder
+    Banners?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    salesBannerImage?: SortOrder
+    categoryHeroImages?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    categoryHeroText?: SortOrder
+    categoryFaqs?: SortOrder
+    right_side_Heading?: SortOrder
+    left_side_Text?: SortOrder
+    left_side_image?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    professionalServiceImage?: SortOrder
+    categoryId?: SortOrder
+    subCategoryId?: SortOrder
+    seoSchema?: SortOrder
+  }
+
+  export type ProductsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    price?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrder
+    categoryId?: SortOrder
+    subCategoryId?: SortOrder
+  }
+
+  export type ProductsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+    last_editedBy?: SortOrder
+    custom_url?: SortOrder
+    breadCrum?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    right_side_Heading?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    categoryId?: SortOrder
+    subCategoryId?: SortOrder
+    seoSchema?: SortOrder
+  }
+
+  export type ProductsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    price?: SortOrder
+    description?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    Canonical_Tag?: SortOrder
+    Meta_Description?: SortOrder
+    Meta_Title?: SortOrder
+    last_editedBy?: SortOrder
+    custom_url?: SortOrder
+    breadCrum?: SortOrder
+    BannerText?: SortOrder
+    BannerHeading?: SortOrder
+    categoryHeroToptext?: SortOrder
+    categoryHeroHeading?: SortOrder
+    right_side_Heading?: SortOrder
+    Product_Section_heading?: SortOrder
+    bottomText?: SortOrder
+    explore_Heading?: SortOrder
+    explore_main_heading?: SortOrder
+    explore_description?: SortOrder
+    categoryId?: SortOrder
+    subCategoryId?: SortOrder
+    seoSchema?: SortOrder
+  }
+
+  export type ProductsSumOrderByAggregateInput = {
+    id?: SortOrder
+    price?: SortOrder
+    stock?: SortOrder
+    discountPrice?: SortOrder
+    categoryId?: SortOrder
+    subCategoryId?: SortOrder
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -7664,11 +10191,25 @@ export namespace Prisma {
     connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
   }
 
+  export type ProductsCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput> | ProductsCreateWithoutCategoryInput[] | ProductsUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutCategoryInput | ProductsCreateOrConnectWithoutCategoryInput[]
+    createMany?: ProductsCreateManyCategoryInputEnvelope
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+  }
+
   export type subCategoriesUncheckedCreateNestedManyWithoutCategoryInput = {
     create?: XOR<subCategoriesCreateWithoutCategoryInput, subCategoriesUncheckedCreateWithoutCategoryInput> | subCategoriesCreateWithoutCategoryInput[] | subCategoriesUncheckedCreateWithoutCategoryInput[]
     connectOrCreate?: subCategoriesCreateOrConnectWithoutCategoryInput | subCategoriesCreateOrConnectWithoutCategoryInput[]
     createMany?: subCategoriesCreateManyCategoryInputEnvelope
     connect?: subCategoriesWhereUniqueInput | subCategoriesWhereUniqueInput[]
+  }
+
+  export type ProductsUncheckedCreateNestedManyWithoutCategoryInput = {
+    create?: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput> | ProductsCreateWithoutCategoryInput[] | ProductsUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutCategoryInput | ProductsCreateOrConnectWithoutCategoryInput[]
+    createMany?: ProductsCreateManyCategoryInputEnvelope
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -7722,6 +10263,20 @@ export namespace Prisma {
     deleteMany?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
   }
 
+  export type ProductsUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput> | ProductsCreateWithoutCategoryInput[] | ProductsUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutCategoryInput | ProductsCreateOrConnectWithoutCategoryInput[]
+    upsert?: ProductsUpsertWithWhereUniqueWithoutCategoryInput | ProductsUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: ProductsCreateManyCategoryInputEnvelope
+    set?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    disconnect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    delete?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    update?: ProductsUpdateWithWhereUniqueWithoutCategoryInput | ProductsUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: ProductsUpdateManyWithWhereWithoutCategoryInput | ProductsUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -7742,6 +10297,20 @@ export namespace Prisma {
     update?: subCategoriesUpdateWithWhereUniqueWithoutCategoryInput | subCategoriesUpdateWithWhereUniqueWithoutCategoryInput[]
     updateMany?: subCategoriesUpdateManyWithWhereWithoutCategoryInput | subCategoriesUpdateManyWithWhereWithoutCategoryInput[]
     deleteMany?: subCategoriesScalarWhereInput | subCategoriesScalarWhereInput[]
+  }
+
+  export type ProductsUncheckedUpdateManyWithoutCategoryNestedInput = {
+    create?: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput> | ProductsCreateWithoutCategoryInput[] | ProductsUncheckedCreateWithoutCategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutCategoryInput | ProductsCreateOrConnectWithoutCategoryInput[]
+    upsert?: ProductsUpsertWithWhereUniqueWithoutCategoryInput | ProductsUpsertWithWhereUniqueWithoutCategoryInput[]
+    createMany?: ProductsCreateManyCategoryInputEnvelope
+    set?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    disconnect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    delete?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    update?: ProductsUpdateWithWhereUniqueWithoutCategoryInput | ProductsUpdateWithWhereUniqueWithoutCategoryInput[]
+    updateMany?: ProductsUpdateManyWithWhereWithoutCategoryInput | ProductsUpdateManyWithWhereWithoutCategoryInput[]
+    deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
   }
 
   export type subCategoriesCreatecategoryTextInput = {
@@ -7784,6 +10353,20 @@ export namespace Prisma {
     create?: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
     connectOrCreate?: categoriesCreateOrConnectWithoutSubCategoriesInput
     connect?: categoriesWhereUniqueInput
+  }
+
+  export type ProductsCreateNestedManyWithoutSubcategoryInput = {
+    create?: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput> | ProductsCreateWithoutSubcategoryInput[] | ProductsUncheckedCreateWithoutSubcategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutSubcategoryInput | ProductsCreateOrConnectWithoutSubcategoryInput[]
+    createMany?: ProductsCreateManySubcategoryInputEnvelope
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+  }
+
+  export type ProductsUncheckedCreateNestedManyWithoutSubcategoryInput = {
+    create?: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput> | ProductsCreateWithoutSubcategoryInput[] | ProductsUncheckedCreateWithoutSubcategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutSubcategoryInput | ProductsCreateOrConnectWithoutSubcategoryInput[]
+    createMany?: ProductsCreateManySubcategoryInputEnvelope
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
   }
 
   export type subCategoriesUpdatecategoryTextInput = {
@@ -7841,12 +10424,117 @@ export namespace Prisma {
     update?: XOR<XOR<categoriesUpdateToOneWithWhereWithoutSubCategoriesInput, categoriesUpdateWithoutSubCategoriesInput>, categoriesUncheckedUpdateWithoutSubCategoriesInput>
   }
 
+  export type ProductsUpdateManyWithoutSubcategoryNestedInput = {
+    create?: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput> | ProductsCreateWithoutSubcategoryInput[] | ProductsUncheckedCreateWithoutSubcategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutSubcategoryInput | ProductsCreateOrConnectWithoutSubcategoryInput[]
+    upsert?: ProductsUpsertWithWhereUniqueWithoutSubcategoryInput | ProductsUpsertWithWhereUniqueWithoutSubcategoryInput[]
+    createMany?: ProductsCreateManySubcategoryInputEnvelope
+    set?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    disconnect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    delete?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    update?: ProductsUpdateWithWhereUniqueWithoutSubcategoryInput | ProductsUpdateWithWhereUniqueWithoutSubcategoryInput[]
+    updateMany?: ProductsUpdateManyWithWhereWithoutSubcategoryInput | ProductsUpdateManyWithWhereWithoutSubcategoryInput[]
+    deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
     divide?: number
+  }
+
+  export type ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput = {
+    create?: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput> | ProductsCreateWithoutSubcategoryInput[] | ProductsUncheckedCreateWithoutSubcategoryInput[]
+    connectOrCreate?: ProductsCreateOrConnectWithoutSubcategoryInput | ProductsCreateOrConnectWithoutSubcategoryInput[]
+    upsert?: ProductsUpsertWithWhereUniqueWithoutSubcategoryInput | ProductsUpsertWithWhereUniqueWithoutSubcategoryInput[]
+    createMany?: ProductsCreateManySubcategoryInputEnvelope
+    set?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    disconnect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    delete?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+    update?: ProductsUpdateWithWhereUniqueWithoutSubcategoryInput | ProductsUpdateWithWhereUniqueWithoutSubcategoryInput[]
+    updateMany?: ProductsUpdateManyWithWhereWithoutSubcategoryInput | ProductsUpdateManyWithWhereWithoutSubcategoryInput[]
+    deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+  }
+
+  export type ProductsCreateproductImagesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type ProductsCreatecategoryHeroImagesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type ProductsCreatecategoryHeroTextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type ProductsCreatecategoryFaqsInput = {
+    set: InputJsonValue[]
+  }
+
+  export type ProductsCreateleft_side_TextInput = {
+    set: InputJsonValue[]
+  }
+
+  export type categoriesCreateNestedOneWithoutProductsInput = {
+    create?: XOR<categoriesCreateWithoutProductsInput, categoriesUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: categoriesCreateOrConnectWithoutProductsInput
+    connect?: categoriesWhereUniqueInput
+  }
+
+  export type subCategoriesCreateNestedOneWithoutProductsInput = {
+    create?: XOR<subCategoriesCreateWithoutProductsInput, subCategoriesUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutProductsInput
+    connect?: subCategoriesWhereUniqueInput
+  }
+
+  export type ProductsUpdateproductImagesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type ProductsUpdatecategoryHeroImagesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type ProductsUpdatecategoryHeroTextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type ProductsUpdatecategoryFaqsInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type ProductsUpdateleft_side_TextInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type categoriesUpdateOneWithoutProductsNestedInput = {
+    create?: XOR<categoriesCreateWithoutProductsInput, categoriesUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: categoriesCreateOrConnectWithoutProductsInput
+    upsert?: categoriesUpsertWithoutProductsInput
+    disconnect?: categoriesWhereInput | boolean
+    delete?: categoriesWhereInput | boolean
+    connect?: categoriesWhereUniqueInput
+    update?: XOR<XOR<categoriesUpdateToOneWithWhereWithoutProductsInput, categoriesUpdateWithoutProductsInput>, categoriesUncheckedUpdateWithoutProductsInput>
+  }
+
+  export type subCategoriesUpdateOneWithoutProductsNestedInput = {
+    create?: XOR<subCategoriesCreateWithoutProductsInput, subCategoriesUncheckedCreateWithoutProductsInput>
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutProductsInput
+    upsert?: subCategoriesUpsertWithoutProductsInput
+    disconnect?: subCategoriesWhereInput | boolean
+    delete?: subCategoriesWhereInput | boolean
+    connect?: subCategoriesWhereUniqueInput
+    update?: XOR<XOR<subCategoriesUpdateToOneWithWhereWithoutProductsInput, subCategoriesUpdateWithoutProductsInput>, subCategoriesUncheckedUpdateWithoutProductsInput>
   }
 
   export type BoolFieldUpdateOperationsInput = {
@@ -8084,6 +10772,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     short_description?: string | null
     custom_url: string
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -8113,6 +10802,8 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsCreateNestedManyWithoutSubcategoryInput
   }
 
   export type subCategoriesUncheckedCreateWithoutCategoryInput = {
@@ -8125,6 +10816,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     short_description?: string | null
     custom_url: string
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -8154,6 +10846,8 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
   }
 
   export type subCategoriesCreateOrConnectWithoutCategoryInput = {
@@ -8163,6 +10857,95 @@ export namespace Prisma {
 
   export type subCategoriesCreateManyCategoryInputEnvelope = {
     data: subCategoriesCreateManyCategoryInput | subCategoriesCreateManyCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProductsCreateWithoutCategoryInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: string | null
+    subcategory?: subCategoriesCreateNestedOneWithoutProductsInput
+  }
+
+  export type ProductsUncheckedCreateWithoutCategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    subCategoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsCreateOrConnectWithoutCategoryInput = {
+    where: ProductsWhereUniqueInput
+    create: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type ProductsCreateManyCategoryInputEnvelope = {
+    data: ProductsCreateManyCategoryInput | ProductsCreateManyCategoryInput[]
     skipDuplicates?: boolean
   }
 
@@ -8196,6 +10979,7 @@ export namespace Prisma {
     short_description?: StringNullableFilter<"subCategories"> | string | null
     custom_url?: StringFilter<"subCategories"> | string
     categoryId?: IntNullableFilter<"subCategories"> | number | null
+    breadCrum?: StringNullableFilter<"subCategories"> | string | null
     Banners?: JsonNullableFilter<"subCategories">
     BannerText?: StringNullableFilter<"subCategories"> | string | null
     BannerHeading?: StringNullableFilter<"subCategories"> | string | null
@@ -8225,6 +11009,67 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"subCategories"> | string | null
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
+    seoSchema?: StringNullableFilter<"subCategories"> | string | null
+  }
+
+  export type ProductsUpsertWithWhereUniqueWithoutCategoryInput = {
+    where: ProductsWhereUniqueInput
+    update: XOR<ProductsUpdateWithoutCategoryInput, ProductsUncheckedUpdateWithoutCategoryInput>
+    create: XOR<ProductsCreateWithoutCategoryInput, ProductsUncheckedCreateWithoutCategoryInput>
+  }
+
+  export type ProductsUpdateWithWhereUniqueWithoutCategoryInput = {
+    where: ProductsWhereUniqueInput
+    data: XOR<ProductsUpdateWithoutCategoryInput, ProductsUncheckedUpdateWithoutCategoryInput>
+  }
+
+  export type ProductsUpdateManyWithWhereWithoutCategoryInput = {
+    where: ProductsScalarWhereInput
+    data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyWithoutCategoryInput>
+  }
+
+  export type ProductsScalarWhereInput = {
+    AND?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+    OR?: ProductsScalarWhereInput[]
+    NOT?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+    id?: IntFilter<"Products"> | number
+    name?: StringFilter<"Products"> | string
+    price?: IntFilter<"Products"> | number
+    description?: StringFilter<"Products"> | string
+    stock?: IntFilter<"Products"> | number
+    discountPrice?: IntNullableFilter<"Products"> | number | null
+    posterImageUrl?: JsonFilter<"Products">
+    hoverImageUrl?: JsonNullableFilter<"Products">
+    productImages?: JsonNullableListFilter<"Products">
+    createdAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Products"> | Date | string | null
+    Canonical_Tag?: StringNullableFilter<"Products"> | string | null
+    Meta_Description?: StringNullableFilter<"Products"> | string | null
+    Meta_Title?: StringNullableFilter<"Products"> | string | null
+    last_editedBy?: StringNullableFilter<"Products"> | string | null
+    custom_url?: StringFilter<"Products"> | string
+    breadCrum?: StringNullableFilter<"Products"> | string | null
+    Banners?: JsonNullableFilter<"Products">
+    BannerText?: StringNullableFilter<"Products"> | string | null
+    BannerHeading?: StringNullableFilter<"Products"> | string | null
+    salesBannerImage?: JsonNullableFilter<"Products">
+    categoryHeroImages?: JsonNullableListFilter<"Products">
+    categoryHeroToptext?: StringNullableFilter<"Products"> | string | null
+    categoryHeroHeading?: StringNullableFilter<"Products"> | string | null
+    categoryHeroText?: JsonNullableListFilter<"Products">
+    categoryFaqs?: JsonNullableListFilter<"Products">
+    right_side_Heading?: StringNullableFilter<"Products"> | string | null
+    left_side_Text?: JsonNullableListFilter<"Products">
+    left_side_image?: JsonNullableFilter<"Products">
+    Product_Section_heading?: StringNullableFilter<"Products"> | string | null
+    bottomText?: StringNullableFilter<"Products"> | string | null
+    explore_Heading?: StringNullableFilter<"Products"> | string | null
+    explore_main_heading?: StringNullableFilter<"Products"> | string | null
+    explore_description?: StringNullableFilter<"Products"> | string | null
+    professionalServiceImage?: JsonNullableFilter<"Products">
+    categoryId?: IntNullableFilter<"Products"> | number | null
+    subCategoryId?: IntNullableFilter<"Products"> | number | null
+    seoSchema?: StringNullableFilter<"Products"> | string | null
   }
 
   export type categoriesCreateWithoutSubCategoriesInput = {
@@ -8267,6 +11112,8 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesUncheckedCreateWithoutSubCategoriesInput = {
@@ -8310,11 +11157,102 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsUncheckedCreateNestedManyWithoutCategoryInput
   }
 
   export type categoriesCreateOrConnectWithoutSubCategoriesInput = {
     where: categoriesWhereUniqueInput
     create: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
+  }
+
+  export type ProductsCreateWithoutSubcategoryInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutProductsInput
+  }
+
+  export type ProductsUncheckedCreateWithoutSubcategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsCreateOrConnectWithoutSubcategoryInput = {
+    where: ProductsWhereUniqueInput
+    create: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput>
+  }
+
+  export type ProductsCreateManySubcategoryInputEnvelope = {
+    data: ProductsCreateManySubcategoryInput | ProductsCreateManySubcategoryInput[]
+    skipDuplicates?: boolean
   }
 
   export type categoriesUpsertWithoutSubCategoriesInput = {
@@ -8368,6 +11306,8 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUpdateManyWithoutCategoryNestedInput
   }
 
   export type categoriesUncheckedUpdateWithoutSubCategoriesInput = {
@@ -8411,10 +11351,121 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
-  export type subCategoriesCreateManyCategoryInput = {
+  export type ProductsUpsertWithWhereUniqueWithoutSubcategoryInput = {
+    where: ProductsWhereUniqueInput
+    update: XOR<ProductsUpdateWithoutSubcategoryInput, ProductsUncheckedUpdateWithoutSubcategoryInput>
+    create: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput>
+  }
+
+  export type ProductsUpdateWithWhereUniqueWithoutSubcategoryInput = {
+    where: ProductsWhereUniqueInput
+    data: XOR<ProductsUpdateWithoutSubcategoryInput, ProductsUncheckedUpdateWithoutSubcategoryInput>
+  }
+
+  export type ProductsUpdateManyWithWhereWithoutSubcategoryInput = {
+    where: ProductsScalarWhereInput
+    data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyWithoutSubcategoryInput>
+  }
+
+  export type categoriesCreateWithoutProductsInput = {
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    RecallUrl?: string | null
+    breadCrum?: string | null
+    topHeading?: string | null
+    topDescription?: string | null
+    categoryHeroImages?: categoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: categoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesCreatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: string | null
+    categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
+    Heading?: string | null
+    paras?: categoriesCreateparasInput | InputJsonValue[]
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    Bannerdiscount?: string | null
+    salesBannerHeading?: string | null
+    paraText?: string | null
+    Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
+  }
+
+  export type categoriesUncheckedCreateWithoutProductsInput = {
     id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    RecallUrl?: string | null
+    breadCrum?: string | null
+    topHeading?: string | null
+    topDescription?: string | null
+    categoryHeroImages?: categoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: categoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesCreatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: string | null
+    categoryText?: categoriesCreatecategoryTextInput | InputJsonValue[]
+    Heading?: string | null
+    paras?: categoriesCreateparasInput | InputJsonValue[]
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    Bannerdiscount?: string | null
+    salesBannerHeading?: string | null
+    paraText?: string | null
+    Bannercounter?: Date | string | null
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
+  }
+
+  export type categoriesCreateOrConnectWithoutProductsInput = {
+    where: categoriesWhereUniqueInput
+    create: XOR<categoriesCreateWithoutProductsInput, categoriesUncheckedCreateWithoutProductsInput>
+  }
+
+  export type subCategoriesCreateWithoutProductsInput = {
     name: string
     description?: string | null
     createdAt?: Date | string | null
@@ -8423,6 +11474,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     short_description?: string | null
     custom_url: string
+    breadCrum?: string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: string | null
     BannerHeading?: string | null
@@ -8452,9 +11504,171 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutSubCategoriesInput
   }
 
-  export type subCategoriesUpdateWithoutCategoryInput = {
+  export type subCategoriesUncheckedCreateWithoutProductsInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    categoryId?: number | null
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+  }
+
+  export type subCategoriesCreateOrConnectWithoutProductsInput = {
+    where: subCategoriesWhereUniqueInput
+    create: XOR<subCategoriesCreateWithoutProductsInput, subCategoriesUncheckedCreateWithoutProductsInput>
+  }
+
+  export type categoriesUpsertWithoutProductsInput = {
+    update: XOR<categoriesUpdateWithoutProductsInput, categoriesUncheckedUpdateWithoutProductsInput>
+    create: XOR<categoriesCreateWithoutProductsInput, categoriesUncheckedCreateWithoutProductsInput>
+    where?: categoriesWhereInput
+  }
+
+  export type categoriesUpdateToOneWithWhereWithoutProductsInput = {
+    where?: categoriesWhereInput
+    data: XOR<categoriesUpdateWithoutProductsInput, categoriesUncheckedUpdateWithoutProductsInput>
+  }
+
+  export type categoriesUpdateWithoutProductsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    RecallUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    topHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    topDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroImages?: categoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: categoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
+    Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    paras?: categoriesUpdateparasInput | InputJsonValue[]
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannerdiscount?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    paraText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type categoriesUncheckedUpdateWithoutProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    RecallUrl?: NullableStringFieldUpdateOperationsInput | string | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    topHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    topDescription?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroImages?: categoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: categoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: categoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: categoriesUpdatecategoryTextInput | InputJsonValue[]
+    Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    paras?: categoriesUpdateparasInput | InputJsonValue[]
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannerdiscount?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    paraText?: NullableStringFieldUpdateOperationsInput | string | null
+    Bannercounter?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
+  }
+
+  export type subCategoriesUpsertWithoutProductsInput = {
+    update: XOR<subCategoriesUpdateWithoutProductsInput, subCategoriesUncheckedUpdateWithoutProductsInput>
+    create: XOR<subCategoriesCreateWithoutProductsInput, subCategoriesUncheckedCreateWithoutProductsInput>
+    where?: subCategoriesWhereInput
+  }
+
+  export type subCategoriesUpdateToOneWithWhereWithoutProductsInput = {
+    where?: subCategoriesWhereInput
+    data: XOR<subCategoriesUpdateWithoutProductsInput, subCategoriesUncheckedUpdateWithoutProductsInput>
+  }
+
+  export type subCategoriesUpdateWithoutProductsInput = {
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -8463,6 +11677,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8492,6 +11707,178 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
+  }
+
+  export type subCategoriesUncheckedUpdateWithoutProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type subCategoriesCreateManyCategoryInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsCreateManyCategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    subCategoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type subCategoriesUpdateWithoutCategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUpdateManyWithoutSubcategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateWithoutCategoryInput = {
@@ -8504,6 +11891,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8533,6 +11921,8 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateManyWithoutCategoryInput = {
@@ -8545,6 +11935,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     short_description?: NullableStringFieldUpdateOperationsInput | string | null
     custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
     Banners?: NullableJsonNullValueInput | InputJsonValue
     BannerText?: NullableStringFieldUpdateOperationsInput | string | null
     BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
@@ -8574,6 +11965,285 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsUpdateWithoutCategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    subcategory?: subCategoriesUpdateOneWithoutProductsNestedInput
+  }
+
+  export type ProductsUncheckedUpdateWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsUncheckedUpdateManyWithoutCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsCreateManySubcategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: ProductsCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsCreatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: string | null
+    left_side_Text?: ProductsCreateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: number | null
+    seoSchema?: string | null
+  }
+
+  export type ProductsUpdateWithoutSubcategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutProductsNestedInput
+  }
+
+  export type ProductsUncheckedUpdateWithoutSubcategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductsUncheckedUpdateManyWithoutSubcategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: ProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    salesBannerImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryHeroImages?: ProductsUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: ProductsUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: ProductsUpdatecategoryFaqsInput | InputJsonValue[]
+    right_side_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    left_side_Text?: ProductsUpdateleft_side_TextInput | InputJsonValue[]
+    left_side_image?: NullableJsonNullValueInput | InputJsonValue
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

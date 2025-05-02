@@ -30,6 +30,7 @@ model categories {
   RecallUrl         String?
   breadCrum         String?
   subCategories     subCategories[] @relation()
+  products          Products[]      @relation()
 
   // ToHeading
   topHeading          String?
@@ -72,6 +73,9 @@ model categories {
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
+
+  // category SCHEMA
+  seoSchema String?
 }
 
 model subCategories {
@@ -86,6 +90,8 @@ model subCategories {
   custom_url        String //✅
   categoryId        Int?
   category          categories? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  products          Products[]  @relation()
+  breadCrum         String?
 
   // BannersData
   Banners       Json? //✅
@@ -136,6 +142,64 @@ model subCategories {
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
+
+  // schema
+  seoSchema String?
+}
+
+model Products {
+  id               Int       @id @default(autoincrement())
+  name             String
+  price            Int
+  description      String
+  stock            Int
+  discountPrice    Int?
+  posterImageUrl   Json
+  hoverImageUrl    Json?
+  productImages    Json[]
+  createdAt        DateTime? @default(now())
+  updatedAt        DateTime? @default(now())
+  Canonical_Tag    String?
+  Meta_Description String?
+  Meta_Title       String?
+  last_editedBy    String?
+  custom_url       String
+  breadCrum        String?
+
+  // BannersData
+  Banners          Json? //✅
+  BannerText       String? //✅
+  BannerHeading    String? //✅
+  salesBannerImage Json?
+
+  // After hero Sectons (/3d)
+  categoryHeroImages  Json[]  @default([]) //3d
+  categoryHeroToptext String? //
+  categoryHeroHeading String? //
+  categoryHeroText    Json[]  @default([]) //
+  categoryFaqs        Json[]  @default([]) //
+
+  // rightSideText
+  right_side_Heading String?
+  left_side_Text     Json[]  @default([])
+  left_side_image    Json?
+
+  // Before Products Heading and text (3d)                  
+  Product_Section_heading String? // 
+  bottomText              String? //
+
+  // Capabilities Section 
+  explore_Heading          String? // ✅
+  explore_main_heading     String? // ✅
+  explore_description      String? //✅
+  professionalServiceImage Json? //
+  categoryId               Int?
+  subCategoryId            Int?
+  category                 categories?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategory              subCategories? @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+
+  // product schema
+  seoSchema String?
 }
 
 model Admins {

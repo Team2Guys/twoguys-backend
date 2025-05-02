@@ -30,6 +30,7 @@ model categories {
   RecallUrl         String?
   breadCrum         String?
   subCategories     subCategories[] @relation()
+  products          Products[]      @relation()
 
   // ToHeading
   topHeading          String?
@@ -72,70 +73,133 @@ model categories {
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
+
+  // category SCHEMA
+  seoSchema String?
 }
 
 model subCategories {
   id                Int         @id @default(autoincrement())
-  name              String
-  description       String?
+  name              String //✅
+  description       String? //✅
   createdAt         DateTime?   @default(now())
-  updatedAt         DateTime?   @updatedAt
+  updatedAt         DateTime?   @updatedAt //✅
   posterImageUrl    Json?
   last_editedBy     String?
   short_description String?
-  custom_url        String
+  custom_url        String //✅
   categoryId        Int?
   category          categories? @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  products          Products[]  @relation()
+  breadCrum         String?
 
   // BannersData
-  Banners       Json?
-  BannerText    String?
-  BannerHeading String?
+  Banners       Json? //✅
+  BannerText    String? //✅
+  BannerHeading String? //✅
 
   // Serivce Section(Blinds)  
-  leftHeading  String? //curtains   Soft Velvet Finish
-  categoryText Json[]  @default([]) //Soft velvet Fisish
+  leftHeading  String? //curtains   Soft Velvet Finish //✅ 
+  categoryText Json[]  @default([]) //Soft velvet Fisish //✅
 
   // After hero Sectons (blinds, Curtains)
-  categoryHeroImages  Json[]  @default([]) //shutters
-  categoryHeroToptext String? //shutters Wallpaper++
-  categoryHeroHeading String? //shutters Wallpaper soft velvet finish
+  categoryHeroImages  Json[]  @default([]) //shutters ✅
+  categoryHeroToptext String? //shutters Wallpaper++ ✅
+  categoryHeroHeading String? //shutters Wallpaper soft velvet finish ✅
   categoryHeroText    Json[]  @default([]) //shutters
   categoryFaqs        Json[]  @default([]) //shutters
 
   // Collecton (Shutters)
-  collectionHeading     String? //Wallpaper  ++
-  collectionMainHeading String? //Wallpaper++
+  collectionHeading     String? //Wallpaper  ++  ✅
+  collectionMainHeading String? //Wallpaper++  ✅
 
   // hightestQuelity Sectons (Blinds, Curtains)
 
-  QualityHeadings Json[] @default([]) // shutters soft velvet finish
-  QualityText     Json[] @default([]) //soft velvet finish
-  QualityImages   Json[] @default([])
+  QualityHeadings Json[] @default([]) // shutters soft velvet finish ✅
+  QualityText     Json[] @default([]) //soft velvet finish ✅
+  QualityImages   Json[] @default([]) //✅
 
   // Custome Made louved
-  CustomHeading Json[] @default([]) // shutters
-  CustomText    Json[] @default([])
+  CustomHeading Json[] @default([]) // shutters ✅
+  CustomText    Json[] @default([]) //✅
 
   // on Procuts Main Heading (shutters)
-  Product_Section_heading String?
-  bottomText              String?
+  Product_Section_heading String? // //✅
+  bottomText              String? ////✅
 
   // Instalation
-  bodyHeading     String?
-  bodyMainHeading String?
-  bodyText        String?
+  bodyHeading     String? ////✅
+  bodyMainHeading String? //v//✅
+  bodyText        String? ////✅
 
   // Professional services
-  explore_Heading          String?
-  explore_main_heading     String?
-  explore_description      String?
-  professionalServiceImage Json?
+  explore_Heading          String? // ✅
+  explore_main_heading     String? // ✅
+  explore_description      String? //✅
+  professionalServiceImage Json? //
 
   // seo
   Canonical_Tag    String?
   Meta_Description String?
   Meta_Title       String?
+
+  // schema
+  seoSchema String?
+}
+
+model Products {
+  id               Int       @id @default(autoincrement())
+  name             String
+  price            Int
+  description      String
+  stock            Int
+  discountPrice    Int?
+  posterImageUrl   Json
+  hoverImageUrl    Json?
+  productImages    Json[]
+  createdAt        DateTime? @default(now())
+  updatedAt        DateTime? @default(now())
+  Canonical_Tag    String?
+  Meta_Description String?
+  Meta_Title       String?
+  last_editedBy    String?
+  custom_url       String
+  breadCrum        String?
+
+  // BannersData
+  Banners          Json? //✅
+  BannerText       String? //✅
+  BannerHeading    String? //✅
+  salesBannerImage Json?
+
+  // After hero Sectons (/3d)
+  categoryHeroImages  Json[]  @default([]) //3d
+  categoryHeroToptext String? //
+  categoryHeroHeading String? //
+  categoryHeroText    Json[]  @default([]) //
+  categoryFaqs        Json[]  @default([]) //
+
+  // rightSideText
+  right_side_Heading String?
+  left_side_Text     Json[]  @default([])
+  left_side_image    Json?
+
+  // Before Products Heading and text (3d)                  
+  Product_Section_heading String? // 
+  bottomText              String? //
+
+  // Capabilities Section 
+  explore_Heading          String? // ✅
+  explore_main_heading     String? // ✅
+  explore_description      String? //✅
+  professionalServiceImage Json? //
+  categoryId               Int?
+  subCategoryId            Int?
+  category                 categories?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategory              subCategories? @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+
+  // product schema
+  seoSchema String?
 }
 
 model Admins {

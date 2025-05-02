@@ -118,4 +118,8 @@ export abstract class  CategoryBase  {
     Meta_Title?: string;
 
 
+    @Field({ nullable: true })
+    seoSchema?: string;
+
+
   }

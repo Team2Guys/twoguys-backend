@@ -160,7 +160,8 @@ exports.Prisma.CategoriesScalarFieldEnum = {
   explore_description: 'explore_description',
   Canonical_Tag: 'Canonical_Tag',
   Meta_Description: 'Meta_Description',
-  Meta_Title: 'Meta_Title'
+  Meta_Title: 'Meta_Title',
+  seoSchema: 'seoSchema'
 };
 
 exports.Prisma.SubCategoriesScalarFieldEnum = {
@@ -174,6 +175,7 @@ exports.Prisma.SubCategoriesScalarFieldEnum = {
   short_description: 'short_description',
   custom_url: 'custom_url',
   categoryId: 'categoryId',
+  breadCrum: 'breadCrum',
   Banners: 'Banners',
   BannerText: 'BannerText',
   BannerHeading: 'BannerHeading',
@@ -202,7 +204,49 @@ exports.Prisma.SubCategoriesScalarFieldEnum = {
   professionalServiceImage: 'professionalServiceImage',
   Canonical_Tag: 'Canonical_Tag',
   Meta_Description: 'Meta_Description',
-  Meta_Title: 'Meta_Title'
+  Meta_Title: 'Meta_Title',
+  seoSchema: 'seoSchema'
+};
+
+exports.Prisma.ProductsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  description: 'description',
+  stock: 'stock',
+  discountPrice: 'discountPrice',
+  posterImageUrl: 'posterImageUrl',
+  hoverImageUrl: 'hoverImageUrl',
+  productImages: 'productImages',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  Canonical_Tag: 'Canonical_Tag',
+  Meta_Description: 'Meta_Description',
+  Meta_Title: 'Meta_Title',
+  last_editedBy: 'last_editedBy',
+  custom_url: 'custom_url',
+  breadCrum: 'breadCrum',
+  Banners: 'Banners',
+  BannerText: 'BannerText',
+  BannerHeading: 'BannerHeading',
+  salesBannerImage: 'salesBannerImage',
+  categoryHeroImages: 'categoryHeroImages',
+  categoryHeroToptext: 'categoryHeroToptext',
+  categoryHeroHeading: 'categoryHeroHeading',
+  categoryHeroText: 'categoryHeroText',
+  categoryFaqs: 'categoryFaqs',
+  right_side_Heading: 'right_side_Heading',
+  left_side_Text: 'left_side_Text',
+  left_side_image: 'left_side_image',
+  Product_Section_heading: 'Product_Section_heading',
+  bottomText: 'bottomText',
+  explore_Heading: 'explore_Heading',
+  explore_main_heading: 'explore_main_heading',
+  explore_description: 'explore_description',
+  professionalServiceImage: 'professionalServiceImage',
+  categoryId: 'categoryId',
+  subCategoryId: 'subCategoryId',
+  seoSchema: 'seoSchema'
 };
 
 exports.Prisma.AdminsScalarFieldEnum = {
@@ -265,6 +309,7 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   categories: 'categories',
   subCategories: 'subCategories',
+  Products: 'Products',
   Admins: 'Admins'
 };
 
