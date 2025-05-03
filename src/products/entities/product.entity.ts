@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
-import { Category } from 'categories/entities/category.entity';
+import { Category } from '../../categories/entities/category.entity';
 import { GraphQLJSON } from 'graphql-type-json';
 import { Subcategory } from '../../subcategories/entities/subcategory.entity';
 
