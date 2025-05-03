@@ -1,5 +1,4 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { Category } from 'categories/entities/category.entity';
 import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
