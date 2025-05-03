@@ -32,7 +32,9 @@ export class CategoriesService {
 
   async findAll() {
     try {
-      return await this.prisma.categories.findMany({});
+      let categories =  await this.prisma.categories.findMany({include:{subCategories:true, products:true}});
+      console.log(categories[2], )
+      return categories
     } catch (error) {
       console.log(error, "error")
       customHttpException(error, 'INTERNAL_SERVER_ERROR');
@@ -41,7 +43,7 @@ export class CategoriesService {
 
   async findOne(customUrl: string) {
     try {
-      return await this.prisma.categories.findFirst({ where: { custom_url: customUrl } });
+      return await this.prisma.categories.findFirst({ where: { custom_url: customUrl }, include:{subCategories:true, products:true} });
     } catch (error) {
       customHttpException(error, 'INTERNAL_SERVER_ERROR');
     }

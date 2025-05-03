@@ -6,26 +6,33 @@ import { UpdateProductInput } from './dto/update-product.input';
 
 @Resolver(() => Product)
 export class ProductsResolver {
-  constructor(private readonly productsService: ProductsService) {}
+  constructor(private readonly productsService: ProductsService) { }
 
-  @Mutation(() => Product)
+  @Mutation(() => Product, { name: "create_product", nullable: true })
   createProduct(@Args('createProductInput') createProductInput: CreateProductInput) {
     return this.productsService.create(createProductInput);
   }
 
-  @Query(() => [Product], { name: 'products' })
+  
+
+  @Query(() => [Product], { name: 'All_products', nullable: true })
   findAll() {
     return this.productsService.findAll();
   }
 
-  @Query(() => Product, { name: 'product' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.productsService.findOne(id);
+  @Query(() => Product, { name: 'single_product', nullable: true })
+  findOne(
+    @Args('custom_url', { type: () => String }) custom_url: string,
+    @Args('category', { type: () => String }) category: string,
+    @Args('subCategory', { type: () => String }) subCategory: string,
+
+  ) {
+    return this.productsService.findOne(custom_url, category, subCategory);
   }
 
-  @Mutation(() => Product)
+  @Mutation(() => Product, { name: "update_product", nullable: true })
   updateProduct(@Args('updateProductInput') updateProductInput: UpdateProductInput) {
-    return this.productsService.update(updateProductInput.id, updateProductInput);
+    return this.productsService.update(updateProductInput);
   }
 
   @Mutation(() => Product)
