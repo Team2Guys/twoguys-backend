@@ -12,6 +12,7 @@ async function bootstrap() {
 
   app.enableCors({
     origin: [
+      "https://twoguys-brown.vercel.app",
       "http://localhost:3000",
       'http://localhost:3001'
     ],

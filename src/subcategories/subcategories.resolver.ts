@@ -20,8 +20,9 @@ export class SubcategoriesResolver {
   }
 
   @Query(() => Subcategory, { name: 'find_one_subcategory', nullable:true })
-  findOne(@Args('custom_url', { type: () => String }) custom_url: string) {
-    return this.subcategoriesService.findOne(custom_url);
+  findOne(@Args('custom_url', { type: () => String }) custom_url: string,
+  @Args('category', { type: () => String }) category: string) {
+    return this.subcategoriesService.findOne(custom_url, category);
   }
 
 

@@ -34,11 +34,11 @@ export class SubcategoriesService {
     }
   }
 
-  async findOne(custom_url: string) {
+  async findOne(custom_url: string, category) {
     try {
-      let category = await this.prisma.subCategories.findFirst({ where: { custom_url } })
+      let subcategory = await this.prisma.subCategories.findFirst({ where: { custom_url, category:{custom_url:category} } })
       if (!category) return customHttpException("Category Not found ", "NOT_FOUND")
-      return category;
+      return subcategory;
     } catch (error) {
       return customHttpException(error)
     }
@@ -62,6 +62,7 @@ export class SubcategoriesService {
         where: { id: updateSubcategoryInput.id }, data: {
           ...updateData,
           categoryId: Number(category),
+          updatedAt
 
         }
       })
