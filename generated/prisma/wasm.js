@@ -275,6 +275,23 @@ exports.Prisma.AdminsScalarFieldEnum = {
   last_editedBy: 'last_editedBy'
 };
 
+exports.Prisma.ReviewsScalarFieldEnum = {
+  id: 'id',
+  posterImageUrl: 'posterImageUrl',
+  name: 'name',
+  starRating: 'starRating',
+  ReviewsDescription: 'ReviewsDescription',
+  reviewDate: 'reviewDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.SocialLinksScalarFieldEnum = {
+  id: 'id',
+  posterImageUrl: 'posterImageUrl',
+  post_links: 'post_links'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -310,7 +327,9 @@ exports.Prisma.ModelName = {
   categories: 'categories',
   subCategories: 'subCategories',
   Products: 'Products',
-  Admins: 'Admins'
+  Admins: 'Admins',
+  Reviews: 'Reviews',
+  SocialLinks: 'SocialLinks'
 };
 
 /**

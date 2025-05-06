@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "Reviews" ADD COLUMN     "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN     "reviewDate" TIMESTAMP(3),
+ADD COLUMN     "updatedAt" TIMESTAMP(3);

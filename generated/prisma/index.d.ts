@@ -33,6 +33,16 @@ export type Products = $Result.DefaultSelection<Prisma.$ProductsPayload>
  * 
  */
 export type Admins = $Result.DefaultSelection<Prisma.$AdminsPayload>
+/**
+ * Model Reviews
+ * 
+ */
+export type Reviews = $Result.DefaultSelection<Prisma.$ReviewsPayload>
+/**
+ * Model SocialLinks
+ * 
+ */
+export type SocialLinks = $Result.DefaultSelection<Prisma.$SocialLinksPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -198,6 +208,26 @@ export class PrismaClient<
     * ```
     */
   get admins(): Prisma.AdminsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.reviews`: Exposes CRUD operations for the **Reviews** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Reviews
+    * const reviews = await prisma.reviews.findMany()
+    * ```
+    */
+  get reviews(): Prisma.ReviewsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.socialLinks`: Exposes CRUD operations for the **SocialLinks** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SocialLinks
+    * const socialLinks = await prisma.socialLinks.findMany()
+    * ```
+    */
+  get socialLinks(): Prisma.SocialLinksDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -641,7 +671,9 @@ export namespace Prisma {
     categories: 'categories',
     subCategories: 'subCategories',
     Products: 'Products',
-    Admins: 'Admins'
+    Admins: 'Admins',
+    Reviews: 'Reviews',
+    SocialLinks: 'SocialLinks'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -660,7 +692,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "products" | "admins"
+      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -960,6 +992,154 @@ export namespace Prisma {
           }
         }
       }
+      Reviews: {
+        payload: Prisma.$ReviewsPayload<ExtArgs>
+        fields: Prisma.ReviewsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReviewsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReviewsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          findFirst: {
+            args: Prisma.ReviewsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReviewsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          findMany: {
+            args: Prisma.ReviewsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>[]
+          }
+          create: {
+            args: Prisma.ReviewsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          createMany: {
+            args: Prisma.ReviewsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReviewsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>[]
+          }
+          delete: {
+            args: Prisma.ReviewsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          update: {
+            args: Prisma.ReviewsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReviewsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReviewsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReviewsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ReviewsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReviewsPayload>
+          }
+          aggregate: {
+            args: Prisma.ReviewsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReviews>
+          }
+          groupBy: {
+            args: Prisma.ReviewsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReviewsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReviewsCountArgs<ExtArgs>
+            result: $Utils.Optional<ReviewsCountAggregateOutputType> | number
+          }
+        }
+      }
+      SocialLinks: {
+        payload: Prisma.$SocialLinksPayload<ExtArgs>
+        fields: Prisma.SocialLinksFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.SocialLinksFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.SocialLinksFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          findFirst: {
+            args: Prisma.SocialLinksFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.SocialLinksFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          findMany: {
+            args: Prisma.SocialLinksFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>[]
+          }
+          create: {
+            args: Prisma.SocialLinksCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          createMany: {
+            args: Prisma.SocialLinksCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.SocialLinksCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>[]
+          }
+          delete: {
+            args: Prisma.SocialLinksDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          update: {
+            args: Prisma.SocialLinksUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          deleteMany: {
+            args: Prisma.SocialLinksDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.SocialLinksUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.SocialLinksUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>[]
+          }
+          upsert: {
+            args: Prisma.SocialLinksUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SocialLinksPayload>
+          }
+          aggregate: {
+            args: Prisma.SocialLinksAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSocialLinks>
+          }
+          groupBy: {
+            args: Prisma.SocialLinksGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SocialLinksGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.SocialLinksCountArgs<ExtArgs>
+            result: $Utils.Optional<SocialLinksCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1048,6 +1228,8 @@ export namespace Prisma {
     subCategories?: subCategoriesOmit
     products?: ProductsOmit
     admins?: AdminsOmit
+    reviews?: ReviewsOmit
+    socialLinks?: SocialLinksOmit
   }
 
   /* Types for Logging */
@@ -4951,6 +5133,9 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
+      /**
+       * /✅
+       */
       name: string
       price: number
       description: string
@@ -7161,6 +7346,2073 @@ export namespace Prisma {
 
 
   /**
+   * Model Reviews
+   */
+
+  export type AggregateReviews = {
+    _count: ReviewsCountAggregateOutputType | null
+    _avg: ReviewsAvgAggregateOutputType | null
+    _sum: ReviewsSumAggregateOutputType | null
+    _min: ReviewsMinAggregateOutputType | null
+    _max: ReviewsMaxAggregateOutputType | null
+  }
+
+  export type ReviewsAvgAggregateOutputType = {
+    id: number | null
+    starRating: number | null
+  }
+
+  export type ReviewsSumAggregateOutputType = {
+    id: number | null
+    starRating: number | null
+  }
+
+  export type ReviewsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    starRating: number | null
+    ReviewsDescription: string | null
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReviewsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    starRating: number | null
+    ReviewsDescription: string | null
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ReviewsCountAggregateOutputType = {
+    id: number
+    posterImageUrl: number
+    name: number
+    starRating: number
+    ReviewsDescription: number
+    reviewDate: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ReviewsAvgAggregateInputType = {
+    id?: true
+    starRating?: true
+  }
+
+  export type ReviewsSumAggregateInputType = {
+    id?: true
+    starRating?: true
+  }
+
+  export type ReviewsMinAggregateInputType = {
+    id?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReviewsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReviewsCountAggregateInputType = {
+    id?: true
+    posterImageUrl?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ReviewsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reviews to aggregate.
+     */
+    where?: ReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewsOrderByWithRelationInput | ReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Reviews
+    **/
+    _count?: true | ReviewsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReviewsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReviewsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ReviewsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ReviewsMaxAggregateInputType
+  }
+
+  export type GetReviewsAggregateType<T extends ReviewsAggregateArgs> = {
+        [P in keyof T & keyof AggregateReviews]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateReviews[P]>
+      : GetScalarType<T[P], AggregateReviews[P]>
+  }
+
+
+
+
+  export type ReviewsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReviewsWhereInput
+    orderBy?: ReviewsOrderByWithAggregationInput | ReviewsOrderByWithAggregationInput[]
+    by: ReviewsScalarFieldEnum[] | ReviewsScalarFieldEnum
+    having?: ReviewsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ReviewsCountAggregateInputType | true
+    _avg?: ReviewsAvgAggregateInputType
+    _sum?: ReviewsSumAggregateInputType
+    _min?: ReviewsMinAggregateInputType
+    _max?: ReviewsMaxAggregateInputType
+  }
+
+  export type ReviewsGroupByOutputType = {
+    id: number
+    posterImageUrl: JsonValue | null
+    name: string
+    starRating: number | null
+    ReviewsDescription: string
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    _count: ReviewsCountAggregateOutputType | null
+    _avg: ReviewsAvgAggregateOutputType | null
+    _sum: ReviewsSumAggregateOutputType | null
+    _min: ReviewsMinAggregateOutputType | null
+    _max: ReviewsMaxAggregateOutputType | null
+  }
+
+  type GetReviewsGroupByPayload<T extends ReviewsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ReviewsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ReviewsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ReviewsGroupByOutputType[P]>
+            : GetScalarType<T[P], ReviewsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ReviewsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["reviews"]>
+
+  export type ReviewsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["reviews"]>
+
+  export type ReviewsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["reviews"]>
+
+  export type ReviewsSelectScalar = {
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ReviewsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "posterImageUrl" | "name" | "starRating" | "ReviewsDescription" | "reviewDate" | "createdAt" | "updatedAt", ExtArgs["result"]["reviews"]>
+
+  export type $ReviewsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Reviews"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      posterImageUrl: Prisma.JsonValue | null
+      name: string
+      starRating: number | null
+      ReviewsDescription: string
+      reviewDate: string | null
+      createdAt: Date | null
+      updatedAt: Date | null
+    }, ExtArgs["result"]["reviews"]>
+    composites: {}
+  }
+
+  type ReviewsGetPayload<S extends boolean | null | undefined | ReviewsDefaultArgs> = $Result.GetResult<Prisma.$ReviewsPayload, S>
+
+  type ReviewsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReviewsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReviewsCountAggregateInputType | true
+    }
+
+  export interface ReviewsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Reviews'], meta: { name: 'Reviews' } }
+    /**
+     * Find zero or one Reviews that matches the filter.
+     * @param {ReviewsFindUniqueArgs} args - Arguments to find a Reviews
+     * @example
+     * // Get one Reviews
+     * const reviews = await prisma.reviews.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ReviewsFindUniqueArgs>(args: SelectSubset<T, ReviewsFindUniqueArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Reviews that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ReviewsFindUniqueOrThrowArgs} args - Arguments to find a Reviews
+     * @example
+     * // Get one Reviews
+     * const reviews = await prisma.reviews.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ReviewsFindUniqueOrThrowArgs>(args: SelectSubset<T, ReviewsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reviews that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsFindFirstArgs} args - Arguments to find a Reviews
+     * @example
+     * // Get one Reviews
+     * const reviews = await prisma.reviews.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ReviewsFindFirstArgs>(args?: SelectSubset<T, ReviewsFindFirstArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Reviews that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsFindFirstOrThrowArgs} args - Arguments to find a Reviews
+     * @example
+     * // Get one Reviews
+     * const reviews = await prisma.reviews.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ReviewsFindFirstOrThrowArgs>(args?: SelectSubset<T, ReviewsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Reviews that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Reviews
+     * const reviews = await prisma.reviews.findMany()
+     * 
+     * // Get first 10 Reviews
+     * const reviews = await prisma.reviews.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const reviewsWithIdOnly = await prisma.reviews.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ReviewsFindManyArgs>(args?: SelectSubset<T, ReviewsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Reviews.
+     * @param {ReviewsCreateArgs} args - Arguments to create a Reviews.
+     * @example
+     * // Create one Reviews
+     * const Reviews = await prisma.reviews.create({
+     *   data: {
+     *     // ... data to create a Reviews
+     *   }
+     * })
+     * 
+     */
+    create<T extends ReviewsCreateArgs>(args: SelectSubset<T, ReviewsCreateArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Reviews.
+     * @param {ReviewsCreateManyArgs} args - Arguments to create many Reviews.
+     * @example
+     * // Create many Reviews
+     * const reviews = await prisma.reviews.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ReviewsCreateManyArgs>(args?: SelectSubset<T, ReviewsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Reviews and returns the data saved in the database.
+     * @param {ReviewsCreateManyAndReturnArgs} args - Arguments to create many Reviews.
+     * @example
+     * // Create many Reviews
+     * const reviews = await prisma.reviews.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Reviews and only return the `id`
+     * const reviewsWithIdOnly = await prisma.reviews.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ReviewsCreateManyAndReturnArgs>(args?: SelectSubset<T, ReviewsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Reviews.
+     * @param {ReviewsDeleteArgs} args - Arguments to delete one Reviews.
+     * @example
+     * // Delete one Reviews
+     * const Reviews = await prisma.reviews.delete({
+     *   where: {
+     *     // ... filter to delete one Reviews
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ReviewsDeleteArgs>(args: SelectSubset<T, ReviewsDeleteArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Reviews.
+     * @param {ReviewsUpdateArgs} args - Arguments to update one Reviews.
+     * @example
+     * // Update one Reviews
+     * const reviews = await prisma.reviews.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ReviewsUpdateArgs>(args: SelectSubset<T, ReviewsUpdateArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Reviews.
+     * @param {ReviewsDeleteManyArgs} args - Arguments to filter Reviews to delete.
+     * @example
+     * // Delete a few Reviews
+     * const { count } = await prisma.reviews.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ReviewsDeleteManyArgs>(args?: SelectSubset<T, ReviewsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Reviews
+     * const reviews = await prisma.reviews.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ReviewsUpdateManyArgs>(args: SelectSubset<T, ReviewsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Reviews and returns the data updated in the database.
+     * @param {ReviewsUpdateManyAndReturnArgs} args - Arguments to update many Reviews.
+     * @example
+     * // Update many Reviews
+     * const reviews = await prisma.reviews.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Reviews and only return the `id`
+     * const reviewsWithIdOnly = await prisma.reviews.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ReviewsUpdateManyAndReturnArgs>(args: SelectSubset<T, ReviewsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Reviews.
+     * @param {ReviewsUpsertArgs} args - Arguments to update or create a Reviews.
+     * @example
+     * // Update or create a Reviews
+     * const reviews = await prisma.reviews.upsert({
+     *   create: {
+     *     // ... data to create a Reviews
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Reviews we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ReviewsUpsertArgs>(args: SelectSubset<T, ReviewsUpsertArgs<ExtArgs>>): Prisma__ReviewsClient<$Result.GetResult<Prisma.$ReviewsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsCountArgs} args - Arguments to filter Reviews to count.
+     * @example
+     * // Count the number of Reviews
+     * const count = await prisma.reviews.count({
+     *   where: {
+     *     // ... the filter for the Reviews we want to count
+     *   }
+     * })
+    **/
+    count<T extends ReviewsCountArgs>(
+      args?: Subset<T, ReviewsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ReviewsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ReviewsAggregateArgs>(args: Subset<T, ReviewsAggregateArgs>): Prisma.PrismaPromise<GetReviewsAggregateType<T>>
+
+    /**
+     * Group by Reviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ReviewsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ReviewsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ReviewsGroupByArgs['orderBy'] }
+        : { orderBy?: ReviewsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ReviewsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReviewsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Reviews model
+   */
+  readonly fields: ReviewsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Reviews.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ReviewsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Reviews model
+   */
+  interface ReviewsFieldRefs {
+    readonly id: FieldRef<"Reviews", 'Int'>
+    readonly posterImageUrl: FieldRef<"Reviews", 'Json'>
+    readonly name: FieldRef<"Reviews", 'String'>
+    readonly starRating: FieldRef<"Reviews", 'Int'>
+    readonly ReviewsDescription: FieldRef<"Reviews", 'String'>
+    readonly reviewDate: FieldRef<"Reviews", 'String'>
+    readonly createdAt: FieldRef<"Reviews", 'DateTime'>
+    readonly updatedAt: FieldRef<"Reviews", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Reviews findUnique
+   */
+  export type ReviewsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where: ReviewsWhereUniqueInput
+  }
+
+  /**
+   * Reviews findUniqueOrThrow
+   */
+  export type ReviewsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where: ReviewsWhereUniqueInput
+  }
+
+  /**
+   * Reviews findFirst
+   */
+  export type ReviewsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where?: ReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewsOrderByWithRelationInput | ReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reviews.
+     */
+    cursor?: ReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reviews.
+     */
+    distinct?: ReviewsScalarFieldEnum | ReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * Reviews findFirstOrThrow
+   */
+  export type ReviewsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where?: ReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewsOrderByWithRelationInput | ReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Reviews.
+     */
+    cursor?: ReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Reviews.
+     */
+    distinct?: ReviewsScalarFieldEnum | ReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * Reviews findMany
+   */
+  export type ReviewsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter, which Reviews to fetch.
+     */
+    where?: ReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Reviews to fetch.
+     */
+    orderBy?: ReviewsOrderByWithRelationInput | ReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Reviews.
+     */
+    cursor?: ReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Reviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Reviews.
+     */
+    skip?: number
+    distinct?: ReviewsScalarFieldEnum | ReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * Reviews create
+   */
+  export type ReviewsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Reviews.
+     */
+    data: XOR<ReviewsCreateInput, ReviewsUncheckedCreateInput>
+  }
+
+  /**
+   * Reviews createMany
+   */
+  export type ReviewsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Reviews.
+     */
+    data: ReviewsCreateManyInput | ReviewsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Reviews createManyAndReturn
+   */
+  export type ReviewsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Reviews.
+     */
+    data: ReviewsCreateManyInput | ReviewsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Reviews update
+   */
+  export type ReviewsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Reviews.
+     */
+    data: XOR<ReviewsUpdateInput, ReviewsUncheckedUpdateInput>
+    /**
+     * Choose, which Reviews to update.
+     */
+    where: ReviewsWhereUniqueInput
+  }
+
+  /**
+   * Reviews updateMany
+   */
+  export type ReviewsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Reviews.
+     */
+    data: XOR<ReviewsUpdateManyMutationInput, ReviewsUncheckedUpdateManyInput>
+    /**
+     * Filter which Reviews to update
+     */
+    where?: ReviewsWhereInput
+    /**
+     * Limit how many Reviews to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reviews updateManyAndReturn
+   */
+  export type ReviewsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * The data used to update Reviews.
+     */
+    data: XOR<ReviewsUpdateManyMutationInput, ReviewsUncheckedUpdateManyInput>
+    /**
+     * Filter which Reviews to update
+     */
+    where?: ReviewsWhereInput
+    /**
+     * Limit how many Reviews to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reviews upsert
+   */
+  export type ReviewsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Reviews to update in case it exists.
+     */
+    where: ReviewsWhereUniqueInput
+    /**
+     * In case the Reviews found by the `where` argument doesn't exist, create a new Reviews with this data.
+     */
+    create: XOR<ReviewsCreateInput, ReviewsUncheckedCreateInput>
+    /**
+     * In case the Reviews was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReviewsUpdateInput, ReviewsUncheckedUpdateInput>
+  }
+
+  /**
+   * Reviews delete
+   */
+  export type ReviewsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+    /**
+     * Filter which Reviews to delete.
+     */
+    where: ReviewsWhereUniqueInput
+  }
+
+  /**
+   * Reviews deleteMany
+   */
+  export type ReviewsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reviews to delete
+     */
+    where?: ReviewsWhereInput
+    /**
+     * Limit how many Reviews to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Reviews without action
+   */
+  export type ReviewsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reviews
+     */
+    select?: ReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reviews
+     */
+    omit?: ReviewsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model SocialLinks
+   */
+
+  export type AggregateSocialLinks = {
+    _count: SocialLinksCountAggregateOutputType | null
+    _avg: SocialLinksAvgAggregateOutputType | null
+    _sum: SocialLinksSumAggregateOutputType | null
+    _min: SocialLinksMinAggregateOutputType | null
+    _max: SocialLinksMaxAggregateOutputType | null
+  }
+
+  export type SocialLinksAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SocialLinksSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type SocialLinksMinAggregateOutputType = {
+    id: number | null
+    post_links: string | null
+  }
+
+  export type SocialLinksMaxAggregateOutputType = {
+    id: number | null
+    post_links: string | null
+  }
+
+  export type SocialLinksCountAggregateOutputType = {
+    id: number
+    posterImageUrl: number
+    post_links: number
+    _all: number
+  }
+
+
+  export type SocialLinksAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type SocialLinksSumAggregateInputType = {
+    id?: true
+  }
+
+  export type SocialLinksMinAggregateInputType = {
+    id?: true
+    post_links?: true
+  }
+
+  export type SocialLinksMaxAggregateInputType = {
+    id?: true
+    post_links?: true
+  }
+
+  export type SocialLinksCountAggregateInputType = {
+    id?: true
+    posterImageUrl?: true
+    post_links?: true
+    _all?: true
+  }
+
+  export type SocialLinksAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SocialLinks to aggregate.
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SocialLinks to fetch.
+     */
+    orderBy?: SocialLinksOrderByWithRelationInput | SocialLinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: SocialLinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SocialLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SocialLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned SocialLinks
+    **/
+    _count?: true | SocialLinksCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SocialLinksAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SocialLinksSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SocialLinksMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SocialLinksMaxAggregateInputType
+  }
+
+  export type GetSocialLinksAggregateType<T extends SocialLinksAggregateArgs> = {
+        [P in keyof T & keyof AggregateSocialLinks]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSocialLinks[P]>
+      : GetScalarType<T[P], AggregateSocialLinks[P]>
+  }
+
+
+
+
+  export type SocialLinksGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SocialLinksWhereInput
+    orderBy?: SocialLinksOrderByWithAggregationInput | SocialLinksOrderByWithAggregationInput[]
+    by: SocialLinksScalarFieldEnum[] | SocialLinksScalarFieldEnum
+    having?: SocialLinksScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SocialLinksCountAggregateInputType | true
+    _avg?: SocialLinksAvgAggregateInputType
+    _sum?: SocialLinksSumAggregateInputType
+    _min?: SocialLinksMinAggregateInputType
+    _max?: SocialLinksMaxAggregateInputType
+  }
+
+  export type SocialLinksGroupByOutputType = {
+    id: number
+    posterImageUrl: JsonValue
+    post_links: string
+    _count: SocialLinksCountAggregateOutputType | null
+    _avg: SocialLinksAvgAggregateOutputType | null
+    _sum: SocialLinksSumAggregateOutputType | null
+    _min: SocialLinksMinAggregateOutputType | null
+    _max: SocialLinksMaxAggregateOutputType | null
+  }
+
+  type GetSocialLinksGroupByPayload<T extends SocialLinksGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SocialLinksGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SocialLinksGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SocialLinksGroupByOutputType[P]>
+            : GetScalarType<T[P], SocialLinksGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type SocialLinksSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    post_links?: boolean
+  }, ExtArgs["result"]["socialLinks"]>
+
+  export type SocialLinksSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    post_links?: boolean
+  }, ExtArgs["result"]["socialLinks"]>
+
+  export type SocialLinksSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    post_links?: boolean
+  }, ExtArgs["result"]["socialLinks"]>
+
+  export type SocialLinksSelectScalar = {
+    id?: boolean
+    posterImageUrl?: boolean
+    post_links?: boolean
+  }
+
+  export type SocialLinksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "posterImageUrl" | "post_links", ExtArgs["result"]["socialLinks"]>
+
+  export type $SocialLinksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SocialLinks"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      posterImageUrl: Prisma.JsonValue
+      post_links: string
+    }, ExtArgs["result"]["socialLinks"]>
+    composites: {}
+  }
+
+  type SocialLinksGetPayload<S extends boolean | null | undefined | SocialLinksDefaultArgs> = $Result.GetResult<Prisma.$SocialLinksPayload, S>
+
+  type SocialLinksCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SocialLinksFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SocialLinksCountAggregateInputType | true
+    }
+
+  export interface SocialLinksDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SocialLinks'], meta: { name: 'SocialLinks' } }
+    /**
+     * Find zero or one SocialLinks that matches the filter.
+     * @param {SocialLinksFindUniqueArgs} args - Arguments to find a SocialLinks
+     * @example
+     * // Get one SocialLinks
+     * const socialLinks = await prisma.socialLinks.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends SocialLinksFindUniqueArgs>(args: SelectSubset<T, SocialLinksFindUniqueArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SocialLinks that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {SocialLinksFindUniqueOrThrowArgs} args - Arguments to find a SocialLinks
+     * @example
+     * // Get one SocialLinks
+     * const socialLinks = await prisma.socialLinks.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends SocialLinksFindUniqueOrThrowArgs>(args: SelectSubset<T, SocialLinksFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SocialLinks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksFindFirstArgs} args - Arguments to find a SocialLinks
+     * @example
+     * // Get one SocialLinks
+     * const socialLinks = await prisma.socialLinks.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends SocialLinksFindFirstArgs>(args?: SelectSubset<T, SocialLinksFindFirstArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SocialLinks that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksFindFirstOrThrowArgs} args - Arguments to find a SocialLinks
+     * @example
+     * // Get one SocialLinks
+     * const socialLinks = await prisma.socialLinks.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends SocialLinksFindFirstOrThrowArgs>(args?: SelectSubset<T, SocialLinksFindFirstOrThrowArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SocialLinks that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SocialLinks
+     * const socialLinks = await prisma.socialLinks.findMany()
+     * 
+     * // Get first 10 SocialLinks
+     * const socialLinks = await prisma.socialLinks.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const socialLinksWithIdOnly = await prisma.socialLinks.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends SocialLinksFindManyArgs>(args?: SelectSubset<T, SocialLinksFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SocialLinks.
+     * @param {SocialLinksCreateArgs} args - Arguments to create a SocialLinks.
+     * @example
+     * // Create one SocialLinks
+     * const SocialLinks = await prisma.socialLinks.create({
+     *   data: {
+     *     // ... data to create a SocialLinks
+     *   }
+     * })
+     * 
+     */
+    create<T extends SocialLinksCreateArgs>(args: SelectSubset<T, SocialLinksCreateArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SocialLinks.
+     * @param {SocialLinksCreateManyArgs} args - Arguments to create many SocialLinks.
+     * @example
+     * // Create many SocialLinks
+     * const socialLinks = await prisma.socialLinks.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends SocialLinksCreateManyArgs>(args?: SelectSubset<T, SocialLinksCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SocialLinks and returns the data saved in the database.
+     * @param {SocialLinksCreateManyAndReturnArgs} args - Arguments to create many SocialLinks.
+     * @example
+     * // Create many SocialLinks
+     * const socialLinks = await prisma.socialLinks.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SocialLinks and only return the `id`
+     * const socialLinksWithIdOnly = await prisma.socialLinks.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends SocialLinksCreateManyAndReturnArgs>(args?: SelectSubset<T, SocialLinksCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SocialLinks.
+     * @param {SocialLinksDeleteArgs} args - Arguments to delete one SocialLinks.
+     * @example
+     * // Delete one SocialLinks
+     * const SocialLinks = await prisma.socialLinks.delete({
+     *   where: {
+     *     // ... filter to delete one SocialLinks
+     *   }
+     * })
+     * 
+     */
+    delete<T extends SocialLinksDeleteArgs>(args: SelectSubset<T, SocialLinksDeleteArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SocialLinks.
+     * @param {SocialLinksUpdateArgs} args - Arguments to update one SocialLinks.
+     * @example
+     * // Update one SocialLinks
+     * const socialLinks = await prisma.socialLinks.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends SocialLinksUpdateArgs>(args: SelectSubset<T, SocialLinksUpdateArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SocialLinks.
+     * @param {SocialLinksDeleteManyArgs} args - Arguments to filter SocialLinks to delete.
+     * @example
+     * // Delete a few SocialLinks
+     * const { count } = await prisma.socialLinks.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends SocialLinksDeleteManyArgs>(args?: SelectSubset<T, SocialLinksDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SocialLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SocialLinks
+     * const socialLinks = await prisma.socialLinks.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends SocialLinksUpdateManyArgs>(args: SelectSubset<T, SocialLinksUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SocialLinks and returns the data updated in the database.
+     * @param {SocialLinksUpdateManyAndReturnArgs} args - Arguments to update many SocialLinks.
+     * @example
+     * // Update many SocialLinks
+     * const socialLinks = await prisma.socialLinks.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SocialLinks and only return the `id`
+     * const socialLinksWithIdOnly = await prisma.socialLinks.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends SocialLinksUpdateManyAndReturnArgs>(args: SelectSubset<T, SocialLinksUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SocialLinks.
+     * @param {SocialLinksUpsertArgs} args - Arguments to update or create a SocialLinks.
+     * @example
+     * // Update or create a SocialLinks
+     * const socialLinks = await prisma.socialLinks.upsert({
+     *   create: {
+     *     // ... data to create a SocialLinks
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SocialLinks we want to update
+     *   }
+     * })
+     */
+    upsert<T extends SocialLinksUpsertArgs>(args: SelectSubset<T, SocialLinksUpsertArgs<ExtArgs>>): Prisma__SocialLinksClient<$Result.GetResult<Prisma.$SocialLinksPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SocialLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksCountArgs} args - Arguments to filter SocialLinks to count.
+     * @example
+     * // Count the number of SocialLinks
+     * const count = await prisma.socialLinks.count({
+     *   where: {
+     *     // ... the filter for the SocialLinks we want to count
+     *   }
+     * })
+    **/
+    count<T extends SocialLinksCountArgs>(
+      args?: Subset<T, SocialLinksCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SocialLinksCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SocialLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SocialLinksAggregateArgs>(args: Subset<T, SocialLinksAggregateArgs>): Prisma.PrismaPromise<GetSocialLinksAggregateType<T>>
+
+    /**
+     * Group by SocialLinks.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SocialLinksGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends SocialLinksGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: SocialLinksGroupByArgs['orderBy'] }
+        : { orderBy?: SocialLinksGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, SocialLinksGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSocialLinksGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the SocialLinks model
+   */
+  readonly fields: SocialLinksFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for SocialLinks.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__SocialLinksClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the SocialLinks model
+   */
+  interface SocialLinksFieldRefs {
+    readonly id: FieldRef<"SocialLinks", 'Int'>
+    readonly posterImageUrl: FieldRef<"SocialLinks", 'Json'>
+    readonly post_links: FieldRef<"SocialLinks", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * SocialLinks findUnique
+   */
+  export type SocialLinksFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter, which SocialLinks to fetch.
+     */
+    where: SocialLinksWhereUniqueInput
+  }
+
+  /**
+   * SocialLinks findUniqueOrThrow
+   */
+  export type SocialLinksFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter, which SocialLinks to fetch.
+     */
+    where: SocialLinksWhereUniqueInput
+  }
+
+  /**
+   * SocialLinks findFirst
+   */
+  export type SocialLinksFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter, which SocialLinks to fetch.
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SocialLinks to fetch.
+     */
+    orderBy?: SocialLinksOrderByWithRelationInput | SocialLinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SocialLinks.
+     */
+    cursor?: SocialLinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SocialLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SocialLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SocialLinks.
+     */
+    distinct?: SocialLinksScalarFieldEnum | SocialLinksScalarFieldEnum[]
+  }
+
+  /**
+   * SocialLinks findFirstOrThrow
+   */
+  export type SocialLinksFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter, which SocialLinks to fetch.
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SocialLinks to fetch.
+     */
+    orderBy?: SocialLinksOrderByWithRelationInput | SocialLinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for SocialLinks.
+     */
+    cursor?: SocialLinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SocialLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SocialLinks.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of SocialLinks.
+     */
+    distinct?: SocialLinksScalarFieldEnum | SocialLinksScalarFieldEnum[]
+  }
+
+  /**
+   * SocialLinks findMany
+   */
+  export type SocialLinksFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter, which SocialLinks to fetch.
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of SocialLinks to fetch.
+     */
+    orderBy?: SocialLinksOrderByWithRelationInput | SocialLinksOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing SocialLinks.
+     */
+    cursor?: SocialLinksWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` SocialLinks from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` SocialLinks.
+     */
+    skip?: number
+    distinct?: SocialLinksScalarFieldEnum | SocialLinksScalarFieldEnum[]
+  }
+
+  /**
+   * SocialLinks create
+   */
+  export type SocialLinksCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * The data needed to create a SocialLinks.
+     */
+    data: XOR<SocialLinksCreateInput, SocialLinksUncheckedCreateInput>
+  }
+
+  /**
+   * SocialLinks createMany
+   */
+  export type SocialLinksCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many SocialLinks.
+     */
+    data: SocialLinksCreateManyInput | SocialLinksCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SocialLinks createManyAndReturn
+   */
+  export type SocialLinksCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * The data used to create many SocialLinks.
+     */
+    data: SocialLinksCreateManyInput | SocialLinksCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * SocialLinks update
+   */
+  export type SocialLinksUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * The data needed to update a SocialLinks.
+     */
+    data: XOR<SocialLinksUpdateInput, SocialLinksUncheckedUpdateInput>
+    /**
+     * Choose, which SocialLinks to update.
+     */
+    where: SocialLinksWhereUniqueInput
+  }
+
+  /**
+   * SocialLinks updateMany
+   */
+  export type SocialLinksUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update SocialLinks.
+     */
+    data: XOR<SocialLinksUpdateManyMutationInput, SocialLinksUncheckedUpdateManyInput>
+    /**
+     * Filter which SocialLinks to update
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * Limit how many SocialLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SocialLinks updateManyAndReturn
+   */
+  export type SocialLinksUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * The data used to update SocialLinks.
+     */
+    data: XOR<SocialLinksUpdateManyMutationInput, SocialLinksUncheckedUpdateManyInput>
+    /**
+     * Filter which SocialLinks to update
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * Limit how many SocialLinks to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * SocialLinks upsert
+   */
+  export type SocialLinksUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * The filter to search for the SocialLinks to update in case it exists.
+     */
+    where: SocialLinksWhereUniqueInput
+    /**
+     * In case the SocialLinks found by the `where` argument doesn't exist, create a new SocialLinks with this data.
+     */
+    create: XOR<SocialLinksCreateInput, SocialLinksUncheckedCreateInput>
+    /**
+     * In case the SocialLinks was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SocialLinksUpdateInput, SocialLinksUncheckedUpdateInput>
+  }
+
+  /**
+   * SocialLinks delete
+   */
+  export type SocialLinksDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+    /**
+     * Filter which SocialLinks to delete.
+     */
+    where: SocialLinksWhereUniqueInput
+  }
+
+  /**
+   * SocialLinks deleteMany
+   */
+  export type SocialLinksDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SocialLinks to delete
+     */
+    where?: SocialLinksWhereInput
+    /**
+     * Limit how many SocialLinks to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SocialLinks without action
+   */
+  export type SocialLinksDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SocialLinks
+     */
+    select?: SocialLinksSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SocialLinks
+     */
+    omit?: SocialLinksOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -7339,6 +9591,29 @@ export namespace Prisma {
   };
 
   export type AdminsScalarFieldEnum = (typeof AdminsScalarFieldEnum)[keyof typeof AdminsScalarFieldEnum]
+
+
+  export const ReviewsScalarFieldEnum: {
+    id: 'id',
+    posterImageUrl: 'posterImageUrl',
+    name: 'name',
+    starRating: 'starRating',
+    ReviewsDescription: 'ReviewsDescription',
+    reviewDate: 'reviewDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ReviewsScalarFieldEnum = (typeof ReviewsScalarFieldEnum)[keyof typeof ReviewsScalarFieldEnum]
+
+
+  export const SocialLinksScalarFieldEnum: {
+    id: 'id',
+    posterImageUrl: 'posterImageUrl',
+    post_links: 'post_links'
+  };
+
+  export type SocialLinksScalarFieldEnum = (typeof SocialLinksScalarFieldEnum)[keyof typeof SocialLinksScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -8328,6 +10603,119 @@ export namespace Prisma {
     createdAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"Admins"> | Date | string | null
     last_editedBy?: StringNullableWithAggregatesFilter<"Admins"> | string | null
+  }
+
+  export type ReviewsWhereInput = {
+    AND?: ReviewsWhereInput | ReviewsWhereInput[]
+    OR?: ReviewsWhereInput[]
+    NOT?: ReviewsWhereInput | ReviewsWhereInput[]
+    id?: IntFilter<"Reviews"> | number
+    posterImageUrl?: JsonNullableFilter<"Reviews">
+    name?: StringFilter<"Reviews"> | string
+    starRating?: IntNullableFilter<"Reviews"> | number | null
+    ReviewsDescription?: StringFilter<"Reviews"> | string
+    reviewDate?: StringNullableFilter<"Reviews"> | string | null
+    createdAt?: DateTimeNullableFilter<"Reviews"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Reviews"> | Date | string | null
+  }
+
+  export type ReviewsOrderByWithRelationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    name?: SortOrder
+    starRating?: SortOrderInput | SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+  }
+
+  export type ReviewsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ReviewsWhereInput | ReviewsWhereInput[]
+    OR?: ReviewsWhereInput[]
+    NOT?: ReviewsWhereInput | ReviewsWhereInput[]
+    posterImageUrl?: JsonNullableFilter<"Reviews">
+    name?: StringFilter<"Reviews"> | string
+    starRating?: IntNullableFilter<"Reviews"> | number | null
+    ReviewsDescription?: StringFilter<"Reviews"> | string
+    reviewDate?: StringNullableFilter<"Reviews"> | string | null
+    createdAt?: DateTimeNullableFilter<"Reviews"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Reviews"> | Date | string | null
+  }, "id">
+
+  export type ReviewsOrderByWithAggregationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    name?: SortOrder
+    starRating?: SortOrderInput | SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: ReviewsCountOrderByAggregateInput
+    _avg?: ReviewsAvgOrderByAggregateInput
+    _max?: ReviewsMaxOrderByAggregateInput
+    _min?: ReviewsMinOrderByAggregateInput
+    _sum?: ReviewsSumOrderByAggregateInput
+  }
+
+  export type ReviewsScalarWhereWithAggregatesInput = {
+    AND?: ReviewsScalarWhereWithAggregatesInput | ReviewsScalarWhereWithAggregatesInput[]
+    OR?: ReviewsScalarWhereWithAggregatesInput[]
+    NOT?: ReviewsScalarWhereWithAggregatesInput | ReviewsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Reviews"> | number
+    posterImageUrl?: JsonNullableWithAggregatesFilter<"Reviews">
+    name?: StringWithAggregatesFilter<"Reviews"> | string
+    starRating?: IntNullableWithAggregatesFilter<"Reviews"> | number | null
+    ReviewsDescription?: StringWithAggregatesFilter<"Reviews"> | string
+    reviewDate?: StringNullableWithAggregatesFilter<"Reviews"> | string | null
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Reviews"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Reviews"> | Date | string | null
+  }
+
+  export type SocialLinksWhereInput = {
+    AND?: SocialLinksWhereInput | SocialLinksWhereInput[]
+    OR?: SocialLinksWhereInput[]
+    NOT?: SocialLinksWhereInput | SocialLinksWhereInput[]
+    id?: IntFilter<"SocialLinks"> | number
+    posterImageUrl?: JsonFilter<"SocialLinks">
+    post_links?: StringFilter<"SocialLinks"> | string
+  }
+
+  export type SocialLinksOrderByWithRelationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrder
+    post_links?: SortOrder
+  }
+
+  export type SocialLinksWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: SocialLinksWhereInput | SocialLinksWhereInput[]
+    OR?: SocialLinksWhereInput[]
+    NOT?: SocialLinksWhereInput | SocialLinksWhereInput[]
+    posterImageUrl?: JsonFilter<"SocialLinks">
+    post_links?: StringFilter<"SocialLinks"> | string
+  }, "id">
+
+  export type SocialLinksOrderByWithAggregationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrder
+    post_links?: SortOrder
+    _count?: SocialLinksCountOrderByAggregateInput
+    _avg?: SocialLinksAvgOrderByAggregateInput
+    _max?: SocialLinksMaxOrderByAggregateInput
+    _min?: SocialLinksMinOrderByAggregateInput
+    _sum?: SocialLinksSumOrderByAggregateInput
+  }
+
+  export type SocialLinksScalarWhereWithAggregatesInput = {
+    AND?: SocialLinksScalarWhereWithAggregatesInput | SocialLinksScalarWhereWithAggregatesInput[]
+    OR?: SocialLinksScalarWhereWithAggregatesInput[]
+    NOT?: SocialLinksScalarWhereWithAggregatesInput | SocialLinksScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"SocialLinks"> | number
+    posterImageUrl?: JsonWithAggregatesFilter<"SocialLinks">
+    post_links?: StringWithAggregatesFilter<"SocialLinks"> | string
   }
 
   export type categoriesCreateInput = {
@@ -9412,6 +11800,119 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type ReviewsCreateInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type ReviewsUncheckedCreateInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type ReviewsUpdateInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ReviewsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ReviewsCreateManyInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type ReviewsUpdateManyMutationInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ReviewsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type SocialLinksCreateInput = {
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    post_links: string
+  }
+
+  export type SocialLinksUncheckedCreateInput = {
+    id?: number
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    post_links: string
+  }
+
+  export type SocialLinksUpdateInput = {
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    post_links?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SocialLinksUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    post_links?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SocialLinksCreateManyInput = {
+    id?: number
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    post_links: string
+  }
+
+  export type SocialLinksUpdateManyMutationInput = {
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    post_links?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type SocialLinksUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    post_links?: StringFieldUpdateOperationsInput | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -10162,6 +12663,71 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedBoolFilter<$PrismaModel>
     _max?: NestedBoolFilter<$PrismaModel>
+  }
+
+  export type ReviewsCountOrderByAggregateInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReviewsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    starRating?: SortOrder
+  }
+
+  export type ReviewsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReviewsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ReviewsSumOrderByAggregateInput = {
+    id?: SortOrder
+    starRating?: SortOrder
+  }
+
+  export type SocialLinksCountOrderByAggregateInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrder
+    post_links?: SortOrder
+  }
+
+  export type SocialLinksAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type SocialLinksMaxOrderByAggregateInput = {
+    id?: SortOrder
+    post_links?: SortOrder
+  }
+
+  export type SocialLinksMinOrderByAggregateInput = {
+    id?: SortOrder
+    post_links?: SortOrder
+  }
+
+  export type SocialLinksSumOrderByAggregateInput = {
+    id?: SortOrder
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {

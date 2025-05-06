@@ -6,6 +6,7 @@ import { PrismaService } from './prisma/prisma.service';
 import { FileUploadingModule } from './file_uploading/file_uploading.module';
 import { SubcategoriesModule } from './subcategories/subcategories.module';
 import { ProductsModule } from './products/products.module';
+import { GeneralModule } from './general/general.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -19,7 +20,8 @@ import { ProductsModule } from './products/products.module';
   CategoriesModule,
   FileUploadingModule,
   SubcategoriesModule,
-  ProductsModule
+  ProductsModule,
+  GeneralModule
   ],
   providers:[PrismaService]
 })

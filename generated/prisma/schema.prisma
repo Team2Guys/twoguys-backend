@@ -150,21 +150,21 @@ model subCategories {
 
 model Products {
   id               Int       @id @default(autoincrement())
-  name             String
-  price            Int
-  description      String
-  stock            Int
-  discountPrice    Int?
-  posterImageUrl   Json
-  hoverImageUrl    Json?
-  productImages    Json[]
-  createdAt        DateTime? @default(now())
-  updatedAt        DateTime? @default(now())
-  Canonical_Tag    String?
-  Meta_Description String?
-  Meta_Title       String?
+  name             String ////✅
+  price            Int //✅
+  description      String //✅
+  stock            Int //✅
+  discountPrice    Int? //✅
+  posterImageUrl   Json //✅
+  hoverImageUrl    Json? //✅
+  productImages    Json[] //✅
+  createdAt        DateTime? @default(now()) //✅
+  updatedAt        DateTime? @default(now()) //✅
+  Canonical_Tag    String? //✅
+  Meta_Description String? //✅
+  Meta_Title       String? //✅
   last_editedBy    String?
-  custom_url       String
+  custom_url       String //✅
   breadCrum        String?
 
   // BannersData
@@ -173,20 +173,20 @@ model Products {
   BannerHeading String? //✅
 
   // After hero Sectons (/3d)
-  categoryHeroImages  Json[]  @default([]) //3d
-  categoryHeroToptext String? //
-  categoryHeroHeading String? //
-  categoryHeroText    Json[]  @default([]) //
-  categoryFaqs        Json[]  @default([]) //
+  categoryHeroImages  Json[]  @default([]) //3d ✅
+  categoryHeroToptext String? // ✅
+  categoryHeroHeading String? // ✅
+  categoryHeroText    Json[]  @default([]) //✅
+  categoryFaqs        Json[]  @default([]) // ✅
 
-  // rightSideText
+  // leftside
   right_side_Heading String?
-  left_side_Text     Json[]  @default([])
-  left_side_image    Json?
+  left_side_Text     Json[]  @default([]) // ✅
+  left_side_image    Json? // ✅
 
   // Before Products Heading and text (3d)                  
-  Product_Section_heading String? // 
-  bottomText              String? //
+  Product_Section_heading String? //  ✅
+  bottomText              String? // ✅
 
   // Capabilities Section 
   explore_Heading          String? // ✅
@@ -226,4 +226,21 @@ model Admins {
   createdAt              DateTime? @default(now())
   updatedAt              DateTime? @updatedAt
   last_editedBy          String?
+}
+
+model Reviews {
+  id                 Int       @id @default(autoincrement())
+  posterImageUrl     Json?
+  name               String
+  starRating         Int?
+  ReviewsDescription String
+  reviewDate         String?
+  createdAt          DateTime? @default(now())
+  updatedAt          DateTime?
+}
+
+model SocialLinks {
+  id             Int    @id @default(autoincrement())
+  posterImageUrl Json
+  post_links     String
 }
