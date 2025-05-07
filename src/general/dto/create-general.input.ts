@@ -28,3 +28,32 @@ export class CreateGeneralsocial {
   @Field(() => GraphQLJSON)
   posterImageUrl: any;
 }
+
+
+
+@InputType()
+export class createAppointments {
+
+  @Field(() => Int)
+  phoneNumber: number;
+
+  @Field(() => String)
+  email: string;
+
+
+  @Field(() => String,)
+  name: string;
+
+  @Field()
+  location: string;
+
+  @Field(()=>Int,{nullable:true})
+  whatsApp?: number;
+
+
+  @Field(()=>[GraphQLJSON],{nullable:true})
+  subCategories?: any;
+
+
+
+}

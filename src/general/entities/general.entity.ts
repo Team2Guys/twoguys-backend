@@ -43,3 +43,33 @@ export class SocialLinks {
   @Field(() => GraphQLJSON)
   posterImageUrl: any;
 }
+
+
+
+@ObjectType()
+export class Appointments {
+  @Field(() => ID)
+  id: number;
+
+  @Field(() => Int)
+  phoneNumber: string;
+
+  @Field(() => String)
+  email: string;
+
+  @Field(() => String,)
+  name: string;
+
+  @Field()
+  location: string;
+
+  @Field(()=>Int,{nullable:true})
+  whatsApp?: number;
+
+
+  @Field(()=>[GraphQLJSON],{nullable:true})
+  subCategories?: any;
+
+
+
+}

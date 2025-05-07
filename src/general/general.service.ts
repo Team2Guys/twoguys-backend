@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { CreateGeneralInput } from './dto/create-general.input';
+import { createAppointments, CreateGeneralInput } from './dto/create-general.input';
 import { UpdateGeneralInput } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
+import { sendAppointmentEmail } from 'utils/EmailHanlders';
 
 @Injectable()
 export class GeneralService {
@@ -43,6 +44,46 @@ export class GeneralService {
     }
     return `This action removes a #${id} general`;
   }
+
+  async createAppointment(createGeneralInput: createAppointments) {
+    try {
+       await sendAppointmentEmail(createGeneralInput)
+      return await this.prisma.appointments.create({data:createGeneralInput})
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+
+  // Appointments
+  async GetAllAppointments() {
+    try {
+      return await this.prisma.appointments.findMany({})
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+
+  async RevmoveAppointments(id: number) {
+    try {
+      return await this.prisma.appointments.delete({where:{id}})
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+  async findOne(id: number) {
+    try {
+      return await this.prisma.appointments.findUnique({ where: { id } })
+    } catch (error) {
+      customHttpException(error);
+    }
+  }
+
 
   
 }

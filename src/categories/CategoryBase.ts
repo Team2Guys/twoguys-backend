@@ -1,6 +1,7 @@
 import { Field, ObjectType } from '@nestjs/graphql';
 import { GraphQLJSON } from 'graphql-type-json';
 import { Subcategory } from '../subcategories/entities/subcategory.entity';
+import { Product } from 'products/entities/product.entity';
 
 @ObjectType({ isAbstract: true })
 export abstract class  CategoryBase  {
@@ -128,5 +129,9 @@ export abstract class  CategoryBase  {
 
     @Field(()=>[Subcategory],{nullable:true})
     subCategories?:Subcategory[];
+
+
+    @Field(()=>[Product],{nullable:true})
+    products?:Product[];
 
   }

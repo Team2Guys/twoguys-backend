@@ -289,7 +289,19 @@ exports.Prisma.ReviewsScalarFieldEnum = {
 exports.Prisma.SocialLinksScalarFieldEnum = {
   id: 'id',
   posterImageUrl: 'posterImageUrl',
-  post_links: 'post_links'
+  post_links: 'post_links',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AppointmentsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  phoneNumber: 'phoneNumber',
+  whatsApp: 'whatsApp',
+  location: 'location',
+  email: 'email',
+  subCategories: 'subCategories'
 };
 
 exports.Prisma.SortOrder = {
@@ -329,7 +341,8 @@ exports.Prisma.ModelName = {
   Products: 'Products',
   Admins: 'Admins',
   Reviews: 'Reviews',
-  SocialLinks: 'SocialLinks'
+  SocialLinks: 'SocialLinks',
+  Appointments: 'Appointments'
 };
 
 /**

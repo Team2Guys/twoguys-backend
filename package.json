@@ -36,6 +36,7 @@
     "graphql-upload-ts": "^2.1.2",
     "graphql-ws": "^6.0.4",
     "jsonwebtoken": "^9.0.2",
+    "nodemailer": "^7.0.2",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "ws": "^8.18.1"

@@ -43,6 +43,11 @@ export type Reviews = $Result.DefaultSelection<Prisma.$ReviewsPayload>
  * 
  */
 export type SocialLinks = $Result.DefaultSelection<Prisma.$SocialLinksPayload>
+/**
+ * Model Appointments
+ * 
+ */
+export type Appointments = $Result.DefaultSelection<Prisma.$AppointmentsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -228,6 +233,16 @@ export class PrismaClient<
     * ```
     */
   get socialLinks(): Prisma.SocialLinksDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.appointments`: Exposes CRUD operations for the **Appointments** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Appointments
+    * const appointments = await prisma.appointments.findMany()
+    * ```
+    */
+  get appointments(): Prisma.AppointmentsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -673,7 +688,8 @@ export namespace Prisma {
     Products: 'Products',
     Admins: 'Admins',
     Reviews: 'Reviews',
-    SocialLinks: 'SocialLinks'
+    SocialLinks: 'SocialLinks',
+    Appointments: 'Appointments'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -692,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks"
+      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1140,6 +1156,80 @@ export namespace Prisma {
           }
         }
       }
+      Appointments: {
+        payload: Prisma.$AppointmentsPayload<ExtArgs>
+        fields: Prisma.AppointmentsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.AppointmentsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.AppointmentsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          findFirst: {
+            args: Prisma.AppointmentsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.AppointmentsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          findMany: {
+            args: Prisma.AppointmentsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>[]
+          }
+          create: {
+            args: Prisma.AppointmentsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          createMany: {
+            args: Prisma.AppointmentsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.AppointmentsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>[]
+          }
+          delete: {
+            args: Prisma.AppointmentsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          update: {
+            args: Prisma.AppointmentsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          deleteMany: {
+            args: Prisma.AppointmentsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.AppointmentsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.AppointmentsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>[]
+          }
+          upsert: {
+            args: Prisma.AppointmentsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AppointmentsPayload>
+          }
+          aggregate: {
+            args: Prisma.AppointmentsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAppointments>
+          }
+          groupBy: {
+            args: Prisma.AppointmentsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AppointmentsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.AppointmentsCountArgs<ExtArgs>
+            result: $Utils.Optional<AppointmentsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1230,6 +1320,7 @@ export namespace Prisma {
     admins?: AdminsOmit
     reviews?: ReviewsOmit
     socialLinks?: SocialLinksOmit
+    appointments?: AppointmentsOmit
   }
 
   /* Types for Logging */
@@ -8436,17 +8527,23 @@ export namespace Prisma {
   export type SocialLinksMinAggregateOutputType = {
     id: number | null
     post_links: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SocialLinksMaxAggregateOutputType = {
     id: number | null
     post_links: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SocialLinksCountAggregateOutputType = {
     id: number
     posterImageUrl: number
     post_links: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -8462,17 +8559,23 @@ export namespace Prisma {
   export type SocialLinksMinAggregateInputType = {
     id?: true
     post_links?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SocialLinksMaxAggregateInputType = {
     id?: true
     post_links?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SocialLinksCountAggregateInputType = {
     id?: true
     posterImageUrl?: true
     post_links?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -8566,6 +8669,8 @@ export namespace Prisma {
     id: number
     posterImageUrl: JsonValue
     post_links: string
+    createdAt: Date | null
+    updatedAt: Date | null
     _count: SocialLinksCountAggregateOutputType | null
     _avg: SocialLinksAvgAggregateOutputType | null
     _sum: SocialLinksSumAggregateOutputType | null
@@ -8591,27 +8696,35 @@ export namespace Prisma {
     id?: boolean
     posterImageUrl?: boolean
     post_links?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["socialLinks"]>
 
   export type SocialLinksSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     posterImageUrl?: boolean
     post_links?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["socialLinks"]>
 
   export type SocialLinksSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     posterImageUrl?: boolean
     post_links?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["socialLinks"]>
 
   export type SocialLinksSelectScalar = {
     id?: boolean
     posterImageUrl?: boolean
     post_links?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type SocialLinksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "posterImageUrl" | "post_links", ExtArgs["result"]["socialLinks"]>
+  export type SocialLinksOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "posterImageUrl" | "post_links" | "createdAt" | "updatedAt", ExtArgs["result"]["socialLinks"]>
 
   export type $SocialLinksPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "SocialLinks"
@@ -8620,6 +8733,8 @@ export namespace Prisma {
       id: number
       posterImageUrl: Prisma.JsonValue
       post_links: string
+      createdAt: Date | null
+      updatedAt: Date | null
     }, ExtArgs["result"]["socialLinks"]>
     composites: {}
   }
@@ -9046,6 +9161,8 @@ export namespace Prisma {
     readonly id: FieldRef<"SocialLinks", 'Int'>
     readonly posterImageUrl: FieldRef<"SocialLinks", 'Json'>
     readonly post_links: FieldRef<"SocialLinks", 'String'>
+    readonly createdAt: FieldRef<"SocialLinks", 'DateTime'>
+    readonly updatedAt: FieldRef<"SocialLinks", 'DateTime'>
   }
     
 
@@ -9413,6 +9530,1065 @@ export namespace Prisma {
 
 
   /**
+   * Model Appointments
+   */
+
+  export type AggregateAppointments = {
+    _count: AppointmentsCountAggregateOutputType | null
+    _avg: AppointmentsAvgAggregateOutputType | null
+    _sum: AppointmentsSumAggregateOutputType | null
+    _min: AppointmentsMinAggregateOutputType | null
+    _max: AppointmentsMaxAggregateOutputType | null
+  }
+
+  export type AppointmentsAvgAggregateOutputType = {
+    id: number | null
+    phoneNumber: number | null
+    whatsApp: number | null
+  }
+
+  export type AppointmentsSumAggregateOutputType = {
+    id: number | null
+    phoneNumber: number | null
+    whatsApp: number | null
+  }
+
+  export type AppointmentsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    phoneNumber: number | null
+    whatsApp: number | null
+    location: string | null
+    email: string | null
+  }
+
+  export type AppointmentsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    phoneNumber: number | null
+    whatsApp: number | null
+    location: string | null
+    email: string | null
+  }
+
+  export type AppointmentsCountAggregateOutputType = {
+    id: number
+    name: number
+    phoneNumber: number
+    whatsApp: number
+    location: number
+    email: number
+    subCategories: number
+    _all: number
+  }
+
+
+  export type AppointmentsAvgAggregateInputType = {
+    id?: true
+    phoneNumber?: true
+    whatsApp?: true
+  }
+
+  export type AppointmentsSumAggregateInputType = {
+    id?: true
+    phoneNumber?: true
+    whatsApp?: true
+  }
+
+  export type AppointmentsMinAggregateInputType = {
+    id?: true
+    name?: true
+    phoneNumber?: true
+    whatsApp?: true
+    location?: true
+    email?: true
+  }
+
+  export type AppointmentsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    phoneNumber?: true
+    whatsApp?: true
+    location?: true
+    email?: true
+  }
+
+  export type AppointmentsCountAggregateInputType = {
+    id?: true
+    name?: true
+    phoneNumber?: true
+    whatsApp?: true
+    location?: true
+    email?: true
+    subCategories?: true
+    _all?: true
+  }
+
+  export type AppointmentsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Appointments to aggregate.
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Appointments to fetch.
+     */
+    orderBy?: AppointmentsOrderByWithRelationInput | AppointmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AppointmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Appointments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Appointments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Appointments
+    **/
+    _count?: true | AppointmentsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AppointmentsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AppointmentsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AppointmentsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AppointmentsMaxAggregateInputType
+  }
+
+  export type GetAppointmentsAggregateType<T extends AppointmentsAggregateArgs> = {
+        [P in keyof T & keyof AggregateAppointments]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAppointments[P]>
+      : GetScalarType<T[P], AggregateAppointments[P]>
+  }
+
+
+
+
+  export type AppointmentsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AppointmentsWhereInput
+    orderBy?: AppointmentsOrderByWithAggregationInput | AppointmentsOrderByWithAggregationInput[]
+    by: AppointmentsScalarFieldEnum[] | AppointmentsScalarFieldEnum
+    having?: AppointmentsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AppointmentsCountAggregateInputType | true
+    _avg?: AppointmentsAvgAggregateInputType
+    _sum?: AppointmentsSumAggregateInputType
+    _min?: AppointmentsMinAggregateInputType
+    _max?: AppointmentsMaxAggregateInputType
+  }
+
+  export type AppointmentsGroupByOutputType = {
+    id: number
+    name: string
+    phoneNumber: number
+    whatsApp: number | null
+    location: string
+    email: string
+    subCategories: JsonValue[]
+    _count: AppointmentsCountAggregateOutputType | null
+    _avg: AppointmentsAvgAggregateOutputType | null
+    _sum: AppointmentsSumAggregateOutputType | null
+    _min: AppointmentsMinAggregateOutputType | null
+    _max: AppointmentsMaxAggregateOutputType | null
+  }
+
+  type GetAppointmentsGroupByPayload<T extends AppointmentsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AppointmentsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AppointmentsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AppointmentsGroupByOutputType[P]>
+            : GetScalarType<T[P], AppointmentsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AppointmentsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    phoneNumber?: boolean
+    whatsApp?: boolean
+    location?: boolean
+    email?: boolean
+    subCategories?: boolean
+  }, ExtArgs["result"]["appointments"]>
+
+  export type AppointmentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    phoneNumber?: boolean
+    whatsApp?: boolean
+    location?: boolean
+    email?: boolean
+    subCategories?: boolean
+  }, ExtArgs["result"]["appointments"]>
+
+  export type AppointmentsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    phoneNumber?: boolean
+    whatsApp?: boolean
+    location?: boolean
+    email?: boolean
+    subCategories?: boolean
+  }, ExtArgs["result"]["appointments"]>
+
+  export type AppointmentsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    phoneNumber?: boolean
+    whatsApp?: boolean
+    location?: boolean
+    email?: boolean
+    subCategories?: boolean
+  }
+
+  export type AppointmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phoneNumber" | "whatsApp" | "location" | "email" | "subCategories", ExtArgs["result"]["appointments"]>
+
+  export type $AppointmentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Appointments"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      phoneNumber: number
+      whatsApp: number | null
+      location: string
+      email: string
+      subCategories: Prisma.JsonValue[]
+    }, ExtArgs["result"]["appointments"]>
+    composites: {}
+  }
+
+  type AppointmentsGetPayload<S extends boolean | null | undefined | AppointmentsDefaultArgs> = $Result.GetResult<Prisma.$AppointmentsPayload, S>
+
+  type AppointmentsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AppointmentsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AppointmentsCountAggregateInputType | true
+    }
+
+  export interface AppointmentsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Appointments'], meta: { name: 'Appointments' } }
+    /**
+     * Find zero or one Appointments that matches the filter.
+     * @param {AppointmentsFindUniqueArgs} args - Arguments to find a Appointments
+     * @example
+     * // Get one Appointments
+     * const appointments = await prisma.appointments.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AppointmentsFindUniqueArgs>(args: SelectSubset<T, AppointmentsFindUniqueArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Appointments that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AppointmentsFindUniqueOrThrowArgs} args - Arguments to find a Appointments
+     * @example
+     * // Get one Appointments
+     * const appointments = await prisma.appointments.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AppointmentsFindUniqueOrThrowArgs>(args: SelectSubset<T, AppointmentsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Appointments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsFindFirstArgs} args - Arguments to find a Appointments
+     * @example
+     * // Get one Appointments
+     * const appointments = await prisma.appointments.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AppointmentsFindFirstArgs>(args?: SelectSubset<T, AppointmentsFindFirstArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Appointments that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsFindFirstOrThrowArgs} args - Arguments to find a Appointments
+     * @example
+     * // Get one Appointments
+     * const appointments = await prisma.appointments.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AppointmentsFindFirstOrThrowArgs>(args?: SelectSubset<T, AppointmentsFindFirstOrThrowArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Appointments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Appointments
+     * const appointments = await prisma.appointments.findMany()
+     * 
+     * // Get first 10 Appointments
+     * const appointments = await prisma.appointments.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const appointmentsWithIdOnly = await prisma.appointments.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AppointmentsFindManyArgs>(args?: SelectSubset<T, AppointmentsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Appointments.
+     * @param {AppointmentsCreateArgs} args - Arguments to create a Appointments.
+     * @example
+     * // Create one Appointments
+     * const Appointments = await prisma.appointments.create({
+     *   data: {
+     *     // ... data to create a Appointments
+     *   }
+     * })
+     * 
+     */
+    create<T extends AppointmentsCreateArgs>(args: SelectSubset<T, AppointmentsCreateArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Appointments.
+     * @param {AppointmentsCreateManyArgs} args - Arguments to create many Appointments.
+     * @example
+     * // Create many Appointments
+     * const appointments = await prisma.appointments.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AppointmentsCreateManyArgs>(args?: SelectSubset<T, AppointmentsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Appointments and returns the data saved in the database.
+     * @param {AppointmentsCreateManyAndReturnArgs} args - Arguments to create many Appointments.
+     * @example
+     * // Create many Appointments
+     * const appointments = await prisma.appointments.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Appointments and only return the `id`
+     * const appointmentsWithIdOnly = await prisma.appointments.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AppointmentsCreateManyAndReturnArgs>(args?: SelectSubset<T, AppointmentsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Appointments.
+     * @param {AppointmentsDeleteArgs} args - Arguments to delete one Appointments.
+     * @example
+     * // Delete one Appointments
+     * const Appointments = await prisma.appointments.delete({
+     *   where: {
+     *     // ... filter to delete one Appointments
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AppointmentsDeleteArgs>(args: SelectSubset<T, AppointmentsDeleteArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Appointments.
+     * @param {AppointmentsUpdateArgs} args - Arguments to update one Appointments.
+     * @example
+     * // Update one Appointments
+     * const appointments = await prisma.appointments.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AppointmentsUpdateArgs>(args: SelectSubset<T, AppointmentsUpdateArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Appointments.
+     * @param {AppointmentsDeleteManyArgs} args - Arguments to filter Appointments to delete.
+     * @example
+     * // Delete a few Appointments
+     * const { count } = await prisma.appointments.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AppointmentsDeleteManyArgs>(args?: SelectSubset<T, AppointmentsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Appointments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Appointments
+     * const appointments = await prisma.appointments.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AppointmentsUpdateManyArgs>(args: SelectSubset<T, AppointmentsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Appointments and returns the data updated in the database.
+     * @param {AppointmentsUpdateManyAndReturnArgs} args - Arguments to update many Appointments.
+     * @example
+     * // Update many Appointments
+     * const appointments = await prisma.appointments.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Appointments and only return the `id`
+     * const appointmentsWithIdOnly = await prisma.appointments.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AppointmentsUpdateManyAndReturnArgs>(args: SelectSubset<T, AppointmentsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Appointments.
+     * @param {AppointmentsUpsertArgs} args - Arguments to update or create a Appointments.
+     * @example
+     * // Update or create a Appointments
+     * const appointments = await prisma.appointments.upsert({
+     *   create: {
+     *     // ... data to create a Appointments
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Appointments we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AppointmentsUpsertArgs>(args: SelectSubset<T, AppointmentsUpsertArgs<ExtArgs>>): Prisma__AppointmentsClient<$Result.GetResult<Prisma.$AppointmentsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Appointments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsCountArgs} args - Arguments to filter Appointments to count.
+     * @example
+     * // Count the number of Appointments
+     * const count = await prisma.appointments.count({
+     *   where: {
+     *     // ... the filter for the Appointments we want to count
+     *   }
+     * })
+    **/
+    count<T extends AppointmentsCountArgs>(
+      args?: Subset<T, AppointmentsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AppointmentsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Appointments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AppointmentsAggregateArgs>(args: Subset<T, AppointmentsAggregateArgs>): Prisma.PrismaPromise<GetAppointmentsAggregateType<T>>
+
+    /**
+     * Group by Appointments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AppointmentsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AppointmentsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AppointmentsGroupByArgs['orderBy'] }
+        : { orderBy?: AppointmentsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AppointmentsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAppointmentsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Appointments model
+   */
+  readonly fields: AppointmentsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Appointments.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AppointmentsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Appointments model
+   */
+  interface AppointmentsFieldRefs {
+    readonly id: FieldRef<"Appointments", 'Int'>
+    readonly name: FieldRef<"Appointments", 'String'>
+    readonly phoneNumber: FieldRef<"Appointments", 'Int'>
+    readonly whatsApp: FieldRef<"Appointments", 'Int'>
+    readonly location: FieldRef<"Appointments", 'String'>
+    readonly email: FieldRef<"Appointments", 'String'>
+    readonly subCategories: FieldRef<"Appointments", 'Json[]'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Appointments findUnique
+   */
+  export type AppointmentsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter, which Appointments to fetch.
+     */
+    where: AppointmentsWhereUniqueInput
+  }
+
+  /**
+   * Appointments findUniqueOrThrow
+   */
+  export type AppointmentsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter, which Appointments to fetch.
+     */
+    where: AppointmentsWhereUniqueInput
+  }
+
+  /**
+   * Appointments findFirst
+   */
+  export type AppointmentsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter, which Appointments to fetch.
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Appointments to fetch.
+     */
+    orderBy?: AppointmentsOrderByWithRelationInput | AppointmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Appointments.
+     */
+    cursor?: AppointmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Appointments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Appointments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Appointments.
+     */
+    distinct?: AppointmentsScalarFieldEnum | AppointmentsScalarFieldEnum[]
+  }
+
+  /**
+   * Appointments findFirstOrThrow
+   */
+  export type AppointmentsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter, which Appointments to fetch.
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Appointments to fetch.
+     */
+    orderBy?: AppointmentsOrderByWithRelationInput | AppointmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Appointments.
+     */
+    cursor?: AppointmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Appointments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Appointments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Appointments.
+     */
+    distinct?: AppointmentsScalarFieldEnum | AppointmentsScalarFieldEnum[]
+  }
+
+  /**
+   * Appointments findMany
+   */
+  export type AppointmentsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter, which Appointments to fetch.
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Appointments to fetch.
+     */
+    orderBy?: AppointmentsOrderByWithRelationInput | AppointmentsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Appointments.
+     */
+    cursor?: AppointmentsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Appointments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Appointments.
+     */
+    skip?: number
+    distinct?: AppointmentsScalarFieldEnum | AppointmentsScalarFieldEnum[]
+  }
+
+  /**
+   * Appointments create
+   */
+  export type AppointmentsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Appointments.
+     */
+    data: XOR<AppointmentsCreateInput, AppointmentsUncheckedCreateInput>
+  }
+
+  /**
+   * Appointments createMany
+   */
+  export type AppointmentsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Appointments.
+     */
+    data: AppointmentsCreateManyInput | AppointmentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Appointments createManyAndReturn
+   */
+  export type AppointmentsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Appointments.
+     */
+    data: AppointmentsCreateManyInput | AppointmentsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Appointments update
+   */
+  export type AppointmentsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Appointments.
+     */
+    data: XOR<AppointmentsUpdateInput, AppointmentsUncheckedUpdateInput>
+    /**
+     * Choose, which Appointments to update.
+     */
+    where: AppointmentsWhereUniqueInput
+  }
+
+  /**
+   * Appointments updateMany
+   */
+  export type AppointmentsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Appointments.
+     */
+    data: XOR<AppointmentsUpdateManyMutationInput, AppointmentsUncheckedUpdateManyInput>
+    /**
+     * Filter which Appointments to update
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * Limit how many Appointments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Appointments updateManyAndReturn
+   */
+  export type AppointmentsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * The data used to update Appointments.
+     */
+    data: XOR<AppointmentsUpdateManyMutationInput, AppointmentsUncheckedUpdateManyInput>
+    /**
+     * Filter which Appointments to update
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * Limit how many Appointments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Appointments upsert
+   */
+  export type AppointmentsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Appointments to update in case it exists.
+     */
+    where: AppointmentsWhereUniqueInput
+    /**
+     * In case the Appointments found by the `where` argument doesn't exist, create a new Appointments with this data.
+     */
+    create: XOR<AppointmentsCreateInput, AppointmentsUncheckedCreateInput>
+    /**
+     * In case the Appointments was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AppointmentsUpdateInput, AppointmentsUncheckedUpdateInput>
+  }
+
+  /**
+   * Appointments delete
+   */
+  export type AppointmentsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+    /**
+     * Filter which Appointments to delete.
+     */
+    where: AppointmentsWhereUniqueInput
+  }
+
+  /**
+   * Appointments deleteMany
+   */
+  export type AppointmentsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Appointments to delete
+     */
+    where?: AppointmentsWhereInput
+    /**
+     * Limit how many Appointments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Appointments without action
+   */
+  export type AppointmentsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Appointments
+     */
+    select?: AppointmentsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Appointments
+     */
+    omit?: AppointmentsOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -9610,10 +10786,25 @@ export namespace Prisma {
   export const SocialLinksScalarFieldEnum: {
     id: 'id',
     posterImageUrl: 'posterImageUrl',
-    post_links: 'post_links'
+    post_links: 'post_links',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type SocialLinksScalarFieldEnum = (typeof SocialLinksScalarFieldEnum)[keyof typeof SocialLinksScalarFieldEnum]
+
+
+  export const AppointmentsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    phoneNumber: 'phoneNumber',
+    whatsApp: 'whatsApp',
+    location: 'location',
+    email: 'email',
+    subCategories: 'subCategories'
+  };
+
+  export type AppointmentsScalarFieldEnum = (typeof AppointmentsScalarFieldEnum)[keyof typeof AppointmentsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -10681,12 +11872,16 @@ export namespace Prisma {
     id?: IntFilter<"SocialLinks"> | number
     posterImageUrl?: JsonFilter<"SocialLinks">
     post_links?: StringFilter<"SocialLinks"> | string
+    createdAt?: DateTimeNullableFilter<"SocialLinks"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"SocialLinks"> | Date | string | null
   }
 
   export type SocialLinksOrderByWithRelationInput = {
     id?: SortOrder
     posterImageUrl?: SortOrder
     post_links?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type SocialLinksWhereUniqueInput = Prisma.AtLeast<{
@@ -10696,12 +11891,16 @@ export namespace Prisma {
     NOT?: SocialLinksWhereInput | SocialLinksWhereInput[]
     posterImageUrl?: JsonFilter<"SocialLinks">
     post_links?: StringFilter<"SocialLinks"> | string
+    createdAt?: DateTimeNullableFilter<"SocialLinks"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"SocialLinks"> | Date | string | null
   }, "id">
 
   export type SocialLinksOrderByWithAggregationInput = {
     id?: SortOrder
     posterImageUrl?: SortOrder
     post_links?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: SocialLinksCountOrderByAggregateInput
     _avg?: SocialLinksAvgOrderByAggregateInput
     _max?: SocialLinksMaxOrderByAggregateInput
@@ -10716,6 +11915,72 @@ export namespace Prisma {
     id?: IntWithAggregatesFilter<"SocialLinks"> | number
     posterImageUrl?: JsonWithAggregatesFilter<"SocialLinks">
     post_links?: StringWithAggregatesFilter<"SocialLinks"> | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"SocialLinks"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"SocialLinks"> | Date | string | null
+  }
+
+  export type AppointmentsWhereInput = {
+    AND?: AppointmentsWhereInput | AppointmentsWhereInput[]
+    OR?: AppointmentsWhereInput[]
+    NOT?: AppointmentsWhereInput | AppointmentsWhereInput[]
+    id?: IntFilter<"Appointments"> | number
+    name?: StringFilter<"Appointments"> | string
+    phoneNumber?: IntFilter<"Appointments"> | number
+    whatsApp?: IntNullableFilter<"Appointments"> | number | null
+    location?: StringFilter<"Appointments"> | string
+    email?: StringFilter<"Appointments"> | string
+    subCategories?: JsonNullableListFilter<"Appointments">
+  }
+
+  export type AppointmentsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrderInput | SortOrder
+    location?: SortOrder
+    email?: SortOrder
+    subCategories?: SortOrder
+  }
+
+  export type AppointmentsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: AppointmentsWhereInput | AppointmentsWhereInput[]
+    OR?: AppointmentsWhereInput[]
+    NOT?: AppointmentsWhereInput | AppointmentsWhereInput[]
+    name?: StringFilter<"Appointments"> | string
+    phoneNumber?: IntFilter<"Appointments"> | number
+    whatsApp?: IntNullableFilter<"Appointments"> | number | null
+    location?: StringFilter<"Appointments"> | string
+    email?: StringFilter<"Appointments"> | string
+    subCategories?: JsonNullableListFilter<"Appointments">
+  }, "id">
+
+  export type AppointmentsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrderInput | SortOrder
+    location?: SortOrder
+    email?: SortOrder
+    subCategories?: SortOrder
+    _count?: AppointmentsCountOrderByAggregateInput
+    _avg?: AppointmentsAvgOrderByAggregateInput
+    _max?: AppointmentsMaxOrderByAggregateInput
+    _min?: AppointmentsMinOrderByAggregateInput
+    _sum?: AppointmentsSumOrderByAggregateInput
+  }
+
+  export type AppointmentsScalarWhereWithAggregatesInput = {
+    AND?: AppointmentsScalarWhereWithAggregatesInput | AppointmentsScalarWhereWithAggregatesInput[]
+    OR?: AppointmentsScalarWhereWithAggregatesInput[]
+    NOT?: AppointmentsScalarWhereWithAggregatesInput | AppointmentsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Appointments"> | number
+    name?: StringWithAggregatesFilter<"Appointments"> | string
+    phoneNumber?: IntWithAggregatesFilter<"Appointments"> | number
+    whatsApp?: IntNullableWithAggregatesFilter<"Appointments"> | number | null
+    location?: StringWithAggregatesFilter<"Appointments"> | string
+    email?: StringWithAggregatesFilter<"Appointments"> | string
+    subCategories?: JsonNullableListFilter<"Appointments">
   }
 
   export type categoriesCreateInput = {
@@ -11877,40 +13142,121 @@ export namespace Prisma {
   export type SocialLinksCreateInput = {
     posterImageUrl: JsonNullValueInput | InputJsonValue
     post_links: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type SocialLinksUncheckedCreateInput = {
     id?: number
     posterImageUrl: JsonNullValueInput | InputJsonValue
     post_links: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type SocialLinksUpdateInput = {
     posterImageUrl?: JsonNullValueInput | InputJsonValue
     post_links?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type SocialLinksUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     posterImageUrl?: JsonNullValueInput | InputJsonValue
     post_links?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type SocialLinksCreateManyInput = {
     id?: number
     posterImageUrl: JsonNullValueInput | InputJsonValue
     post_links: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type SocialLinksUpdateManyMutationInput = {
     posterImageUrl?: JsonNullValueInput | InputJsonValue
     post_links?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type SocialLinksUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     posterImageUrl?: JsonNullValueInput | InputJsonValue
     post_links?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type AppointmentsCreateInput = {
+    name: string
+    phoneNumber: number
+    whatsApp?: number | null
+    location: string
+    email: string
+    subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsUncheckedCreateInput = {
+    id?: number
+    name: string
+    phoneNumber: number
+    whatsApp?: number | null
+    location: string
+    email: string
+    subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: IntFieldUpdateOperationsInput | number
+    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    location?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: IntFieldUpdateOperationsInput | number
+    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    location?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsCreateManyInput = {
+    id?: number
+    name: string
+    phoneNumber: number
+    whatsApp?: number | null
+    location: string
+    email: string
+    subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: IntFieldUpdateOperationsInput | number
+    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    location?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
+  }
+
+  export type AppointmentsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: IntFieldUpdateOperationsInput | number
+    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    location?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -12710,6 +14056,8 @@ export namespace Prisma {
     id?: SortOrder
     posterImageUrl?: SortOrder
     post_links?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SocialLinksAvgOrderByAggregateInput = {
@@ -12719,15 +14067,59 @@ export namespace Prisma {
   export type SocialLinksMaxOrderByAggregateInput = {
     id?: SortOrder
     post_links?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SocialLinksMinOrderByAggregateInput = {
     id?: SortOrder
     post_links?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SocialLinksSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type AppointmentsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrder
+    location?: SortOrder
+    email?: SortOrder
+    subCategories?: SortOrder
+  }
+
+  export type AppointmentsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrder
+  }
+
+  export type AppointmentsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrder
+    location?: SortOrder
+    email?: SortOrder
+  }
+
+  export type AppointmentsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrder
+    location?: SortOrder
+    email?: SortOrder
+  }
+
+  export type AppointmentsSumOrderByAggregateInput = {
+    id?: SortOrder
+    phoneNumber?: SortOrder
+    whatsApp?: SortOrder
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {
@@ -13105,6 +14497,15 @@ export namespace Prisma {
 
   export type BoolFieldUpdateOperationsInput = {
     set?: boolean
+  }
+
+  export type AppointmentsCreatesubCategoriesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type AppointmentsUpdatesubCategoriesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {

@@ -240,7 +240,19 @@ model Reviews {
 }
 
 model SocialLinks {
-  id             Int    @id @default(autoincrement())
+  id             Int       @id @default(autoincrement())
   posterImageUrl Json
   post_links     String
+  createdAt      DateTime? @default(now())
+  updatedAt      DateTime?
+}
+
+model Appointments {
+  id            Int    @id @default(autoincrement())
+  name          String
+  phoneNumber   Int
+  whatsApp      Int?
+  location      String
+  email         String
+  subCategories Json[] @default([])
 }

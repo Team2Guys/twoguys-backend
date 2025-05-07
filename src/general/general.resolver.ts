@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GeneralService } from './general.service';
-import { General } from './entities/general.entity';
-import { CreateGeneralInput } from './dto/create-general.input';
+import { Appointments, General } from './entities/general.entity';
+import { createAppointments, CreateGeneralInput } from './dto/create-general.input';
 import { UpdateGeneralInput } from './dto/update-general.input';
 
 @Resolver(() => General)
@@ -27,4 +27,25 @@ export class GeneralResolver {
   removeGeneral(@Args('id', { type: () => Int }) id: number) {
     return this.generalService.remove(id);
   }
+
+
+
+  // Appointments
+  @Mutation(() => Appointments,{name:"Create_Appointments",nullable:true})
+  createAppointment(@Args('createAppointments',) createAppointments: createAppointments) {
+    return this.generalService.createAppointment(createAppointments);
+  }
+
+  @Query(() => Appointments,{name:"Get_Appointments",nullable:true})
+  GetAllAppointments() {
+    return this.generalService.GetAllAppointments();
+  }
+  @Mutation(() => Appointments,{name:"Delete_Appointments",nullable:true})
+  RevmoveAppointments(@Args('id', { type: () => Int }) id: number) {
+    return this.generalService.RevmoveAppointments(id);
+  }
+
+
+
+
 }
