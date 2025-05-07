@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Appointments" ALTER COLUMN "phoneNumber" SET DATA TYPE TEXT,
+ALTER COLUMN "whatsApp" SET DATA TYPE TEXT;

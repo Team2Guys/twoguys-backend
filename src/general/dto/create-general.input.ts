@@ -34,8 +34,8 @@ export class CreateGeneralsocial {
 @InputType()
 export class createAppointments {
 
-  @Field(() => Int)
-  phoneNumber: number;
+  @Field(() => String)
+  phoneNumber: string;
 
   @Field(() => String)
   email: string;
@@ -47,8 +47,8 @@ export class createAppointments {
   @Field()
   location: string;
 
-  @Field(()=>Int,{nullable:true})
-  whatsApp?: number;
+  @Field(()=>String,{nullable:true})
+  whatsApp?: string;
 
 
   @Field(()=>[GraphQLJSON],{nullable:true})

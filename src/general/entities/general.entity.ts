@@ -51,7 +51,7 @@ export class Appointments {
   @Field(() => ID)
   id: number;
 
-  @Field(() => Int)
+  @Field(() => String)
   phoneNumber: string;
 
   @Field(() => String)
@@ -63,8 +63,8 @@ export class Appointments {
   @Field()
   location: string;
 
-  @Field(()=>Int,{nullable:true})
-  whatsApp?: number;
+  @Field(()=>String,{nullable:true})
+  whatsApp?: string;
 
 
   @Field(()=>[GraphQLJSON],{nullable:true})

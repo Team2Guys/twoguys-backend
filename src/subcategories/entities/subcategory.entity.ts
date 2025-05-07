@@ -1,6 +1,7 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Category } from '../../categories/entities/category.entity';
 import GraphQLJSON from 'graphql-type-json';
+import { Product } from '../../products/entities/product.entity';
 
 @ObjectType()
 export class Subcategory {
@@ -130,4 +131,7 @@ export class Subcategory {
 
   @Field({ nullable: true })
   Meta_Title?: string;
+
+    @Field(()=>[Product],{nullable:true})
+      products?:Product[];
 }

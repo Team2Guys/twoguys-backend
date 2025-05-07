@@ -9543,21 +9543,17 @@ export namespace Prisma {
 
   export type AppointmentsAvgAggregateOutputType = {
     id: number | null
-    phoneNumber: number | null
-    whatsApp: number | null
   }
 
   export type AppointmentsSumAggregateOutputType = {
     id: number | null
-    phoneNumber: number | null
-    whatsApp: number | null
   }
 
   export type AppointmentsMinAggregateOutputType = {
     id: number | null
     name: string | null
-    phoneNumber: number | null
-    whatsApp: number | null
+    phoneNumber: string | null
+    whatsApp: string | null
     location: string | null
     email: string | null
   }
@@ -9565,8 +9561,8 @@ export namespace Prisma {
   export type AppointmentsMaxAggregateOutputType = {
     id: number | null
     name: string | null
-    phoneNumber: number | null
-    whatsApp: number | null
+    phoneNumber: string | null
+    whatsApp: string | null
     location: string | null
     email: string | null
   }
@@ -9585,14 +9581,10 @@ export namespace Prisma {
 
   export type AppointmentsAvgAggregateInputType = {
     id?: true
-    phoneNumber?: true
-    whatsApp?: true
   }
 
   export type AppointmentsSumAggregateInputType = {
     id?: true
-    phoneNumber?: true
-    whatsApp?: true
   }
 
   export type AppointmentsMinAggregateInputType = {
@@ -9713,8 +9705,8 @@ export namespace Prisma {
   export type AppointmentsGroupByOutputType = {
     id: number
     name: string
-    phoneNumber: number
-    whatsApp: number | null
+    phoneNumber: string
+    whatsApp: string | null
     location: string
     email: string
     subCategories: JsonValue[]
@@ -9787,8 +9779,8 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: number
       name: string
-      phoneNumber: number
-      whatsApp: number | null
+      phoneNumber: string
+      whatsApp: string | null
       location: string
       email: string
       subCategories: Prisma.JsonValue[]
@@ -10217,8 +10209,8 @@ export namespace Prisma {
   interface AppointmentsFieldRefs {
     readonly id: FieldRef<"Appointments", 'Int'>
     readonly name: FieldRef<"Appointments", 'String'>
-    readonly phoneNumber: FieldRef<"Appointments", 'Int'>
-    readonly whatsApp: FieldRef<"Appointments", 'Int'>
+    readonly phoneNumber: FieldRef<"Appointments", 'String'>
+    readonly whatsApp: FieldRef<"Appointments", 'String'>
     readonly location: FieldRef<"Appointments", 'String'>
     readonly email: FieldRef<"Appointments", 'String'>
     readonly subCategories: FieldRef<"Appointments", 'Json[]'>
@@ -11925,8 +11917,8 @@ export namespace Prisma {
     NOT?: AppointmentsWhereInput | AppointmentsWhereInput[]
     id?: IntFilter<"Appointments"> | number
     name?: StringFilter<"Appointments"> | string
-    phoneNumber?: IntFilter<"Appointments"> | number
-    whatsApp?: IntNullableFilter<"Appointments"> | number | null
+    phoneNumber?: StringFilter<"Appointments"> | string
+    whatsApp?: StringNullableFilter<"Appointments"> | string | null
     location?: StringFilter<"Appointments"> | string
     email?: StringFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
@@ -11948,8 +11940,8 @@ export namespace Prisma {
     OR?: AppointmentsWhereInput[]
     NOT?: AppointmentsWhereInput | AppointmentsWhereInput[]
     name?: StringFilter<"Appointments"> | string
-    phoneNumber?: IntFilter<"Appointments"> | number
-    whatsApp?: IntNullableFilter<"Appointments"> | number | null
+    phoneNumber?: StringFilter<"Appointments"> | string
+    whatsApp?: StringNullableFilter<"Appointments"> | string | null
     location?: StringFilter<"Appointments"> | string
     email?: StringFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
@@ -11976,8 +11968,8 @@ export namespace Prisma {
     NOT?: AppointmentsScalarWhereWithAggregatesInput | AppointmentsScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Appointments"> | number
     name?: StringWithAggregatesFilter<"Appointments"> | string
-    phoneNumber?: IntWithAggregatesFilter<"Appointments"> | number
-    whatsApp?: IntNullableWithAggregatesFilter<"Appointments"> | number | null
+    phoneNumber?: StringWithAggregatesFilter<"Appointments"> | string
+    whatsApp?: StringNullableWithAggregatesFilter<"Appointments"> | string | null
     location?: StringWithAggregatesFilter<"Appointments"> | string
     email?: StringWithAggregatesFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
@@ -13194,8 +13186,8 @@ export namespace Prisma {
 
   export type AppointmentsCreateInput = {
     name: string
-    phoneNumber: number
-    whatsApp?: number | null
+    phoneNumber: string
+    whatsApp?: string | null
     location: string
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
@@ -13204,8 +13196,8 @@ export namespace Prisma {
   export type AppointmentsUncheckedCreateInput = {
     id?: number
     name: string
-    phoneNumber: number
-    whatsApp?: number | null
+    phoneNumber: string
+    whatsApp?: string | null
     location: string
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
@@ -13213,8 +13205,8 @@ export namespace Prisma {
 
   export type AppointmentsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: IntFieldUpdateOperationsInput | number
-    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    whatsApp?: NullableStringFieldUpdateOperationsInput | string | null
     location?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
@@ -13223,8 +13215,8 @@ export namespace Prisma {
   export type AppointmentsUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: IntFieldUpdateOperationsInput | number
-    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    whatsApp?: NullableStringFieldUpdateOperationsInput | string | null
     location?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
@@ -13233,8 +13225,8 @@ export namespace Prisma {
   export type AppointmentsCreateManyInput = {
     id?: number
     name: string
-    phoneNumber: number
-    whatsApp?: number | null
+    phoneNumber: string
+    whatsApp?: string | null
     location: string
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
@@ -13242,8 +13234,8 @@ export namespace Prisma {
 
   export type AppointmentsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: IntFieldUpdateOperationsInput | number
-    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    whatsApp?: NullableStringFieldUpdateOperationsInput | string | null
     location?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
@@ -13252,8 +13244,8 @@ export namespace Prisma {
   export type AppointmentsUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
-    phoneNumber?: IntFieldUpdateOperationsInput | number
-    whatsApp?: NullableIntFieldUpdateOperationsInput | number | null
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    whatsApp?: NullableStringFieldUpdateOperationsInput | string | null
     location?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
@@ -14094,8 +14086,6 @@ export namespace Prisma {
 
   export type AppointmentsAvgOrderByAggregateInput = {
     id?: SortOrder
-    phoneNumber?: SortOrder
-    whatsApp?: SortOrder
   }
 
   export type AppointmentsMaxOrderByAggregateInput = {
@@ -14118,8 +14108,6 @@ export namespace Prisma {
 
   export type AppointmentsSumOrderByAggregateInput = {
     id?: SortOrder
-    phoneNumber?: SortOrder
-    whatsApp?: SortOrder
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {

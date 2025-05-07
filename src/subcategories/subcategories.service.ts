@@ -36,7 +36,6 @@ export class SubcategoriesService {
 
   async findOne(custom_url: string, category:string) {
     try {
-      console.log(custom_url, category, "category")
       let subcategory = await this.prisma.subCategories.findFirst({ where: { custom_url, category:{custom_url:category} } })
       if (!subcategory) return customHttpException("Category Not found ", "NOT_FOUND")
       return subcategory;
