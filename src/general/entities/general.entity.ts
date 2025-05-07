@@ -38,17 +38,27 @@ export class General {
 
 @ObjectType()
 export class SocialLinks {
+  @Field(() => Int)
+  id: number;
+
   @Field(() => String)
   post_links: string;
+  
   @Field(() => GraphQLJSON)
   posterImageUrl: any;
+  
+  @Field(() => Date,{nullable:true})
+  createdAt?: Date;
+
+  @Field(() => Date,{nullable:true})
+  updatedAt?: Date;
 }
 
 
 
 @ObjectType()
 export class Appointments {
-  @Field(() => ID)
+  @Field(() => Int)
   id: number;
 
   @Field(() => String)
@@ -73,6 +83,7 @@ export class Appointments {
   @Field(()=>[GraphQLJSON],{nullable:true})
   subCategories?: any;
 
+  
 
 
 }

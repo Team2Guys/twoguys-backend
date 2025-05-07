@@ -23,8 +23,10 @@ export class CreateGeneralInput {
 
 @InputType()
 export class CreateGeneralsocial {
+  
   @Field(() => String)
   post_links: string;
+
   @Field(() => GraphQLJSON)
   posterImageUrl: any;
 }
