@@ -60,7 +60,7 @@ model categories {
   salesBannerHeading String?
   paraText           String?
   Bannercounter      DateTime?
-  salesBannerImage Json?
+  salesBannerImage   Json?
 
   // on Procuts Main Heading
   Product_Section_heading String?
@@ -151,27 +151,26 @@ model subCategories {
 model Products {
   id               Int       @id @default(autoincrement())
   name             String ////✅
-  price            Int  //✅
+  price            Int //✅
   description      String //✅
   stock            Int //✅
   discountPrice    Int? //✅
-  posterImageUrl   Json//✅
-  hoverImageUrl    Json?//✅
-  productImages    Json[]//✅
+  posterImageUrl   Json //✅
+  hoverImageUrl    Json? //✅
+  productImages    Json[] //✅
   createdAt        DateTime? @default(now()) //✅
-  updatedAt        DateTime? @default(now())//✅
-  Canonical_Tag    String?//✅
-  Meta_Description String?//✅
-  Meta_Title       String?//✅
+  updatedAt        DateTime? @default(now()) //✅
+  Canonical_Tag    String? //✅
+  Meta_Description String? //✅
+  Meta_Title       String? //✅
   last_editedBy    String?
-  custom_url       String//✅
+  custom_url       String //✅
   breadCrum        String?
 
   // BannersData
-  Banners          Json? //✅
-  BannerText       String? //✅
-  BannerHeading    String? //✅
-
+  Banners       Json? //✅
+  BannerText    String? //✅
+  BannerHeading String? //✅
 
   // After hero Sectons (/3d)
   categoryHeroImages  Json[]  @default([]) //3d ✅
@@ -229,24 +228,21 @@ model Admins {
   last_editedBy          String?
 }
 
-
-
-
 model Reviews {
-  id               Int       @id @default(autoincrement())
-  posterImageUrl    Json?
-  name String
-  starRating  Int?
-  ReviewsDescription  String
-  reviewDate String?
-  createdAt        DateTime? @default(now()) 
-  updatedAt        DateTime? 
-
+  id                 Int       @id @default(autoincrement())
+  posterImageUrl     Json?
+  name               String
+  starRating         Int?
+  ReviewsDescription String
+  reviewDate         String?
+  createdAt          DateTime? @default(now())
+  updatedAt          DateTime?
 }
 
-
 model SocialLinks {
-  id               Int       @id @default(autoincrement())
-  posterImageUrl    Json
-  post_links  String
+  id             Int       @id @default(autoincrement())
+  posterImageUrl Json
+  post_links     String
+  createdAt      DateTime? @default(now())
+  updatedAt      DateTime?
 }

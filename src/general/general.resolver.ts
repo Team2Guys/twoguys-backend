@@ -23,7 +23,7 @@ export class GeneralResolver {
     return this.generalService.update(updateGeneralInput);
   }
 
-  @Mutation(() => General)
+  @Mutation(() => General,{name:"Delete_Review",nullable:true})
   removeGeneral(@Args('id', { type: () => Int }) id: number) {
     return this.generalService.remove(id);
   }

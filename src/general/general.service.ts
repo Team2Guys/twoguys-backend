@@ -37,7 +37,7 @@ export class GeneralService {
 
   async remove(id: number) {
     try {
-      this.prisma.reviews.delete({where:{id}})
+      return await this.prisma.reviews.delete({where:{id}})
     } catch (error) {
       customHttpException(error)
     }
