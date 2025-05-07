@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { CreateGeneralInput } from './dto/create-general.input';
 import { UpdateGeneralInput } from './dto/update-general.input';
-import { PrismaService } from 'prisma/prisma.service';
-import { customHttpException } from 'utils/helper';
+import { PrismaService } from '../prisma/prisma.service';
+import { customHttpException } from '../utils/helper';
 
 @Injectable()
 export class GeneralService {
