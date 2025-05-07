@@ -3,7 +3,7 @@ import { createAppointments, CreateGeneralInput } from './dto/create-general.inp
 import { UpdateGeneralInput } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
-import { sendAppointmentEmail } from 'utils/EmailHanlders';
+import { sendAppointmentEmail } from '../utils/EmailHanlders';
 
 @Injectable()
 export class GeneralService {
