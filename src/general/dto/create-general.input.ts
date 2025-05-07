@@ -44,6 +44,9 @@ export class createAppointments {
   @Field(() => String,)
   name: string;
 
+  @Field(() => String,)
+  message: string;
+
   @Field()
   location: string;
 
@@ -54,6 +57,7 @@ export class createAppointments {
   @Field(()=>[GraphQLJSON],{nullable:true})
   subCategories?: any;
 
+  
 
 
 }

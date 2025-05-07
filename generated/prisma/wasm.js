@@ -301,7 +301,8 @@ exports.Prisma.AppointmentsScalarFieldEnum = {
   whatsApp: 'whatsApp',
   location: 'location',
   email: 'email',
-  subCategories: 'subCategories'
+  subCategories: 'subCategories',
+  message: 'message'
 };
 
 exports.Prisma.SortOrder = {

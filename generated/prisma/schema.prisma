@@ -255,4 +255,5 @@ model Appointments {
   location      String
   email         String
   subCategories Json[]  @default([])
+  message       String
 }

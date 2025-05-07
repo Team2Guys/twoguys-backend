@@ -248,11 +248,12 @@ model SocialLinks {
 }
 
 model Appointments {
-  id   Int    @id @default(autoincrement())
-  name String
+  id            Int     @id @default(autoincrement())
+  name          String
   phoneNumber   String
-  whatsApp  String?
-  location  String
-  email String
-  subCategories  Json[] @default([])
+  whatsApp      String?
+  location      String
+  email         String
+  subCategories Json[]  @default([])
+  message String
 }

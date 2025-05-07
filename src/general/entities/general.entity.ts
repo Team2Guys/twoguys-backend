@@ -65,6 +65,9 @@ export class Appointments {
 
   @Field(()=>String,{nullable:true})
   whatsApp?: string;
+  
+  @Field(() => String,)
+  message: string;
 
 
   @Field(()=>[GraphQLJSON],{nullable:true})
