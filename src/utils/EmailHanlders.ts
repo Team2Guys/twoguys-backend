@@ -110,7 +110,7 @@ const transporter = nodemailer.createTransport({
                </div>
              ` : ""}
  
-             <p>We will contact you shortly. If you need to make changes or have any questions, please reply to this email or contact us at +971 50 597 4385.</p>
+             <p>We will contact you shortly. If you need to make changes or have any questions, please reply to this email or contact us at 052 933 2833.</p>
            </div>
            <div class="footer">
              <p>&copy; ${new Date().getFullYear()} Two Guys. All rights reserved.</p>
