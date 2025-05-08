@@ -14,7 +14,8 @@ async function bootstrap() {
     origin: [
       "https://twoguys-brown.vercel.app",
       "http://localhost:3000",
-      'http://localhost:3001'
+      'http://localhost:3001',
+      "http://localhost:5008"
     ],
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
