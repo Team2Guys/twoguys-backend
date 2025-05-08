@@ -31,10 +31,6 @@ export class Subcategory {
 
   @Field()
   custom_url: string;
-
-  @Field(() => Category, { nullable: true })
-  category?: Category;
-
   // Banner Fields
   @Field(() => GraphQLJSON, { nullable: true })
   Banners?: any;
@@ -132,6 +128,13 @@ export class Subcategory {
   @Field({ nullable: true })
   Meta_Title?: string;
 
-    @Field(()=>[Product],{nullable:true})
-      products?:Product[];
+  @Field(() => [Product], { nullable: true })
+  products?: Product[];
+
+
+  @Field(() => Category, { nullable: true })
+  category?: Category;
+
+
+
 }

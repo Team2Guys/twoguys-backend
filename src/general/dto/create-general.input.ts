@@ -15,8 +15,8 @@ export class CreateGeneralInput {
   @Field(() => String,{nullable:true})
   reviewDate?: string;
   
-  @Field(() => GraphQLJSON)
-  posterImageUrl: any;
+  @Field(() => GraphQLJSON,{nullable:true})
+  posterImageUrl?: any;
 }
 
 
