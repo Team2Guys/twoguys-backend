@@ -134,15 +134,31 @@ export class GeneralService {
       customHttpException(error)
     }
   }
+async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
+  try {
+    const { id, ...updated } = CreatedRedirecturls;
+    if (updated.url) {
+      const existing = await this.prisma.redirecturls.findFirst({
+        where: {
+          url: updated.url,
+          NOT: { id: Number(id) },
+        },
+      });
 
-   async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
-    try {
-      const {id, ...updated} = CreatedRedirecturls
-      return await this.prisma.redirecturls.update({ where:{id}, data: updated })
-    } catch (error) {
-      customHttpException(error)
+      if (existing) {
+        throw new Error("This URL already exists. Please choose a unique one.");
+      }
     }
+
+    return await this.prisma.redirecturls.update({
+      where: { id: Number(id) },
+      data: { ...updated, updatedAt: new Date() },
+    });
+  } catch (error) {
+    customHttpException(error);
   }
+}
+
 
    async findOneRedirecturls(endPoint:string) {
     try {
