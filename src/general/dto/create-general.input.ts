@@ -63,3 +63,18 @@ export class createAppointments {
 
 
 }
+
+@InputType()
+export class CreatedRedirecturls {
+
+  @Field(() => String)
+  url: string;
+
+  @Field(() => String)
+  redirectedUrl: string;
+
+
+  
+
+
+}

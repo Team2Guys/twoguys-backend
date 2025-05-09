@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSubcategoryInput } from './dto/create-subcategory.input';
-import { UpdateSubcategoryInput } from './dto/update-subcategory.input';
+import { CreateInnerSubcategoryInput, CreateSubcategoryInput } from './dto/create-subcategory.input';
+import { UpdateInnerSubcategoryInput, UpdateSubcategoryInput } from './dto/update-subcategory.input';
 import { customHttpException } from '../utils/helper';
 import { PrismaService } from '../prisma/prisma.service';
 
@@ -25,24 +25,28 @@ export class SubcategoriesService {
 
   async findAll() {
     try {
-      return await this.prisma.subCategories.findMany({  include: {
-        category: {
-          select: { id: true, name:true, custom_url:true },
-        },
-        products:true,
-      
-      }})
+      return await this.prisma.subCategories.findMany({
+        include: {
+          category: {
+            select: { id: true, name: true, custom_url: true },
+          },
+          products: true,
+
+        }
+      })
     } catch (error) {
       return customHttpException(error)
     }
   }
 
-  async findOne(custom_url: string, category:string) {
+  async findOne(custom_url: string, category: string) {
     try {
-      let subcategory = await this.prisma.subCategories.findFirst({ where: { custom_url, category:{custom_url:category} }, include:{
-        category:true, 
-        products:true,
-      } })
+      let subcategory = await this.prisma.subCategories.findFirst({
+        where: { custom_url, category: { custom_url: category } }, include: {
+          category: true,
+          products: true,
+        }
+      })
       if (!subcategory) return customHttpException("Category Not found ", "NOT_FOUND")
       return subcategory;
     } catch (error) {
@@ -106,6 +110,77 @@ export class SubcategoriesService {
   }
 
 
+
+  // ineersubCategories
+
+  async InnerSubcreate(CreateInnerSubcategoryInput: CreateInnerSubcategoryInput) {
+    const { subCategoryId, ...updateData } = CreateInnerSubcategoryInput;
+
+    try {
+      return await this.prisma.innersubCategories.create({
+        data: {
+          subCategoryId: Number(subCategoryId),
+
+          ...updateData,
+        }
+      })
+    } catch (error) {
+      return customHttpException(error)
+    }
+
+  }
+
+  async InnerSubupdate(UpdateInnerSubcategoryInput: UpdateInnerSubcategoryInput) {
+    try {
+      let updatedAt = new Date();
+
+      const { subCategoryId, id, ...updateData } = UpdateInnerSubcategoryInput;
+      if (!subCategoryId) return customHttpException("Select a Category", "NOT_FOUND")
+
+      const categoryExists = await this.prisma.subCategories.findUnique({
+        where: { id: Number(subCategoryId) },
+      });
+
+      if (!categoryExists) {
+        return customHttpException("Selected Category does not exist", "NOT_FOUND");
+      }
+      return await this.prisma.innersubCategories.update({
+        where: { id}, data: {
+          ...updateData,
+          subCategoryId: Number(subCategoryId),
+          updatedAt
+
+        }
+      })
+
+    } catch (error) {
+      return customHttpException(error)
+    }
+  }
+
+
+  
+  async InnerSubfindAll() {
+    try {
+      return await this.prisma.innersubCategories.findMany({
+        include: {
+          subCategory: true
+        }
+      })
+    } catch (error) {
+      return customHttpException(error)
+    }
+  }
+
+  async InnerSubremove(id: number) {
+    try {
+      return await this.prisma.innersubCategories.delete({ where: { id } })
+
+    } catch (error) {
+      return customHttpException(error)
+    }
+  }
+  
 
 
 }

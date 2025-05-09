@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { createAppointments, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial } from './dto/update-general.input';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateRedirecturls } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
 import { sendAppointmentEmail } from '../utils/EmailHanlders';
@@ -121,6 +121,57 @@ export class GeneralService {
       customHttpException(error);
     }
   }
+
+
+
+
+  // RedirectUrls 
+
+   async createRedirecturls(CreatedRedirecturls: CreatedRedirecturls) {
+    try {
+      return await this.prisma.redirecturls.create({ data: CreatedRedirecturls })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+   async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
+    try {
+      const {id, ...updated} = CreatedRedirecturls
+      return await this.prisma.redirecturls.update({ where:{id}, data: updated })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+   async findOneRedirecturls(endPoint:string) {
+    try {
+      return await this.prisma.redirecturls.findFirst({ where:{url:endPoint} })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+     async findAllRedirecturls() {
+    try {
+      return await this.prisma.redirecturls.findMany()
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+   async deleteRedirecturls(endPoint:string) {
+    try {
+      return await this.prisma.redirecturls.delete({ where:{url:endPoint} })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  
+
+
 
 
 

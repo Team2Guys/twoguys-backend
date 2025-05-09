@@ -131,3 +131,16 @@ export class CreateSubcategoryInput {
   Meta_Title?: string;
 
 }
+
+
+
+
+@InputType()
+export class CreateInnerSubcategoryInput{
+  @Field()
+  name: string;
+  @Field()
+  custom_url: string;
+  @Field()
+  subCategoryId: string;
+}

@@ -48,6 +48,16 @@ export type SocialLinks = $Result.DefaultSelection<Prisma.$SocialLinksPayload>
  * 
  */
 export type Appointments = $Result.DefaultSelection<Prisma.$AppointmentsPayload>
+/**
+ * Model Redirecturls
+ * 
+ */
+export type Redirecturls = $Result.DefaultSelection<Prisma.$RedirecturlsPayload>
+/**
+ * Model InnersubCategories
+ * 
+ */
+export type InnersubCategories = $Result.DefaultSelection<Prisma.$InnersubCategoriesPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -243,6 +253,26 @@ export class PrismaClient<
     * ```
     */
   get appointments(): Prisma.AppointmentsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.redirecturls`: Exposes CRUD operations for the **Redirecturls** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Redirecturls
+    * const redirecturls = await prisma.redirecturls.findMany()
+    * ```
+    */
+  get redirecturls(): Prisma.RedirecturlsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.innersubCategories`: Exposes CRUD operations for the **InnersubCategories** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more InnersubCategories
+    * const innersubCategories = await prisma.innersubCategories.findMany()
+    * ```
+    */
+  get innersubCategories(): Prisma.InnersubCategoriesDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -689,7 +719,9 @@ export namespace Prisma {
     Admins: 'Admins',
     Reviews: 'Reviews',
     SocialLinks: 'SocialLinks',
-    Appointments: 'Appointments'
+    Appointments: 'Appointments',
+    Redirecturls: 'Redirecturls',
+    InnersubCategories: 'InnersubCategories'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -708,7 +740,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments"
+      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments" | "redirecturls" | "innersubCategories"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1230,6 +1262,154 @@ export namespace Prisma {
           }
         }
       }
+      Redirecturls: {
+        payload: Prisma.$RedirecturlsPayload<ExtArgs>
+        fields: Prisma.RedirecturlsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.RedirecturlsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.RedirecturlsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          findFirst: {
+            args: Prisma.RedirecturlsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.RedirecturlsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          findMany: {
+            args: Prisma.RedirecturlsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>[]
+          }
+          create: {
+            args: Prisma.RedirecturlsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          createMany: {
+            args: Prisma.RedirecturlsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.RedirecturlsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>[]
+          }
+          delete: {
+            args: Prisma.RedirecturlsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          update: {
+            args: Prisma.RedirecturlsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          deleteMany: {
+            args: Prisma.RedirecturlsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.RedirecturlsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.RedirecturlsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>[]
+          }
+          upsert: {
+            args: Prisma.RedirecturlsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$RedirecturlsPayload>
+          }
+          aggregate: {
+            args: Prisma.RedirecturlsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateRedirecturls>
+          }
+          groupBy: {
+            args: Prisma.RedirecturlsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<RedirecturlsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.RedirecturlsCountArgs<ExtArgs>
+            result: $Utils.Optional<RedirecturlsCountAggregateOutputType> | number
+          }
+        }
+      }
+      InnersubCategories: {
+        payload: Prisma.$InnersubCategoriesPayload<ExtArgs>
+        fields: Prisma.InnersubCategoriesFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.InnersubCategoriesFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.InnersubCategoriesFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          findFirst: {
+            args: Prisma.InnersubCategoriesFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.InnersubCategoriesFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          findMany: {
+            args: Prisma.InnersubCategoriesFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>[]
+          }
+          create: {
+            args: Prisma.InnersubCategoriesCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          createMany: {
+            args: Prisma.InnersubCategoriesCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.InnersubCategoriesCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>[]
+          }
+          delete: {
+            args: Prisma.InnersubCategoriesDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          update: {
+            args: Prisma.InnersubCategoriesUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          deleteMany: {
+            args: Prisma.InnersubCategoriesDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.InnersubCategoriesUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.InnersubCategoriesUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>[]
+          }
+          upsert: {
+            args: Prisma.InnersubCategoriesUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$InnersubCategoriesPayload>
+          }
+          aggregate: {
+            args: Prisma.InnersubCategoriesAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateInnersubCategories>
+          }
+          groupBy: {
+            args: Prisma.InnersubCategoriesGroupByArgs<ExtArgs>
+            result: $Utils.Optional<InnersubCategoriesGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.InnersubCategoriesCountArgs<ExtArgs>
+            result: $Utils.Optional<InnersubCategoriesCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1321,6 +1501,8 @@ export namespace Prisma {
     reviews?: ReviewsOmit
     socialLinks?: SocialLinksOmit
     appointments?: AppointmentsOmit
+    redirecturls?: RedirecturlsOmit
+    innersubCategories?: InnersubCategoriesOmit
   }
 
   /* Types for Logging */
@@ -1456,10 +1638,12 @@ export namespace Prisma {
 
   export type SubCategoriesCountOutputType = {
     products: number
+    InnersubCategories: number
   }
 
   export type SubCategoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | SubCategoriesCountOutputTypeCountProductsArgs
+    InnersubCategories?: boolean | SubCategoriesCountOutputTypeCountInnersubCategoriesArgs
   }
 
   // Custom InputTypes
@@ -1478,6 +1662,13 @@ export namespace Prisma {
    */
   export type SubCategoriesCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProductsWhereInput
+  }
+
+  /**
+   * SubCategoriesCountOutputType without action
+   */
+  export type SubCategoriesCountOutputTypeCountInnersubCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InnersubCategoriesWhereInput
   }
 
 
@@ -3510,6 +3701,7 @@ export namespace Prisma {
     seoSchema?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
     products?: boolean | subCategories$productsArgs<ExtArgs>
+    InnersubCategories?: boolean | subCategories$InnersubCategoriesArgs<ExtArgs>
     _count?: boolean | SubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
@@ -3651,6 +3843,7 @@ export namespace Prisma {
   export type subCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | subCategories$categoryArgs<ExtArgs>
     products?: boolean | subCategories$productsArgs<ExtArgs>
+    InnersubCategories?: boolean | subCategories$InnersubCategoriesArgs<ExtArgs>
     _count?: boolean | SubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type subCategoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3665,6 +3858,7 @@ export namespace Prisma {
     objects: {
       category: Prisma.$categoriesPayload<ExtArgs> | null
       products: Prisma.$ProductsPayload<ExtArgs>[]
+      InnersubCategories: Prisma.$InnersubCategoriesPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -4113,6 +4307,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends subCategories$categoryArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     products<T extends subCategories$productsArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    InnersubCategories<T extends subCategories$InnersubCategoriesArgs<ExtArgs> = {}>(args?: Subset<T, subCategories$InnersubCategoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4619,6 +4814,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: ProductsScalarFieldEnum | ProductsScalarFieldEnum[]
+  }
+
+  /**
+   * subCategories.InnersubCategories
+   */
+  export type subCategories$InnersubCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    where?: InnersubCategoriesWhereInput
+    orderBy?: InnersubCategoriesOrderByWithRelationInput | InnersubCategoriesOrderByWithRelationInput[]
+    cursor?: InnersubCategoriesWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: InnersubCategoriesScalarFieldEnum | InnersubCategoriesScalarFieldEnum[]
   }
 
   /**
@@ -9557,6 +9776,8 @@ export namespace Prisma {
     location: string | null
     email: string | null
     message: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type AppointmentsMaxAggregateOutputType = {
@@ -9567,6 +9788,8 @@ export namespace Prisma {
     location: string | null
     email: string | null
     message: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type AppointmentsCountAggregateOutputType = {
@@ -9578,6 +9801,8 @@ export namespace Prisma {
     email: number
     subCategories: number
     message: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -9598,6 +9823,8 @@ export namespace Prisma {
     location?: true
     email?: true
     message?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type AppointmentsMaxAggregateInputType = {
@@ -9608,6 +9835,8 @@ export namespace Prisma {
     location?: true
     email?: true
     message?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type AppointmentsCountAggregateInputType = {
@@ -9619,6 +9848,8 @@ export namespace Prisma {
     email?: true
     subCategories?: true
     message?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -9717,6 +9948,8 @@ export namespace Prisma {
     email: string
     subCategories: JsonValue[]
     message: string
+    createdAt: Date | null
+    updatedAt: Date | null
     _count: AppointmentsCountAggregateOutputType | null
     _avg: AppointmentsAvgAggregateOutputType | null
     _sum: AppointmentsSumAggregateOutputType | null
@@ -9747,6 +9980,8 @@ export namespace Prisma {
     email?: boolean
     subCategories?: boolean
     message?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["appointments"]>
 
   export type AppointmentsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9758,6 +9993,8 @@ export namespace Prisma {
     email?: boolean
     subCategories?: boolean
     message?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["appointments"]>
 
   export type AppointmentsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9769,6 +10006,8 @@ export namespace Prisma {
     email?: boolean
     subCategories?: boolean
     message?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["appointments"]>
 
   export type AppointmentsSelectScalar = {
@@ -9780,9 +10019,11 @@ export namespace Prisma {
     email?: boolean
     subCategories?: boolean
     message?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type AppointmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phoneNumber" | "whatsApp" | "location" | "email" | "subCategories" | "message", ExtArgs["result"]["appointments"]>
+  export type AppointmentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phoneNumber" | "whatsApp" | "location" | "email" | "subCategories" | "message" | "createdAt" | "updatedAt", ExtArgs["result"]["appointments"]>
 
   export type $AppointmentsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Appointments"
@@ -9796,6 +10037,8 @@ export namespace Prisma {
       email: string
       subCategories: Prisma.JsonValue[]
       message: string
+      createdAt: Date | null
+      updatedAt: Date | null
     }, ExtArgs["result"]["appointments"]>
     composites: {}
   }
@@ -10227,6 +10470,8 @@ export namespace Prisma {
     readonly email: FieldRef<"Appointments", 'String'>
     readonly subCategories: FieldRef<"Appointments", 'Json[]'>
     readonly message: FieldRef<"Appointments", 'String'>
+    readonly createdAt: FieldRef<"Appointments", 'DateTime'>
+    readonly updatedAt: FieldRef<"Appointments", 'DateTime'>
   }
     
 
@@ -10594,6 +10839,2176 @@ export namespace Prisma {
 
 
   /**
+   * Model Redirecturls
+   */
+
+  export type AggregateRedirecturls = {
+    _count: RedirecturlsCountAggregateOutputType | null
+    _avg: RedirecturlsAvgAggregateOutputType | null
+    _sum: RedirecturlsSumAggregateOutputType | null
+    _min: RedirecturlsMinAggregateOutputType | null
+    _max: RedirecturlsMaxAggregateOutputType | null
+  }
+
+  export type RedirecturlsAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type RedirecturlsSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type RedirecturlsMinAggregateOutputType = {
+    id: number | null
+    url: string | null
+    redirectedUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RedirecturlsMaxAggregateOutputType = {
+    id: number | null
+    url: string | null
+    redirectedUrl: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type RedirecturlsCountAggregateOutputType = {
+    id: number
+    url: number
+    redirectedUrl: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type RedirecturlsAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type RedirecturlsSumAggregateInputType = {
+    id?: true
+  }
+
+  export type RedirecturlsMinAggregateInputType = {
+    id?: true
+    url?: true
+    redirectedUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RedirecturlsMaxAggregateInputType = {
+    id?: true
+    url?: true
+    redirectedUrl?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type RedirecturlsCountAggregateInputType = {
+    id?: true
+    url?: true
+    redirectedUrl?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type RedirecturlsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Redirecturls to aggregate.
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Redirecturls to fetch.
+     */
+    orderBy?: RedirecturlsOrderByWithRelationInput | RedirecturlsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: RedirecturlsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Redirecturls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Redirecturls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Redirecturls
+    **/
+    _count?: true | RedirecturlsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: RedirecturlsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: RedirecturlsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: RedirecturlsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: RedirecturlsMaxAggregateInputType
+  }
+
+  export type GetRedirecturlsAggregateType<T extends RedirecturlsAggregateArgs> = {
+        [P in keyof T & keyof AggregateRedirecturls]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateRedirecturls[P]>
+      : GetScalarType<T[P], AggregateRedirecturls[P]>
+  }
+
+
+
+
+  export type RedirecturlsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: RedirecturlsWhereInput
+    orderBy?: RedirecturlsOrderByWithAggregationInput | RedirecturlsOrderByWithAggregationInput[]
+    by: RedirecturlsScalarFieldEnum[] | RedirecturlsScalarFieldEnum
+    having?: RedirecturlsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: RedirecturlsCountAggregateInputType | true
+    _avg?: RedirecturlsAvgAggregateInputType
+    _sum?: RedirecturlsSumAggregateInputType
+    _min?: RedirecturlsMinAggregateInputType
+    _max?: RedirecturlsMaxAggregateInputType
+  }
+
+  export type RedirecturlsGroupByOutputType = {
+    id: number
+    url: string
+    redirectedUrl: string
+    createdAt: Date | null
+    updatedAt: Date | null
+    _count: RedirecturlsCountAggregateOutputType | null
+    _avg: RedirecturlsAvgAggregateOutputType | null
+    _sum: RedirecturlsSumAggregateOutputType | null
+    _min: RedirecturlsMinAggregateOutputType | null
+    _max: RedirecturlsMaxAggregateOutputType | null
+  }
+
+  type GetRedirecturlsGroupByPayload<T extends RedirecturlsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<RedirecturlsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof RedirecturlsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], RedirecturlsGroupByOutputType[P]>
+            : GetScalarType<T[P], RedirecturlsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type RedirecturlsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    redirectedUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["redirecturls"]>
+
+  export type RedirecturlsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    redirectedUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["redirecturls"]>
+
+  export type RedirecturlsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    redirectedUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["redirecturls"]>
+
+  export type RedirecturlsSelectScalar = {
+    id?: boolean
+    url?: boolean
+    redirectedUrl?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type RedirecturlsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "redirectedUrl" | "createdAt" | "updatedAt", ExtArgs["result"]["redirecturls"]>
+
+  export type $RedirecturlsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Redirecturls"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      url: string
+      redirectedUrl: string
+      createdAt: Date | null
+      updatedAt: Date | null
+    }, ExtArgs["result"]["redirecturls"]>
+    composites: {}
+  }
+
+  type RedirecturlsGetPayload<S extends boolean | null | undefined | RedirecturlsDefaultArgs> = $Result.GetResult<Prisma.$RedirecturlsPayload, S>
+
+  type RedirecturlsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<RedirecturlsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: RedirecturlsCountAggregateInputType | true
+    }
+
+  export interface RedirecturlsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Redirecturls'], meta: { name: 'Redirecturls' } }
+    /**
+     * Find zero or one Redirecturls that matches the filter.
+     * @param {RedirecturlsFindUniqueArgs} args - Arguments to find a Redirecturls
+     * @example
+     * // Get one Redirecturls
+     * const redirecturls = await prisma.redirecturls.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends RedirecturlsFindUniqueArgs>(args: SelectSubset<T, RedirecturlsFindUniqueArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Redirecturls that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {RedirecturlsFindUniqueOrThrowArgs} args - Arguments to find a Redirecturls
+     * @example
+     * // Get one Redirecturls
+     * const redirecturls = await prisma.redirecturls.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends RedirecturlsFindUniqueOrThrowArgs>(args: SelectSubset<T, RedirecturlsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Redirecturls that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsFindFirstArgs} args - Arguments to find a Redirecturls
+     * @example
+     * // Get one Redirecturls
+     * const redirecturls = await prisma.redirecturls.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends RedirecturlsFindFirstArgs>(args?: SelectSubset<T, RedirecturlsFindFirstArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Redirecturls that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsFindFirstOrThrowArgs} args - Arguments to find a Redirecturls
+     * @example
+     * // Get one Redirecturls
+     * const redirecturls = await prisma.redirecturls.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends RedirecturlsFindFirstOrThrowArgs>(args?: SelectSubset<T, RedirecturlsFindFirstOrThrowArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Redirecturls that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Redirecturls
+     * const redirecturls = await prisma.redirecturls.findMany()
+     * 
+     * // Get first 10 Redirecturls
+     * const redirecturls = await prisma.redirecturls.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const redirecturlsWithIdOnly = await prisma.redirecturls.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends RedirecturlsFindManyArgs>(args?: SelectSubset<T, RedirecturlsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Redirecturls.
+     * @param {RedirecturlsCreateArgs} args - Arguments to create a Redirecturls.
+     * @example
+     * // Create one Redirecturls
+     * const Redirecturls = await prisma.redirecturls.create({
+     *   data: {
+     *     // ... data to create a Redirecturls
+     *   }
+     * })
+     * 
+     */
+    create<T extends RedirecturlsCreateArgs>(args: SelectSubset<T, RedirecturlsCreateArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Redirecturls.
+     * @param {RedirecturlsCreateManyArgs} args - Arguments to create many Redirecturls.
+     * @example
+     * // Create many Redirecturls
+     * const redirecturls = await prisma.redirecturls.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends RedirecturlsCreateManyArgs>(args?: SelectSubset<T, RedirecturlsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Redirecturls and returns the data saved in the database.
+     * @param {RedirecturlsCreateManyAndReturnArgs} args - Arguments to create many Redirecturls.
+     * @example
+     * // Create many Redirecturls
+     * const redirecturls = await prisma.redirecturls.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Redirecturls and only return the `id`
+     * const redirecturlsWithIdOnly = await prisma.redirecturls.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends RedirecturlsCreateManyAndReturnArgs>(args?: SelectSubset<T, RedirecturlsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Redirecturls.
+     * @param {RedirecturlsDeleteArgs} args - Arguments to delete one Redirecturls.
+     * @example
+     * // Delete one Redirecturls
+     * const Redirecturls = await prisma.redirecturls.delete({
+     *   where: {
+     *     // ... filter to delete one Redirecturls
+     *   }
+     * })
+     * 
+     */
+    delete<T extends RedirecturlsDeleteArgs>(args: SelectSubset<T, RedirecturlsDeleteArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Redirecturls.
+     * @param {RedirecturlsUpdateArgs} args - Arguments to update one Redirecturls.
+     * @example
+     * // Update one Redirecturls
+     * const redirecturls = await prisma.redirecturls.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends RedirecturlsUpdateArgs>(args: SelectSubset<T, RedirecturlsUpdateArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Redirecturls.
+     * @param {RedirecturlsDeleteManyArgs} args - Arguments to filter Redirecturls to delete.
+     * @example
+     * // Delete a few Redirecturls
+     * const { count } = await prisma.redirecturls.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends RedirecturlsDeleteManyArgs>(args?: SelectSubset<T, RedirecturlsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Redirecturls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Redirecturls
+     * const redirecturls = await prisma.redirecturls.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends RedirecturlsUpdateManyArgs>(args: SelectSubset<T, RedirecturlsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Redirecturls and returns the data updated in the database.
+     * @param {RedirecturlsUpdateManyAndReturnArgs} args - Arguments to update many Redirecturls.
+     * @example
+     * // Update many Redirecturls
+     * const redirecturls = await prisma.redirecturls.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Redirecturls and only return the `id`
+     * const redirecturlsWithIdOnly = await prisma.redirecturls.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends RedirecturlsUpdateManyAndReturnArgs>(args: SelectSubset<T, RedirecturlsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Redirecturls.
+     * @param {RedirecturlsUpsertArgs} args - Arguments to update or create a Redirecturls.
+     * @example
+     * // Update or create a Redirecturls
+     * const redirecturls = await prisma.redirecturls.upsert({
+     *   create: {
+     *     // ... data to create a Redirecturls
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Redirecturls we want to update
+     *   }
+     * })
+     */
+    upsert<T extends RedirecturlsUpsertArgs>(args: SelectSubset<T, RedirecturlsUpsertArgs<ExtArgs>>): Prisma__RedirecturlsClient<$Result.GetResult<Prisma.$RedirecturlsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Redirecturls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsCountArgs} args - Arguments to filter Redirecturls to count.
+     * @example
+     * // Count the number of Redirecturls
+     * const count = await prisma.redirecturls.count({
+     *   where: {
+     *     // ... the filter for the Redirecturls we want to count
+     *   }
+     * })
+    **/
+    count<T extends RedirecturlsCountArgs>(
+      args?: Subset<T, RedirecturlsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], RedirecturlsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Redirecturls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends RedirecturlsAggregateArgs>(args: Subset<T, RedirecturlsAggregateArgs>): Prisma.PrismaPromise<GetRedirecturlsAggregateType<T>>
+
+    /**
+     * Group by Redirecturls.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {RedirecturlsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends RedirecturlsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: RedirecturlsGroupByArgs['orderBy'] }
+        : { orderBy?: RedirecturlsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, RedirecturlsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetRedirecturlsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Redirecturls model
+   */
+  readonly fields: RedirecturlsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Redirecturls.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__RedirecturlsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Redirecturls model
+   */
+  interface RedirecturlsFieldRefs {
+    readonly id: FieldRef<"Redirecturls", 'Int'>
+    readonly url: FieldRef<"Redirecturls", 'String'>
+    readonly redirectedUrl: FieldRef<"Redirecturls", 'String'>
+    readonly createdAt: FieldRef<"Redirecturls", 'DateTime'>
+    readonly updatedAt: FieldRef<"Redirecturls", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Redirecturls findUnique
+   */
+  export type RedirecturlsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter, which Redirecturls to fetch.
+     */
+    where: RedirecturlsWhereUniqueInput
+  }
+
+  /**
+   * Redirecturls findUniqueOrThrow
+   */
+  export type RedirecturlsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter, which Redirecturls to fetch.
+     */
+    where: RedirecturlsWhereUniqueInput
+  }
+
+  /**
+   * Redirecturls findFirst
+   */
+  export type RedirecturlsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter, which Redirecturls to fetch.
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Redirecturls to fetch.
+     */
+    orderBy?: RedirecturlsOrderByWithRelationInput | RedirecturlsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Redirecturls.
+     */
+    cursor?: RedirecturlsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Redirecturls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Redirecturls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Redirecturls.
+     */
+    distinct?: RedirecturlsScalarFieldEnum | RedirecturlsScalarFieldEnum[]
+  }
+
+  /**
+   * Redirecturls findFirstOrThrow
+   */
+  export type RedirecturlsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter, which Redirecturls to fetch.
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Redirecturls to fetch.
+     */
+    orderBy?: RedirecturlsOrderByWithRelationInput | RedirecturlsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Redirecturls.
+     */
+    cursor?: RedirecturlsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Redirecturls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Redirecturls.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Redirecturls.
+     */
+    distinct?: RedirecturlsScalarFieldEnum | RedirecturlsScalarFieldEnum[]
+  }
+
+  /**
+   * Redirecturls findMany
+   */
+  export type RedirecturlsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter, which Redirecturls to fetch.
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Redirecturls to fetch.
+     */
+    orderBy?: RedirecturlsOrderByWithRelationInput | RedirecturlsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Redirecturls.
+     */
+    cursor?: RedirecturlsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Redirecturls from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Redirecturls.
+     */
+    skip?: number
+    distinct?: RedirecturlsScalarFieldEnum | RedirecturlsScalarFieldEnum[]
+  }
+
+  /**
+   * Redirecturls create
+   */
+  export type RedirecturlsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Redirecturls.
+     */
+    data: XOR<RedirecturlsCreateInput, RedirecturlsUncheckedCreateInput>
+  }
+
+  /**
+   * Redirecturls createMany
+   */
+  export type RedirecturlsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Redirecturls.
+     */
+    data: RedirecturlsCreateManyInput | RedirecturlsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Redirecturls createManyAndReturn
+   */
+  export type RedirecturlsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * The data used to create many Redirecturls.
+     */
+    data: RedirecturlsCreateManyInput | RedirecturlsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Redirecturls update
+   */
+  export type RedirecturlsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Redirecturls.
+     */
+    data: XOR<RedirecturlsUpdateInput, RedirecturlsUncheckedUpdateInput>
+    /**
+     * Choose, which Redirecturls to update.
+     */
+    where: RedirecturlsWhereUniqueInput
+  }
+
+  /**
+   * Redirecturls updateMany
+   */
+  export type RedirecturlsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Redirecturls.
+     */
+    data: XOR<RedirecturlsUpdateManyMutationInput, RedirecturlsUncheckedUpdateManyInput>
+    /**
+     * Filter which Redirecturls to update
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * Limit how many Redirecturls to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Redirecturls updateManyAndReturn
+   */
+  export type RedirecturlsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * The data used to update Redirecturls.
+     */
+    data: XOR<RedirecturlsUpdateManyMutationInput, RedirecturlsUncheckedUpdateManyInput>
+    /**
+     * Filter which Redirecturls to update
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * Limit how many Redirecturls to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Redirecturls upsert
+   */
+  export type RedirecturlsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Redirecturls to update in case it exists.
+     */
+    where: RedirecturlsWhereUniqueInput
+    /**
+     * In case the Redirecturls found by the `where` argument doesn't exist, create a new Redirecturls with this data.
+     */
+    create: XOR<RedirecturlsCreateInput, RedirecturlsUncheckedCreateInput>
+    /**
+     * In case the Redirecturls was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<RedirecturlsUpdateInput, RedirecturlsUncheckedUpdateInput>
+  }
+
+  /**
+   * Redirecturls delete
+   */
+  export type RedirecturlsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+    /**
+     * Filter which Redirecturls to delete.
+     */
+    where: RedirecturlsWhereUniqueInput
+  }
+
+  /**
+   * Redirecturls deleteMany
+   */
+  export type RedirecturlsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Redirecturls to delete
+     */
+    where?: RedirecturlsWhereInput
+    /**
+     * Limit how many Redirecturls to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Redirecturls without action
+   */
+  export type RedirecturlsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Redirecturls
+     */
+    select?: RedirecturlsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Redirecturls
+     */
+    omit?: RedirecturlsOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model InnersubCategories
+   */
+
+  export type AggregateInnersubCategories = {
+    _count: InnersubCategoriesCountAggregateOutputType | null
+    _avg: InnersubCategoriesAvgAggregateOutputType | null
+    _sum: InnersubCategoriesSumAggregateOutputType | null
+    _min: InnersubCategoriesMinAggregateOutputType | null
+    _max: InnersubCategoriesMaxAggregateOutputType | null
+  }
+
+  export type InnersubCategoriesAvgAggregateOutputType = {
+    id: number | null
+    subCategoryId: number | null
+  }
+
+  export type InnersubCategoriesSumAggregateOutputType = {
+    id: number | null
+    subCategoryId: number | null
+  }
+
+  export type InnersubCategoriesMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    custom_url: string | null
+    subCategoryId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    last_editedBy: string | null
+  }
+
+  export type InnersubCategoriesMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    custom_url: string | null
+    subCategoryId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    last_editedBy: string | null
+  }
+
+  export type InnersubCategoriesCountAggregateOutputType = {
+    id: number
+    name: number
+    custom_url: number
+    subCategoryId: number
+    createdAt: number
+    updatedAt: number
+    last_editedBy: number
+    _all: number
+  }
+
+
+  export type InnersubCategoriesAvgAggregateInputType = {
+    id?: true
+    subCategoryId?: true
+  }
+
+  export type InnersubCategoriesSumAggregateInputType = {
+    id?: true
+    subCategoryId?: true
+  }
+
+  export type InnersubCategoriesMinAggregateInputType = {
+    id?: true
+    name?: true
+    custom_url?: true
+    subCategoryId?: true
+    createdAt?: true
+    updatedAt?: true
+    last_editedBy?: true
+  }
+
+  export type InnersubCategoriesMaxAggregateInputType = {
+    id?: true
+    name?: true
+    custom_url?: true
+    subCategoryId?: true
+    createdAt?: true
+    updatedAt?: true
+    last_editedBy?: true
+  }
+
+  export type InnersubCategoriesCountAggregateInputType = {
+    id?: true
+    name?: true
+    custom_url?: true
+    subCategoryId?: true
+    createdAt?: true
+    updatedAt?: true
+    last_editedBy?: true
+    _all?: true
+  }
+
+  export type InnersubCategoriesAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which InnersubCategories to aggregate.
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InnersubCategories to fetch.
+     */
+    orderBy?: InnersubCategoriesOrderByWithRelationInput | InnersubCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: InnersubCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InnersubCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InnersubCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned InnersubCategories
+    **/
+    _count?: true | InnersubCategoriesCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: InnersubCategoriesAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: InnersubCategoriesSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: InnersubCategoriesMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: InnersubCategoriesMaxAggregateInputType
+  }
+
+  export type GetInnersubCategoriesAggregateType<T extends InnersubCategoriesAggregateArgs> = {
+        [P in keyof T & keyof AggregateInnersubCategories]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateInnersubCategories[P]>
+      : GetScalarType<T[P], AggregateInnersubCategories[P]>
+  }
+
+
+
+
+  export type InnersubCategoriesGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: InnersubCategoriesWhereInput
+    orderBy?: InnersubCategoriesOrderByWithAggregationInput | InnersubCategoriesOrderByWithAggregationInput[]
+    by: InnersubCategoriesScalarFieldEnum[] | InnersubCategoriesScalarFieldEnum
+    having?: InnersubCategoriesScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: InnersubCategoriesCountAggregateInputType | true
+    _avg?: InnersubCategoriesAvgAggregateInputType
+    _sum?: InnersubCategoriesSumAggregateInputType
+    _min?: InnersubCategoriesMinAggregateInputType
+    _max?: InnersubCategoriesMaxAggregateInputType
+  }
+
+  export type InnersubCategoriesGroupByOutputType = {
+    id: number
+    name: string
+    custom_url: string
+    subCategoryId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    last_editedBy: string | null
+    _count: InnersubCategoriesCountAggregateOutputType | null
+    _avg: InnersubCategoriesAvgAggregateOutputType | null
+    _sum: InnersubCategoriesSumAggregateOutputType | null
+    _min: InnersubCategoriesMinAggregateOutputType | null
+    _max: InnersubCategoriesMaxAggregateOutputType | null
+  }
+
+  type GetInnersubCategoriesGroupByPayload<T extends InnersubCategoriesGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<InnersubCategoriesGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof InnersubCategoriesGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], InnersubCategoriesGroupByOutputType[P]>
+            : GetScalarType<T[P], InnersubCategoriesGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type InnersubCategoriesSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    custom_url?: boolean
+    subCategoryId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    last_editedBy?: boolean
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["innersubCategories"]>
+
+  export type InnersubCategoriesSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    custom_url?: boolean
+    subCategoryId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    last_editedBy?: boolean
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["innersubCategories"]>
+
+  export type InnersubCategoriesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    custom_url?: boolean
+    subCategoryId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    last_editedBy?: boolean
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }, ExtArgs["result"]["innersubCategories"]>
+
+  export type InnersubCategoriesSelectScalar = {
+    id?: boolean
+    name?: boolean
+    custom_url?: boolean
+    subCategoryId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    last_editedBy?: boolean
+  }
+
+  export type InnersubCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "custom_url" | "subCategoryId" | "createdAt" | "updatedAt" | "last_editedBy", ExtArgs["result"]["innersubCategories"]>
+  export type InnersubCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }
+  export type InnersubCategoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }
+  export type InnersubCategoriesIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
+  }
+
+  export type $InnersubCategoriesPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "InnersubCategories"
+    objects: {
+      subCategory: Prisma.$subCategoriesPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      custom_url: string
+      subCategoryId: number | null
+      createdAt: Date | null
+      updatedAt: Date | null
+      last_editedBy: string | null
+    }, ExtArgs["result"]["innersubCategories"]>
+    composites: {}
+  }
+
+  type InnersubCategoriesGetPayload<S extends boolean | null | undefined | InnersubCategoriesDefaultArgs> = $Result.GetResult<Prisma.$InnersubCategoriesPayload, S>
+
+  type InnersubCategoriesCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<InnersubCategoriesFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: InnersubCategoriesCountAggregateInputType | true
+    }
+
+  export interface InnersubCategoriesDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['InnersubCategories'], meta: { name: 'InnersubCategories' } }
+    /**
+     * Find zero or one InnersubCategories that matches the filter.
+     * @param {InnersubCategoriesFindUniqueArgs} args - Arguments to find a InnersubCategories
+     * @example
+     * // Get one InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends InnersubCategoriesFindUniqueArgs>(args: SelectSubset<T, InnersubCategoriesFindUniqueArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one InnersubCategories that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {InnersubCategoriesFindUniqueOrThrowArgs} args - Arguments to find a InnersubCategories
+     * @example
+     * // Get one InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends InnersubCategoriesFindUniqueOrThrowArgs>(args: SelectSubset<T, InnersubCategoriesFindUniqueOrThrowArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first InnersubCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesFindFirstArgs} args - Arguments to find a InnersubCategories
+     * @example
+     * // Get one InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends InnersubCategoriesFindFirstArgs>(args?: SelectSubset<T, InnersubCategoriesFindFirstArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first InnersubCategories that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesFindFirstOrThrowArgs} args - Arguments to find a InnersubCategories
+     * @example
+     * // Get one InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends InnersubCategoriesFindFirstOrThrowArgs>(args?: SelectSubset<T, InnersubCategoriesFindFirstOrThrowArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more InnersubCategories that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findMany()
+     * 
+     * // Get first 10 InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const innersubCategoriesWithIdOnly = await prisma.innersubCategories.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends InnersubCategoriesFindManyArgs>(args?: SelectSubset<T, InnersubCategoriesFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a InnersubCategories.
+     * @param {InnersubCategoriesCreateArgs} args - Arguments to create a InnersubCategories.
+     * @example
+     * // Create one InnersubCategories
+     * const InnersubCategories = await prisma.innersubCategories.create({
+     *   data: {
+     *     // ... data to create a InnersubCategories
+     *   }
+     * })
+     * 
+     */
+    create<T extends InnersubCategoriesCreateArgs>(args: SelectSubset<T, InnersubCategoriesCreateArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many InnersubCategories.
+     * @param {InnersubCategoriesCreateManyArgs} args - Arguments to create many InnersubCategories.
+     * @example
+     * // Create many InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends InnersubCategoriesCreateManyArgs>(args?: SelectSubset<T, InnersubCategoriesCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many InnersubCategories and returns the data saved in the database.
+     * @param {InnersubCategoriesCreateManyAndReturnArgs} args - Arguments to create many InnersubCategories.
+     * @example
+     * // Create many InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many InnersubCategories and only return the `id`
+     * const innersubCategoriesWithIdOnly = await prisma.innersubCategories.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends InnersubCategoriesCreateManyAndReturnArgs>(args?: SelectSubset<T, InnersubCategoriesCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a InnersubCategories.
+     * @param {InnersubCategoriesDeleteArgs} args - Arguments to delete one InnersubCategories.
+     * @example
+     * // Delete one InnersubCategories
+     * const InnersubCategories = await prisma.innersubCategories.delete({
+     *   where: {
+     *     // ... filter to delete one InnersubCategories
+     *   }
+     * })
+     * 
+     */
+    delete<T extends InnersubCategoriesDeleteArgs>(args: SelectSubset<T, InnersubCategoriesDeleteArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one InnersubCategories.
+     * @param {InnersubCategoriesUpdateArgs} args - Arguments to update one InnersubCategories.
+     * @example
+     * // Update one InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends InnersubCategoriesUpdateArgs>(args: SelectSubset<T, InnersubCategoriesUpdateArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more InnersubCategories.
+     * @param {InnersubCategoriesDeleteManyArgs} args - Arguments to filter InnersubCategories to delete.
+     * @example
+     * // Delete a few InnersubCategories
+     * const { count } = await prisma.innersubCategories.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends InnersubCategoriesDeleteManyArgs>(args?: SelectSubset<T, InnersubCategoriesDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more InnersubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends InnersubCategoriesUpdateManyArgs>(args: SelectSubset<T, InnersubCategoriesUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more InnersubCategories and returns the data updated in the database.
+     * @param {InnersubCategoriesUpdateManyAndReturnArgs} args - Arguments to update many InnersubCategories.
+     * @example
+     * // Update many InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more InnersubCategories and only return the `id`
+     * const innersubCategoriesWithIdOnly = await prisma.innersubCategories.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends InnersubCategoriesUpdateManyAndReturnArgs>(args: SelectSubset<T, InnersubCategoriesUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one InnersubCategories.
+     * @param {InnersubCategoriesUpsertArgs} args - Arguments to update or create a InnersubCategories.
+     * @example
+     * // Update or create a InnersubCategories
+     * const innersubCategories = await prisma.innersubCategories.upsert({
+     *   create: {
+     *     // ... data to create a InnersubCategories
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the InnersubCategories we want to update
+     *   }
+     * })
+     */
+    upsert<T extends InnersubCategoriesUpsertArgs>(args: SelectSubset<T, InnersubCategoriesUpsertArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of InnersubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesCountArgs} args - Arguments to filter InnersubCategories to count.
+     * @example
+     * // Count the number of InnersubCategories
+     * const count = await prisma.innersubCategories.count({
+     *   where: {
+     *     // ... the filter for the InnersubCategories we want to count
+     *   }
+     * })
+    **/
+    count<T extends InnersubCategoriesCountArgs>(
+      args?: Subset<T, InnersubCategoriesCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], InnersubCategoriesCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a InnersubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends InnersubCategoriesAggregateArgs>(args: Subset<T, InnersubCategoriesAggregateArgs>): Prisma.PrismaPromise<GetInnersubCategoriesAggregateType<T>>
+
+    /**
+     * Group by InnersubCategories.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {InnersubCategoriesGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends InnersubCategoriesGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: InnersubCategoriesGroupByArgs['orderBy'] }
+        : { orderBy?: InnersubCategoriesGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, InnersubCategoriesGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetInnersubCategoriesGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the InnersubCategories model
+   */
+  readonly fields: InnersubCategoriesFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for InnersubCategories.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__InnersubCategoriesClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    subCategory<T extends InnersubCategories$subCategoryArgs<ExtArgs> = {}>(args?: Subset<T, InnersubCategories$subCategoryArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the InnersubCategories model
+   */
+  interface InnersubCategoriesFieldRefs {
+    readonly id: FieldRef<"InnersubCategories", 'Int'>
+    readonly name: FieldRef<"InnersubCategories", 'String'>
+    readonly custom_url: FieldRef<"InnersubCategories", 'String'>
+    readonly subCategoryId: FieldRef<"InnersubCategories", 'Int'>
+    readonly createdAt: FieldRef<"InnersubCategories", 'DateTime'>
+    readonly updatedAt: FieldRef<"InnersubCategories", 'DateTime'>
+    readonly last_editedBy: FieldRef<"InnersubCategories", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * InnersubCategories findUnique
+   */
+  export type InnersubCategoriesFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which InnersubCategories to fetch.
+     */
+    where: InnersubCategoriesWhereUniqueInput
+  }
+
+  /**
+   * InnersubCategories findUniqueOrThrow
+   */
+  export type InnersubCategoriesFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which InnersubCategories to fetch.
+     */
+    where: InnersubCategoriesWhereUniqueInput
+  }
+
+  /**
+   * InnersubCategories findFirst
+   */
+  export type InnersubCategoriesFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which InnersubCategories to fetch.
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InnersubCategories to fetch.
+     */
+    orderBy?: InnersubCategoriesOrderByWithRelationInput | InnersubCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for InnersubCategories.
+     */
+    cursor?: InnersubCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InnersubCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InnersubCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of InnersubCategories.
+     */
+    distinct?: InnersubCategoriesScalarFieldEnum | InnersubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * InnersubCategories findFirstOrThrow
+   */
+  export type InnersubCategoriesFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which InnersubCategories to fetch.
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InnersubCategories to fetch.
+     */
+    orderBy?: InnersubCategoriesOrderByWithRelationInput | InnersubCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for InnersubCategories.
+     */
+    cursor?: InnersubCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InnersubCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InnersubCategories.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of InnersubCategories.
+     */
+    distinct?: InnersubCategoriesScalarFieldEnum | InnersubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * InnersubCategories findMany
+   */
+  export type InnersubCategoriesFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter, which InnersubCategories to fetch.
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of InnersubCategories to fetch.
+     */
+    orderBy?: InnersubCategoriesOrderByWithRelationInput | InnersubCategoriesOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing InnersubCategories.
+     */
+    cursor?: InnersubCategoriesWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` InnersubCategories from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` InnersubCategories.
+     */
+    skip?: number
+    distinct?: InnersubCategoriesScalarFieldEnum | InnersubCategoriesScalarFieldEnum[]
+  }
+
+  /**
+   * InnersubCategories create
+   */
+  export type InnersubCategoriesCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * The data needed to create a InnersubCategories.
+     */
+    data: XOR<InnersubCategoriesCreateInput, InnersubCategoriesUncheckedCreateInput>
+  }
+
+  /**
+   * InnersubCategories createMany
+   */
+  export type InnersubCategoriesCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many InnersubCategories.
+     */
+    data: InnersubCategoriesCreateManyInput | InnersubCategoriesCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * InnersubCategories createManyAndReturn
+   */
+  export type InnersubCategoriesCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * The data used to create many InnersubCategories.
+     */
+    data: InnersubCategoriesCreateManyInput | InnersubCategoriesCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * InnersubCategories update
+   */
+  export type InnersubCategoriesUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * The data needed to update a InnersubCategories.
+     */
+    data: XOR<InnersubCategoriesUpdateInput, InnersubCategoriesUncheckedUpdateInput>
+    /**
+     * Choose, which InnersubCategories to update.
+     */
+    where: InnersubCategoriesWhereUniqueInput
+  }
+
+  /**
+   * InnersubCategories updateMany
+   */
+  export type InnersubCategoriesUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update InnersubCategories.
+     */
+    data: XOR<InnersubCategoriesUpdateManyMutationInput, InnersubCategoriesUncheckedUpdateManyInput>
+    /**
+     * Filter which InnersubCategories to update
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * Limit how many InnersubCategories to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * InnersubCategories updateManyAndReturn
+   */
+  export type InnersubCategoriesUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * The data used to update InnersubCategories.
+     */
+    data: XOR<InnersubCategoriesUpdateManyMutationInput, InnersubCategoriesUncheckedUpdateManyInput>
+    /**
+     * Filter which InnersubCategories to update
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * Limit how many InnersubCategories to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * InnersubCategories upsert
+   */
+  export type InnersubCategoriesUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * The filter to search for the InnersubCategories to update in case it exists.
+     */
+    where: InnersubCategoriesWhereUniqueInput
+    /**
+     * In case the InnersubCategories found by the `where` argument doesn't exist, create a new InnersubCategories with this data.
+     */
+    create: XOR<InnersubCategoriesCreateInput, InnersubCategoriesUncheckedCreateInput>
+    /**
+     * In case the InnersubCategories was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<InnersubCategoriesUpdateInput, InnersubCategoriesUncheckedUpdateInput>
+  }
+
+  /**
+   * InnersubCategories delete
+   */
+  export type InnersubCategoriesDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    /**
+     * Filter which InnersubCategories to delete.
+     */
+    where: InnersubCategoriesWhereUniqueInput
+  }
+
+  /**
+   * InnersubCategories deleteMany
+   */
+  export type InnersubCategoriesDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which InnersubCategories to delete
+     */
+    where?: InnersubCategoriesWhereInput
+    /**
+     * Limit how many InnersubCategories to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * InnersubCategories.subCategory
+   */
+  export type InnersubCategories$subCategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the subCategories
+     */
+    select?: subCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the subCategories
+     */
+    omit?: subCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: subCategoriesInclude<ExtArgs> | null
+    where?: subCategoriesWhereInput
+  }
+
+  /**
+   * InnersubCategories without action
+   */
+  export type InnersubCategoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -10807,10 +13222,36 @@ export namespace Prisma {
     location: 'location',
     email: 'email',
     subCategories: 'subCategories',
-    message: 'message'
+    message: 'message',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type AppointmentsScalarFieldEnum = (typeof AppointmentsScalarFieldEnum)[keyof typeof AppointmentsScalarFieldEnum]
+
+
+  export const RedirecturlsScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    redirectedUrl: 'redirectedUrl',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type RedirecturlsScalarFieldEnum = (typeof RedirecturlsScalarFieldEnum)[keyof typeof RedirecturlsScalarFieldEnum]
+
+
+  export const InnersubCategoriesScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    custom_url: 'custom_url',
+    subCategoryId: 'subCategoryId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    last_editedBy: 'last_editedBy'
+  };
+
+  export type InnersubCategoriesScalarFieldEnum = (typeof InnersubCategoriesScalarFieldEnum)[keyof typeof InnersubCategoriesScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -11245,6 +13686,7 @@ export namespace Prisma {
     seoSchema?: StringNullableFilter<"subCategories"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     products?: ProductsListRelationFilter
+    InnersubCategories?: InnersubCategoriesListRelationFilter
   }
 
   export type subCategoriesOrderByWithRelationInput = {
@@ -11291,6 +13733,7 @@ export namespace Prisma {
     seoSchema?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
     products?: ProductsOrderByRelationAggregateInput
+    InnersubCategories?: InnersubCategoriesOrderByRelationAggregateInput
   }
 
   export type subCategoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -11340,6 +13783,7 @@ export namespace Prisma {
     seoSchema?: StringNullableFilter<"subCategories"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     products?: ProductsListRelationFilter
+    InnersubCategories?: InnersubCategoriesListRelationFilter
   }, "id">
 
   export type subCategoriesOrderByWithAggregationInput = {
@@ -11937,6 +14381,8 @@ export namespace Prisma {
     email?: StringFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
     message?: StringFilter<"Appointments"> | string
+    createdAt?: DateTimeNullableFilter<"Appointments"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Appointments"> | Date | string | null
   }
 
   export type AppointmentsOrderByWithRelationInput = {
@@ -11948,6 +14394,8 @@ export namespace Prisma {
     email?: SortOrder
     subCategories?: SortOrder
     message?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
   }
 
   export type AppointmentsWhereUniqueInput = Prisma.AtLeast<{
@@ -11962,6 +14410,8 @@ export namespace Prisma {
     email?: StringFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
     message?: StringFilter<"Appointments"> | string
+    createdAt?: DateTimeNullableFilter<"Appointments"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Appointments"> | Date | string | null
   }, "id">
 
   export type AppointmentsOrderByWithAggregationInput = {
@@ -11973,6 +14423,8 @@ export namespace Prisma {
     email?: SortOrder
     subCategories?: SortOrder
     message?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: AppointmentsCountOrderByAggregateInput
     _avg?: AppointmentsAvgOrderByAggregateInput
     _max?: AppointmentsMaxOrderByAggregateInput
@@ -11992,6 +14444,129 @@ export namespace Prisma {
     email?: StringWithAggregatesFilter<"Appointments"> | string
     subCategories?: JsonNullableListFilter<"Appointments">
     message?: StringWithAggregatesFilter<"Appointments"> | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Appointments"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Appointments"> | Date | string | null
+  }
+
+  export type RedirecturlsWhereInput = {
+    AND?: RedirecturlsWhereInput | RedirecturlsWhereInput[]
+    OR?: RedirecturlsWhereInput[]
+    NOT?: RedirecturlsWhereInput | RedirecturlsWhereInput[]
+    id?: IntFilter<"Redirecturls"> | number
+    url?: StringFilter<"Redirecturls"> | string
+    redirectedUrl?: StringFilter<"Redirecturls"> | string
+    createdAt?: DateTimeNullableFilter<"Redirecturls"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Redirecturls"> | Date | string | null
+  }
+
+  export type RedirecturlsOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    redirectedUrl?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+  }
+
+  export type RedirecturlsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    url?: string
+    AND?: RedirecturlsWhereInput | RedirecturlsWhereInput[]
+    OR?: RedirecturlsWhereInput[]
+    NOT?: RedirecturlsWhereInput | RedirecturlsWhereInput[]
+    redirectedUrl?: StringFilter<"Redirecturls"> | string
+    createdAt?: DateTimeNullableFilter<"Redirecturls"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"Redirecturls"> | Date | string | null
+  }, "id" | "url">
+
+  export type RedirecturlsOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    redirectedUrl?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    _count?: RedirecturlsCountOrderByAggregateInput
+    _avg?: RedirecturlsAvgOrderByAggregateInput
+    _max?: RedirecturlsMaxOrderByAggregateInput
+    _min?: RedirecturlsMinOrderByAggregateInput
+    _sum?: RedirecturlsSumOrderByAggregateInput
+  }
+
+  export type RedirecturlsScalarWhereWithAggregatesInput = {
+    AND?: RedirecturlsScalarWhereWithAggregatesInput | RedirecturlsScalarWhereWithAggregatesInput[]
+    OR?: RedirecturlsScalarWhereWithAggregatesInput[]
+    NOT?: RedirecturlsScalarWhereWithAggregatesInput | RedirecturlsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Redirecturls"> | number
+    url?: StringWithAggregatesFilter<"Redirecturls"> | string
+    redirectedUrl?: StringWithAggregatesFilter<"Redirecturls"> | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"Redirecturls"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"Redirecturls"> | Date | string | null
+  }
+
+  export type InnersubCategoriesWhereInput = {
+    AND?: InnersubCategoriesWhereInput | InnersubCategoriesWhereInput[]
+    OR?: InnersubCategoriesWhereInput[]
+    NOT?: InnersubCategoriesWhereInput | InnersubCategoriesWhereInput[]
+    id?: IntFilter<"InnersubCategories"> | number
+    name?: StringFilter<"InnersubCategories"> | string
+    custom_url?: StringFilter<"InnersubCategories"> | string
+    subCategoryId?: IntNullableFilter<"InnersubCategories"> | number | null
+    createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
+    subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+  }
+
+  export type InnersubCategoriesOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    custom_url?: SortOrder
+    subCategoryId?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    subCategory?: subCategoriesOrderByWithRelationInput
+  }
+
+  export type InnersubCategoriesWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: InnersubCategoriesWhereInput | InnersubCategoriesWhereInput[]
+    OR?: InnersubCategoriesWhereInput[]
+    NOT?: InnersubCategoriesWhereInput | InnersubCategoriesWhereInput[]
+    name?: StringFilter<"InnersubCategories"> | string
+    custom_url?: StringFilter<"InnersubCategories"> | string
+    subCategoryId?: IntNullableFilter<"InnersubCategories"> | number | null
+    createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
+    subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+  }, "id">
+
+  export type InnersubCategoriesOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    custom_url?: SortOrder
+    subCategoryId?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    last_editedBy?: SortOrderInput | SortOrder
+    _count?: InnersubCategoriesCountOrderByAggregateInput
+    _avg?: InnersubCategoriesAvgOrderByAggregateInput
+    _max?: InnersubCategoriesMaxOrderByAggregateInput
+    _min?: InnersubCategoriesMinOrderByAggregateInput
+    _sum?: InnersubCategoriesSumOrderByAggregateInput
+  }
+
+  export type InnersubCategoriesScalarWhereWithAggregatesInput = {
+    AND?: InnersubCategoriesScalarWhereWithAggregatesInput | InnersubCategoriesScalarWhereWithAggregatesInput[]
+    OR?: InnersubCategoriesScalarWhereWithAggregatesInput[]
+    NOT?: InnersubCategoriesScalarWhereWithAggregatesInput | InnersubCategoriesScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"InnersubCategories"> | number
+    name?: StringWithAggregatesFilter<"InnersubCategories"> | string
+    custom_url?: StringWithAggregatesFilter<"InnersubCategories"> | string
+    subCategoryId?: IntNullableWithAggregatesFilter<"InnersubCategories"> | number | null
+    createdAt?: DateTimeNullableWithAggregatesFilter<"InnersubCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"InnersubCategories"> | Date | string | null
+    last_editedBy?: StringNullableWithAggregatesFilter<"InnersubCategories"> | string | null
   }
 
   export type categoriesCreateInput = {
@@ -12356,6 +14931,7 @@ export namespace Prisma {
     seoSchema?: string | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
+    InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesUncheckedCreateInput = {
@@ -12401,6 +14977,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
+    InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesUpdateInput = {
@@ -12445,6 +15022,7 @@ export namespace Prisma {
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
+    InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateInput = {
@@ -12490,6 +15068,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
+    InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
   }
 
   export type subCategoriesCreateManyInput = {
@@ -13211,6 +15790,8 @@ export namespace Prisma {
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
     message: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AppointmentsUncheckedCreateInput = {
@@ -13222,6 +15803,8 @@ export namespace Prisma {
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
     message: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AppointmentsUpdateInput = {
@@ -13232,6 +15815,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
     message?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AppointmentsUncheckedUpdateInput = {
@@ -13243,6 +15828,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
     message?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AppointmentsCreateManyInput = {
@@ -13254,6 +15841,8 @@ export namespace Prisma {
     email: string
     subCategories?: AppointmentsCreatesubCategoriesInput | InputJsonValue[]
     message: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
   }
 
   export type AppointmentsUpdateManyMutationInput = {
@@ -13264,6 +15853,8 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
     message?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type AppointmentsUncheckedUpdateManyInput = {
@@ -13275,6 +15866,127 @@ export namespace Prisma {
     email?: StringFieldUpdateOperationsInput | string
     subCategories?: AppointmentsUpdatesubCategoriesInput | InputJsonValue[]
     message?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RedirecturlsCreateInput = {
+    url: string
+    redirectedUrl: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type RedirecturlsUncheckedCreateInput = {
+    id?: number
+    url: string
+    redirectedUrl: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type RedirecturlsUpdateInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    redirectedUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RedirecturlsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    redirectedUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RedirecturlsCreateManyInput = {
+    id?: number
+    url: string
+    redirectedUrl: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+  }
+
+  export type RedirecturlsUpdateManyMutationInput = {
+    url?: StringFieldUpdateOperationsInput | string
+    redirectedUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type RedirecturlsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    url?: StringFieldUpdateOperationsInput | string
+    redirectedUrl?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type InnersubCategoriesCreateInput = {
+    name: string
+    custom_url: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
+  }
+
+  export type InnersubCategoriesUncheckedCreateInput = {
+    id?: number
+    name: string
+    custom_url: string
+    subCategoryId?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+  }
+
+  export type InnersubCategoriesUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
+  }
+
+  export type InnersubCategoriesUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type InnersubCategoriesCreateManyInput = {
+    id?: number
+    name: string
+    custom_url: string
+    subCategoryId?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+  }
+
+  export type InnersubCategoriesUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type InnersubCategoriesUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -13673,6 +16385,16 @@ export namespace Prisma {
   export type CategoriesNullableScalarRelationFilter = {
     is?: categoriesWhereInput | null
     isNot?: categoriesWhereInput | null
+  }
+
+  export type InnersubCategoriesListRelationFilter = {
+    every?: InnersubCategoriesWhereInput
+    some?: InnersubCategoriesWhereInput
+    none?: InnersubCategoriesWhereInput
+  }
+
+  export type InnersubCategoriesOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
   export type subCategoriesCountOrderByAggregateInput = {
@@ -14109,6 +16831,8 @@ export namespace Prisma {
     email?: SortOrder
     subCategories?: SortOrder
     message?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AppointmentsAvgOrderByAggregateInput = {
@@ -14123,6 +16847,8 @@ export namespace Prisma {
     location?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AppointmentsMinOrderByAggregateInput = {
@@ -14133,10 +16859,84 @@ export namespace Prisma {
     location?: SortOrder
     email?: SortOrder
     message?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type AppointmentsSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type RedirecturlsCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    redirectedUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RedirecturlsAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type RedirecturlsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    redirectedUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RedirecturlsMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    redirectedUrl?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type RedirecturlsSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type InnersubCategoriesCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    custom_url?: SortOrder
+    subCategoryId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    last_editedBy?: SortOrder
+  }
+
+  export type InnersubCategoriesAvgOrderByAggregateInput = {
+    id?: SortOrder
+    subCategoryId?: SortOrder
+  }
+
+  export type InnersubCategoriesMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    custom_url?: SortOrder
+    subCategoryId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    last_editedBy?: SortOrder
+  }
+
+  export type InnersubCategoriesMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    custom_url?: SortOrder
+    subCategoryId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    last_editedBy?: SortOrder
+  }
+
+  export type InnersubCategoriesSumOrderByAggregateInput = {
+    id?: SortOrder
+    subCategoryId?: SortOrder
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {
@@ -14337,11 +17137,25 @@ export namespace Prisma {
     connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
   }
 
+  export type InnersubCategoriesCreateNestedManyWithoutSubCategoryInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput> | InnersubCategoriesCreateWithoutSubCategoryInput[] | InnersubCategoriesUncheckedCreateWithoutSubCategoryInput[]
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutSubCategoryInput | InnersubCategoriesCreateOrConnectWithoutSubCategoryInput[]
+    createMany?: InnersubCategoriesCreateManySubCategoryInputEnvelope
+    connect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+  }
+
   export type ProductsUncheckedCreateNestedManyWithoutSubcategoryInput = {
     create?: XOR<ProductsCreateWithoutSubcategoryInput, ProductsUncheckedCreateWithoutSubcategoryInput> | ProductsCreateWithoutSubcategoryInput[] | ProductsUncheckedCreateWithoutSubcategoryInput[]
     connectOrCreate?: ProductsCreateOrConnectWithoutSubcategoryInput | ProductsCreateOrConnectWithoutSubcategoryInput[]
     createMany?: ProductsCreateManySubcategoryInputEnvelope
     connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+  }
+
+  export type InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput> | InnersubCategoriesCreateWithoutSubCategoryInput[] | InnersubCategoriesUncheckedCreateWithoutSubCategoryInput[]
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutSubCategoryInput | InnersubCategoriesCreateOrConnectWithoutSubCategoryInput[]
+    createMany?: InnersubCategoriesCreateManySubCategoryInputEnvelope
+    connect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
   }
 
   export type subCategoriesUpdatecategoryTextInput = {
@@ -14413,6 +17227,20 @@ export namespace Prisma {
     deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
   }
 
+  export type InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput> | InnersubCategoriesCreateWithoutSubCategoryInput[] | InnersubCategoriesUncheckedCreateWithoutSubCategoryInput[]
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutSubCategoryInput | InnersubCategoriesCreateOrConnectWithoutSubCategoryInput[]
+    upsert?: InnersubCategoriesUpsertWithWhereUniqueWithoutSubCategoryInput | InnersubCategoriesUpsertWithWhereUniqueWithoutSubCategoryInput[]
+    createMany?: InnersubCategoriesCreateManySubCategoryInputEnvelope
+    set?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    disconnect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    delete?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    connect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    update?: InnersubCategoriesUpdateWithWhereUniqueWithoutSubCategoryInput | InnersubCategoriesUpdateWithWhereUniqueWithoutSubCategoryInput[]
+    updateMany?: InnersubCategoriesUpdateManyWithWhereWithoutSubCategoryInput | InnersubCategoriesUpdateManyWithWhereWithoutSubCategoryInput[]
+    deleteMany?: InnersubCategoriesScalarWhereInput | InnersubCategoriesScalarWhereInput[]
+  }
+
   export type NullableIntFieldUpdateOperationsInput = {
     set?: number | null
     increment?: number
@@ -14433,6 +17261,20 @@ export namespace Prisma {
     update?: ProductsUpdateWithWhereUniqueWithoutSubcategoryInput | ProductsUpdateWithWhereUniqueWithoutSubcategoryInput[]
     updateMany?: ProductsUpdateManyWithWhereWithoutSubcategoryInput | ProductsUpdateManyWithWhereWithoutSubcategoryInput[]
     deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+  }
+
+  export type InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput> | InnersubCategoriesCreateWithoutSubCategoryInput[] | InnersubCategoriesUncheckedCreateWithoutSubCategoryInput[]
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutSubCategoryInput | InnersubCategoriesCreateOrConnectWithoutSubCategoryInput[]
+    upsert?: InnersubCategoriesUpsertWithWhereUniqueWithoutSubCategoryInput | InnersubCategoriesUpsertWithWhereUniqueWithoutSubCategoryInput[]
+    createMany?: InnersubCategoriesCreateManySubCategoryInputEnvelope
+    set?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    disconnect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    delete?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    connect?: InnersubCategoriesWhereUniqueInput | InnersubCategoriesWhereUniqueInput[]
+    update?: InnersubCategoriesUpdateWithWhereUniqueWithoutSubCategoryInput | InnersubCategoriesUpdateWithWhereUniqueWithoutSubCategoryInput[]
+    updateMany?: InnersubCategoriesUpdateManyWithWhereWithoutSubCategoryInput | InnersubCategoriesUpdateManyWithWhereWithoutSubCategoryInput[]
+    deleteMany?: InnersubCategoriesScalarWhereInput | InnersubCategoriesScalarWhereInput[]
   }
 
   export type ProductsCreateproductImagesInput = {
@@ -14523,6 +17365,22 @@ export namespace Prisma {
   export type AppointmentsUpdatesubCategoriesInput = {
     set?: InputJsonValue[]
     push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type subCategoriesCreateNestedOneWithoutInnersubCategoriesInput = {
+    create?: XOR<subCategoriesCreateWithoutInnersubCategoriesInput, subCategoriesUncheckedCreateWithoutInnersubCategoriesInput>
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutInnersubCategoriesInput
+    connect?: subCategoriesWhereUniqueInput
+  }
+
+  export type subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput = {
+    create?: XOR<subCategoriesCreateWithoutInnersubCategoriesInput, subCategoriesUncheckedCreateWithoutInnersubCategoriesInput>
+    connectOrCreate?: subCategoriesCreateOrConnectWithoutInnersubCategoriesInput
+    upsert?: subCategoriesUpsertWithoutInnersubCategoriesInput
+    disconnect?: subCategoriesWhereInput | boolean
+    delete?: subCategoriesWhereInput | boolean
+    connect?: subCategoriesWhereUniqueInput
+    update?: XOR<XOR<subCategoriesUpdateToOneWithWhereWithoutInnersubCategoriesInput, subCategoriesUpdateWithoutInnersubCategoriesInput>, subCategoriesUncheckedUpdateWithoutInnersubCategoriesInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -14788,6 +17646,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
+    InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesUncheckedCreateWithoutCategoryInput = {
@@ -14832,6 +17691,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
+    InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesCreateOrConnectWithoutCategoryInput = {
@@ -15236,6 +18096,33 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type InnersubCategoriesCreateWithoutSubCategoryInput = {
+    name: string
+    custom_url: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+  }
+
+  export type InnersubCategoriesUncheckedCreateWithoutSubCategoryInput = {
+    id?: number
+    name: string
+    custom_url: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+  }
+
+  export type InnersubCategoriesCreateOrConnectWithoutSubCategoryInput = {
+    where: InnersubCategoriesWhereUniqueInput
+    create: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput>
+  }
+
+  export type InnersubCategoriesCreateManySubCategoryInputEnvelope = {
+    data: InnersubCategoriesCreateManySubCategoryInput | InnersubCategoriesCreateManySubCategoryInput[]
+    skipDuplicates?: boolean
+  }
+
   export type categoriesUpsertWithoutSubCategoriesInput = {
     update: XOR<categoriesUpdateWithoutSubCategoriesInput, categoriesUncheckedUpdateWithoutSubCategoriesInput>
     create: XOR<categoriesCreateWithoutSubCategoriesInput, categoriesUncheckedCreateWithoutSubCategoriesInput>
@@ -15352,6 +18239,35 @@ export namespace Prisma {
   export type ProductsUpdateManyWithWhereWithoutSubcategoryInput = {
     where: ProductsScalarWhereInput
     data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyWithoutSubcategoryInput>
+  }
+
+  export type InnersubCategoriesUpsertWithWhereUniqueWithoutSubCategoryInput = {
+    where: InnersubCategoriesWhereUniqueInput
+    update: XOR<InnersubCategoriesUpdateWithoutSubCategoryInput, InnersubCategoriesUncheckedUpdateWithoutSubCategoryInput>
+    create: XOR<InnersubCategoriesCreateWithoutSubCategoryInput, InnersubCategoriesUncheckedCreateWithoutSubCategoryInput>
+  }
+
+  export type InnersubCategoriesUpdateWithWhereUniqueWithoutSubCategoryInput = {
+    where: InnersubCategoriesWhereUniqueInput
+    data: XOR<InnersubCategoriesUpdateWithoutSubCategoryInput, InnersubCategoriesUncheckedUpdateWithoutSubCategoryInput>
+  }
+
+  export type InnersubCategoriesUpdateManyWithWhereWithoutSubCategoryInput = {
+    where: InnersubCategoriesScalarWhereInput
+    data: XOR<InnersubCategoriesUpdateManyMutationInput, InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryInput>
+  }
+
+  export type InnersubCategoriesScalarWhereInput = {
+    AND?: InnersubCategoriesScalarWhereInput | InnersubCategoriesScalarWhereInput[]
+    OR?: InnersubCategoriesScalarWhereInput[]
+    NOT?: InnersubCategoriesScalarWhereInput | InnersubCategoriesScalarWhereInput[]
+    id?: IntFilter<"InnersubCategories"> | number
+    name?: StringFilter<"InnersubCategories"> | string
+    custom_url?: StringFilter<"InnersubCategories"> | string
+    subCategoryId?: IntNullableFilter<"InnersubCategories"> | number | null
+    createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
+    last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
   }
 
   export type categoriesCreateWithoutProductsInput = {
@@ -15491,6 +18407,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
+    InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesUncheckedCreateWithoutProductsInput = {
@@ -15535,6 +18452,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
   }
 
   export type subCategoriesCreateOrConnectWithoutProductsInput = {
@@ -15696,6 +18614,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
+    InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateWithoutProductsInput = {
@@ -15740,6 +18659,201 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
+  }
+
+  export type subCategoriesCreateWithoutInnersubCategoriesInput = {
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutSubCategoriesInput
+    products?: ProductsCreateNestedManyWithoutSubcategoryInput
+  }
+
+  export type subCategoriesUncheckedCreateWithoutInnersubCategoriesInput = {
+    id?: number
+    name: string
+    description?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: string | null
+    short_description?: string | null
+    custom_url: string
+    categoryId?: number | null
+    breadCrum?: string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: string | null
+    BannerHeading?: string | null
+    leftHeading?: string | null
+    categoryText?: subCategoriesCreatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesCreatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: string | null
+    categoryHeroHeading?: string | null
+    categoryHeroText?: subCategoriesCreatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesCreatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: string | null
+    collectionMainHeading?: string | null
+    QualityHeadings?: subCategoriesCreateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesCreateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesCreateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesCreateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesCreateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: string | null
+    bottomText?: string | null
+    bodyHeading?: string | null
+    bodyMainHeading?: string | null
+    bodyText?: string | null
+    explore_Heading?: string | null
+    explore_main_heading?: string | null
+    explore_description?: string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
+  }
+
+  export type subCategoriesCreateOrConnectWithoutInnersubCategoriesInput = {
+    where: subCategoriesWhereUniqueInput
+    create: XOR<subCategoriesCreateWithoutInnersubCategoriesInput, subCategoriesUncheckedCreateWithoutInnersubCategoriesInput>
+  }
+
+  export type subCategoriesUpsertWithoutInnersubCategoriesInput = {
+    update: XOR<subCategoriesUpdateWithoutInnersubCategoriesInput, subCategoriesUncheckedUpdateWithoutInnersubCategoriesInput>
+    create: XOR<subCategoriesCreateWithoutInnersubCategoriesInput, subCategoriesUncheckedCreateWithoutInnersubCategoriesInput>
+    where?: subCategoriesWhereInput
+  }
+
+  export type subCategoriesUpdateToOneWithWhereWithoutInnersubCategoriesInput = {
+    where?: subCategoriesWhereInput
+    data: XOR<subCategoriesUpdateWithoutInnersubCategoriesInput, subCategoriesUncheckedUpdateWithoutInnersubCategoriesInput>
+  }
+
+  export type subCategoriesUpdateWithoutInnersubCategoriesInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
+    products?: ProductsUpdateManyWithoutSubcategoryNestedInput
+  }
+
+  export type subCategoriesUncheckedUpdateWithoutInnersubCategoriesInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    breadCrum?: NullableStringFieldUpdateOperationsInput | string | null
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    BannerText?: NullableStringFieldUpdateOperationsInput | string | null
+    BannerHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    leftHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryText?: subCategoriesUpdatecategoryTextInput | InputJsonValue[]
+    categoryHeroImages?: subCategoriesUpdatecategoryHeroImagesInput | InputJsonValue[]
+    categoryHeroToptext?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryHeroText?: subCategoriesUpdatecategoryHeroTextInput | InputJsonValue[]
+    categoryFaqs?: subCategoriesUpdatecategoryFaqsInput | InputJsonValue[]
+    collectionHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    QualityHeadings?: subCategoriesUpdateQualityHeadingsInput | InputJsonValue[]
+    QualityText?: subCategoriesUpdateQualityTextInput | InputJsonValue[]
+    QualityImages?: subCategoriesUpdateQualityImagesInput | InputJsonValue[]
+    CustomHeading?: subCategoriesUpdateCustomHeadingInput | InputJsonValue[]
+    CustomText?: subCategoriesUpdateCustomTextInput | InputJsonValue[]
+    Product_Section_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    bottomText?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyMainHeading?: NullableStringFieldUpdateOperationsInput | string | null
+    bodyText?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_Heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_main_heading?: NullableStringFieldUpdateOperationsInput | string | null
+    explore_description?: NullableStringFieldUpdateOperationsInput | string | null
+    professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
   }
 
   export type subCategoriesCreateManyCategoryInput = {
@@ -15865,6 +18979,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
+    InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateWithoutCategoryInput = {
@@ -15909,6 +19024,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
+    InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
   }
 
   export type subCategoriesUncheckedUpdateManyWithoutCategoryInput = {
@@ -16109,6 +19225,15 @@ export namespace Prisma {
     seoSchema?: string | null
   }
 
+  export type InnersubCategoriesCreateManySubCategoryInput = {
+    id?: number
+    name: string
+    custom_url: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+  }
+
   export type ProductsUpdateWithoutSubcategoryInput = {
     name?: StringFieldUpdateOperationsInput | string
     price?: IntFieldUpdateOperationsInput | number
@@ -16223,6 +19348,32 @@ export namespace Prisma {
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type InnersubCategoriesUpdateWithoutSubCategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type InnersubCategoriesUncheckedUpdateWithoutSubCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
 

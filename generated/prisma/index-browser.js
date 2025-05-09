@@ -302,7 +302,27 @@ exports.Prisma.AppointmentsScalarFieldEnum = {
   location: 'location',
   email: 'email',
   subCategories: 'subCategories',
-  message: 'message'
+  message: 'message',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.RedirecturlsScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  redirectedUrl: 'redirectedUrl',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.InnersubCategoriesScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  custom_url: 'custom_url',
+  subCategoryId: 'subCategoryId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  last_editedBy: 'last_editedBy'
 };
 
 exports.Prisma.SortOrder = {
@@ -343,7 +363,9 @@ exports.Prisma.ModelName = {
   Admins: 'Admins',
   Reviews: 'Reviews',
   SocialLinks: 'SocialLinks',
-  Appointments: 'Appointments'
+  Appointments: 'Appointments',
+  Redirecturls: 'Redirecturls',
+  InnersubCategories: 'InnersubCategories'
 };
 
 /**

@@ -15,20 +15,20 @@ export class General {
 
   @Field(() => String)
   ReviewsDescription: string;
-  
-  @Field(() => String,{nullable:true})
+
+  @Field(() => String, { nullable: true })
   reviewDate?: string;
-  
-  @Field(() => GraphQLJSON,{nullable:true})
+
+  @Field(() => GraphQLJSON, { nullable: true })
   posterImageUrl?: any;
 
 
-  @Field(() => Date,{nullable:true})
+  @Field(() => Date, { nullable: true })
   createdAt?: Date;
 
-  @Field(() => Date,{nullable:true})
+  @Field(() => Date, { nullable: true })
   updatedAt?: Date;
-  
+
 
 
 
@@ -43,14 +43,14 @@ export class SocialLinks {
 
   @Field(() => String)
   post_links: string;
-  
+
   @Field(() => GraphQLJSON)
   posterImageUrl: any;
-  
-  @Field(() => Date,{nullable:true})
+
+  @Field(() => Date, { nullable: true })
   createdAt?: Date;
 
-  @Field(() => Date,{nullable:true})
+  @Field(() => Date, { nullable: true })
   updatedAt?: Date;
 }
 
@@ -73,17 +73,39 @@ export class Appointments {
   @Field()
   location: string;
 
-  @Field(()=>String,{nullable:true})
+  @Field(() => String, { nullable: true })
   whatsApp?: string;
-  
+
   @Field(() => String,)
   message: string;
 
 
-  @Field(()=>[GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   subCategories?: any;
 
-  
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
+
+}
 
 
+@ObjectType()
+export class Redirecturls {
+  @Field(() => Int)
+  id: number;
+
+  @Field(() => String)
+  url: string;
+
+  @Field(() => String)
+  redirectedUrl: string;
+
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 }

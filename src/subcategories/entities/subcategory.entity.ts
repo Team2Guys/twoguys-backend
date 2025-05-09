@@ -132,9 +132,36 @@ export class Subcategory {
   products?: Product[];
 
 
+  @Field(() => [InnerSubCategory], { nullable: true })
+  InnersubCategories?: InnerSubCategory[];
+
+
   @Field(() => Category, { nullable: true })
   category?: Category;
 
 
+
+}
+
+
+
+
+@ObjectType()
+export class InnerSubCategory {
+  @Field()
+  name: string;
+  @Field()
+  custom_url: string;
+  @Field()
+  subCategoryId: string;
+
+  @Field(() => ID, { nullable: true })
+  id?: number;
+
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 
 }

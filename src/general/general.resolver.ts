@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GeneralService } from './general.service';
-import { Appointments, General, SocialLinks } from './entities/general.entity';
-import { createAppointments, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial } from './dto/update-general.input';
+import { Appointments, General, Redirecturls, SocialLinks } from './entities/general.entity';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateRedirecturls } from './dto/update-general.input';
 
 @Resolver(() => General)
 export class GeneralResolver {
@@ -39,7 +39,7 @@ export class GeneralResolver {
   }
 
 
-  @Mutation(() => SocialLinks, {nullable: true })
+  @Mutation(() => SocialLinks, { nullable: true })
   updateSocial(@Args('UpdateGeneralsocial') UpdateGeneralsocial: UpdateGeneralsocial) {
     return this.generalService.updateSocial(UpdateGeneralsocial);
   }
@@ -48,7 +48,7 @@ export class GeneralResolver {
   deleteSocial(@Args('id', { type: () => Int }) id: number) {
     return this.generalService.removeSocial(id);
   }
-  
+
   // Appointments
   @Mutation(() => Appointments, { name: "Create_Appointments", nullable: true })
   createAppointment(@Args('createAppointments',) createAppointments: createAppointments) {
@@ -64,6 +64,31 @@ export class GeneralResolver {
     return this.generalService.RevmoveAppointments(id);
   }
 
+
+
+  // Redirect urls 
+
+
+
+  @Mutation(() => Redirecturls, { nullable: true })
+  createRedirecturls(@Args('CreatedRedirecturls',) CreatedRedirecturls: CreatedRedirecturls) {
+    return this.generalService.createRedirecturls(CreatedRedirecturls);
+  }
+
+  @Mutation(() => Redirecturls, { nullable: true })
+  updateRedirecturls(@Args('UpdateRedirecturls',) UpdateRedirecturls: UpdateRedirecturls) {
+    return this.generalService.updateRedirecturls(UpdateRedirecturls);
+  }
+
+  @Mutation(() => Redirecturls, { nullable: true })
+  findOneRedirecturls(@Args('url', { type: () => String }) url: string) {
+    return this.generalService.findOneRedirecturls(url);
+  }
+
+  @Query(() => [Redirecturls], { nullable: true })
+  findAllRedirecturls() {
+    return this.generalService.findAllRedirecturls();
+  }
 
 
 
