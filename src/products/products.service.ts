@@ -21,8 +21,6 @@ export class ProductsService {
       if (Innersubcategory) {
         dataToUpdate.innersubCategoryId = Number(Innersubcategory);
       }
-
-
       return await this.prisma.products.create({
         data: dataToUpdate
       })
