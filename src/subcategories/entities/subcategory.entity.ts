@@ -168,7 +168,7 @@ export class InnerSubCategory {
     @Field(() => [Product], { nullable: true })
   products?: Product[];
   
-    @Field(() => Product, { nullable: true })
-  subCategory?: Subcategory;
+    @Field(() => Subcategory, { nullable: true })
+  subCategory?: Subcategory;  
 
 }

@@ -165,11 +165,13 @@ export class SubcategoriesService {
 
   async InnerSubfindAll() {
     try {
-      return await this.prisma.innersubCategories.findMany({
+      let inner_sub = await this.prisma.innersubCategories.findMany({
         include: {
           subCategory: true
         }
       })
+console.log(inner_sub, "inner_sub")
+      return inner_sub;
     } catch (error) {
       return customHttpException(error)
     }
