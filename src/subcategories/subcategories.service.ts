@@ -30,8 +30,8 @@ export class SubcategoriesService {
           category: {
             select: { id: true, name: true, custom_url: true },
           },
-          products: true,
-          InnersubCategories: true
+          products:true,
+          InnersubCategories: {include:{products:true}}
 
         }
       })

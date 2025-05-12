@@ -165,10 +165,10 @@ export class InnerSubCategory {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
 
-    @Field(() => [Product], { nullable: true })
+  @Field(() => [Product], { nullable: true })
   products?: Product[];
-  
-    @Field(() => Subcategory, { nullable: true })
-  subCategory?: Subcategory;  
+
+  @Field(() => Subcategory, { nullable: true })
+  subCategory?: Subcategory;
 
 }
