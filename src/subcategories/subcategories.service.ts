@@ -30,8 +30,8 @@ export class SubcategoriesService {
           category: {
             select: { id: true, name: true, custom_url: true },
           },
-          products:true,
-          InnersubCategories: {include:{products:true}}
+          products: true,
+          InnersubCategories: { include: { products: true } }
 
         }
       })
@@ -46,7 +46,7 @@ export class SubcategoriesService {
         where: { custom_url, category: { custom_url: category } }, include: {
           category: true,
           products: true,
-          InnersubCategories: true
+          InnersubCategories: { include: { products: true } }
 
         }
       })
@@ -170,7 +170,7 @@ export class SubcategoriesService {
           subCategory: true
         }
       })
-console.log(inner_sub, "inner_sub")
+      console.log(inner_sub, "inner_sub")
       return inner_sub;
     } catch (error) {
       return customHttpException(error)
