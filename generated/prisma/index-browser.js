@@ -246,6 +246,7 @@ exports.Prisma.ProductsScalarFieldEnum = {
   professionalServiceImage: 'professionalServiceImage',
   categoryId: 'categoryId',
   subCategoryId: 'subCategoryId',
+  innersubCategoryId: 'innersubCategoryId',
   seoSchema: 'seoSchema'
 };
 

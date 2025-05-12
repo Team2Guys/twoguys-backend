@@ -127,5 +127,8 @@ export class CreateProductInput {
   @Field(() => Int)
   subcategory?: Number;
 
+  @Field(() => Int)
+  Innersubcategory?: Number;
+
 
 }

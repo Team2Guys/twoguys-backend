@@ -147,7 +147,6 @@ model subCategories {
   // schema
   seoSchema          String?
   InnersubCategories InnersubCategories[]
-  
 }
 
 model Products {
@@ -197,8 +196,10 @@ model Products {
   professionalServiceImage Json? //
   categoryId               Int?
   subCategoryId            Int?
-  category                 categories?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
-  subcategory              subCategories? @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+  innersubCategoryId       Int?
+  category                 categories?         @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategory              subCategories?      @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+  Innersubcategory         InnersubCategories? @relation(fields: [innersubCategoryId], references: [id], onDelete: SetNull)
 
   // product schema
   seoSchema String?
@@ -279,4 +280,5 @@ model InnersubCategories {
   createdAt     DateTime?      @default(now())
   updatedAt     DateTime?
   last_editedBy String?
+  products      Products[]     @relation()
 }

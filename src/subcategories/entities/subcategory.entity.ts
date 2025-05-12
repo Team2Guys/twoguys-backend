@@ -148,10 +148,11 @@ export class Subcategory {
 
 @ObjectType()
 export class InnerSubCategory {
-  @Field()
-  name: string;
+  @Field({ nullable: true })
+  name?: string;
   @Field()
   custom_url: string;
+
   @Field()
   subCategoryId: string;
 
@@ -163,5 +164,11 @@ export class InnerSubCategory {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
+
+    @Field(() => [Product], { nullable: true })
+  products?: Product[];
+  
+    @Field(() => Product, { nullable: true })
+  subCategory?: Subcategory;
 
 }

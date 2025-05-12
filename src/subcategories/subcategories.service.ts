@@ -31,6 +31,7 @@ export class SubcategoriesService {
             select: { id: true, name: true, custom_url: true },
           },
           products: true,
+          InnersubCategories: true
 
         }
       })
@@ -45,6 +46,8 @@ export class SubcategoriesService {
         where: { custom_url, category: { custom_url: category } }, include: {
           category: true,
           products: true,
+          InnersubCategories: true
+
         }
       })
       if (!subcategory) return customHttpException("Category Not found ", "NOT_FOUND")
@@ -145,7 +148,7 @@ export class SubcategoriesService {
         return customHttpException("Selected Category does not exist", "NOT_FOUND");
       }
       return await this.prisma.innersubCategories.update({
-        where: { id}, data: {
+        where: { id }, data: {
           ...updateData,
           subCategoryId: Number(subCategoryId),
           updatedAt
@@ -159,7 +162,7 @@ export class SubcategoriesService {
   }
 
 
-  
+
   async InnerSubfindAll() {
     try {
       return await this.prisma.innersubCategories.findMany({
@@ -180,7 +183,7 @@ export class SubcategoriesService {
       return customHttpException(error)
     }
   }
-  
+
 
 
 }

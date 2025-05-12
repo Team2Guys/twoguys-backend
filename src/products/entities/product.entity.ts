@@ -1,7 +1,7 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
 import { Category } from '../../categories/entities/category.entity';
 import { GraphQLJSON } from 'graphql-type-json';
-import { Subcategory } from '../../subcategories/entities/subcategory.entity';
+import { InnerSubCategory, Subcategory } from '../../subcategories/entities/subcategory.entity';
 
 @ObjectType()
 export class Product {
@@ -130,6 +130,9 @@ export class Product {
 
   @Field(() => Subcategory, { nullable: true })
   subcategory?: Subcategory;
+
+  @Field(() => InnerSubCategory, { nullable: true })
+  Innersubcategory?: InnerSubCategory;
 
 
 }
