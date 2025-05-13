@@ -1,0 +1,31 @@
+-- CreateTable
+CREATE TABLE "EcomereceProducts" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "price" INTEGER NOT NULL,
+    "description" TEXT NOT NULL,
+    "stock" INTEGER NOT NULL,
+    "discountPrice" INTEGER,
+    "short_description" TEXT,
+    "posterImageUrl" JSONB NOT NULL,
+    "hoverImageUrl" JSONB,
+    "productImages" JSONB[],
+    "createdAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "last_editedBy" TEXT,
+    "custom_url" TEXT NOT NULL,
+    "breadCrum" TEXT NOT NULL,
+    "Banners" JSONB,
+    "DescriptionBullets" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "Additionalinformation" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "Questions" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "materialType" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "colors" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "sizes" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "variant" JSONB[] DEFAULT ARRAY[]::JSONB[],
+    "Canonical_Tag" TEXT,
+    "Meta_Description" TEXT,
+    "Meta_Title" TEXT,
+
+    CONSTRAINT "EcomereceProducts_pkey" PRIMARY KEY ("id")
+);

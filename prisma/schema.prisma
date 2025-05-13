@@ -76,7 +76,8 @@ model categories {
   Meta_Title       String?
 
   // category SCHEMA
-  seoSchema String?
+  seoSchema         String?
+  EcomereceProducts EcomereceProducts[] @relation()
 }
 
 model subCategories {
@@ -147,6 +148,7 @@ model subCategories {
   // schema
   seoSchema          String?
   InnersubCategories InnersubCategories[]
+  EcomereceProducts  EcomereceProducts[]
 }
 
 model Products {
@@ -281,4 +283,39 @@ model InnersubCategories {
   updatedAt     DateTime?
   last_editedBy String?
   products      Products[]     @relation()
+}
+
+model EcomereceProducts {
+  id                    Int            @id @default(autoincrement())
+  name                  String
+  price                 Int
+  description           String
+  stock                 Int
+  discountPrice         Int?
+  short_description     String?
+  posterImageUrl        Json
+  hoverImageUrl         Json?
+  productImages         Json[]
+  createdAt             DateTime?      @default(now())
+  updatedAt             DateTime?      @default(now())
+  last_editedBy         String?
+  custom_url            String
+  breadCrum             String
+  Banners               Json?
+  DescriptionBullets    Json[]         @default([])
+  Additionalinformation Json[]         @default([])
+  Questions             Json[]         @default([])
+  materialType          Json[]         @default([])
+  colors                Json[]         @default([])
+  sizes                 Json[]         @default([])
+  variant               Json[]         @default([])
+  Canonical_Tag         String?
+  Meta_Description      String?
+  Meta_Title            String?
+  categoryId            Int?
+  subCategoryId         Int?
+  category              categories?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategory           subCategories? @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+    // product schema
+  seoSchema String?
 }

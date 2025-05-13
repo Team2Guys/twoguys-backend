@@ -122,6 +122,9 @@ export class Product {
   @Field(() => Int, { nullable: true })
   subCategoryId?: number;
 
+    @Field(() => Int, { nullable: true })
+  innersubCategoryId?: number;
+
   @Field({ nullable: true })
   seoSchema?: string;
 

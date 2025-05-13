@@ -326,6 +326,38 @@ exports.Prisma.InnersubCategoriesScalarFieldEnum = {
   last_editedBy: 'last_editedBy'
 };
 
+exports.Prisma.EcomereceProductsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  price: 'price',
+  description: 'description',
+  stock: 'stock',
+  discountPrice: 'discountPrice',
+  short_description: 'short_description',
+  posterImageUrl: 'posterImageUrl',
+  hoverImageUrl: 'hoverImageUrl',
+  productImages: 'productImages',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  last_editedBy: 'last_editedBy',
+  custom_url: 'custom_url',
+  breadCrum: 'breadCrum',
+  Banners: 'Banners',
+  DescriptionBullets: 'DescriptionBullets',
+  Additionalinformation: 'Additionalinformation',
+  Questions: 'Questions',
+  materialType: 'materialType',
+  colors: 'colors',
+  sizes: 'sizes',
+  variant: 'variant',
+  Canonical_Tag: 'Canonical_Tag',
+  Meta_Description: 'Meta_Description',
+  Meta_Title: 'Meta_Title',
+  categoryId: 'categoryId',
+  subCategoryId: 'subCategoryId',
+  seoSchema: 'seoSchema'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -366,7 +398,8 @@ exports.Prisma.ModelName = {
   SocialLinks: 'SocialLinks',
   Appointments: 'Appointments',
   Redirecturls: 'Redirecturls',
-  InnersubCategories: 'InnersubCategories'
+  InnersubCategories: 'InnersubCategories',
+  EcomereceProducts: 'EcomereceProducts'
 };
 
 /**
