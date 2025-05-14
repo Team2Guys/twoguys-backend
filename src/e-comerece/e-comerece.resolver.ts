@@ -33,7 +33,7 @@ export class EComereceResolver {
     return this.eComereceService.update(updateEComereceInput);
   }
 
-  @Mutation(() => EComerece)
+  @Mutation(() => EComerece,{name:"RemoveEcomereceProduct"})
   removeEComerece(@Args('id', { type: () => Int }) id: number) {
     return this.eComereceService.remove(id);
   }
