@@ -8,7 +8,7 @@ import { SubcategoriesModule } from './subcategories/subcategories.module';
 import { ProductsModule } from './products/products.module';
 import { GeneralModule } from './general/general.module';
 import { EComereceModule } from './e-comerece/e-comerece.module';
-import { AdminsModule } from 'admins/admins.module';
+import { AdminsModule } from './admins/admins.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
