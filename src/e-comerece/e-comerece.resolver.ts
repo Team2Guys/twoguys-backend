@@ -18,7 +18,7 @@ export class EComereceResolver {
     return this.eComereceService.findAll();
   }
 
-  @Query(() => EComerece, { name: 'single_product', nullable: true })
+  @Query(() => EComerece, { name: 'single_product_ecomerece', nullable: true })
   findOne(
     @Args('custom_url', { type: () => String }) custom_url: string,
     @Args('category', { type: () => String }) category: string,
