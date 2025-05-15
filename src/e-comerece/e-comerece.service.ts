@@ -80,9 +80,11 @@ export class EComereceService {
     const skip = (page - 1) * pageSize;
 
     const otherProducts = await this.prisma.ecomereceProducts.findMany({
-      where: { category: { custom_url: categoryname } },
+      where: { category: { custom_url: categoryname },},
+
       skip: skip,
       take: pageSize,
+      include:{subcategory:true, category:true}
     });
 
 
