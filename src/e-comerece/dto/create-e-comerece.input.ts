@@ -44,25 +44,25 @@ export class CreateEComereceInput {
   @Field(() => GraphQLJSON, { nullable: true })
   Banners?: any;
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   DescriptionBullets?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   Additionalinformation?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   Questions?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   materialType?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   colors?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   sizes?: any[];
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   variant?: any[];
 
   @Field({ nullable: true })
@@ -79,6 +79,20 @@ export class CreateEComereceInput {
 
   @Field(() => Int, { nullable: true })
   subcategory?: number;
-    @Field({ nullable: true })
+  @Field({ nullable: true })
   seoSchema?: string
+}
+
+
+
+@InputType()
+export class PaginatedPrducts {
+  @Field()
+  categoryname: string
+
+  @Field(() => Int)
+  page: number
+
+  @Field(()=>Int)
+  pageSize: number
 }

@@ -1,7 +1,7 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { EComereceService } from './e-comerece.service';
-import { EComerece } from './entities/e-comerece.entity';
-import { CreateEComereceInput } from './dto/create-e-comerece.input';
+import { EComerece, eComereceProducts } from './entities/e-comerece.entity';
+import { CreateEComereceInput, PaginatedPrducts } from './dto/create-e-comerece.input';
 import { UpdateEComereceInput } from './dto/update-e-comerece.input';
 
 @Resolver(() => EComerece)
@@ -37,4 +37,13 @@ export class EComereceResolver {
   removeEComerece(@Args('id', { type: () => Int }) id: number) {
     return this.eComereceService.remove(id);
   }
+
+
+  
+  @Mutation(() => eComereceProducts,{nullable:true})
+  PaginatedPrducts(@Args('PaginatedPrducts') PaginatedPrducts: PaginatedPrducts) {
+    return this.eComereceService.CategorygetPaginatedProducts(PaginatedPrducts.categoryname, PaginatedPrducts.page, PaginatedPrducts.pageSize);
+  }
+
+
 }

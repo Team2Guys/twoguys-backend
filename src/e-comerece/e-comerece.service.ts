@@ -18,10 +18,10 @@ export class EComereceService {
         categoryId: Number(category),
         subCategoryId: Number(subcategory),
       };
-      let products =  await this.prisma.ecomereceProducts.create({
+      let products = await this.prisma.ecomereceProducts.create({
         data: dataToUpdate
       })
-console.log(products, "products")
+      console.log(products, "products")
       return products;
     } catch (error) {
       console.log(error, "error")
@@ -73,6 +73,33 @@ console.log(products, "products")
       return customHttpException(error)
     }
   }
+
+
+
+  CategorygetPaginatedProducts = async (categoryname: string, page = 1, pageSize = 5) => {
+    const skip = (page - 1) * pageSize;
+
+    const otherProducts = await this.prisma.ecomereceProducts.findMany({
+      where: { category: { custom_url: categoryname } },
+      skip: skip,
+      take: pageSize,
+    });
+
+
+
+    const totalProductsCount = await this.prisma.ecomereceProducts.count({
+      where: { category: { custom_url: categoryname } },
+    });
+
+    const totalPages = Math.ceil(totalProductsCount / pageSize);
+console.log(otherProducts, "otherProducts", totalProductsCount, pageSize)
+    return {
+      products: otherProducts,
+      totalPages,
+      totalEcomereceProduct: totalProductsCount
+    };
+  };
+
 
 
 

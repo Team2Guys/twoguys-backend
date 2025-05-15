@@ -95,3 +95,18 @@ export class EComerece {
   updatedAt?: Date;
 
 }
+@ObjectType()
+
+export class eComereceProducts {
+
+  @Field(() => [EComerece], { nullable: true })
+  products?: EComerece[]
+
+
+  @Field(() => Int, { nullable: true })
+  totalPages?: number
+    
+  @Field(() => Int, { nullable: true })
+  totalEcomereceProduct?: number
+
+}
