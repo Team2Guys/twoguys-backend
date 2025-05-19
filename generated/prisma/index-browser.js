@@ -358,6 +358,15 @@ exports.Prisma.EcomereceProductsScalarFieldEnum = {
   seoSchema: 'seoSchema'
 };
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  password: 'password',
+  phone: 'phone',
+  userImageUrl: 'userImageUrl'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -399,7 +408,8 @@ exports.Prisma.ModelName = {
   Appointments: 'Appointments',
   Redirecturls: 'Redirecturls',
   InnersubCategories: 'InnersubCategories',
-  EcomereceProducts: 'EcomereceProducts'
+  EcomereceProducts: 'EcomereceProducts',
+  User: 'User'
 };
 
 /**

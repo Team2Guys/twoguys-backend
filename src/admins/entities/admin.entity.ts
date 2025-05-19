@@ -1,4 +1,4 @@
-import { ObjectType, Field, Int, PartialType, ID } from '@nestjs/graphql';
+import { ObjectType, Field, Int, PartialType, ID, Float } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 @ObjectType()
 export class Admin {
@@ -82,4 +82,35 @@ export class super_admin {
   email: string;
   @Field()
   role: string;
+}
+
+
+@ObjectType()
+export class DashboardStats {
+  @Field(() => Int)
+  totalSubCategories: number;
+
+  @Field(() => Int)
+  totalProducts: number;
+
+  @Field(() => Int)
+  totalCategories: number;
+
+  @Field(() => Int)
+  totalAdmins: number;
+
+  @Field(() => Float)
+  totalRevenue: number;
+
+  @Field(() => Int)
+  totalSales: number;
+
+  @Field(() => Int)
+  totalUsers: number;
+
+  @Field(() => Int)
+  Total_abandant_order: number;
+
+  @Field(() => Int)
+  totalAccessories: number;
 }
