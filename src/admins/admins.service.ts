@@ -13,10 +13,10 @@ export class AdminsService {
   async create(createAdminInput: CreateAdminInput) {
 
     try {
-      let existingAdmin = await this.prisma.admins.findFirst({ where: { email: createAdminInput.email } })
+      let existingAdmin = await this.prisma.admins.findUnique({ where: { email: createAdminInput.email } })
+      console.log(existingAdmin, "EXISTINTMADMIND")
       if (existingAdmin) {
-        customHttpException("User Already Exist", 'BAD_REQUEST');
-        return
+        return customHttpException("User Already Exist", 'BAD_REQUEST');
       }
       return await this.prisma.admins.create({ data: { ...createAdminInput } })
     } catch (error) {
@@ -43,7 +43,7 @@ export class AdminsService {
 
 
         const { password: _, ...userWithoutPassword } = existingUser;
-        const token = jwt.sign(userWithoutPassword , process.env.TOKEN_SECRET, {
+        const token = jwt.sign(userWithoutPassword, process.env.TOKEN_SECRET, {
           expiresIn: '24h',
         });
         res.cookie('admin_access_token', token, {
@@ -82,7 +82,7 @@ export class AdminsService {
 
 
       let userWithoutPassword = {
-        id:"7",
+        id: "7",
         fullname: "Shiraz Ossman",
         email: superAdmin_email,
         role: "super_admin"
@@ -127,11 +127,11 @@ export class AdminsService {
 
 
   async findOne(req: AuthenticatedRequest) {
-    const {id, role }= req.user;
+    const { id, role } = req.user;
     try {
-      if(role =="super_admin"){
+      if (role == "super_admin") {
         let superAdmin_email = process.env.SUPER_AMDIN_EMAIL || " ";
-    return    {
+        return {
           "id": 1,
           "fullname": 'Shiraz Osman',
           email: superAdmin_email,
@@ -151,11 +151,11 @@ export class AdminsService {
           canVeiwTotalCategories: true,
           posterImageUrl: null,
           role: 'super_admin',
+        }
       }
-    }
-    let admin = await this.prisma.admins.findUnique({ where: { id } })
-    console.log(admin, "admins")
-    return admin
+      let admin = await this.prisma.admins.findUnique({ where: { id } })
+      console.log(admin, "admins")
+      return admin
     } catch (error) {
       return customHttpException(error.message,
         'INTERNAL_SERVER_ERROR',
@@ -165,25 +165,33 @@ export class AdminsService {
 
   async update(id: number, updateAdminInput: UpdateAdminInput) {
     try {
+      const { id: _, ...withoutId } = updateAdminInput;
 
-      const { id: _, ...withoutId } = updateAdminInput
-
-      let admin = await this.prisma.admins.findUnique({ where: { id } })
+      const admin = await this.prisma.admins.findUnique({ where: { id } });
       if (!admin) {
-        return customHttpException(
-          'User not found😴',
-          'FORBIDDEN',
-        );
+        return customHttpException('User not found😴', 'FORBIDDEN');
       }
-      return await this.prisma.admins.update({ where: { id }, data: withoutId })
 
+      // Check if the email is used by another admin (not the same one)
+      if (withoutId.email) {
+        const existingAdmin = await this.prisma.admins.findUnique({
+          where: { email: withoutId.email },
+        });
 
+        if (existingAdmin && existingAdmin.id !== id) {
+          return customHttpException('Email already in use by another admin', 'BAD_REQUEST');
+        }
+      }
+
+      return await this.prisma.admins.update({
+        where: { id },
+        data: withoutId,
+      });
     } catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
+      return customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
     }
   }
+
 
   async remove(id: number) {
     try {

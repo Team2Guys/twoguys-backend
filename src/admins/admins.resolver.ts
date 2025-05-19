@@ -28,12 +28,12 @@ export class AdminsResolver {
     return this.adminsService.findOne(req);
   }
 
-  @Mutation(() => Admin)
+  @Mutation(() => Admin,{nullable:true})
   updateAdmin(@Args('updateAdminInput') updateAdminInput: UpdateAdminInput) {
     return this.adminsService.update(+updateAdminInput.id, updateAdminInput);
   }
 
-  @Mutation(() => Admin)
+  @Mutation(() => Admin,{nullable:true})
   removeAdmin(@Args('id', { type: () => Int }) id: number) {
     return this.adminsService.remove(id);
   }
