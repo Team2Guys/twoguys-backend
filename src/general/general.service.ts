@@ -225,10 +225,6 @@ export class GeneralService {
     }
   }
 
-
-
-
-
   async removeProdReviews(id: number) {
     try {
       return await this.prisma.productReviews.delete({ where: { id } })
@@ -237,6 +233,13 @@ export class GeneralService {
     }
     return `This action removes a #${id} general`;
   }
+
+
+  // 
+  
+
+
+
 
 
 }

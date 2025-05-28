@@ -95,4 +95,9 @@ export class PaginatedPrducts {
 
   @Field(()=>Int)
   pageSize: number
+
+  @Field({nullable:true})
+  subcategory?: string
+
+
 }

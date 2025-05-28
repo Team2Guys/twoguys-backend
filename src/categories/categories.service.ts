@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCategoryInput } from './dto/create-category.input';
+import { CreateCategoryInput, PaginatedProducts } from './dto/create-category.input';
 import { UpdateCategoryInput } from './dto/update-category.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
@@ -32,8 +32,8 @@ export class CategoriesService {
 
   async findAll() {
     try {
-      let categories =  await this.prisma.categories.findMany({include:{subCategories:{include:{InnersubCategories:true}}, products:true}});
-      console.log(categories[2], )
+      let categories = await this.prisma.categories.findMany({ include: { subCategories: { include: { InnersubCategories: true } }, products: true } });
+      console.log(categories[2],)
       return categories
     } catch (error) {
       console.log(error, "error")
@@ -43,7 +43,7 @@ export class CategoriesService {
 
   async findOne(customUrl: string) {
     try {
-      return await this.prisma.categories.findFirst({ where: { custom_url: customUrl }, include:{subCategories:{include:{products:true,InnersubCategories:true, EcomereceProducts:true}}} });
+      return await this.prisma.categories.findFirst({ where: { custom_url: customUrl }, include: { subCategories: { include: { products: true, InnersubCategories: true, EcomereceProducts: true } } } });
     } catch (error) {
       customHttpException(error, 'INTERNAL_SERVER_ERROR');
     }
@@ -67,7 +67,7 @@ export class CategoriesService {
 
 
       if (!category) return customHttpException("Category not found", "NOT_FOUND")
-        console.log(updateCategoryInput.explore_Heading, "create Input")
+      console.log(updateCategoryInput.explore_Heading, "create Input")
 
       const updatedCategory = await this.prisma.categories.update({
         where: { id: id },
@@ -107,5 +107,40 @@ export class CategoriesService {
   }
 
 
+
+  getPaginatedProducts = async (categoryname: string, page = 1, pageSize = 5) => {
+    const skip = (page - 1) * pageSize;
+    const otherProducts = await this.prisma.ecomereceProducts.findMany({
+      where: {
+        category: {
+          name: categoryname,
+        },
+      },
+      skip: skip,
+      take: pageSize,
+      orderBy: { createdAt: 'desc' },
+
+    });
+
+
+
+    const totalProductsCount = await this.prisma.ecomereceProducts.count({
+      where: {
+        category: {
+
+          name: categoryname,
+
+        },
+      },
+    });
+
+    const totalPages = Math.ceil(totalProductsCount / pageSize);
+
+    return {
+      Paginatedproducts: otherProducts,
+      totalPages,
+      totalProducts: totalProductsCount
+    };
+  };
 
 }

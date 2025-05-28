@@ -1,4 +1,4 @@
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
@@ -125,3 +125,16 @@ export class CreateCategoryInput {
 }
 
 
+
+
+@InputType()
+export class PaginatedProducts {
+  @Field()
+  categoryname: string;
+  @Field(() => Int)
+  page: number;
+
+  @Field(() => Int)
+  pageSize: number;
+
+}

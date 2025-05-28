@@ -76,25 +76,35 @@ export class EComereceService {
 
 
 
-  CategorygetPaginatedProducts = async (categoryname: string, page = 1, pageSize = 5) => {
+  CategorygetPaginatedProducts = async (categoryname: string, page = 1, pageSize = 5, subcategory?: string) => {
     const skip = (page - 1) * pageSize;
+console.log(categoryname, subcategory, )
+      const whereCondition: any = {
+    category: { custom_url: categoryname },
+    ...(subcategory && {
+      subcategory: {
+        custom_url: subcategory
+      }
+    })
+  }
+
+
+  console.log(whereCondition, "whereCondition")
 
     const otherProducts = await this.prisma.ecomereceProducts.findMany({
-      where: { category: { custom_url: categoryname },},
-
+      where: whereCondition,
       skip: skip,
       take: pageSize,
-      include:{subcategory:true, category:true}
+      include: { subcategory: true, category: true }
     });
 
 
 
     const totalProductsCount = await this.prisma.ecomereceProducts.count({
-      where: { category: { custom_url: categoryname } },
+      where: whereCondition
     });
 
     const totalPages = Math.ceil(totalProductsCount / pageSize);
-console.log(otherProducts, "otherProducts", totalProductsCount, pageSize)
     return {
       products: otherProducts,
       totalPages,

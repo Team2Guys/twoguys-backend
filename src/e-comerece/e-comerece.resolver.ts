@@ -42,7 +42,7 @@ export class EComereceResolver {
   
   @Mutation(() => eComereceProducts,{nullable:true})
   PaginatedPrducts(@Args('PaginatedPrducts') PaginatedPrducts: PaginatedPrducts) {
-    return this.eComereceService.CategorygetPaginatedProducts(PaginatedPrducts.categoryname, PaginatedPrducts.page, PaginatedPrducts.pageSize);
+    return this.eComereceService.CategorygetPaginatedProducts(PaginatedPrducts.categoryname, PaginatedPrducts.page, PaginatedPrducts.pageSize, PaginatedPrducts.subcategory);
   }
 
 
