@@ -1,6 +1,7 @@
 import { ObjectType, Field, Int, ID, registerEnumType } from '@nestjs/graphql';
 import { EComerece } from '../../e-comerece/entities/e-comerece.entity';
 import GraphQLJSON from 'graphql-type-json';
+import { CommentStatus } from '../../general/dto/enums/enum';
 
 @ObjectType()
 export class General {
@@ -112,19 +113,6 @@ export class Redirecturls {
   updatedAt?: Date;
 }
 
-
-
-export enum CommentStatus {
-  PENDING = 'PENDING',
-  APPROVED = 'APPROVED',
-  REJECTED = 'REJECTED',
-}
-
-
-registerEnumType(CommentStatus, {
-  name: 'CommentStatus', // This name must match the GraphQL type name
-  description: 'Status for product reviews or questions', // Optional
-});
 
 @ObjectType()
 export class ProductReviews {

@@ -1,5 +1,6 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { InputType, Int, Field, registerEnumType } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
+import { CommentStatus } from './enums/enum';
 
 @InputType()
 export class CreateGeneralInput {
@@ -80,13 +81,6 @@ export class CreatedRedirecturls {
 }
 
 
-export enum CommentStatus {
-  PENDING = 'PENDING',
-  APPROVED = 'APPROVED',
-  REJECTED = 'REJECTED',
-}
-
-
 @InputType()
 export class productReviewInput {
   @Field(() => Int)
@@ -111,8 +105,8 @@ export class productReviewInput {
   productsImage?: any;
 
 
- @Field(() => CommentStatus, { nullable: true })
-  status?: CommentStatus;
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus
 
 
 }
