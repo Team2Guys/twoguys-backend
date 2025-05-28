@@ -29,6 +29,7 @@ export class General {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
+  
 
 
 
