@@ -1,4 +1,4 @@
-import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { ObjectType, Field, Int, ID, registerEnumType } from '@nestjs/graphql';
 import { EComerece } from '../../e-comerece/entities/e-comerece.entity';
 import GraphQLJSON from 'graphql-type-json';
 
@@ -29,7 +29,7 @@ export class General {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
-  
+
 
 
 
@@ -120,6 +120,11 @@ export enum CommentStatus {
   REJECTED = 'REJECTED',
 }
 
+
+registerEnumType(CommentStatus, {
+  name: 'CommentStatus', // This name must match the GraphQL type name
+  description: 'Status for product reviews or questions', // Optional
+});
 
 @ObjectType()
 export class ProductReviews {
