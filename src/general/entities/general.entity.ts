@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
-import { EComerece } from 'e-comerece/entities/e-comerece.entity';
+import { EComerece } from '../../e-comerece/entities/e-comerece.entity';
 import GraphQLJSON from 'graphql-type-json';
 
 @ObjectType()
