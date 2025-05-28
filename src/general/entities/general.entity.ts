@@ -176,7 +176,7 @@ export class productQuestionInput {
   productId?: number;
 
   @Field(() => CommentStatus, { nullable: true })
-  status?: CommentStatus;
+  status?: CommentStatus
 
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any;
