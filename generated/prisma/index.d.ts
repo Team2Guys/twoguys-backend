@@ -68,6 +68,34 @@ export type EcomereceProducts = $Result.DefaultSelection<Prisma.$EcomereceProduc
  * 
  */
 export type User = $Result.DefaultSelection<Prisma.$UserPayload>
+/**
+ * Model ProductReviews
+ * 
+ */
+export type ProductReviews = $Result.DefaultSelection<Prisma.$ProductReviewsPayload>
+/**
+ * Model ProductQuestions
+ * 
+ */
+export type ProductQuestions = $Result.DefaultSelection<Prisma.$ProductQuestionsPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const CommentStatus: {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+};
+
+export type CommentStatus = (typeof CommentStatus)[keyof typeof CommentStatus]
+
+}
+
+export type CommentStatus = $Enums.CommentStatus
+
+export const CommentStatus: typeof $Enums.CommentStatus
 
 /**
  * ##  Prisma Client ʲˢ
@@ -303,6 +331,26 @@ export class PrismaClient<
     * ```
     */
   get user(): Prisma.UserDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.productReviews`: Exposes CRUD operations for the **ProductReviews** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProductReviews
+    * const productReviews = await prisma.productReviews.findMany()
+    * ```
+    */
+  get productReviews(): Prisma.ProductReviewsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.productQuestions`: Exposes CRUD operations for the **ProductQuestions** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ProductQuestions
+    * const productQuestions = await prisma.productQuestions.findMany()
+    * ```
+    */
+  get productQuestions(): Prisma.ProductQuestionsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -753,7 +801,9 @@ export namespace Prisma {
     Redirecturls: 'Redirecturls',
     InnersubCategories: 'InnersubCategories',
     EcomereceProducts: 'EcomereceProducts',
-    User: 'User'
+    User: 'User',
+    ProductReviews: 'ProductReviews',
+    ProductQuestions: 'ProductQuestions'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -772,7 +822,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments" | "redirecturls" | "innersubCategories" | "ecomereceProducts" | "user"
+      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments" | "redirecturls" | "innersubCategories" | "ecomereceProducts" | "user" | "productReviews" | "productQuestions"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1590,6 +1640,154 @@ export namespace Prisma {
           }
         }
       }
+      ProductReviews: {
+        payload: Prisma.$ProductReviewsPayload<ExtArgs>
+        fields: Prisma.ProductReviewsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProductReviewsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProductReviewsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProductReviewsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProductReviewsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          findMany: {
+            args: Prisma.ProductReviewsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>[]
+          }
+          create: {
+            args: Prisma.ProductReviewsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          createMany: {
+            args: Prisma.ProductReviewsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProductReviewsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProductReviewsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          update: {
+            args: Prisma.ProductReviewsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProductReviewsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProductReviewsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProductReviewsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProductReviewsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductReviewsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProductReviewsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProductReviews>
+          }
+          groupBy: {
+            args: Prisma.ProductReviewsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProductReviewsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProductReviewsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProductReviewsCountAggregateOutputType> | number
+          }
+        }
+      }
+      ProductQuestions: {
+        payload: Prisma.$ProductQuestionsPayload<ExtArgs>
+        fields: Prisma.ProductQuestionsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ProductQuestionsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ProductQuestionsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          findFirst: {
+            args: Prisma.ProductQuestionsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ProductQuestionsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          findMany: {
+            args: Prisma.ProductQuestionsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>[]
+          }
+          create: {
+            args: Prisma.ProductQuestionsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          createMany: {
+            args: Prisma.ProductQuestionsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ProductQuestionsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>[]
+          }
+          delete: {
+            args: Prisma.ProductQuestionsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          update: {
+            args: Prisma.ProductQuestionsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          deleteMany: {
+            args: Prisma.ProductQuestionsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ProductQuestionsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ProductQuestionsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>[]
+          }
+          upsert: {
+            args: Prisma.ProductQuestionsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ProductQuestionsPayload>
+          }
+          aggregate: {
+            args: Prisma.ProductQuestionsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateProductQuestions>
+          }
+          groupBy: {
+            args: Prisma.ProductQuestionsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ProductQuestionsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ProductQuestionsCountArgs<ExtArgs>
+            result: $Utils.Optional<ProductQuestionsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1685,6 +1883,8 @@ export namespace Prisma {
     innersubCategories?: InnersubCategoriesOmit
     ecomereceProducts?: EcomereceProductsOmit
     user?: UserOmit
+    productReviews?: ProductReviewsOmit
+    productQuestions?: ProductQuestionsOmit
   }
 
   /* Types for Logging */
@@ -1900,6 +2100,46 @@ export namespace Prisma {
    */
   export type InnersubCategoriesCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProductsWhereInput
+  }
+
+
+  /**
+   * Count Type EcomereceProductsCountOutputType
+   */
+
+  export type EcomereceProductsCountOutputType = {
+    reviews: number
+    questions: number
+  }
+
+  export type EcomereceProductsCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    reviews?: boolean | EcomereceProductsCountOutputTypeCountReviewsArgs
+    questions?: boolean | EcomereceProductsCountOutputTypeCountQuestionsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * EcomereceProductsCountOutputType without action
+   */
+  export type EcomereceProductsCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EcomereceProductsCountOutputType
+     */
+    select?: EcomereceProductsCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * EcomereceProductsCountOutputType without action
+   */
+  export type EcomereceProductsCountOutputTypeCountReviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductReviewsWhereInput
+  }
+
+  /**
+   * EcomereceProductsCountOutputType without action
+   */
+  export type EcomereceProductsCountOutputTypeCountQuestionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductQuestionsWhereInput
   }
 
 
@@ -13737,6 +13977,9 @@ export namespace Prisma {
     seoSchema?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
+    questions?: boolean | EcomereceProducts$questionsArgs<ExtArgs>
+    _count?: boolean | EcomereceProductsCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
 
   export type EcomereceProductsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -13843,6 +14086,9 @@ export namespace Prisma {
   export type EcomereceProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
+    questions?: boolean | EcomereceProducts$questionsArgs<ExtArgs>
+    _count?: boolean | EcomereceProductsCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type EcomereceProductsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
@@ -13858,6 +14104,8 @@ export namespace Prisma {
     objects: {
       category: Prisma.$categoriesPayload<ExtArgs> | null
       subcategory: Prisma.$subCategoriesPayload<ExtArgs> | null
+      reviews: Prisma.$ProductReviewsPayload<ExtArgs>[]
+      questions: Prisma.$ProductQuestionsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -14285,6 +14533,8 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends EcomereceProducts$categoryArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     subcategory<T extends EcomereceProducts$subcategoryArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$subcategoryArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    reviews<T extends EcomereceProducts$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    questions<T extends EcomereceProducts$questionsArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14774,6 +15024,54 @@ export namespace Prisma {
      */
     include?: subCategoriesInclude<ExtArgs> | null
     where?: subCategoriesWhereInput
+  }
+
+  /**
+   * EcomereceProducts.reviews
+   */
+  export type EcomereceProducts$reviewsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    where?: ProductReviewsWhereInput
+    orderBy?: ProductReviewsOrderByWithRelationInput | ProductReviewsOrderByWithRelationInput[]
+    cursor?: ProductReviewsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductReviewsScalarFieldEnum | ProductReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * EcomereceProducts.questions
+   */
+  export type EcomereceProducts$questionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    where?: ProductQuestionsWhereInput
+    orderBy?: ProductQuestionsOrderByWithRelationInput | ProductQuestionsOrderByWithRelationInput[]
+    cursor?: ProductQuestionsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ProductQuestionsScalarFieldEnum | ProductQuestionsScalarFieldEnum[]
   }
 
   /**
@@ -15834,6 +16132,2392 @@ export namespace Prisma {
 
 
   /**
+   * Model ProductReviews
+   */
+
+  export type AggregateProductReviews = {
+    _count: ProductReviewsCountAggregateOutputType | null
+    _avg: ProductReviewsAvgAggregateOutputType | null
+    _sum: ProductReviewsSumAggregateOutputType | null
+    _min: ProductReviewsMinAggregateOutputType | null
+    _max: ProductReviewsMaxAggregateOutputType | null
+  }
+
+  export type ProductReviewsAvgAggregateOutputType = {
+    id: number | null
+    starRating: number | null
+    productId: number | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductReviewsSumAggregateOutputType = {
+    id: number | null
+    starRating: number | null
+    productId: number | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductReviewsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    starRating: number | null
+    ReviewsDescription: string | null
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    productId: number | null
+    status: $Enums.CommentStatus | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductReviewsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    starRating: number | null
+    ReviewsDescription: string | null
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    productId: number | null
+    status: $Enums.CommentStatus | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductReviewsCountAggregateOutputType = {
+    id: number
+    posterImageUrl: number
+    name: number
+    starRating: number
+    ReviewsDescription: number
+    reviewDate: number
+    createdAt: number
+    updatedAt: number
+    productsImage: number
+    productId: number
+    status: number
+    ecomereceProductsId: number
+    _all: number
+  }
+
+
+  export type ProductReviewsAvgAggregateInputType = {
+    id?: true
+    starRating?: true
+    productId?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductReviewsSumAggregateInputType = {
+    id?: true
+    starRating?: true
+    productId?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductReviewsMinAggregateInputType = {
+    id?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+    productId?: true
+    status?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductReviewsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+    productId?: true
+    status?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductReviewsCountAggregateInputType = {
+    id?: true
+    posterImageUrl?: true
+    name?: true
+    starRating?: true
+    ReviewsDescription?: true
+    reviewDate?: true
+    createdAt?: true
+    updatedAt?: true
+    productsImage?: true
+    productId?: true
+    status?: true
+    ecomereceProductsId?: true
+    _all?: true
+  }
+
+  export type ProductReviewsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductReviews to aggregate.
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductReviews to fetch.
+     */
+    orderBy?: ProductReviewsOrderByWithRelationInput | ProductReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProductReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductReviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductReviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProductReviews
+    **/
+    _count?: true | ProductReviewsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProductReviewsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProductReviewsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProductReviewsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProductReviewsMaxAggregateInputType
+  }
+
+  export type GetProductReviewsAggregateType<T extends ProductReviewsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProductReviews]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProductReviews[P]>
+      : GetScalarType<T[P], AggregateProductReviews[P]>
+  }
+
+
+
+
+  export type ProductReviewsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductReviewsWhereInput
+    orderBy?: ProductReviewsOrderByWithAggregationInput | ProductReviewsOrderByWithAggregationInput[]
+    by: ProductReviewsScalarFieldEnum[] | ProductReviewsScalarFieldEnum
+    having?: ProductReviewsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProductReviewsCountAggregateInputType | true
+    _avg?: ProductReviewsAvgAggregateInputType
+    _sum?: ProductReviewsSumAggregateInputType
+    _min?: ProductReviewsMinAggregateInputType
+    _max?: ProductReviewsMaxAggregateInputType
+  }
+
+  export type ProductReviewsGroupByOutputType = {
+    id: number
+    posterImageUrl: JsonValue | null
+    name: string
+    starRating: number | null
+    ReviewsDescription: string
+    reviewDate: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    productsImage: JsonValue[]
+    productId: number | null
+    status: $Enums.CommentStatus
+    ecomereceProductsId: number | null
+    _count: ProductReviewsCountAggregateOutputType | null
+    _avg: ProductReviewsAvgAggregateOutputType | null
+    _sum: ProductReviewsSumAggregateOutputType | null
+    _min: ProductReviewsMinAggregateOutputType | null
+    _max: ProductReviewsMaxAggregateOutputType | null
+  }
+
+  type GetProductReviewsGroupByPayload<T extends ProductReviewsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProductReviewsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProductReviewsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProductReviewsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProductReviewsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProductReviewsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productsImage?: boolean
+    productId?: boolean
+    status?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productReviews"]>
+
+  export type ProductReviewsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productsImage?: boolean
+    productId?: boolean
+    status?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productReviews"]>
+
+  export type ProductReviewsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productsImage?: boolean
+    productId?: boolean
+    status?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productReviews"]>
+
+  export type ProductReviewsSelectScalar = {
+    id?: boolean
+    posterImageUrl?: boolean
+    name?: boolean
+    starRating?: boolean
+    ReviewsDescription?: boolean
+    reviewDate?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productsImage?: boolean
+    productId?: boolean
+    status?: boolean
+    ecomereceProductsId?: boolean
+  }
+
+  export type ProductReviewsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "posterImageUrl" | "name" | "starRating" | "ReviewsDescription" | "reviewDate" | "createdAt" | "updatedAt" | "productsImage" | "productId" | "status" | "ecomereceProductsId", ExtArgs["result"]["productReviews"]>
+  export type ProductReviewsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }
+  export type ProductReviewsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }
+  export type ProductReviewsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductReviews$EcomereceProductsArgs<ExtArgs>
+  }
+
+  export type $ProductReviewsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProductReviews"
+    objects: {
+      EcomereceProducts: Prisma.$EcomereceProductsPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      posterImageUrl: Prisma.JsonValue | null
+      name: string
+      starRating: number | null
+      ReviewsDescription: string
+      reviewDate: string | null
+      createdAt: Date | null
+      updatedAt: Date | null
+      productsImage: Prisma.JsonValue[]
+      productId: number | null
+      status: $Enums.CommentStatus
+      ecomereceProductsId: number | null
+    }, ExtArgs["result"]["productReviews"]>
+    composites: {}
+  }
+
+  type ProductReviewsGetPayload<S extends boolean | null | undefined | ProductReviewsDefaultArgs> = $Result.GetResult<Prisma.$ProductReviewsPayload, S>
+
+  type ProductReviewsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProductReviewsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProductReviewsCountAggregateInputType | true
+    }
+
+  export interface ProductReviewsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProductReviews'], meta: { name: 'ProductReviews' } }
+    /**
+     * Find zero or one ProductReviews that matches the filter.
+     * @param {ProductReviewsFindUniqueArgs} args - Arguments to find a ProductReviews
+     * @example
+     * // Get one ProductReviews
+     * const productReviews = await prisma.productReviews.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProductReviewsFindUniqueArgs>(args: SelectSubset<T, ProductReviewsFindUniqueArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProductReviews that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProductReviewsFindUniqueOrThrowArgs} args - Arguments to find a ProductReviews
+     * @example
+     * // Get one ProductReviews
+     * const productReviews = await prisma.productReviews.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProductReviewsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProductReviewsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductReviews that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsFindFirstArgs} args - Arguments to find a ProductReviews
+     * @example
+     * // Get one ProductReviews
+     * const productReviews = await prisma.productReviews.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProductReviewsFindFirstArgs>(args?: SelectSubset<T, ProductReviewsFindFirstArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductReviews that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsFindFirstOrThrowArgs} args - Arguments to find a ProductReviews
+     * @example
+     * // Get one ProductReviews
+     * const productReviews = await prisma.productReviews.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProductReviewsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProductReviewsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProductReviews that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProductReviews
+     * const productReviews = await prisma.productReviews.findMany()
+     * 
+     * // Get first 10 ProductReviews
+     * const productReviews = await prisma.productReviews.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const productReviewsWithIdOnly = await prisma.productReviews.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProductReviewsFindManyArgs>(args?: SelectSubset<T, ProductReviewsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProductReviews.
+     * @param {ProductReviewsCreateArgs} args - Arguments to create a ProductReviews.
+     * @example
+     * // Create one ProductReviews
+     * const ProductReviews = await prisma.productReviews.create({
+     *   data: {
+     *     // ... data to create a ProductReviews
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProductReviewsCreateArgs>(args: SelectSubset<T, ProductReviewsCreateArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProductReviews.
+     * @param {ProductReviewsCreateManyArgs} args - Arguments to create many ProductReviews.
+     * @example
+     * // Create many ProductReviews
+     * const productReviews = await prisma.productReviews.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProductReviewsCreateManyArgs>(args?: SelectSubset<T, ProductReviewsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProductReviews and returns the data saved in the database.
+     * @param {ProductReviewsCreateManyAndReturnArgs} args - Arguments to create many ProductReviews.
+     * @example
+     * // Create many ProductReviews
+     * const productReviews = await prisma.productReviews.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProductReviews and only return the `id`
+     * const productReviewsWithIdOnly = await prisma.productReviews.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProductReviewsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductReviewsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProductReviews.
+     * @param {ProductReviewsDeleteArgs} args - Arguments to delete one ProductReviews.
+     * @example
+     * // Delete one ProductReviews
+     * const ProductReviews = await prisma.productReviews.delete({
+     *   where: {
+     *     // ... filter to delete one ProductReviews
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProductReviewsDeleteArgs>(args: SelectSubset<T, ProductReviewsDeleteArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProductReviews.
+     * @param {ProductReviewsUpdateArgs} args - Arguments to update one ProductReviews.
+     * @example
+     * // Update one ProductReviews
+     * const productReviews = await prisma.productReviews.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProductReviewsUpdateArgs>(args: SelectSubset<T, ProductReviewsUpdateArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProductReviews.
+     * @param {ProductReviewsDeleteManyArgs} args - Arguments to filter ProductReviews to delete.
+     * @example
+     * // Delete a few ProductReviews
+     * const { count } = await prisma.productReviews.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProductReviewsDeleteManyArgs>(args?: SelectSubset<T, ProductReviewsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductReviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProductReviews
+     * const productReviews = await prisma.productReviews.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProductReviewsUpdateManyArgs>(args: SelectSubset<T, ProductReviewsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductReviews and returns the data updated in the database.
+     * @param {ProductReviewsUpdateManyAndReturnArgs} args - Arguments to update many ProductReviews.
+     * @example
+     * // Update many ProductReviews
+     * const productReviews = await prisma.productReviews.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProductReviews and only return the `id`
+     * const productReviewsWithIdOnly = await prisma.productReviews.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProductReviewsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProductReviewsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProductReviews.
+     * @param {ProductReviewsUpsertArgs} args - Arguments to update or create a ProductReviews.
+     * @example
+     * // Update or create a ProductReviews
+     * const productReviews = await prisma.productReviews.upsert({
+     *   create: {
+     *     // ... data to create a ProductReviews
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProductReviews we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProductReviewsUpsertArgs>(args: SelectSubset<T, ProductReviewsUpsertArgs<ExtArgs>>): Prisma__ProductReviewsClient<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProductReviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsCountArgs} args - Arguments to filter ProductReviews to count.
+     * @example
+     * // Count the number of ProductReviews
+     * const count = await prisma.productReviews.count({
+     *   where: {
+     *     // ... the filter for the ProductReviews we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProductReviewsCountArgs>(
+      args?: Subset<T, ProductReviewsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProductReviewsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProductReviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProductReviewsAggregateArgs>(args: Subset<T, ProductReviewsAggregateArgs>): Prisma.PrismaPromise<GetProductReviewsAggregateType<T>>
+
+    /**
+     * Group by ProductReviews.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductReviewsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProductReviewsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProductReviewsGroupByArgs['orderBy'] }
+        : { orderBy?: ProductReviewsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProductReviewsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductReviewsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProductReviews model
+   */
+  readonly fields: ProductReviewsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProductReviews.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProductReviewsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    EcomereceProducts<T extends ProductReviews$EcomereceProductsArgs<ExtArgs> = {}>(args?: Subset<T, ProductReviews$EcomereceProductsArgs<ExtArgs>>): Prisma__EcomereceProductsClient<$Result.GetResult<Prisma.$EcomereceProductsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProductReviews model
+   */
+  interface ProductReviewsFieldRefs {
+    readonly id: FieldRef<"ProductReviews", 'Int'>
+    readonly posterImageUrl: FieldRef<"ProductReviews", 'Json'>
+    readonly name: FieldRef<"ProductReviews", 'String'>
+    readonly starRating: FieldRef<"ProductReviews", 'Int'>
+    readonly ReviewsDescription: FieldRef<"ProductReviews", 'String'>
+    readonly reviewDate: FieldRef<"ProductReviews", 'String'>
+    readonly createdAt: FieldRef<"ProductReviews", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProductReviews", 'DateTime'>
+    readonly productsImage: FieldRef<"ProductReviews", 'Json[]'>
+    readonly productId: FieldRef<"ProductReviews", 'Int'>
+    readonly status: FieldRef<"ProductReviews", 'CommentStatus'>
+    readonly ecomereceProductsId: FieldRef<"ProductReviews", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProductReviews findUnique
+   */
+  export type ProductReviewsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductReviews to fetch.
+     */
+    where: ProductReviewsWhereUniqueInput
+  }
+
+  /**
+   * ProductReviews findUniqueOrThrow
+   */
+  export type ProductReviewsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductReviews to fetch.
+     */
+    where: ProductReviewsWhereUniqueInput
+  }
+
+  /**
+   * ProductReviews findFirst
+   */
+  export type ProductReviewsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductReviews to fetch.
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductReviews to fetch.
+     */
+    orderBy?: ProductReviewsOrderByWithRelationInput | ProductReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductReviews.
+     */
+    cursor?: ProductReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductReviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductReviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductReviews.
+     */
+    distinct?: ProductReviewsScalarFieldEnum | ProductReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductReviews findFirstOrThrow
+   */
+  export type ProductReviewsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductReviews to fetch.
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductReviews to fetch.
+     */
+    orderBy?: ProductReviewsOrderByWithRelationInput | ProductReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductReviews.
+     */
+    cursor?: ProductReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductReviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductReviews.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductReviews.
+     */
+    distinct?: ProductReviewsScalarFieldEnum | ProductReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductReviews findMany
+   */
+  export type ProductReviewsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductReviews to fetch.
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductReviews to fetch.
+     */
+    orderBy?: ProductReviewsOrderByWithRelationInput | ProductReviewsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProductReviews.
+     */
+    cursor?: ProductReviewsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductReviews from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductReviews.
+     */
+    skip?: number
+    distinct?: ProductReviewsScalarFieldEnum | ProductReviewsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductReviews create
+   */
+  export type ProductReviewsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProductReviews.
+     */
+    data: XOR<ProductReviewsCreateInput, ProductReviewsUncheckedCreateInput>
+  }
+
+  /**
+   * ProductReviews createMany
+   */
+  export type ProductReviewsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProductReviews.
+     */
+    data: ProductReviewsCreateManyInput | ProductReviewsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProductReviews createManyAndReturn
+   */
+  export type ProductReviewsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProductReviews.
+     */
+    data: ProductReviewsCreateManyInput | ProductReviewsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductReviews update
+   */
+  export type ProductReviewsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProductReviews.
+     */
+    data: XOR<ProductReviewsUpdateInput, ProductReviewsUncheckedUpdateInput>
+    /**
+     * Choose, which ProductReviews to update.
+     */
+    where: ProductReviewsWhereUniqueInput
+  }
+
+  /**
+   * ProductReviews updateMany
+   */
+  export type ProductReviewsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProductReviews.
+     */
+    data: XOR<ProductReviewsUpdateManyMutationInput, ProductReviewsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductReviews to update
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * Limit how many ProductReviews to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductReviews updateManyAndReturn
+   */
+  export type ProductReviewsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * The data used to update ProductReviews.
+     */
+    data: XOR<ProductReviewsUpdateManyMutationInput, ProductReviewsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductReviews to update
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * Limit how many ProductReviews to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductReviews upsert
+   */
+  export type ProductReviewsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProductReviews to update in case it exists.
+     */
+    where: ProductReviewsWhereUniqueInput
+    /**
+     * In case the ProductReviews found by the `where` argument doesn't exist, create a new ProductReviews with this data.
+     */
+    create: XOR<ProductReviewsCreateInput, ProductReviewsUncheckedCreateInput>
+    /**
+     * In case the ProductReviews was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProductReviewsUpdateInput, ProductReviewsUncheckedUpdateInput>
+  }
+
+  /**
+   * ProductReviews delete
+   */
+  export type ProductReviewsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+    /**
+     * Filter which ProductReviews to delete.
+     */
+    where: ProductReviewsWhereUniqueInput
+  }
+
+  /**
+   * ProductReviews deleteMany
+   */
+  export type ProductReviewsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductReviews to delete
+     */
+    where?: ProductReviewsWhereInput
+    /**
+     * Limit how many ProductReviews to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductReviews.EcomereceProducts
+   */
+  export type ProductReviews$EcomereceProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EcomereceProducts
+     */
+    select?: EcomereceProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EcomereceProducts
+     */
+    omit?: EcomereceProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EcomereceProductsInclude<ExtArgs> | null
+    where?: EcomereceProductsWhereInput
+  }
+
+  /**
+   * ProductReviews without action
+   */
+  export type ProductReviewsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductReviews
+     */
+    select?: ProductReviewsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductReviews
+     */
+    omit?: ProductReviewsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductReviewsInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ProductQuestions
+   */
+
+  export type AggregateProductQuestions = {
+    _count: ProductQuestionsCountAggregateOutputType | null
+    _avg: ProductQuestionsAvgAggregateOutputType | null
+    _sum: ProductQuestionsSumAggregateOutputType | null
+    _min: ProductQuestionsMinAggregateOutputType | null
+    _max: ProductQuestionsMaxAggregateOutputType | null
+  }
+
+  export type ProductQuestionsAvgAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductQuestionsSumAggregateOutputType = {
+    id: number | null
+    productId: number | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductQuestionsMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+    email: string | null
+    question: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    productId: number | null
+    status: $Enums.CommentStatus | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductQuestionsMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+    email: string | null
+    question: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    productId: number | null
+    status: $Enums.CommentStatus | null
+    ecomereceProductsId: number | null
+  }
+
+  export type ProductQuestionsCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    question: number
+    createdAt: number
+    updatedAt: number
+    productId: number
+    status: number
+    replies: number
+    ecomereceProductsId: number
+    _all: number
+  }
+
+
+  export type ProductQuestionsAvgAggregateInputType = {
+    id?: true
+    productId?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductQuestionsSumAggregateInputType = {
+    id?: true
+    productId?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductQuestionsMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    question?: true
+    createdAt?: true
+    updatedAt?: true
+    productId?: true
+    status?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductQuestionsMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    question?: true
+    createdAt?: true
+    updatedAt?: true
+    productId?: true
+    status?: true
+    ecomereceProductsId?: true
+  }
+
+  export type ProductQuestionsCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    question?: true
+    createdAt?: true
+    updatedAt?: true
+    productId?: true
+    status?: true
+    replies?: true
+    ecomereceProductsId?: true
+    _all?: true
+  }
+
+  export type ProductQuestionsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductQuestions to aggregate.
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductQuestions to fetch.
+     */
+    orderBy?: ProductQuestionsOrderByWithRelationInput | ProductQuestionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ProductQuestionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductQuestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductQuestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ProductQuestions
+    **/
+    _count?: true | ProductQuestionsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ProductQuestionsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ProductQuestionsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ProductQuestionsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ProductQuestionsMaxAggregateInputType
+  }
+
+  export type GetProductQuestionsAggregateType<T extends ProductQuestionsAggregateArgs> = {
+        [P in keyof T & keyof AggregateProductQuestions]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateProductQuestions[P]>
+      : GetScalarType<T[P], AggregateProductQuestions[P]>
+  }
+
+
+
+
+  export type ProductQuestionsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ProductQuestionsWhereInput
+    orderBy?: ProductQuestionsOrderByWithAggregationInput | ProductQuestionsOrderByWithAggregationInput[]
+    by: ProductQuestionsScalarFieldEnum[] | ProductQuestionsScalarFieldEnum
+    having?: ProductQuestionsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ProductQuestionsCountAggregateInputType | true
+    _avg?: ProductQuestionsAvgAggregateInputType
+    _sum?: ProductQuestionsSumAggregateInputType
+    _min?: ProductQuestionsMinAggregateInputType
+    _max?: ProductQuestionsMaxAggregateInputType
+  }
+
+  export type ProductQuestionsGroupByOutputType = {
+    id: number
+    name: string
+    email: string
+    question: string
+    createdAt: Date | null
+    updatedAt: Date | null
+    productId: number | null
+    status: $Enums.CommentStatus
+    replies: JsonValue[]
+    ecomereceProductsId: number | null
+    _count: ProductQuestionsCountAggregateOutputType | null
+    _avg: ProductQuestionsAvgAggregateOutputType | null
+    _sum: ProductQuestionsSumAggregateOutputType | null
+    _min: ProductQuestionsMinAggregateOutputType | null
+    _max: ProductQuestionsMaxAggregateOutputType | null
+  }
+
+  type GetProductQuestionsGroupByPayload<T extends ProductQuestionsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ProductQuestionsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ProductQuestionsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ProductQuestionsGroupByOutputType[P]>
+            : GetScalarType<T[P], ProductQuestionsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ProductQuestionsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    question?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productId?: boolean
+    status?: boolean
+    replies?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productQuestions"]>
+
+  export type ProductQuestionsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    question?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productId?: boolean
+    status?: boolean
+    replies?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productQuestions"]>
+
+  export type ProductQuestionsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    question?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productId?: boolean
+    status?: boolean
+    replies?: boolean
+    ecomereceProductsId?: boolean
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }, ExtArgs["result"]["productQuestions"]>
+
+  export type ProductQuestionsSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    question?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    productId?: boolean
+    status?: boolean
+    replies?: boolean
+    ecomereceProductsId?: boolean
+  }
+
+  export type ProductQuestionsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "question" | "createdAt" | "updatedAt" | "productId" | "status" | "replies" | "ecomereceProductsId", ExtArgs["result"]["productQuestions"]>
+  export type ProductQuestionsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }
+  export type ProductQuestionsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }
+  export type ProductQuestionsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    EcomereceProducts?: boolean | ProductQuestions$EcomereceProductsArgs<ExtArgs>
+  }
+
+  export type $ProductQuestionsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ProductQuestions"
+    objects: {
+      EcomereceProducts: Prisma.$EcomereceProductsPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+      email: string
+      question: string
+      createdAt: Date | null
+      updatedAt: Date | null
+      productId: number | null
+      status: $Enums.CommentStatus
+      replies: Prisma.JsonValue[]
+      ecomereceProductsId: number | null
+    }, ExtArgs["result"]["productQuestions"]>
+    composites: {}
+  }
+
+  type ProductQuestionsGetPayload<S extends boolean | null | undefined | ProductQuestionsDefaultArgs> = $Result.GetResult<Prisma.$ProductQuestionsPayload, S>
+
+  type ProductQuestionsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ProductQuestionsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ProductQuestionsCountAggregateInputType | true
+    }
+
+  export interface ProductQuestionsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ProductQuestions'], meta: { name: 'ProductQuestions' } }
+    /**
+     * Find zero or one ProductQuestions that matches the filter.
+     * @param {ProductQuestionsFindUniqueArgs} args - Arguments to find a ProductQuestions
+     * @example
+     * // Get one ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ProductQuestionsFindUniqueArgs>(args: SelectSubset<T, ProductQuestionsFindUniqueArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ProductQuestions that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ProductQuestionsFindUniqueOrThrowArgs} args - Arguments to find a ProductQuestions
+     * @example
+     * // Get one ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ProductQuestionsFindUniqueOrThrowArgs>(args: SelectSubset<T, ProductQuestionsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductQuestions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsFindFirstArgs} args - Arguments to find a ProductQuestions
+     * @example
+     * // Get one ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ProductQuestionsFindFirstArgs>(args?: SelectSubset<T, ProductQuestionsFindFirstArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ProductQuestions that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsFindFirstOrThrowArgs} args - Arguments to find a ProductQuestions
+     * @example
+     * // Get one ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ProductQuestionsFindFirstOrThrowArgs>(args?: SelectSubset<T, ProductQuestionsFindFirstOrThrowArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ProductQuestions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findMany()
+     * 
+     * // Get first 10 ProductQuestions
+     * const productQuestions = await prisma.productQuestions.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const productQuestionsWithIdOnly = await prisma.productQuestions.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ProductQuestionsFindManyArgs>(args?: SelectSubset<T, ProductQuestionsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ProductQuestions.
+     * @param {ProductQuestionsCreateArgs} args - Arguments to create a ProductQuestions.
+     * @example
+     * // Create one ProductQuestions
+     * const ProductQuestions = await prisma.productQuestions.create({
+     *   data: {
+     *     // ... data to create a ProductQuestions
+     *   }
+     * })
+     * 
+     */
+    create<T extends ProductQuestionsCreateArgs>(args: SelectSubset<T, ProductQuestionsCreateArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ProductQuestions.
+     * @param {ProductQuestionsCreateManyArgs} args - Arguments to create many ProductQuestions.
+     * @example
+     * // Create many ProductQuestions
+     * const productQuestions = await prisma.productQuestions.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ProductQuestionsCreateManyArgs>(args?: SelectSubset<T, ProductQuestionsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ProductQuestions and returns the data saved in the database.
+     * @param {ProductQuestionsCreateManyAndReturnArgs} args - Arguments to create many ProductQuestions.
+     * @example
+     * // Create many ProductQuestions
+     * const productQuestions = await prisma.productQuestions.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ProductQuestions and only return the `id`
+     * const productQuestionsWithIdOnly = await prisma.productQuestions.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ProductQuestionsCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductQuestionsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ProductQuestions.
+     * @param {ProductQuestionsDeleteArgs} args - Arguments to delete one ProductQuestions.
+     * @example
+     * // Delete one ProductQuestions
+     * const ProductQuestions = await prisma.productQuestions.delete({
+     *   where: {
+     *     // ... filter to delete one ProductQuestions
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ProductQuestionsDeleteArgs>(args: SelectSubset<T, ProductQuestionsDeleteArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ProductQuestions.
+     * @param {ProductQuestionsUpdateArgs} args - Arguments to update one ProductQuestions.
+     * @example
+     * // Update one ProductQuestions
+     * const productQuestions = await prisma.productQuestions.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ProductQuestionsUpdateArgs>(args: SelectSubset<T, ProductQuestionsUpdateArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ProductQuestions.
+     * @param {ProductQuestionsDeleteManyArgs} args - Arguments to filter ProductQuestions to delete.
+     * @example
+     * // Delete a few ProductQuestions
+     * const { count } = await prisma.productQuestions.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ProductQuestionsDeleteManyArgs>(args?: SelectSubset<T, ProductQuestionsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductQuestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ProductQuestions
+     * const productQuestions = await prisma.productQuestions.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ProductQuestionsUpdateManyArgs>(args: SelectSubset<T, ProductQuestionsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ProductQuestions and returns the data updated in the database.
+     * @param {ProductQuestionsUpdateManyAndReturnArgs} args - Arguments to update many ProductQuestions.
+     * @example
+     * // Update many ProductQuestions
+     * const productQuestions = await prisma.productQuestions.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ProductQuestions and only return the `id`
+     * const productQuestionsWithIdOnly = await prisma.productQuestions.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ProductQuestionsUpdateManyAndReturnArgs>(args: SelectSubset<T, ProductQuestionsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ProductQuestions.
+     * @param {ProductQuestionsUpsertArgs} args - Arguments to update or create a ProductQuestions.
+     * @example
+     * // Update or create a ProductQuestions
+     * const productQuestions = await prisma.productQuestions.upsert({
+     *   create: {
+     *     // ... data to create a ProductQuestions
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ProductQuestions we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ProductQuestionsUpsertArgs>(args: SelectSubset<T, ProductQuestionsUpsertArgs<ExtArgs>>): Prisma__ProductQuestionsClient<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ProductQuestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsCountArgs} args - Arguments to filter ProductQuestions to count.
+     * @example
+     * // Count the number of ProductQuestions
+     * const count = await prisma.productQuestions.count({
+     *   where: {
+     *     // ... the filter for the ProductQuestions we want to count
+     *   }
+     * })
+    **/
+    count<T extends ProductQuestionsCountArgs>(
+      args?: Subset<T, ProductQuestionsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ProductQuestionsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ProductQuestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ProductQuestionsAggregateArgs>(args: Subset<T, ProductQuestionsAggregateArgs>): Prisma.PrismaPromise<GetProductQuestionsAggregateType<T>>
+
+    /**
+     * Group by ProductQuestions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ProductQuestionsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ProductQuestionsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ProductQuestionsGroupByArgs['orderBy'] }
+        : { orderBy?: ProductQuestionsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ProductQuestionsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetProductQuestionsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ProductQuestions model
+   */
+  readonly fields: ProductQuestionsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ProductQuestions.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ProductQuestionsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    EcomereceProducts<T extends ProductQuestions$EcomereceProductsArgs<ExtArgs> = {}>(args?: Subset<T, ProductQuestions$EcomereceProductsArgs<ExtArgs>>): Prisma__EcomereceProductsClient<$Result.GetResult<Prisma.$EcomereceProductsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ProductQuestions model
+   */
+  interface ProductQuestionsFieldRefs {
+    readonly id: FieldRef<"ProductQuestions", 'Int'>
+    readonly name: FieldRef<"ProductQuestions", 'String'>
+    readonly email: FieldRef<"ProductQuestions", 'String'>
+    readonly question: FieldRef<"ProductQuestions", 'String'>
+    readonly createdAt: FieldRef<"ProductQuestions", 'DateTime'>
+    readonly updatedAt: FieldRef<"ProductQuestions", 'DateTime'>
+    readonly productId: FieldRef<"ProductQuestions", 'Int'>
+    readonly status: FieldRef<"ProductQuestions", 'CommentStatus'>
+    readonly replies: FieldRef<"ProductQuestions", 'Json[]'>
+    readonly ecomereceProductsId: FieldRef<"ProductQuestions", 'Int'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ProductQuestions findUnique
+   */
+  export type ProductQuestionsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductQuestions to fetch.
+     */
+    where: ProductQuestionsWhereUniqueInput
+  }
+
+  /**
+   * ProductQuestions findUniqueOrThrow
+   */
+  export type ProductQuestionsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductQuestions to fetch.
+     */
+    where: ProductQuestionsWhereUniqueInput
+  }
+
+  /**
+   * ProductQuestions findFirst
+   */
+  export type ProductQuestionsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductQuestions to fetch.
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductQuestions to fetch.
+     */
+    orderBy?: ProductQuestionsOrderByWithRelationInput | ProductQuestionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductQuestions.
+     */
+    cursor?: ProductQuestionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductQuestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductQuestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductQuestions.
+     */
+    distinct?: ProductQuestionsScalarFieldEnum | ProductQuestionsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductQuestions findFirstOrThrow
+   */
+  export type ProductQuestionsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductQuestions to fetch.
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductQuestions to fetch.
+     */
+    orderBy?: ProductQuestionsOrderByWithRelationInput | ProductQuestionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ProductQuestions.
+     */
+    cursor?: ProductQuestionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductQuestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductQuestions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ProductQuestions.
+     */
+    distinct?: ProductQuestionsScalarFieldEnum | ProductQuestionsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductQuestions findMany
+   */
+  export type ProductQuestionsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter, which ProductQuestions to fetch.
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ProductQuestions to fetch.
+     */
+    orderBy?: ProductQuestionsOrderByWithRelationInput | ProductQuestionsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ProductQuestions.
+     */
+    cursor?: ProductQuestionsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ProductQuestions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ProductQuestions.
+     */
+    skip?: number
+    distinct?: ProductQuestionsScalarFieldEnum | ProductQuestionsScalarFieldEnum[]
+  }
+
+  /**
+   * ProductQuestions create
+   */
+  export type ProductQuestionsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ProductQuestions.
+     */
+    data: XOR<ProductQuestionsCreateInput, ProductQuestionsUncheckedCreateInput>
+  }
+
+  /**
+   * ProductQuestions createMany
+   */
+  export type ProductQuestionsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ProductQuestions.
+     */
+    data: ProductQuestionsCreateManyInput | ProductQuestionsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ProductQuestions createManyAndReturn
+   */
+  export type ProductQuestionsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * The data used to create many ProductQuestions.
+     */
+    data: ProductQuestionsCreateManyInput | ProductQuestionsCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductQuestions update
+   */
+  export type ProductQuestionsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ProductQuestions.
+     */
+    data: XOR<ProductQuestionsUpdateInput, ProductQuestionsUncheckedUpdateInput>
+    /**
+     * Choose, which ProductQuestions to update.
+     */
+    where: ProductQuestionsWhereUniqueInput
+  }
+
+  /**
+   * ProductQuestions updateMany
+   */
+  export type ProductQuestionsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ProductQuestions.
+     */
+    data: XOR<ProductQuestionsUpdateManyMutationInput, ProductQuestionsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductQuestions to update
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * Limit how many ProductQuestions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductQuestions updateManyAndReturn
+   */
+  export type ProductQuestionsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * The data used to update ProductQuestions.
+     */
+    data: XOR<ProductQuestionsUpdateManyMutationInput, ProductQuestionsUncheckedUpdateManyInput>
+    /**
+     * Filter which ProductQuestions to update
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * Limit how many ProductQuestions to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ProductQuestions upsert
+   */
+  export type ProductQuestionsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ProductQuestions to update in case it exists.
+     */
+    where: ProductQuestionsWhereUniqueInput
+    /**
+     * In case the ProductQuestions found by the `where` argument doesn't exist, create a new ProductQuestions with this data.
+     */
+    create: XOR<ProductQuestionsCreateInput, ProductQuestionsUncheckedCreateInput>
+    /**
+     * In case the ProductQuestions was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ProductQuestionsUpdateInput, ProductQuestionsUncheckedUpdateInput>
+  }
+
+  /**
+   * ProductQuestions delete
+   */
+  export type ProductQuestionsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+    /**
+     * Filter which ProductQuestions to delete.
+     */
+    where: ProductQuestionsWhereUniqueInput
+  }
+
+  /**
+   * ProductQuestions deleteMany
+   */
+  export type ProductQuestionsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ProductQuestions to delete
+     */
+    where?: ProductQuestionsWhereInput
+    /**
+     * Limit how many ProductQuestions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ProductQuestions.EcomereceProducts
+   */
+  export type ProductQuestions$EcomereceProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EcomereceProducts
+     */
+    select?: EcomereceProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EcomereceProducts
+     */
+    omit?: EcomereceProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EcomereceProductsInclude<ExtArgs> | null
+    where?: EcomereceProductsWhereInput
+  }
+
+  /**
+   * ProductQuestions without action
+   */
+  export type ProductQuestionsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ProductQuestions
+     */
+    select?: ProductQuestionsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ProductQuestions
+     */
+    omit?: ProductQuestionsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ProductQuestionsInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -16127,6 +18811,40 @@ export namespace Prisma {
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+  export const ProductReviewsScalarFieldEnum: {
+    id: 'id',
+    posterImageUrl: 'posterImageUrl',
+    name: 'name',
+    starRating: 'starRating',
+    ReviewsDescription: 'ReviewsDescription',
+    reviewDate: 'reviewDate',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    productsImage: 'productsImage',
+    productId: 'productId',
+    status: 'status',
+    ecomereceProductsId: 'ecomereceProductsId'
+  };
+
+  export type ProductReviewsScalarFieldEnum = (typeof ProductReviewsScalarFieldEnum)[keyof typeof ProductReviewsScalarFieldEnum]
+
+
+  export const ProductQuestionsScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    question: 'question',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    productId: 'productId',
+    status: 'status',
+    replies: 'replies',
+    ecomereceProductsId: 'ecomereceProductsId'
+  };
+
+  export type ProductQuestionsScalarFieldEnum = (typeof ProductQuestionsScalarFieldEnum)[keyof typeof ProductQuestionsScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
@@ -16247,6 +18965,20 @@ export namespace Prisma {
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
+   * Reference to a field of type 'CommentStatus'
+   */
+  export type EnumCommentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CommentStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'CommentStatus[]'
+   */
+  export type ListEnumCommentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CommentStatus[]'>
     
 
 
@@ -17494,6 +20226,8 @@ export namespace Prisma {
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+    reviews?: ProductReviewsListRelationFilter
+    questions?: ProductQuestionsListRelationFilter
   }
 
   export type EcomereceProductsOrderByWithRelationInput = {
@@ -17528,6 +20262,8 @@ export namespace Prisma {
     seoSchema?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
     subcategory?: subCategoriesOrderByWithRelationInput
+    reviews?: ProductReviewsOrderByRelationAggregateInput
+    questions?: ProductQuestionsOrderByRelationAggregateInput
   }
 
   export type EcomereceProductsWhereUniqueInput = Prisma.AtLeast<{
@@ -17565,6 +20301,8 @@ export namespace Prisma {
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+    reviews?: ProductReviewsListRelationFilter
+    questions?: ProductQuestionsListRelationFilter
   }, "id">
 
   export type EcomereceProductsOrderByWithAggregationInput = {
@@ -17696,6 +20434,180 @@ export namespace Prisma {
     password?: StringWithAggregatesFilter<"User"> | string
     phone?: StringNullableWithAggregatesFilter<"User"> | string | null
     userImageUrl?: JsonNullableWithAggregatesFilter<"User">
+  }
+
+  export type ProductReviewsWhereInput = {
+    AND?: ProductReviewsWhereInput | ProductReviewsWhereInput[]
+    OR?: ProductReviewsWhereInput[]
+    NOT?: ProductReviewsWhereInput | ProductReviewsWhereInput[]
+    id?: IntFilter<"ProductReviews"> | number
+    posterImageUrl?: JsonNullableFilter<"ProductReviews">
+    name?: StringFilter<"ProductReviews"> | string
+    starRating?: IntNullableFilter<"ProductReviews"> | number | null
+    ReviewsDescription?: StringFilter<"ProductReviews"> | string
+    reviewDate?: StringNullableFilter<"ProductReviews"> | string | null
+    createdAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    productsImage?: JsonNullableListFilter<"ProductReviews">
+    productId?: IntNullableFilter<"ProductReviews"> | number | null
+    status?: EnumCommentStatusFilter<"ProductReviews"> | $Enums.CommentStatus
+    ecomereceProductsId?: IntNullableFilter<"ProductReviews"> | number | null
+    EcomereceProducts?: XOR<EcomereceProductsNullableScalarRelationFilter, EcomereceProductsWhereInput> | null
+  }
+
+  export type ProductReviewsOrderByWithRelationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    name?: SortOrder
+    starRating?: SortOrderInput | SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    productsImage?: SortOrder
+    productId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrderInput | SortOrder
+    EcomereceProducts?: EcomereceProductsOrderByWithRelationInput
+  }
+
+  export type ProductReviewsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProductReviewsWhereInput | ProductReviewsWhereInput[]
+    OR?: ProductReviewsWhereInput[]
+    NOT?: ProductReviewsWhereInput | ProductReviewsWhereInput[]
+    posterImageUrl?: JsonNullableFilter<"ProductReviews">
+    name?: StringFilter<"ProductReviews"> | string
+    starRating?: IntNullableFilter<"ProductReviews"> | number | null
+    ReviewsDescription?: StringFilter<"ProductReviews"> | string
+    reviewDate?: StringNullableFilter<"ProductReviews"> | string | null
+    createdAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    productsImage?: JsonNullableListFilter<"ProductReviews">
+    productId?: IntNullableFilter<"ProductReviews"> | number | null
+    status?: EnumCommentStatusFilter<"ProductReviews"> | $Enums.CommentStatus
+    ecomereceProductsId?: IntNullableFilter<"ProductReviews"> | number | null
+    EcomereceProducts?: XOR<EcomereceProductsNullableScalarRelationFilter, EcomereceProductsWhereInput> | null
+  }, "id">
+
+  export type ProductReviewsOrderByWithAggregationInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrderInput | SortOrder
+    name?: SortOrder
+    starRating?: SortOrderInput | SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrderInput | SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    productsImage?: SortOrder
+    productId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrderInput | SortOrder
+    _count?: ProductReviewsCountOrderByAggregateInput
+    _avg?: ProductReviewsAvgOrderByAggregateInput
+    _max?: ProductReviewsMaxOrderByAggregateInput
+    _min?: ProductReviewsMinOrderByAggregateInput
+    _sum?: ProductReviewsSumOrderByAggregateInput
+  }
+
+  export type ProductReviewsScalarWhereWithAggregatesInput = {
+    AND?: ProductReviewsScalarWhereWithAggregatesInput | ProductReviewsScalarWhereWithAggregatesInput[]
+    OR?: ProductReviewsScalarWhereWithAggregatesInput[]
+    NOT?: ProductReviewsScalarWhereWithAggregatesInput | ProductReviewsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProductReviews"> | number
+    posterImageUrl?: JsonNullableWithAggregatesFilter<"ProductReviews">
+    name?: StringWithAggregatesFilter<"ProductReviews"> | string
+    starRating?: IntNullableWithAggregatesFilter<"ProductReviews"> | number | null
+    ReviewsDescription?: StringWithAggregatesFilter<"ProductReviews"> | string
+    reviewDate?: StringNullableWithAggregatesFilter<"ProductReviews"> | string | null
+    createdAt?: DateTimeNullableWithAggregatesFilter<"ProductReviews"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"ProductReviews"> | Date | string | null
+    productsImage?: JsonNullableListFilter<"ProductReviews">
+    productId?: IntNullableWithAggregatesFilter<"ProductReviews"> | number | null
+    status?: EnumCommentStatusWithAggregatesFilter<"ProductReviews"> | $Enums.CommentStatus
+    ecomereceProductsId?: IntNullableWithAggregatesFilter<"ProductReviews"> | number | null
+  }
+
+  export type ProductQuestionsWhereInput = {
+    AND?: ProductQuestionsWhereInput | ProductQuestionsWhereInput[]
+    OR?: ProductQuestionsWhereInput[]
+    NOT?: ProductQuestionsWhereInput | ProductQuestionsWhereInput[]
+    id?: IntFilter<"ProductQuestions"> | number
+    name?: StringFilter<"ProductQuestions"> | string
+    email?: StringFilter<"ProductQuestions"> | string
+    question?: StringFilter<"ProductQuestions"> | string
+    createdAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    productId?: IntNullableFilter<"ProductQuestions"> | number | null
+    status?: EnumCommentStatusFilter<"ProductQuestions"> | $Enums.CommentStatus
+    replies?: JsonNullableListFilter<"ProductQuestions">
+    ecomereceProductsId?: IntNullableFilter<"ProductQuestions"> | number | null
+    EcomereceProducts?: XOR<EcomereceProductsNullableScalarRelationFilter, EcomereceProductsWhereInput> | null
+  }
+
+  export type ProductQuestionsOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    question?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    productId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    replies?: SortOrder
+    ecomereceProductsId?: SortOrderInput | SortOrder
+    EcomereceProducts?: EcomereceProductsOrderByWithRelationInput
+  }
+
+  export type ProductQuestionsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: ProductQuestionsWhereInput | ProductQuestionsWhereInput[]
+    OR?: ProductQuestionsWhereInput[]
+    NOT?: ProductQuestionsWhereInput | ProductQuestionsWhereInput[]
+    name?: StringFilter<"ProductQuestions"> | string
+    email?: StringFilter<"ProductQuestions"> | string
+    question?: StringFilter<"ProductQuestions"> | string
+    createdAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    productId?: IntNullableFilter<"ProductQuestions"> | number | null
+    status?: EnumCommentStatusFilter<"ProductQuestions"> | $Enums.CommentStatus
+    replies?: JsonNullableListFilter<"ProductQuestions">
+    ecomereceProductsId?: IntNullableFilter<"ProductQuestions"> | number | null
+    EcomereceProducts?: XOR<EcomereceProductsNullableScalarRelationFilter, EcomereceProductsWhereInput> | null
+  }, "id">
+
+  export type ProductQuestionsOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    question?: SortOrder
+    createdAt?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
+    productId?: SortOrderInput | SortOrder
+    status?: SortOrder
+    replies?: SortOrder
+    ecomereceProductsId?: SortOrderInput | SortOrder
+    _count?: ProductQuestionsCountOrderByAggregateInput
+    _avg?: ProductQuestionsAvgOrderByAggregateInput
+    _max?: ProductQuestionsMaxOrderByAggregateInput
+    _min?: ProductQuestionsMinOrderByAggregateInput
+    _sum?: ProductQuestionsSumOrderByAggregateInput
+  }
+
+  export type ProductQuestionsScalarWhereWithAggregatesInput = {
+    AND?: ProductQuestionsScalarWhereWithAggregatesInput | ProductQuestionsScalarWhereWithAggregatesInput[]
+    OR?: ProductQuestionsScalarWhereWithAggregatesInput[]
+    NOT?: ProductQuestionsScalarWhereWithAggregatesInput | ProductQuestionsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"ProductQuestions"> | number
+    name?: StringWithAggregatesFilter<"ProductQuestions"> | string
+    email?: StringWithAggregatesFilter<"ProductQuestions"> | string
+    question?: StringWithAggregatesFilter<"ProductQuestions"> | string
+    createdAt?: DateTimeNullableWithAggregatesFilter<"ProductQuestions"> | Date | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"ProductQuestions"> | Date | string | null
+    productId?: IntNullableWithAggregatesFilter<"ProductQuestions"> | number | null
+    status?: EnumCommentStatusWithAggregatesFilter<"ProductQuestions"> | $Enums.CommentStatus
+    replies?: JsonNullableListFilter<"ProductQuestions">
+    ecomereceProductsId?: IntNullableWithAggregatesFilter<"ProductQuestions"> | number | null
   }
 
   export type categoriesCreateInput = {
@@ -19165,6 +22077,8 @@ export namespace Prisma {
     seoSchema?: string | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsUncheckedCreateInput = {
@@ -19197,6 +22111,8 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsUpdateInput = {
@@ -19228,6 +22144,8 @@ export namespace Prisma {
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsUncheckedUpdateInput = {
@@ -19260,6 +22178,8 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsCreateManyInput = {
@@ -19413,6 +22333,194 @@ export namespace Prisma {
     password?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     userImageUrl?: NullableJsonNullValueInput | InputJsonValue
+  }
+
+  export type ProductReviewsCreateInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    EcomereceProducts?: EcomereceProductsCreateNestedOneWithoutReviewsInput
+  }
+
+  export type ProductReviewsUncheckedCreateInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    ecomereceProductsId?: number | null
+  }
+
+  export type ProductReviewsUpdateInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    EcomereceProducts?: EcomereceProductsUpdateOneWithoutReviewsNestedInput
+  }
+
+  export type ProductReviewsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    ecomereceProductsId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ProductReviewsCreateManyInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    ecomereceProductsId?: number | null
+  }
+
+  export type ProductReviewsUpdateManyMutationInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+  }
+
+  export type ProductReviewsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    ecomereceProductsId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ProductQuestionsCreateInput = {
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+    EcomereceProducts?: EcomereceProductsCreateNestedOneWithoutQuestionsInput
+  }
+
+  export type ProductQuestionsUncheckedCreateInput = {
+    id?: number
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+    ecomereceProductsId?: number | null
+  }
+
+  export type ProductQuestionsUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+    EcomereceProducts?: EcomereceProductsUpdateOneWithoutQuestionsNestedInput
+  }
+
+  export type ProductQuestionsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+    ecomereceProductsId?: NullableIntFieldUpdateOperationsInput | number | null
+  }
+
+  export type ProductQuestionsCreateManyInput = {
+    id?: number
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+    ecomereceProductsId?: number | null
+  }
+
+  export type ProductQuestionsUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductQuestionsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+    ecomereceProductsId?: NullableIntFieldUpdateOperationsInput | number | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -20385,6 +23493,26 @@ export namespace Prisma {
     subCategoryId?: SortOrder
   }
 
+  export type ProductReviewsListRelationFilter = {
+    every?: ProductReviewsWhereInput
+    some?: ProductReviewsWhereInput
+    none?: ProductReviewsWhereInput
+  }
+
+  export type ProductQuestionsListRelationFilter = {
+    every?: ProductQuestionsWhereInput
+    some?: ProductQuestionsWhereInput
+    none?: ProductQuestionsWhereInput
+  }
+
+  export type ProductReviewsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ProductQuestionsOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type EcomereceProductsCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -20508,6 +23636,132 @@ export namespace Prisma {
 
   export type UserSumOrderByAggregateInput = {
     id?: SortOrder
+  }
+
+  export type EnumCommentStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CommentStatus | EnumCommentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCommentStatusFilter<$PrismaModel> | $Enums.CommentStatus
+  }
+
+  export type EcomereceProductsNullableScalarRelationFilter = {
+    is?: EcomereceProductsWhereInput | null
+    isNot?: EcomereceProductsWhereInput | null
+  }
+
+  export type ProductReviewsCountOrderByAggregateInput = {
+    id?: SortOrder
+    posterImageUrl?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productsImage?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductReviewsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    starRating?: SortOrder
+    productId?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductReviewsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductReviewsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    starRating?: SortOrder
+    ReviewsDescription?: SortOrder
+    reviewDate?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductReviewsSumOrderByAggregateInput = {
+    id?: SortOrder
+    starRating?: SortOrder
+    productId?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type EnumCommentStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CommentStatus | EnumCommentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCommentStatusWithAggregatesFilter<$PrismaModel> | $Enums.CommentStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCommentStatusFilter<$PrismaModel>
+    _max?: NestedEnumCommentStatusFilter<$PrismaModel>
+  }
+
+  export type ProductQuestionsCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    question?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    replies?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductQuestionsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductQuestionsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    question?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductQuestionsMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    question?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    productId?: SortOrder
+    status?: SortOrder
+    ecomereceProductsId?: SortOrder
+  }
+
+  export type ProductQuestionsSumOrderByAggregateInput = {
+    id?: SortOrder
+    productId?: SortOrder
+    ecomereceProductsId?: SortOrder
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {
@@ -21140,6 +24394,34 @@ export namespace Prisma {
     connect?: subCategoriesWhereUniqueInput
   }
 
+  export type ProductReviewsCreateNestedManyWithoutEcomereceProductsInput = {
+    create?: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput> | ProductReviewsCreateWithoutEcomereceProductsInput[] | ProductReviewsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductReviewsCreateOrConnectWithoutEcomereceProductsInput | ProductReviewsCreateOrConnectWithoutEcomereceProductsInput[]
+    createMany?: ProductReviewsCreateManyEcomereceProductsInputEnvelope
+    connect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+  }
+
+  export type ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput = {
+    create?: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput> | ProductQuestionsCreateWithoutEcomereceProductsInput[] | ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput | ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput[]
+    createMany?: ProductQuestionsCreateManyEcomereceProductsInputEnvelope
+    connect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+  }
+
+  export type ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput = {
+    create?: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput> | ProductReviewsCreateWithoutEcomereceProductsInput[] | ProductReviewsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductReviewsCreateOrConnectWithoutEcomereceProductsInput | ProductReviewsCreateOrConnectWithoutEcomereceProductsInput[]
+    createMany?: ProductReviewsCreateManyEcomereceProductsInputEnvelope
+    connect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+  }
+
+  export type ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput = {
+    create?: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput> | ProductQuestionsCreateWithoutEcomereceProductsInput[] | ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput | ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput[]
+    createMany?: ProductQuestionsCreateManyEcomereceProductsInputEnvelope
+    connect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+  }
+
   export type EcomereceProductsUpdateproductImagesInput = {
     set?: InputJsonValue[]
     push?: InputJsonValue | InputJsonValue[]
@@ -21198,6 +24480,116 @@ export namespace Prisma {
     delete?: subCategoriesWhereInput | boolean
     connect?: subCategoriesWhereUniqueInput
     update?: XOR<XOR<subCategoriesUpdateToOneWithWhereWithoutEcomereceProductsInput, subCategoriesUpdateWithoutEcomereceProductsInput>, subCategoriesUncheckedUpdateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput = {
+    create?: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput> | ProductReviewsCreateWithoutEcomereceProductsInput[] | ProductReviewsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductReviewsCreateOrConnectWithoutEcomereceProductsInput | ProductReviewsCreateOrConnectWithoutEcomereceProductsInput[]
+    upsert?: ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput | ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput[]
+    createMany?: ProductReviewsCreateManyEcomereceProductsInputEnvelope
+    set?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    disconnect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    delete?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    connect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    update?: ProductReviewsUpdateWithWhereUniqueWithoutEcomereceProductsInput | ProductReviewsUpdateWithWhereUniqueWithoutEcomereceProductsInput[]
+    updateMany?: ProductReviewsUpdateManyWithWhereWithoutEcomereceProductsInput | ProductReviewsUpdateManyWithWhereWithoutEcomereceProductsInput[]
+    deleteMany?: ProductReviewsScalarWhereInput | ProductReviewsScalarWhereInput[]
+  }
+
+  export type ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput = {
+    create?: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput> | ProductQuestionsCreateWithoutEcomereceProductsInput[] | ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput | ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput[]
+    upsert?: ProductQuestionsUpsertWithWhereUniqueWithoutEcomereceProductsInput | ProductQuestionsUpsertWithWhereUniqueWithoutEcomereceProductsInput[]
+    createMany?: ProductQuestionsCreateManyEcomereceProductsInputEnvelope
+    set?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    disconnect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    delete?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    connect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    update?: ProductQuestionsUpdateWithWhereUniqueWithoutEcomereceProductsInput | ProductQuestionsUpdateWithWhereUniqueWithoutEcomereceProductsInput[]
+    updateMany?: ProductQuestionsUpdateManyWithWhereWithoutEcomereceProductsInput | ProductQuestionsUpdateManyWithWhereWithoutEcomereceProductsInput[]
+    deleteMany?: ProductQuestionsScalarWhereInput | ProductQuestionsScalarWhereInput[]
+  }
+
+  export type ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput = {
+    create?: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput> | ProductReviewsCreateWithoutEcomereceProductsInput[] | ProductReviewsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductReviewsCreateOrConnectWithoutEcomereceProductsInput | ProductReviewsCreateOrConnectWithoutEcomereceProductsInput[]
+    upsert?: ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput | ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput[]
+    createMany?: ProductReviewsCreateManyEcomereceProductsInputEnvelope
+    set?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    disconnect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    delete?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    connect?: ProductReviewsWhereUniqueInput | ProductReviewsWhereUniqueInput[]
+    update?: ProductReviewsUpdateWithWhereUniqueWithoutEcomereceProductsInput | ProductReviewsUpdateWithWhereUniqueWithoutEcomereceProductsInput[]
+    updateMany?: ProductReviewsUpdateManyWithWhereWithoutEcomereceProductsInput | ProductReviewsUpdateManyWithWhereWithoutEcomereceProductsInput[]
+    deleteMany?: ProductReviewsScalarWhereInput | ProductReviewsScalarWhereInput[]
+  }
+
+  export type ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput = {
+    create?: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput> | ProductQuestionsCreateWithoutEcomereceProductsInput[] | ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput[]
+    connectOrCreate?: ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput | ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput[]
+    upsert?: ProductQuestionsUpsertWithWhereUniqueWithoutEcomereceProductsInput | ProductQuestionsUpsertWithWhereUniqueWithoutEcomereceProductsInput[]
+    createMany?: ProductQuestionsCreateManyEcomereceProductsInputEnvelope
+    set?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    disconnect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    delete?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    connect?: ProductQuestionsWhereUniqueInput | ProductQuestionsWhereUniqueInput[]
+    update?: ProductQuestionsUpdateWithWhereUniqueWithoutEcomereceProductsInput | ProductQuestionsUpdateWithWhereUniqueWithoutEcomereceProductsInput[]
+    updateMany?: ProductQuestionsUpdateManyWithWhereWithoutEcomereceProductsInput | ProductQuestionsUpdateManyWithWhereWithoutEcomereceProductsInput[]
+    deleteMany?: ProductQuestionsScalarWhereInput | ProductQuestionsScalarWhereInput[]
+  }
+
+  export type ProductReviewsCreateproductsImageInput = {
+    set: InputJsonValue[]
+  }
+
+  export type EcomereceProductsCreateNestedOneWithoutReviewsInput = {
+    create?: XOR<EcomereceProductsCreateWithoutReviewsInput, EcomereceProductsUncheckedCreateWithoutReviewsInput>
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutReviewsInput
+    connect?: EcomereceProductsWhereUniqueInput
+  }
+
+  export type ProductReviewsUpdateproductsImageInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type EnumCommentStatusFieldUpdateOperationsInput = {
+    set?: $Enums.CommentStatus
+  }
+
+  export type EcomereceProductsUpdateOneWithoutReviewsNestedInput = {
+    create?: XOR<EcomereceProductsCreateWithoutReviewsInput, EcomereceProductsUncheckedCreateWithoutReviewsInput>
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutReviewsInput
+    upsert?: EcomereceProductsUpsertWithoutReviewsInput
+    disconnect?: EcomereceProductsWhereInput | boolean
+    delete?: EcomereceProductsWhereInput | boolean
+    connect?: EcomereceProductsWhereUniqueInput
+    update?: XOR<XOR<EcomereceProductsUpdateToOneWithWhereWithoutReviewsInput, EcomereceProductsUpdateWithoutReviewsInput>, EcomereceProductsUncheckedUpdateWithoutReviewsInput>
+  }
+
+  export type ProductQuestionsCreaterepliesInput = {
+    set: InputJsonValue[]
+  }
+
+  export type EcomereceProductsCreateNestedOneWithoutQuestionsInput = {
+    create?: XOR<EcomereceProductsCreateWithoutQuestionsInput, EcomereceProductsUncheckedCreateWithoutQuestionsInput>
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutQuestionsInput
+    connect?: EcomereceProductsWhereUniqueInput
+  }
+
+  export type ProductQuestionsUpdaterepliesInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type EcomereceProductsUpdateOneWithoutQuestionsNestedInput = {
+    create?: XOR<EcomereceProductsCreateWithoutQuestionsInput, EcomereceProductsUncheckedCreateWithoutQuestionsInput>
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutQuestionsInput
+    upsert?: EcomereceProductsUpsertWithoutQuestionsInput
+    disconnect?: EcomereceProductsWhereInput | boolean
+    delete?: EcomereceProductsWhereInput | boolean
+    connect?: EcomereceProductsWhereUniqueInput
+    update?: XOR<XOR<EcomereceProductsUpdateToOneWithWhereWithoutQuestionsInput, EcomereceProductsUpdateWithoutQuestionsInput>, EcomereceProductsUncheckedUpdateWithoutQuestionsInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -21422,6 +24814,23 @@ export namespace Prisma {
     _max?: NestedBoolFilter<$PrismaModel>
   }
 
+  export type NestedEnumCommentStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.CommentStatus | EnumCommentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCommentStatusFilter<$PrismaModel> | $Enums.CommentStatus
+  }
+
+  export type NestedEnumCommentStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.CommentStatus | EnumCommentStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.CommentStatus[] | ListEnumCommentStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumCommentStatusWithAggregatesFilter<$PrismaModel> | $Enums.CommentStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumCommentStatusFilter<$PrismaModel>
+    _max?: NestedEnumCommentStatusFilter<$PrismaModel>
+  }
+
   export type subCategoriesCreateWithoutCategoryInput = {
     name: string
     description?: string | null
@@ -21640,6 +25049,8 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsUncheckedCreateWithoutCategoryInput = {
@@ -21671,6 +25082,8 @@ export namespace Prisma {
     Meta_Title?: string | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsCreateOrConnectWithoutCategoryInput = {
@@ -22101,6 +25514,8 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
+    reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsUncheckedCreateWithoutSubcategoryInput = {
@@ -22132,6 +25547,8 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     seoSchema?: string | null
+    reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
   export type EcomereceProductsCreateOrConnectWithoutSubcategoryInput = {
@@ -23260,6 +26677,76 @@ export namespace Prisma {
     create: XOR<subCategoriesCreateWithoutEcomereceProductsInput, subCategoriesUncheckedCreateWithoutEcomereceProductsInput>
   }
 
+  export type ProductReviewsCreateWithoutEcomereceProductsInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+  }
+
+  export type ProductReviewsUncheckedCreateWithoutEcomereceProductsInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+  }
+
+  export type ProductReviewsCreateOrConnectWithoutEcomereceProductsInput = {
+    where: ProductReviewsWhereUniqueInput
+    create: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductReviewsCreateManyEcomereceProductsInputEnvelope = {
+    data: ProductReviewsCreateManyEcomereceProductsInput | ProductReviewsCreateManyEcomereceProductsInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ProductQuestionsCreateWithoutEcomereceProductsInput = {
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput = {
+    id?: number
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductQuestionsCreateOrConnectWithoutEcomereceProductsInput = {
+    where: ProductQuestionsWhereUniqueInput
+    create: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductQuestionsCreateManyEcomereceProductsInputEnvelope = {
+    data: ProductQuestionsCreateManyEcomereceProductsInput | ProductQuestionsCreateManyEcomereceProductsInput[]
+    skipDuplicates?: boolean
+  }
+
   export type categoriesUpsertWithoutEcomereceProductsInput = {
     update: XOR<categoriesUpdateWithoutEcomereceProductsInput, categoriesUncheckedUpdateWithoutEcomereceProductsInput>
     create: XOR<categoriesCreateWithoutEcomereceProductsInput, categoriesUncheckedCreateWithoutEcomereceProductsInput>
@@ -23464,6 +26951,364 @@ export namespace Prisma {
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
+  }
+
+  export type ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput = {
+    where: ProductReviewsWhereUniqueInput
+    update: XOR<ProductReviewsUpdateWithoutEcomereceProductsInput, ProductReviewsUncheckedUpdateWithoutEcomereceProductsInput>
+    create: XOR<ProductReviewsCreateWithoutEcomereceProductsInput, ProductReviewsUncheckedCreateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductReviewsUpdateWithWhereUniqueWithoutEcomereceProductsInput = {
+    where: ProductReviewsWhereUniqueInput
+    data: XOR<ProductReviewsUpdateWithoutEcomereceProductsInput, ProductReviewsUncheckedUpdateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductReviewsUpdateManyWithWhereWithoutEcomereceProductsInput = {
+    where: ProductReviewsScalarWhereInput
+    data: XOR<ProductReviewsUpdateManyMutationInput, ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsInput>
+  }
+
+  export type ProductReviewsScalarWhereInput = {
+    AND?: ProductReviewsScalarWhereInput | ProductReviewsScalarWhereInput[]
+    OR?: ProductReviewsScalarWhereInput[]
+    NOT?: ProductReviewsScalarWhereInput | ProductReviewsScalarWhereInput[]
+    id?: IntFilter<"ProductReviews"> | number
+    posterImageUrl?: JsonNullableFilter<"ProductReviews">
+    name?: StringFilter<"ProductReviews"> | string
+    starRating?: IntNullableFilter<"ProductReviews"> | number | null
+    ReviewsDescription?: StringFilter<"ProductReviews"> | string
+    reviewDate?: StringNullableFilter<"ProductReviews"> | string | null
+    createdAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductReviews"> | Date | string | null
+    productsImage?: JsonNullableListFilter<"ProductReviews">
+    productId?: IntNullableFilter<"ProductReviews"> | number | null
+    status?: EnumCommentStatusFilter<"ProductReviews"> | $Enums.CommentStatus
+    ecomereceProductsId?: IntNullableFilter<"ProductReviews"> | number | null
+  }
+
+  export type ProductQuestionsUpsertWithWhereUniqueWithoutEcomereceProductsInput = {
+    where: ProductQuestionsWhereUniqueInput
+    update: XOR<ProductQuestionsUpdateWithoutEcomereceProductsInput, ProductQuestionsUncheckedUpdateWithoutEcomereceProductsInput>
+    create: XOR<ProductQuestionsCreateWithoutEcomereceProductsInput, ProductQuestionsUncheckedCreateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductQuestionsUpdateWithWhereUniqueWithoutEcomereceProductsInput = {
+    where: ProductQuestionsWhereUniqueInput
+    data: XOR<ProductQuestionsUpdateWithoutEcomereceProductsInput, ProductQuestionsUncheckedUpdateWithoutEcomereceProductsInput>
+  }
+
+  export type ProductQuestionsUpdateManyWithWhereWithoutEcomereceProductsInput = {
+    where: ProductQuestionsScalarWhereInput
+    data: XOR<ProductQuestionsUpdateManyMutationInput, ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsInput>
+  }
+
+  export type ProductQuestionsScalarWhereInput = {
+    AND?: ProductQuestionsScalarWhereInput | ProductQuestionsScalarWhereInput[]
+    OR?: ProductQuestionsScalarWhereInput[]
+    NOT?: ProductQuestionsScalarWhereInput | ProductQuestionsScalarWhereInput[]
+    id?: IntFilter<"ProductQuestions"> | number
+    name?: StringFilter<"ProductQuestions"> | string
+    email?: StringFilter<"ProductQuestions"> | string
+    question?: StringFilter<"ProductQuestions"> | string
+    createdAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    updatedAt?: DateTimeNullableFilter<"ProductQuestions"> | Date | string | null
+    productId?: IntNullableFilter<"ProductQuestions"> | number | null
+    status?: EnumCommentStatusFilter<"ProductQuestions"> | $Enums.CommentStatus
+    replies?: JsonNullableListFilter<"ProductQuestions">
+    ecomereceProductsId?: IntNullableFilter<"ProductQuestions"> | number | null
+  }
+
+  export type EcomereceProductsCreateWithoutReviewsInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
+    subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsUncheckedCreateWithoutReviewsInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+    questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsCreateOrConnectWithoutReviewsInput = {
+    where: EcomereceProductsWhereUniqueInput
+    create: XOR<EcomereceProductsCreateWithoutReviewsInput, EcomereceProductsUncheckedCreateWithoutReviewsInput>
+  }
+
+  export type EcomereceProductsUpsertWithoutReviewsInput = {
+    update: XOR<EcomereceProductsUpdateWithoutReviewsInput, EcomereceProductsUncheckedUpdateWithoutReviewsInput>
+    create: XOR<EcomereceProductsCreateWithoutReviewsInput, EcomereceProductsUncheckedCreateWithoutReviewsInput>
+    where?: EcomereceProductsWhereInput
+  }
+
+  export type EcomereceProductsUpdateToOneWithWhereWithoutReviewsInput = {
+    where?: EcomereceProductsWhereInput
+    data: XOR<EcomereceProductsUpdateWithoutReviewsInput, EcomereceProductsUncheckedUpdateWithoutReviewsInput>
+  }
+
+  export type EcomereceProductsUpdateWithoutReviewsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
+    subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
+  }
+
+  export type EcomereceProductsUncheckedUpdateWithoutReviewsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+  }
+
+  export type EcomereceProductsCreateWithoutQuestionsInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
+    subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsUncheckedCreateWithoutQuestionsInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+    reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsCreateOrConnectWithoutQuestionsInput = {
+    where: EcomereceProductsWhereUniqueInput
+    create: XOR<EcomereceProductsCreateWithoutQuestionsInput, EcomereceProductsUncheckedCreateWithoutQuestionsInput>
+  }
+
+  export type EcomereceProductsUpsertWithoutQuestionsInput = {
+    update: XOR<EcomereceProductsUpdateWithoutQuestionsInput, EcomereceProductsUncheckedUpdateWithoutQuestionsInput>
+    create: XOR<EcomereceProductsCreateWithoutQuestionsInput, EcomereceProductsUncheckedCreateWithoutQuestionsInput>
+    where?: EcomereceProductsWhereInput
+  }
+
+  export type EcomereceProductsUpdateToOneWithWhereWithoutQuestionsInput = {
+    where?: EcomereceProductsWhereInput
+    data: XOR<EcomereceProductsUpdateWithoutQuestionsInput, EcomereceProductsUncheckedUpdateWithoutQuestionsInput>
+  }
+
+  export type EcomereceProductsUpdateWithoutQuestionsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
+    subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
+  }
+
+  export type EcomereceProductsUncheckedUpdateWithoutQuestionsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type subCategoriesCreateManyCategoryInput = {
@@ -23861,6 +27706,8 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsUncheckedUpdateWithoutCategoryInput = {
@@ -23892,6 +27739,8 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsUncheckedUpdateManyWithoutCategoryInput = {
@@ -24180,6 +28029,8 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
+    reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsUncheckedUpdateWithoutSubcategoryInput = {
@@ -24211,6 +28062,8 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
   export type EcomereceProductsUncheckedUpdateManyWithoutSubcategoryInput = {
@@ -24401,6 +28254,108 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ProductReviewsCreateManyEcomereceProductsInput = {
+    id?: number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name: string
+    starRating?: number | null
+    ReviewsDescription: string
+    reviewDate?: string | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productsImage?: ProductReviewsCreateproductsImageInput | InputJsonValue[]
+    productId?: number | null
+    status?: $Enums.CommentStatus
+  }
+
+  export type ProductQuestionsCreateManyEcomereceProductsInput = {
+    id?: number
+    name: string
+    email: string
+    question: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    productId?: number | null
+    status?: $Enums.CommentStatus
+    replies?: ProductQuestionsCreaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductReviewsUpdateWithoutEcomereceProductsInput = {
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+  }
+
+  export type ProductReviewsUncheckedUpdateWithoutEcomereceProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+  }
+
+  export type ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    posterImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    name?: StringFieldUpdateOperationsInput | string
+    starRating?: NullableIntFieldUpdateOperationsInput | number | null
+    ReviewsDescription?: StringFieldUpdateOperationsInput | string
+    reviewDate?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productsImage?: ProductReviewsUpdateproductsImageInput | InputJsonValue[]
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+  }
+
+  export type ProductQuestionsUpdateWithoutEcomereceProductsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductQuestionsUncheckedUpdateWithoutEcomereceProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
+  }
+
+  export type ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    question?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    productId?: NullableIntFieldUpdateOperationsInput | number | null
+    status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
+    replies?: ProductQuestionsUpdaterepliesInput | InputJsonValue[]
   }
 
 

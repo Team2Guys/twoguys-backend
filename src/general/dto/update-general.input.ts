@@ -1,4 +1,4 @@
-import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial } from './create-general.input';
+import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './create-general.input';
 import { InputType, Field, PartialType, Int } from '@nestjs/graphql';
 
 @InputType()
@@ -18,6 +18,11 @@ export class UpdateGeneralsocial extends PartialType(CreateGeneralsocial) {
 
 @InputType()
 export class UpdateRedirecturls extends PartialType(CreatedRedirecturls) {
+  @Field(() => Int)
+  id: number;
+}
+@InputType()
+export class UpdateproductReviewInput extends PartialType(productReviewInput) {
   @Field(() => Int)
   id: number;
 }

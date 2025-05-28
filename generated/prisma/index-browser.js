@@ -367,6 +367,34 @@ exports.Prisma.UserScalarFieldEnum = {
   userImageUrl: 'userImageUrl'
 };
 
+exports.Prisma.ProductReviewsScalarFieldEnum = {
+  id: 'id',
+  posterImageUrl: 'posterImageUrl',
+  name: 'name',
+  starRating: 'starRating',
+  ReviewsDescription: 'ReviewsDescription',
+  reviewDate: 'reviewDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  productsImage: 'productsImage',
+  productId: 'productId',
+  status: 'status',
+  ecomereceProductsId: 'ecomereceProductsId'
+};
+
+exports.Prisma.ProductQuestionsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  question: 'question',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  productId: 'productId',
+  status: 'status',
+  replies: 'replies',
+  ecomereceProductsId: 'ecomereceProductsId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -396,7 +424,11 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.CommentStatus = exports.$Enums.CommentStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
+};
 
 exports.Prisma.ModelName = {
   categories: 'categories',
@@ -409,7 +441,9 @@ exports.Prisma.ModelName = {
   Redirecturls: 'Redirecturls',
   InnersubCategories: 'InnersubCategories',
   EcomereceProducts: 'EcomereceProducts',
-  User: 'User'
+  User: 'User',
+  ProductReviews: 'ProductReviews',
+  ProductQuestions: 'ProductQuestions'
 };
 
 /**

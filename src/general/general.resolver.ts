@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GeneralService } from './general.service';
-import { Appointments, General, Redirecturls, SocialLinks } from './entities/general.entity';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateRedirecturls } from './dto/update-general.input';
+import { Appointments, General, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 
 @Resolver(() => General)
 export class GeneralResolver {
@@ -90,6 +90,31 @@ export class GeneralResolver {
     return this.generalService.findAllRedirecturls();
   }
 
+// products reviews
 
+  @Mutation(() => ProductReviews, { name: "Create_prod_Reviews", nullable: true })
+  createProdReviews(@Args('productReviewInput') productReviewInput: productReviewInput) {
+    return this.generalService.createProdReviews(productReviewInput);
+  }
+
+   @Query(() => [ProductReviews], { name: 'get_All_prod_Reviews', nullable: true })
+  getAllProdReviews() {
+    return this.generalService.getAllProdReviews();
+  }
+
+  @Mutation(() => ProductReviews, { name: "update_prod_Reviews", nullable:true })
+  updateProdReviews(@Args('UpdateproductReviewInput') UpdateproductReviewInput: UpdateproductReviewInput) {
+    return this.generalService.updateProdReviews(UpdateproductReviewInput);
+  }
+
+  @Mutation(() => ProductReviews, { name: "Delete_prod_Review", nullable: true })
+  removeProdReviews(@Args('id', { type: () => Int }) id: number) {
+    return this.generalService.removeProdReviews(id);
+  }
+
+
+
+
+  
 
 }

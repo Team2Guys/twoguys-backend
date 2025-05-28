@@ -1,4 +1,5 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { EComerece } from 'e-comerece/entities/e-comerece.entity';
 import GraphQLJSON from 'graphql-type-json';
 
 @ObjectType()
@@ -108,4 +109,74 @@ export class Redirecturls {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
+}
+
+
+
+export enum CommentStatus {
+  PENDING = 'PENDING',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+}
+
+
+@ObjectType()
+export class ProductReviews {
+    @Field(() => Int)
+  id: number; 
+
+  @Field(() => Int)
+  starRating: number;
+
+  @Field(() => String,)
+  name: string;
+
+  @Field(() => String)
+  ReviewsDescription: string;
+
+  @Field(() => String, { nullable: true })
+  reviewDate?: string;
+
+  @Field(() => GraphQLJSON, { nullable: true })
+  posterImageUrl?: any;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  productsImage?: any;
+
+
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+
+  @Field(() => [EComerece], { nullable: true })
+  product?: EComerece[];
+
+}
+
+
+@ObjectType()
+export class productQuestionInput {
+    @Field(() => Int)
+  id: number; 
+  @Field(() => String)
+  name: string;
+
+  @Field(() => String)
+  email: string;
+
+  @Field(() => String)
+  question: string;
+
+  @Field(() => Int, { nullable: true })
+  productId?: number;
+
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  replies?: any;
+
+  @Field(() => [EComerece], { nullable: true })
+  product?: EComerece[];
+
+
 }

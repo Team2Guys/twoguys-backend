@@ -286,7 +286,7 @@ model InnersubCategories {
 }
 
 model EcomereceProducts {
-  id                    Int            @id @default(autoincrement())
+  id                    Int                @id @default(autoincrement())
   name                  String
   price                 Int
   description           String
@@ -296,30 +296,31 @@ model EcomereceProducts {
   posterImageUrl        Json
   hoverImageUrl         Json?
   productImages         Json[]
-  createdAt             DateTime?      @default(now())
-  updatedAt             DateTime?      @default(now())
+  createdAt             DateTime?          @default(now())
+  updatedAt             DateTime?          @default(now())
   last_editedBy         String?
   custom_url            String
   breadCrum             String
   Banners               Json?
-  DescriptionBullets    Json[]         @default([])
-  Additionalinformation Json[]         @default([])
-  Questions             Json[]         @default([])
-  materialType          Json[]         @default([])
-  colors                Json[]         @default([])
-  sizes                 Json[]         @default([])
-  variant               Json[]         @default([])
+  DescriptionBullets    Json[]             @default([])
+  Additionalinformation Json[]             @default([])
+  Questions             Json[]             @default([])
+  materialType          Json[]             @default([])
+  colors                Json[]             @default([])
+  sizes                 Json[]             @default([])
+  variant               Json[]             @default([])
   Canonical_Tag         String?
   Meta_Description      String?
   Meta_Title            String?
   categoryId            Int?
   subCategoryId         Int?
-  category              categories?    @relation(fields: [categoryId], references: [id], onDelete: SetNull)
-  subcategory           subCategories? @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
-    // product schema
-  seoSchema String?
+  category              categories?        @relation(fields: [categoryId], references: [id], onDelete: SetNull)
+  subcategory           subCategories?     @relation(fields: [subCategoryId], references: [id], onDelete: SetNull)
+  // product schema
+  seoSchema             String?
+  reviews               ProductReviews[]   @relation()
+  questions             ProductQuestions[] @relation()
 }
-
 
 model User {
   id           Int     @id @default(autoincrement())
@@ -328,4 +329,40 @@ model User {
   password     String
   phone        String?
   userImageUrl Json?
+}
+
+enum CommentStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+model ProductReviews {
+  id                  Int                @id @default(autoincrement())
+  posterImageUrl      Json?
+  name                String
+  starRating          Int?
+  ReviewsDescription  String
+  reviewDate          String?
+  createdAt           DateTime?          @default(now())
+  updatedAt           DateTime?
+  productsImage       Json[]             @default([])
+  productId           Int?
+  status              CommentStatus      @default(PENDING)
+  EcomereceProducts   EcomereceProducts? @relation(fields: [ecomereceProductsId], references: [id])
+  ecomereceProductsId Int?
+}
+
+model ProductQuestions {
+  id                  Int                @id @default(autoincrement())
+  name                String
+  email               String
+  question            String
+  createdAt           DateTime?          @default(now())
+  updatedAt           DateTime?
+  productId           Int?
+  status              CommentStatus      @default(PENDING)
+  replies             Json[]             @default([])
+  EcomereceProducts   EcomereceProducts? @relation(fields: [ecomereceProductsId], references: [id])
+  ecomereceProductsId Int?
 }

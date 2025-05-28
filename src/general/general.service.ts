@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateRedirecturls } from './dto/update-general.input';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
 import { sendAppointmentEmail } from '../utils/EmailHanlders';
@@ -55,6 +55,7 @@ export class GeneralService {
       customHttpException(error)
     }
   }
+
   async getall() {
     try {
       return await this.prisma.socialLinks.findMany({})
@@ -127,48 +128,48 @@ export class GeneralService {
 
   // RedirectUrls 
 
-   async createRedirecturls(CreatedRedirecturls: CreatedRedirecturls) {
+  async createRedirecturls(CreatedRedirecturls: CreatedRedirecturls) {
     try {
       return await this.prisma.redirecturls.create({ data: CreatedRedirecturls })
     } catch (error) {
       customHttpException(error)
     }
   }
-async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
-  try {
-    const { id, ...updated } = CreatedRedirecturls;
-    if (updated.url) {
-      const existing = await this.prisma.redirecturls.findFirst({
-        where: {
-          url: updated.url,
-          NOT: { id: Number(id) },
-        },
-      });
-
-      if (existing) {
-        throw new Error("This URL already exists. Please choose a unique one.");
-      }
-    }
-
-    return await this.prisma.redirecturls.update({
-      where: { id: Number(id) },
-      data: { ...updated, updatedAt: new Date() },
-    });
-  } catch (error) {
-    customHttpException(error);
-  }
-}
-
-
-   async findOneRedirecturls(endPoint:string) {
+  async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
     try {
-      return await this.prisma.redirecturls.findFirst({ where:{url:endPoint} })
+      const { id, ...updated } = CreatedRedirecturls;
+      if (updated.url) {
+        const existing = await this.prisma.redirecturls.findFirst({
+          where: {
+            url: updated.url,
+            NOT: { id: Number(id) },
+          },
+        });
+
+        if (existing) {
+          throw new Error("This URL already exists. Please choose a unique one.");
+        }
+      }
+
+      return await this.prisma.redirecturls.update({
+        where: { id: Number(id) },
+        data: { ...updated, updatedAt: new Date() },
+      });
+    } catch (error) {
+      customHttpException(error);
+    }
+  }
+
+
+  async findOneRedirecturls(endPoint: string) {
+    try {
+      return await this.prisma.redirecturls.findFirst({ where: { url: endPoint } })
     } catch (error) {
       customHttpException(error)
     }
   }
 
-     async findAllRedirecturls() {
+  async findAllRedirecturls() {
     try {
       return await this.prisma.redirecturls.findMany()
     } catch (error) {
@@ -177,18 +178,65 @@ async updateRedirecturls(CreatedRedirecturls: UpdateRedirecturls) {
   }
 
 
-   async deleteRedirecturls(endPoint:string) {
+  async deleteRedirecturls(endPoint: string) {
     try {
-      return await this.prisma.redirecturls.delete({ where:{url:endPoint} })
+      return await this.prisma.redirecturls.delete({ where: { url: endPoint } })
     } catch (error) {
       customHttpException(error)
     }
   }
 
-  
+
+  // Products reviews
+
+  async createProdReviews(createGeneralInput: productReviewInput) {
+    try {
+
+      const { product } = createGeneralInput
+      if (!product) return customHttpException("Product Id not found", "NOT_FOUND")
+      return await this.prisma.productReviews.create({ data: { ...createGeneralInput, productId: Number(product) } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
 
 
 
+  async getAllProdReviews() {
+    try {
+
+      return await this.prisma.productReviews.findMany({ include: { EcomereceProducts: true } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+
+  async updateProdReviews(updateGeneralInput: UpdateproductReviewInput) {
+    try {
+      let update = new Date();
+
+      const { id, product, ...updatedData } = updateGeneralInput
+      if (!product) return customHttpException("Product Id not found", "NOT_FOUND")
+      return await this.prisma.productReviews.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update, productId: Number(product) } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+
+
+
+  async removeProdReviews(id: number) {
+    try {
+      return await this.prisma.productReviews.delete({ where: { id } })
+    } catch (error) {
+      customHttpException(error)
+    }
+    return `This action removes a #${id} general`;
+  }
 
 
 }

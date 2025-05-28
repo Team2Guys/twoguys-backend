@@ -78,3 +78,63 @@ export class CreatedRedirecturls {
 
 
 }
+
+
+export enum CommentStatus {
+  PENDING = 'PENDING',
+  APPROVED = 'APPROVED',
+  REJECTED = 'REJECTED',
+}
+
+
+@InputType()
+export class productReviewInput {
+  @Field(() => Int)
+  starRating: number;
+  
+  @Field(() => Int)
+  product: number;
+
+  @Field(() => String,)
+  name: string;
+
+  @Field(() => String)
+  ReviewsDescription: string;
+  
+  @Field(() => String,{nullable:true})
+  reviewDate?: string;
+  
+  @Field(() => GraphQLJSON,{nullable:true})
+  posterImageUrl?: any;
+
+  @Field(() => [GraphQLJSON],{nullable:true})
+  productsImage?: any;
+
+
+ @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+
+
+}
+
+
+@InputType()
+export class productQuestionInput {
+  @Field(() => String)
+  name: string;
+
+  @Field(() => String)
+  email: string;
+
+  @Field(() => String)
+  question: string;
+
+  @Field(() => Int, { nullable: true })
+  productId?: number;
+
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  replies?: any;
+}
