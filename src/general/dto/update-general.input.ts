@@ -1,5 +1,7 @@
-import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './create-general.input';
+import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './create-general.input';
 import { InputType, Field, PartialType, Int } from '@nestjs/graphql';
+import { CommentStatus } from './enums/enum';
+import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
 export class UpdateGeneralInput extends PartialType(CreateGeneralInput) {
@@ -22,7 +24,25 @@ export class UpdateRedirecturls extends PartialType(CreatedRedirecturls) {
   id: number;
 }
 @InputType()
-export class UpdateproductReviewInput extends PartialType(productReviewInput) {
+export class UpdateproductReviewInput {
   @Field(() => Int)
   id: number;
+
+  
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+}
+
+
+@InputType()
+export class UpdateproductQuestionInput {
+  @Field(() => Int)
+  id: number;
+
+  @Field(() => CommentStatus, { nullable: true })
+  status?: CommentStatus;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  replies?: any[];
+
 }

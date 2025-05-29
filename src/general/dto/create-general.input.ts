@@ -131,4 +131,8 @@ export class productQuestionInput {
 
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any;
+
+    @Field(() => Int)
+  product: number;
+
 }

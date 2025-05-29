@@ -2,6 +2,7 @@ import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
 import { Category } from '../../categories/entities/category.entity';
 import GraphQLJSON from 'graphql-type-json';
 import { Subcategory } from '../../subcategories/entities/subcategory.entity';
+import { productQuestion, ProductReviews } from '../../general/entities/general.entity';
 
 
 @ObjectType()
@@ -93,6 +94,12 @@ export class EComerece {
 
   @Field({ nullable: true })
   updatedAt?: Date;
+
+    @Field(() => [ProductReviews], { nullable: true })
+  reviews?: ProductReviews;
+
+    @Field(() => [productQuestion], { nullable: true })
+  questions?: productQuestion;
 
 }
 @ObjectType()

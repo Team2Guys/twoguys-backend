@@ -112,8 +112,8 @@ export class Redirecturls {
 
 @ObjectType()
 export class ProductReviews {
-    @Field(() => Int)
-  id: number; 
+  @Field(() => Int)
+  id: number;
 
   @Field(() => Int)
   starRating: number;
@@ -137,16 +137,23 @@ export class ProductReviews {
   @Field(() => CommentStatus, { nullable: true })
   status?: CommentStatus;
 
-  @Field(() => [EComerece], { nullable: true })
-  product?: EComerece[];
+
+  @Field(() => EComerece, { nullable: true })
+  EcomereceProducts?: EComerece;
+
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 
 }
 
 
 @ObjectType()
-export class productQuestionInput {
-    @Field(() => Int)
-  id: number; 
+export class productQuestion {
+  @Field(() => Int)
+  id: number;
   @Field(() => String)
   name: string;
 
@@ -165,8 +172,14 @@ export class productQuestionInput {
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any;
 
-  @Field(() => [EComerece], { nullable: true })
-  product?: EComerece[];
+  @Field(() => EComerece, { nullable: true })
+  EcomereceProducts?: EComerece;
 
 
+
+  @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 }

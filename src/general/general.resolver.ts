@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GeneralService } from './general.service';
-import { Appointments, General, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
+import { Appointments, General, productQuestion, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 
 @Resolver(() => General)
 export class GeneralResolver {
@@ -110,6 +110,28 @@ export class GeneralResolver {
   @Mutation(() => ProductReviews, { name: "Delete_prod_Review", nullable: true })
   removeProdReviews(@Args('id', { type: () => Int }) id: number) {
     return this.generalService.removeProdReviews(id);
+  }
+
+  // Questoins
+
+  @Mutation(() => productQuestion, { name: "Create_prod_Questions", nullable: true })
+  createProdquestions(@Args('productQuestionInput') productQuestionInput: productQuestionInput) {
+    return this.generalService.createProdquestions(productQuestionInput);
+  }
+
+   @Query(() => [productQuestion], { name: 'get_All_prod_Questions', nullable: true })
+  getAllProdquestions() {
+    return this.generalService.getAllProdquestions();
+  }
+
+  @Mutation(() => productQuestion, { name: "update_prod_Questions", nullable:true })
+  updateProdquestions(@Args('UpdateproductQuestionInput') UpdateproductQuestionInput: UpdateproductQuestionInput) {
+    return this.generalService.updateProdquestions(UpdateproductQuestionInput);
+  }
+
+  @Mutation(() => productQuestion, { name: "Delete_prod_Questions", nullable: true })
+  removeProdquestions(@Args('id', { type: () => Int }) id: number) {
+    return this.generalService.removeProdquestions(id);
   }
 
 

@@ -40,7 +40,8 @@ export class EComereceService {
 
   async findOne(custom_url: string, category: string, subCategory: string) {
     try {
-      return await this.prisma.ecomereceProducts.findFirst({ where: { custom_url, category: { custom_url: category }, subcategory: { custom_url: subCategory } }, include: { subcategory: true, category: true } })
+      return await this.prisma.ecomereceProducts.findFirst({ where: { custom_url, category: { custom_url: category }, subcategory: { custom_url: subCategory } },
+         include: { subcategory: true, category: true, reviews:true, questions:true } })
     } catch (error) {
       return customHttpException(error)
     }
@@ -78,18 +79,17 @@ export class EComereceService {
 
   CategorygetPaginatedProducts = async (categoryname: string, page = 1, pageSize = 5, subcategory?: string) => {
     const skip = (page - 1) * pageSize;
-console.log(categoryname, subcategory, )
-      const whereCondition: any = {
-    category: { custom_url: categoryname },
-    ...(subcategory && {
-      subcategory: {
-        custom_url: subcategory
-      }
-    })
-  }
+    const whereCondition: any = {
+      category: { custom_url: categoryname },
+      ...(subcategory && {
+        subcategory: {
+          custom_url: subcategory
+        }
+      })
+    }
 
 
-  console.log(whereCondition, "whereCondition")
+    console.log(whereCondition, "whereCondition")
 
     const otherProducts = await this.prisma.ecomereceProducts.findMany({
       where: whereCondition,

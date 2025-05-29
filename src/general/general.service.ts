@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productReviewInput } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './dto/create-general.input';
+import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
 import { sendAppointmentEmail } from '../utils/EmailHanlders';
@@ -192,16 +192,13 @@ export class GeneralService {
   async createProdReviews(createGeneralInput: productReviewInput) {
     try {
 
-      const { product } = createGeneralInput
+      const { product, ...withoutprod } = createGeneralInput
       if (!product) return customHttpException("Product Id not found", "NOT_FOUND")
-      return await this.prisma.productReviews.create({ data: { ...createGeneralInput, productId: Number(product) } })
+      return await this.prisma.productReviews.create({ data: { ...withoutprod, ecomereceProductsId: Number(product) } })
     } catch (error) {
       customHttpException(error)
     }
   }
-
-
-
   async getAllProdReviews() {
     try {
 
@@ -211,15 +208,12 @@ export class GeneralService {
     }
   }
 
-
-
   async updateProdReviews(updateGeneralInput: UpdateproductReviewInput) {
     try {
       let update = new Date();
 
-      const { id, product, ...updatedData } = updateGeneralInput
-      if (!product) return customHttpException("Product Id not found", "NOT_FOUND")
-      return await this.prisma.productReviews.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update, productId: Number(product) } })
+      const { id, ...updatedData } = updateGeneralInput
+      return await this.prisma.productReviews.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update } })
     } catch (error) {
       customHttpException(error)
     }
@@ -235,8 +229,51 @@ export class GeneralService {
   }
 
 
-  // 
-  
+  // questions
+
+
+  async createProdquestions(createGeneralInput: productQuestionInput) {
+    try {
+
+      const { product, ...withoutprod } = createGeneralInput
+      if (!product) return customHttpException("Product Id not found", "NOT_FOUND")
+      return await this.prisma.productQuestions.create({ data: { ...withoutprod, ecomereceProductsId: Number(product) } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+  async getAllProdquestions() {
+    try {
+
+      let questions =  await this.prisma.productQuestions.findMany({ include: { EcomereceProducts: true } })
+
+      console.log(questions, "questions")
+      return questions;
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async updateProdquestions(updateGeneralInput: UpdateproductQuestionInput) {
+    try {
+      let update = new Date();
+
+      const { id, ...updatedData } = updateGeneralInput
+      return await this.prisma.productQuestions.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async removeProdquestions(id: number) {
+    try {
+      return await this.prisma.productQuestions.delete({ where: { id } })
+    } catch (error) {
+      customHttpException(error)
+    }
+    return `This action removes a #${id} general`;
+  }
+
 
 
 
