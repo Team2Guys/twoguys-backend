@@ -3214,9 +3214,18 @@ export namespace Prisma {
       CustomHeading: Prisma.JsonValue[]
       CustomText: Prisma.JsonValue[]
       Product_Section_heading: string | null
+      /**
+       * /✅
+       */
       bottomText: string | null
+      /**
+       * /✅
+       */
       bodyHeading: string | null
       bodyMainHeading: string | null
+      /**
+       * /✅
+       */
       bodyText: string | null
       explore_Heading: string | null
       explore_main_heading: string | null
