@@ -13,6 +13,8 @@ import { AdminsModule } from './admins/admins.module';
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
     // autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
+      path: 'backend/graphql',
+
     driver:ApolloDriver,
     autoSchemaFile:true,
     csrfPrevention:false,
