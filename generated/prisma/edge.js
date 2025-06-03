@@ -428,7 +428,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/var/www/twoguys/server/generated/prisma",
+      "value": "D:\\Qul-tech\\twoguys\\server\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -437,12 +437,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "debian-openssl-3.0.x",
+        "value": "windows",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/var/www/twoguys/server/prisma/schema.prisma",
+    "sourceFilePath": "D:\\Qul-tech\\twoguys\\server\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
