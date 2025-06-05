@@ -9,10 +9,10 @@ import { ProductsModule } from './products/products.module';
 import { GeneralModule } from './general/general.module';
 import { EComereceModule } from './e-comerece/e-comerece.module';
 import { AdminsModule } from './admins/admins.module';
+import { BlogsModule } from './blogs/blogs.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
-    // autoSchemaFile: join(process.cwd(), 'src/graphql/schema.gql'),
       path: 'backend/graphql',
 
     driver:ApolloDriver,
@@ -27,7 +27,8 @@ import { AdminsModule } from './admins/admins.module';
   ProductsModule,
   GeneralModule,
   EComereceModule,
-  AdminsModule
+  AdminsModule,
+  BlogsModule
   ],
   providers:[PrismaService]
 })

@@ -395,6 +395,37 @@ exports.Prisma.ProductQuestionsScalarFieldEnum = {
   ecomereceProductsId: 'ecomereceProductsId'
 };
 
+exports.Prisma.BlogsScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  content: 'content',
+  category: 'category',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  posterImage: 'posterImage',
+  last_editedBy: 'last_editedBy',
+  Canonical_Tag: 'Canonical_Tag',
+  Meta_Description: 'Meta_Description',
+  Meta_Title: 'Meta_Title',
+  isPublished: 'isPublished',
+  redirectionUrl: 'redirectionUrl',
+  publishedAt: 'publishedAt',
+  status: 'status',
+  custom_url: 'custom_url'
+};
+
+exports.Prisma.Blogs_commentsScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  Email: 'Email',
+  description: 'description',
+  createdAt: 'createdAt',
+  replies: 'replies',
+  blogId: 'blogId',
+  status: 'status',
+  last_editedBy: 'last_editedBy'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -430,6 +461,12 @@ exports.CommentStatus = exports.$Enums.CommentStatus = {
   REJECTED: 'REJECTED'
 };
 
+exports.BlogStatus = exports.$Enums.BlogStatus = {
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
+  ARCHIVED: 'ARCHIVED'
+};
+
 exports.Prisma.ModelName = {
   categories: 'categories',
   subCategories: 'subCategories',
@@ -443,7 +480,9 @@ exports.Prisma.ModelName = {
   EcomereceProducts: 'EcomereceProducts',
   User: 'User',
   ProductReviews: 'ProductReviews',
-  ProductQuestions: 'ProductQuestions'
+  ProductQuestions: 'ProductQuestions',
+  blogs: 'blogs',
+  blogs_comments: 'blogs_comments'
 };
 
 /**
