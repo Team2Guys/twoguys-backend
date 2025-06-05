@@ -366,3 +366,42 @@ model ProductQuestions {
   EcomereceProducts   EcomereceProducts? @relation(fields: [ecomereceProductsId], references: [id])
   ecomereceProductsId Int?
 }
+
+enum BlogStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+model blogs {
+  id               Int              @id @default(autoincrement())
+  title            String
+  content          String
+  category         String
+  createdAt        DateTime?        @default(now())
+  updatedAt        DateTime?
+  posterImage      Json?
+  comments         blogs_comments[] @relation("BlogComments")
+  last_editedBy    String?
+  Canonical_Tag    String?
+  Meta_Description String?
+  Meta_Title       String?
+  isPublished      Boolean          @default(false)
+  redirectionUrl   String?          @default("")
+  publishedAt      DateTime?
+  status           BlogStatus       @default(PUBLISHED)
+  custom_url       String
+}
+
+model blogs_comments {
+  id            Int           @id @default(autoincrement())
+  name          String
+  Email         String
+  description   String
+  createdAt     DateTime      @default(now())
+  replies       Json[]
+  blogId        Int
+  blog          blogs         @relation("BlogComments", fields: [blogId], references: [id])
+  status        CommentStatus @default(PENDING)
+  last_editedBy String?
+}
