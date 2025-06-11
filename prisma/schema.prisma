@@ -405,3 +405,41 @@ model blogs_comments {
   status        CommentStatus @default(PENDING)
   last_editedBy String?
 }
+
+
+
+
+model salesProducts {
+  id                 Int       @id @default(autoincrement())
+  firstName          String
+  lastName           String
+  email              String
+  phone              String
+  city               String
+  emirate            String?
+  country            String
+  address            String?
+  orderId            String    @unique
+  checkout           Boolean   @default(false)
+  paymentStatus      Boolean   @default(false)
+  isRefund           Boolean   @default(false)
+  currency           String?
+  transactionId      String?
+  integrationId      String?
+  amountCents        String?
+  success            Boolean   @default(false)
+  pending            Boolean   @default(false)
+  is3DSecure         String?
+  checkoutDate       DateTime  @default(now())
+  transactionDate    DateTime?
+  shipmentFee        Int?
+  deliveryStatus     Boolean   @default(false)
+  cardLastDigits     String?
+  products           Json[]    @default([])
+  note               String?
+  totalPrice         Int
+  pay_methodType     String?
+  paymethod_sub_type String?
+  shippingMethod     Json?
+  otherCity String?
+}

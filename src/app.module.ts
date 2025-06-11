@@ -10,6 +10,7 @@ import { GeneralModule } from './general/general.module';
 import { EComereceModule } from './e-comerece/e-comerece.module';
 import { AdminsModule } from './admins/admins.module';
 import { BlogsModule } from './blogs/blogs.module';
+import { SalesProductsModule } from './sales-products/sales-products.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -28,7 +29,8 @@ import { BlogsModule } from './blogs/blogs.module';
   GeneralModule,
   EComereceModule,
   AdminsModule,
-  BlogsModule
+  BlogsModule,
+  SalesProductsModule
   ],
   providers:[PrismaService]
 })
