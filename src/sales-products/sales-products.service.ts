@@ -192,10 +192,10 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
         return;
       }
 
-      if (existingOrder.paymentStatus) {
-        console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
-        return customHttpException("Payment status already updated", 'BAD_REQUEST');
-      }
+      // if (existingOrder.paymentStatus) {
+      //   console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
+      //   return customHttpException("Payment status already updated", 'BAD_REQUEST');
+      // }
     
 
       const paymentStatus = await this.prisma.salesProducts.update({
