@@ -192,10 +192,10 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
         return;
       }
 
-      // if (existingOrder.paymentStatus) {
-      //   console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
-      //   return customHttpException("Payment status already updated", 'BAD_REQUEST');
-      // }
+      if (existingOrder.paymentStatus) {
+        console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
+        return customHttpException("Payment status already updated", 'BAD_REQUEST');
+      }
     
 
       const paymentStatus = await this.prisma.salesProducts.update({
@@ -243,51 +243,6 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
   }
 
 
-
-  async freeSample(createSalesProductInput: CreateOrderInput) {
-    try {
-      const { totalPrice, shipmentFee, products, ...billing_data } = createSalesProductInput;
-      const orderId = Date.now();
-      console.log(orderId, "order id ")
-      var myHeaders = new Headers();
-      myHeaders.append("Authorization", `Token ${process.env.PAYMOB_SECRET_KEY}`);
-      myHeaders.append("Content-Type", "application/json");
-      let existingOrder = await this.prisma.salesProducts.create({
-        data: {
-          ...createSalesProductInput,
-          orderId: String(orderId),
-          checkout: true,
-          currency: 'AED',
-          isfreesample:true,
-          products: createSalesProductInput.products,
-          shipmentFee:0
-        }
-      })
-
-      await sendEmailHandler(existingOrder as orderEmailInput, existingOrder.email,);
-      await sendEmailHandler(existingOrder as orderEmailInput,);
-
-      return { paymentKey: "Free sample has been booked" };
-    } catch (error) {
-      console.log(error, "error")
-      customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
-    }
-
-  }
-
-
-
-
-   async findAllFreesample() {
-    try {
-      return await this.prisma.salesProducts.findMany({where:{isfreesample:true}})
-    } catch (error) {
-      customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
-
-    }
-  }
-
-  
 
 
 

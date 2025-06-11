@@ -14,13 +14,6 @@ export class SalesProductsResolver {
     return this.salesProductsService.create(createSalesProductInput);
   }
 
-
-  @Public()
-  @Mutation(() => SalesProduct,{nullable:true})
-  freeSample(@Args('createFreesample') createFreesample: CreateOrderInput) {
-    return this.salesProductsService.freeSample(createFreesample);
-  } 
-
   @Public()
   @Mutation(() => paymentStatus,{nullable:true})
   postpaymentStatus(@Args('postpaymentStatus') updatepaymentstatusInput: PaymentQueryDto) {
@@ -34,11 +27,7 @@ export class SalesProductsResolver {
   }
 
   
-  @Public()
-  @Query(() => [paymentStatus], { name: 'AllOrdersFree' })
-  findAllFreesample() {
-    return this.salesProductsService.findAllFreesample();
-  }
+
 
   @Public()
   @Query(() => paymentStatus, { name: 'Order' })
