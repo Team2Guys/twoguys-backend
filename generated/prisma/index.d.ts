@@ -88,6 +88,11 @@ export type blogs = $Result.DefaultSelection<Prisma.$blogsPayload>
  * 
  */
 export type blogs_comments = $Result.DefaultSelection<Prisma.$blogs_commentsPayload>
+/**
+ * Model salesProducts
+ * 
+ */
+export type salesProducts = $Result.DefaultSelection<Prisma.$salesProductsPayload>
 
 /**
  * Enums
@@ -394,6 +399,16 @@ export class PrismaClient<
     * ```
     */
   get blogs_comments(): Prisma.blogs_commentsDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.salesProducts`: Exposes CRUD operations for the **salesProducts** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more SalesProducts
+    * const salesProducts = await prisma.salesProducts.findMany()
+    * ```
+    */
+  get salesProducts(): Prisma.salesProductsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -848,7 +863,8 @@ export namespace Prisma {
     ProductReviews: 'ProductReviews',
     ProductQuestions: 'ProductQuestions',
     blogs: 'blogs',
-    blogs_comments: 'blogs_comments'
+    blogs_comments: 'blogs_comments',
+    salesProducts: 'salesProducts'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -867,7 +883,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments" | "redirecturls" | "innersubCategories" | "ecomereceProducts" | "user" | "productReviews" | "productQuestions" | "blogs" | "blogs_comments"
+      modelProps: "categories" | "subCategories" | "products" | "admins" | "reviews" | "socialLinks" | "appointments" | "redirecturls" | "innersubCategories" | "ecomereceProducts" | "user" | "productReviews" | "productQuestions" | "blogs" | "blogs_comments" | "salesProducts"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1981,6 +1997,80 @@ export namespace Prisma {
           }
         }
       }
+      salesProducts: {
+        payload: Prisma.$salesProductsPayload<ExtArgs>
+        fields: Prisma.salesProductsFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.salesProductsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.salesProductsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          findFirst: {
+            args: Prisma.salesProductsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.salesProductsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          findMany: {
+            args: Prisma.salesProductsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>[]
+          }
+          create: {
+            args: Prisma.salesProductsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          createMany: {
+            args: Prisma.salesProductsCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.salesProductsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>[]
+          }
+          delete: {
+            args: Prisma.salesProductsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          update: {
+            args: Prisma.salesProductsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          deleteMany: {
+            args: Prisma.salesProductsDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.salesProductsUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.salesProductsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>[]
+          }
+          upsert: {
+            args: Prisma.salesProductsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$salesProductsPayload>
+          }
+          aggregate: {
+            args: Prisma.SalesProductsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSalesProducts>
+          }
+          groupBy: {
+            args: Prisma.salesProductsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SalesProductsGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.salesProductsCountArgs<ExtArgs>
+            result: $Utils.Optional<SalesProductsCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2080,6 +2170,7 @@ export namespace Prisma {
     productQuestions?: ProductQuestionsOmit
     blogs?: blogsOmit
     blogs_comments?: blogs_commentsOmit
+    salesProducts?: salesProductsOmit
   }
 
   /* Types for Logging */
@@ -21131,6 +21222,1399 @@ export namespace Prisma {
 
 
   /**
+   * Model salesProducts
+   */
+
+  export type AggregateSalesProducts = {
+    _count: SalesProductsCountAggregateOutputType | null
+    _avg: SalesProductsAvgAggregateOutputType | null
+    _sum: SalesProductsSumAggregateOutputType | null
+    _min: SalesProductsMinAggregateOutputType | null
+    _max: SalesProductsMaxAggregateOutputType | null
+  }
+
+  export type SalesProductsAvgAggregateOutputType = {
+    id: number | null
+    shipmentFee: number | null
+    totalPrice: number | null
+  }
+
+  export type SalesProductsSumAggregateOutputType = {
+    id: number | null
+    shipmentFee: number | null
+    totalPrice: number | null
+  }
+
+  export type SalesProductsMinAggregateOutputType = {
+    id: number | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
+    city: string | null
+    emirate: string | null
+    country: string | null
+    address: string | null
+    orderId: string | null
+    checkout: boolean | null
+    paymentStatus: boolean | null
+    isRefund: boolean | null
+    currency: string | null
+    transactionId: string | null
+    integrationId: string | null
+    amountCents: string | null
+    success: boolean | null
+    pending: boolean | null
+    is3DSecure: string | null
+    checkoutDate: Date | null
+    transactionDate: Date | null
+    shipmentFee: number | null
+    deliveryStatus: boolean | null
+    cardLastDigits: string | null
+    note: string | null
+    totalPrice: number | null
+    pay_methodType: string | null
+    paymethod_sub_type: string | null
+    otherCity: string | null
+    isfreesample: boolean | null
+  }
+
+  export type SalesProductsMaxAggregateOutputType = {
+    id: number | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
+    city: string | null
+    emirate: string | null
+    country: string | null
+    address: string | null
+    orderId: string | null
+    checkout: boolean | null
+    paymentStatus: boolean | null
+    isRefund: boolean | null
+    currency: string | null
+    transactionId: string | null
+    integrationId: string | null
+    amountCents: string | null
+    success: boolean | null
+    pending: boolean | null
+    is3DSecure: string | null
+    checkoutDate: Date | null
+    transactionDate: Date | null
+    shipmentFee: number | null
+    deliveryStatus: boolean | null
+    cardLastDigits: string | null
+    note: string | null
+    totalPrice: number | null
+    pay_methodType: string | null
+    paymethod_sub_type: string | null
+    otherCity: string | null
+    isfreesample: boolean | null
+  }
+
+  export type SalesProductsCountAggregateOutputType = {
+    id: number
+    firstName: number
+    lastName: number
+    email: number
+    phone: number
+    city: number
+    emirate: number
+    country: number
+    address: number
+    orderId: number
+    checkout: number
+    paymentStatus: number
+    isRefund: number
+    currency: number
+    transactionId: number
+    integrationId: number
+    amountCents: number
+    success: number
+    pending: number
+    is3DSecure: number
+    checkoutDate: number
+    transactionDate: number
+    shipmentFee: number
+    deliveryStatus: number
+    cardLastDigits: number
+    products: number
+    note: number
+    totalPrice: number
+    pay_methodType: number
+    paymethod_sub_type: number
+    shippingMethod: number
+    otherCity: number
+    isfreesample: number
+    _all: number
+  }
+
+
+  export type SalesProductsAvgAggregateInputType = {
+    id?: true
+    shipmentFee?: true
+    totalPrice?: true
+  }
+
+  export type SalesProductsSumAggregateInputType = {
+    id?: true
+    shipmentFee?: true
+    totalPrice?: true
+  }
+
+  export type SalesProductsMinAggregateInputType = {
+    id?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    city?: true
+    emirate?: true
+    country?: true
+    address?: true
+    orderId?: true
+    checkout?: true
+    paymentStatus?: true
+    isRefund?: true
+    currency?: true
+    transactionId?: true
+    integrationId?: true
+    amountCents?: true
+    success?: true
+    pending?: true
+    is3DSecure?: true
+    checkoutDate?: true
+    transactionDate?: true
+    shipmentFee?: true
+    deliveryStatus?: true
+    cardLastDigits?: true
+    note?: true
+    totalPrice?: true
+    pay_methodType?: true
+    paymethod_sub_type?: true
+    otherCity?: true
+    isfreesample?: true
+  }
+
+  export type SalesProductsMaxAggregateInputType = {
+    id?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    city?: true
+    emirate?: true
+    country?: true
+    address?: true
+    orderId?: true
+    checkout?: true
+    paymentStatus?: true
+    isRefund?: true
+    currency?: true
+    transactionId?: true
+    integrationId?: true
+    amountCents?: true
+    success?: true
+    pending?: true
+    is3DSecure?: true
+    checkoutDate?: true
+    transactionDate?: true
+    shipmentFee?: true
+    deliveryStatus?: true
+    cardLastDigits?: true
+    note?: true
+    totalPrice?: true
+    pay_methodType?: true
+    paymethod_sub_type?: true
+    otherCity?: true
+    isfreesample?: true
+  }
+
+  export type SalesProductsCountAggregateInputType = {
+    id?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    city?: true
+    emirate?: true
+    country?: true
+    address?: true
+    orderId?: true
+    checkout?: true
+    paymentStatus?: true
+    isRefund?: true
+    currency?: true
+    transactionId?: true
+    integrationId?: true
+    amountCents?: true
+    success?: true
+    pending?: true
+    is3DSecure?: true
+    checkoutDate?: true
+    transactionDate?: true
+    shipmentFee?: true
+    deliveryStatus?: true
+    cardLastDigits?: true
+    products?: true
+    note?: true
+    totalPrice?: true
+    pay_methodType?: true
+    paymethod_sub_type?: true
+    shippingMethod?: true
+    otherCity?: true
+    isfreesample?: true
+    _all?: true
+  }
+
+  export type SalesProductsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which salesProducts to aggregate.
+     */
+    where?: salesProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salesProducts to fetch.
+     */
+    orderBy?: salesProductsOrderByWithRelationInput | salesProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: salesProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salesProducts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salesProducts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned salesProducts
+    **/
+    _count?: true | SalesProductsCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: SalesProductsAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: SalesProductsSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: SalesProductsMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: SalesProductsMaxAggregateInputType
+  }
+
+  export type GetSalesProductsAggregateType<T extends SalesProductsAggregateArgs> = {
+        [P in keyof T & keyof AggregateSalesProducts]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateSalesProducts[P]>
+      : GetScalarType<T[P], AggregateSalesProducts[P]>
+  }
+
+
+
+
+  export type salesProductsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: salesProductsWhereInput
+    orderBy?: salesProductsOrderByWithAggregationInput | salesProductsOrderByWithAggregationInput[]
+    by: SalesProductsScalarFieldEnum[] | SalesProductsScalarFieldEnum
+    having?: salesProductsScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: SalesProductsCountAggregateInputType | true
+    _avg?: SalesProductsAvgAggregateInputType
+    _sum?: SalesProductsSumAggregateInputType
+    _min?: SalesProductsMinAggregateInputType
+    _max?: SalesProductsMaxAggregateInputType
+  }
+
+  export type SalesProductsGroupByOutputType = {
+    id: number
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    city: string
+    emirate: string | null
+    country: string
+    address: string | null
+    orderId: string
+    checkout: boolean
+    paymentStatus: boolean
+    isRefund: boolean
+    currency: string | null
+    transactionId: string | null
+    integrationId: string | null
+    amountCents: string | null
+    success: boolean
+    pending: boolean
+    is3DSecure: string | null
+    checkoutDate: Date
+    transactionDate: Date | null
+    shipmentFee: number | null
+    deliveryStatus: boolean
+    cardLastDigits: string | null
+    products: JsonValue[]
+    note: string | null
+    totalPrice: number
+    pay_methodType: string | null
+    paymethod_sub_type: string | null
+    shippingMethod: JsonValue | null
+    otherCity: string | null
+    isfreesample: boolean | null
+    _count: SalesProductsCountAggregateOutputType | null
+    _avg: SalesProductsAvgAggregateOutputType | null
+    _sum: SalesProductsSumAggregateOutputType | null
+    _min: SalesProductsMinAggregateOutputType | null
+    _max: SalesProductsMaxAggregateOutputType | null
+  }
+
+  type GetSalesProductsGroupByPayload<T extends salesProductsGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<SalesProductsGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof SalesProductsGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], SalesProductsGroupByOutputType[P]>
+            : GetScalarType<T[P], SalesProductsGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type salesProductsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    city?: boolean
+    emirate?: boolean
+    country?: boolean
+    address?: boolean
+    orderId?: boolean
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: boolean
+    transactionId?: boolean
+    integrationId?: boolean
+    amountCents?: boolean
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: boolean
+    checkoutDate?: boolean
+    transactionDate?: boolean
+    shipmentFee?: boolean
+    deliveryStatus?: boolean
+    cardLastDigits?: boolean
+    products?: boolean
+    note?: boolean
+    totalPrice?: boolean
+    pay_methodType?: boolean
+    paymethod_sub_type?: boolean
+    shippingMethod?: boolean
+    otherCity?: boolean
+    isfreesample?: boolean
+  }, ExtArgs["result"]["salesProducts"]>
+
+  export type salesProductsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    city?: boolean
+    emirate?: boolean
+    country?: boolean
+    address?: boolean
+    orderId?: boolean
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: boolean
+    transactionId?: boolean
+    integrationId?: boolean
+    amountCents?: boolean
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: boolean
+    checkoutDate?: boolean
+    transactionDate?: boolean
+    shipmentFee?: boolean
+    deliveryStatus?: boolean
+    cardLastDigits?: boolean
+    products?: boolean
+    note?: boolean
+    totalPrice?: boolean
+    pay_methodType?: boolean
+    paymethod_sub_type?: boolean
+    shippingMethod?: boolean
+    otherCity?: boolean
+    isfreesample?: boolean
+  }, ExtArgs["result"]["salesProducts"]>
+
+  export type salesProductsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    city?: boolean
+    emirate?: boolean
+    country?: boolean
+    address?: boolean
+    orderId?: boolean
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: boolean
+    transactionId?: boolean
+    integrationId?: boolean
+    amountCents?: boolean
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: boolean
+    checkoutDate?: boolean
+    transactionDate?: boolean
+    shipmentFee?: boolean
+    deliveryStatus?: boolean
+    cardLastDigits?: boolean
+    products?: boolean
+    note?: boolean
+    totalPrice?: boolean
+    pay_methodType?: boolean
+    paymethod_sub_type?: boolean
+    shippingMethod?: boolean
+    otherCity?: boolean
+    isfreesample?: boolean
+  }, ExtArgs["result"]["salesProducts"]>
+
+  export type salesProductsSelectScalar = {
+    id?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    city?: boolean
+    emirate?: boolean
+    country?: boolean
+    address?: boolean
+    orderId?: boolean
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: boolean
+    transactionId?: boolean
+    integrationId?: boolean
+    amountCents?: boolean
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: boolean
+    checkoutDate?: boolean
+    transactionDate?: boolean
+    shipmentFee?: boolean
+    deliveryStatus?: boolean
+    cardLastDigits?: boolean
+    products?: boolean
+    note?: boolean
+    totalPrice?: boolean
+    pay_methodType?: boolean
+    paymethod_sub_type?: boolean
+    shippingMethod?: boolean
+    otherCity?: boolean
+    isfreesample?: boolean
+  }
+
+  export type salesProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "city" | "emirate" | "country" | "address" | "orderId" | "checkout" | "paymentStatus" | "isRefund" | "currency" | "transactionId" | "integrationId" | "amountCents" | "success" | "pending" | "is3DSecure" | "checkoutDate" | "transactionDate" | "shipmentFee" | "deliveryStatus" | "cardLastDigits" | "products" | "note" | "totalPrice" | "pay_methodType" | "paymethod_sub_type" | "shippingMethod" | "otherCity" | "isfreesample", ExtArgs["result"]["salesProducts"]>
+
+  export type $salesProductsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "salesProducts"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      firstName: string
+      lastName: string
+      email: string
+      phone: string
+      city: string
+      emirate: string | null
+      country: string
+      address: string | null
+      orderId: string
+      checkout: boolean
+      paymentStatus: boolean
+      isRefund: boolean
+      currency: string | null
+      transactionId: string | null
+      integrationId: string | null
+      amountCents: string | null
+      success: boolean
+      pending: boolean
+      is3DSecure: string | null
+      checkoutDate: Date
+      transactionDate: Date | null
+      shipmentFee: number | null
+      deliveryStatus: boolean
+      cardLastDigits: string | null
+      products: Prisma.JsonValue[]
+      note: string | null
+      totalPrice: number
+      pay_methodType: string | null
+      paymethod_sub_type: string | null
+      shippingMethod: Prisma.JsonValue | null
+      otherCity: string | null
+      isfreesample: boolean | null
+    }, ExtArgs["result"]["salesProducts"]>
+    composites: {}
+  }
+
+  type salesProductsGetPayload<S extends boolean | null | undefined | salesProductsDefaultArgs> = $Result.GetResult<Prisma.$salesProductsPayload, S>
+
+  type salesProductsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<salesProductsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SalesProductsCountAggregateInputType | true
+    }
+
+  export interface salesProductsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['salesProducts'], meta: { name: 'salesProducts' } }
+    /**
+     * Find zero or one SalesProducts that matches the filter.
+     * @param {salesProductsFindUniqueArgs} args - Arguments to find a SalesProducts
+     * @example
+     * // Get one SalesProducts
+     * const salesProducts = await prisma.salesProducts.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends salesProductsFindUniqueArgs>(args: SelectSubset<T, salesProductsFindUniqueArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one SalesProducts that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {salesProductsFindUniqueOrThrowArgs} args - Arguments to find a SalesProducts
+     * @example
+     * // Get one SalesProducts
+     * const salesProducts = await prisma.salesProducts.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends salesProductsFindUniqueOrThrowArgs>(args: SelectSubset<T, salesProductsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalesProducts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsFindFirstArgs} args - Arguments to find a SalesProducts
+     * @example
+     * // Get one SalesProducts
+     * const salesProducts = await prisma.salesProducts.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends salesProductsFindFirstArgs>(args?: SelectSubset<T, salesProductsFindFirstArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first SalesProducts that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsFindFirstOrThrowArgs} args - Arguments to find a SalesProducts
+     * @example
+     * // Get one SalesProducts
+     * const salesProducts = await prisma.salesProducts.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends salesProductsFindFirstOrThrowArgs>(args?: SelectSubset<T, salesProductsFindFirstOrThrowArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more SalesProducts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all SalesProducts
+     * const salesProducts = await prisma.salesProducts.findMany()
+     * 
+     * // Get first 10 SalesProducts
+     * const salesProducts = await prisma.salesProducts.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const salesProductsWithIdOnly = await prisma.salesProducts.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends salesProductsFindManyArgs>(args?: SelectSubset<T, salesProductsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a SalesProducts.
+     * @param {salesProductsCreateArgs} args - Arguments to create a SalesProducts.
+     * @example
+     * // Create one SalesProducts
+     * const SalesProducts = await prisma.salesProducts.create({
+     *   data: {
+     *     // ... data to create a SalesProducts
+     *   }
+     * })
+     * 
+     */
+    create<T extends salesProductsCreateArgs>(args: SelectSubset<T, salesProductsCreateArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many SalesProducts.
+     * @param {salesProductsCreateManyArgs} args - Arguments to create many SalesProducts.
+     * @example
+     * // Create many SalesProducts
+     * const salesProducts = await prisma.salesProducts.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends salesProductsCreateManyArgs>(args?: SelectSubset<T, salesProductsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many SalesProducts and returns the data saved in the database.
+     * @param {salesProductsCreateManyAndReturnArgs} args - Arguments to create many SalesProducts.
+     * @example
+     * // Create many SalesProducts
+     * const salesProducts = await prisma.salesProducts.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many SalesProducts and only return the `id`
+     * const salesProductsWithIdOnly = await prisma.salesProducts.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends salesProductsCreateManyAndReturnArgs>(args?: SelectSubset<T, salesProductsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a SalesProducts.
+     * @param {salesProductsDeleteArgs} args - Arguments to delete one SalesProducts.
+     * @example
+     * // Delete one SalesProducts
+     * const SalesProducts = await prisma.salesProducts.delete({
+     *   where: {
+     *     // ... filter to delete one SalesProducts
+     *   }
+     * })
+     * 
+     */
+    delete<T extends salesProductsDeleteArgs>(args: SelectSubset<T, salesProductsDeleteArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one SalesProducts.
+     * @param {salesProductsUpdateArgs} args - Arguments to update one SalesProducts.
+     * @example
+     * // Update one SalesProducts
+     * const salesProducts = await prisma.salesProducts.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends salesProductsUpdateArgs>(args: SelectSubset<T, salesProductsUpdateArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more SalesProducts.
+     * @param {salesProductsDeleteManyArgs} args - Arguments to filter SalesProducts to delete.
+     * @example
+     * // Delete a few SalesProducts
+     * const { count } = await prisma.salesProducts.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends salesProductsDeleteManyArgs>(args?: SelectSubset<T, salesProductsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SalesProducts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many SalesProducts
+     * const salesProducts = await prisma.salesProducts.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends salesProductsUpdateManyArgs>(args: SelectSubset<T, salesProductsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more SalesProducts and returns the data updated in the database.
+     * @param {salesProductsUpdateManyAndReturnArgs} args - Arguments to update many SalesProducts.
+     * @example
+     * // Update many SalesProducts
+     * const salesProducts = await prisma.salesProducts.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more SalesProducts and only return the `id`
+     * const salesProductsWithIdOnly = await prisma.salesProducts.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends salesProductsUpdateManyAndReturnArgs>(args: SelectSubset<T, salesProductsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one SalesProducts.
+     * @param {salesProductsUpsertArgs} args - Arguments to update or create a SalesProducts.
+     * @example
+     * // Update or create a SalesProducts
+     * const salesProducts = await prisma.salesProducts.upsert({
+     *   create: {
+     *     // ... data to create a SalesProducts
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the SalesProducts we want to update
+     *   }
+     * })
+     */
+    upsert<T extends salesProductsUpsertArgs>(args: SelectSubset<T, salesProductsUpsertArgs<ExtArgs>>): Prisma__salesProductsClient<$Result.GetResult<Prisma.$salesProductsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of SalesProducts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsCountArgs} args - Arguments to filter SalesProducts to count.
+     * @example
+     * // Count the number of SalesProducts
+     * const count = await prisma.salesProducts.count({
+     *   where: {
+     *     // ... the filter for the SalesProducts we want to count
+     *   }
+     * })
+    **/
+    count<T extends salesProductsCountArgs>(
+      args?: Subset<T, salesProductsCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], SalesProductsCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a SalesProducts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {SalesProductsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends SalesProductsAggregateArgs>(args: Subset<T, SalesProductsAggregateArgs>): Prisma.PrismaPromise<GetSalesProductsAggregateType<T>>
+
+    /**
+     * Group by SalesProducts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {salesProductsGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends salesProductsGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: salesProductsGroupByArgs['orderBy'] }
+        : { orderBy?: salesProductsGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, salesProductsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalesProductsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the salesProducts model
+   */
+  readonly fields: salesProductsFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for salesProducts.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__salesProductsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the salesProducts model
+   */
+  interface salesProductsFieldRefs {
+    readonly id: FieldRef<"salesProducts", 'Int'>
+    readonly firstName: FieldRef<"salesProducts", 'String'>
+    readonly lastName: FieldRef<"salesProducts", 'String'>
+    readonly email: FieldRef<"salesProducts", 'String'>
+    readonly phone: FieldRef<"salesProducts", 'String'>
+    readonly city: FieldRef<"salesProducts", 'String'>
+    readonly emirate: FieldRef<"salesProducts", 'String'>
+    readonly country: FieldRef<"salesProducts", 'String'>
+    readonly address: FieldRef<"salesProducts", 'String'>
+    readonly orderId: FieldRef<"salesProducts", 'String'>
+    readonly checkout: FieldRef<"salesProducts", 'Boolean'>
+    readonly paymentStatus: FieldRef<"salesProducts", 'Boolean'>
+    readonly isRefund: FieldRef<"salesProducts", 'Boolean'>
+    readonly currency: FieldRef<"salesProducts", 'String'>
+    readonly transactionId: FieldRef<"salesProducts", 'String'>
+    readonly integrationId: FieldRef<"salesProducts", 'String'>
+    readonly amountCents: FieldRef<"salesProducts", 'String'>
+    readonly success: FieldRef<"salesProducts", 'Boolean'>
+    readonly pending: FieldRef<"salesProducts", 'Boolean'>
+    readonly is3DSecure: FieldRef<"salesProducts", 'String'>
+    readonly checkoutDate: FieldRef<"salesProducts", 'DateTime'>
+    readonly transactionDate: FieldRef<"salesProducts", 'DateTime'>
+    readonly shipmentFee: FieldRef<"salesProducts", 'Int'>
+    readonly deliveryStatus: FieldRef<"salesProducts", 'Boolean'>
+    readonly cardLastDigits: FieldRef<"salesProducts", 'String'>
+    readonly products: FieldRef<"salesProducts", 'Json[]'>
+    readonly note: FieldRef<"salesProducts", 'String'>
+    readonly totalPrice: FieldRef<"salesProducts", 'Int'>
+    readonly pay_methodType: FieldRef<"salesProducts", 'String'>
+    readonly paymethod_sub_type: FieldRef<"salesProducts", 'String'>
+    readonly shippingMethod: FieldRef<"salesProducts", 'Json'>
+    readonly otherCity: FieldRef<"salesProducts", 'String'>
+    readonly isfreesample: FieldRef<"salesProducts", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * salesProducts findUnique
+   */
+  export type salesProductsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter, which salesProducts to fetch.
+     */
+    where: salesProductsWhereUniqueInput
+  }
+
+  /**
+   * salesProducts findUniqueOrThrow
+   */
+  export type salesProductsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter, which salesProducts to fetch.
+     */
+    where: salesProductsWhereUniqueInput
+  }
+
+  /**
+   * salesProducts findFirst
+   */
+  export type salesProductsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter, which salesProducts to fetch.
+     */
+    where?: salesProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salesProducts to fetch.
+     */
+    orderBy?: salesProductsOrderByWithRelationInput | salesProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for salesProducts.
+     */
+    cursor?: salesProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salesProducts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salesProducts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of salesProducts.
+     */
+    distinct?: SalesProductsScalarFieldEnum | SalesProductsScalarFieldEnum[]
+  }
+
+  /**
+   * salesProducts findFirstOrThrow
+   */
+  export type salesProductsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter, which salesProducts to fetch.
+     */
+    where?: salesProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salesProducts to fetch.
+     */
+    orderBy?: salesProductsOrderByWithRelationInput | salesProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for salesProducts.
+     */
+    cursor?: salesProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salesProducts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salesProducts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of salesProducts.
+     */
+    distinct?: SalesProductsScalarFieldEnum | SalesProductsScalarFieldEnum[]
+  }
+
+  /**
+   * salesProducts findMany
+   */
+  export type salesProductsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter, which salesProducts to fetch.
+     */
+    where?: salesProductsWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of salesProducts to fetch.
+     */
+    orderBy?: salesProductsOrderByWithRelationInput | salesProductsOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing salesProducts.
+     */
+    cursor?: salesProductsWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` salesProducts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` salesProducts.
+     */
+    skip?: number
+    distinct?: SalesProductsScalarFieldEnum | SalesProductsScalarFieldEnum[]
+  }
+
+  /**
+   * salesProducts create
+   */
+  export type salesProductsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * The data needed to create a salesProducts.
+     */
+    data: XOR<salesProductsCreateInput, salesProductsUncheckedCreateInput>
+  }
+
+  /**
+   * salesProducts createMany
+   */
+  export type salesProductsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many salesProducts.
+     */
+    data: salesProductsCreateManyInput | salesProductsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * salesProducts createManyAndReturn
+   */
+  export type salesProductsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * The data used to create many salesProducts.
+     */
+    data: salesProductsCreateManyInput | salesProductsCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * salesProducts update
+   */
+  export type salesProductsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * The data needed to update a salesProducts.
+     */
+    data: XOR<salesProductsUpdateInput, salesProductsUncheckedUpdateInput>
+    /**
+     * Choose, which salesProducts to update.
+     */
+    where: salesProductsWhereUniqueInput
+  }
+
+  /**
+   * salesProducts updateMany
+   */
+  export type salesProductsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update salesProducts.
+     */
+    data: XOR<salesProductsUpdateManyMutationInput, salesProductsUncheckedUpdateManyInput>
+    /**
+     * Filter which salesProducts to update
+     */
+    where?: salesProductsWhereInput
+    /**
+     * Limit how many salesProducts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * salesProducts updateManyAndReturn
+   */
+  export type salesProductsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * The data used to update salesProducts.
+     */
+    data: XOR<salesProductsUpdateManyMutationInput, salesProductsUncheckedUpdateManyInput>
+    /**
+     * Filter which salesProducts to update
+     */
+    where?: salesProductsWhereInput
+    /**
+     * Limit how many salesProducts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * salesProducts upsert
+   */
+  export type salesProductsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * The filter to search for the salesProducts to update in case it exists.
+     */
+    where: salesProductsWhereUniqueInput
+    /**
+     * In case the salesProducts found by the `where` argument doesn't exist, create a new salesProducts with this data.
+     */
+    create: XOR<salesProductsCreateInput, salesProductsUncheckedCreateInput>
+    /**
+     * In case the salesProducts was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<salesProductsUpdateInput, salesProductsUncheckedUpdateInput>
+  }
+
+  /**
+   * salesProducts delete
+   */
+  export type salesProductsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+    /**
+     * Filter which salesProducts to delete.
+     */
+    where: salesProductsWhereUniqueInput
+  }
+
+  /**
+   * salesProducts deleteMany
+   */
+  export type salesProductsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which salesProducts to delete
+     */
+    where?: salesProductsWhereInput
+    /**
+     * Limit how many salesProducts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * salesProducts without action
+   */
+  export type salesProductsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the salesProducts
+     */
+    select?: salesProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the salesProducts
+     */
+    omit?: salesProductsOmit<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -21493,6 +22977,45 @@ export namespace Prisma {
   };
 
   export type Blogs_commentsScalarFieldEnum = (typeof Blogs_commentsScalarFieldEnum)[keyof typeof Blogs_commentsScalarFieldEnum]
+
+
+  export const SalesProductsScalarFieldEnum: {
+    id: 'id',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    email: 'email',
+    phone: 'phone',
+    city: 'city',
+    emirate: 'emirate',
+    country: 'country',
+    address: 'address',
+    orderId: 'orderId',
+    checkout: 'checkout',
+    paymentStatus: 'paymentStatus',
+    isRefund: 'isRefund',
+    currency: 'currency',
+    transactionId: 'transactionId',
+    integrationId: 'integrationId',
+    amountCents: 'amountCents',
+    success: 'success',
+    pending: 'pending',
+    is3DSecure: 'is3DSecure',
+    checkoutDate: 'checkoutDate',
+    transactionDate: 'transactionDate',
+    shipmentFee: 'shipmentFee',
+    deliveryStatus: 'deliveryStatus',
+    cardLastDigits: 'cardLastDigits',
+    products: 'products',
+    note: 'note',
+    totalPrice: 'totalPrice',
+    pay_methodType: 'pay_methodType',
+    paymethod_sub_type: 'paymethod_sub_type',
+    shippingMethod: 'shippingMethod',
+    otherCity: 'otherCity',
+    isfreesample: 'isfreesample'
+  };
+
+  export type SalesProductsScalarFieldEnum = (typeof SalesProductsScalarFieldEnum)[keyof typeof SalesProductsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -23461,6 +24984,200 @@ export namespace Prisma {
     blogId?: IntWithAggregatesFilter<"blogs_comments"> | number
     status?: EnumCommentStatusWithAggregatesFilter<"blogs_comments"> | $Enums.CommentStatus
     last_editedBy?: StringNullableWithAggregatesFilter<"blogs_comments"> | string | null
+  }
+
+  export type salesProductsWhereInput = {
+    AND?: salesProductsWhereInput | salesProductsWhereInput[]
+    OR?: salesProductsWhereInput[]
+    NOT?: salesProductsWhereInput | salesProductsWhereInput[]
+    id?: IntFilter<"salesProducts"> | number
+    firstName?: StringFilter<"salesProducts"> | string
+    lastName?: StringFilter<"salesProducts"> | string
+    email?: StringFilter<"salesProducts"> | string
+    phone?: StringFilter<"salesProducts"> | string
+    city?: StringFilter<"salesProducts"> | string
+    emirate?: StringNullableFilter<"salesProducts"> | string | null
+    country?: StringFilter<"salesProducts"> | string
+    address?: StringNullableFilter<"salesProducts"> | string | null
+    orderId?: StringFilter<"salesProducts"> | string
+    checkout?: BoolFilter<"salesProducts"> | boolean
+    paymentStatus?: BoolFilter<"salesProducts"> | boolean
+    isRefund?: BoolFilter<"salesProducts"> | boolean
+    currency?: StringNullableFilter<"salesProducts"> | string | null
+    transactionId?: StringNullableFilter<"salesProducts"> | string | null
+    integrationId?: StringNullableFilter<"salesProducts"> | string | null
+    amountCents?: StringNullableFilter<"salesProducts"> | string | null
+    success?: BoolFilter<"salesProducts"> | boolean
+    pending?: BoolFilter<"salesProducts"> | boolean
+    is3DSecure?: StringNullableFilter<"salesProducts"> | string | null
+    checkoutDate?: DateTimeFilter<"salesProducts"> | Date | string
+    transactionDate?: DateTimeNullableFilter<"salesProducts"> | Date | string | null
+    shipmentFee?: IntNullableFilter<"salesProducts"> | number | null
+    deliveryStatus?: BoolFilter<"salesProducts"> | boolean
+    cardLastDigits?: StringNullableFilter<"salesProducts"> | string | null
+    products?: JsonNullableListFilter<"salesProducts">
+    note?: StringNullableFilter<"salesProducts"> | string | null
+    totalPrice?: IntFilter<"salesProducts"> | number
+    pay_methodType?: StringNullableFilter<"salesProducts"> | string | null
+    paymethod_sub_type?: StringNullableFilter<"salesProducts"> | string | null
+    shippingMethod?: JsonNullableFilter<"salesProducts">
+    otherCity?: StringNullableFilter<"salesProducts"> | string | null
+    isfreesample?: BoolNullableFilter<"salesProducts"> | boolean | null
+  }
+
+  export type salesProductsOrderByWithRelationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    city?: SortOrder
+    emirate?: SortOrderInput | SortOrder
+    country?: SortOrder
+    address?: SortOrderInput | SortOrder
+    orderId?: SortOrder
+    checkout?: SortOrder
+    paymentStatus?: SortOrder
+    isRefund?: SortOrder
+    currency?: SortOrderInput | SortOrder
+    transactionId?: SortOrderInput | SortOrder
+    integrationId?: SortOrderInput | SortOrder
+    amountCents?: SortOrderInput | SortOrder
+    success?: SortOrder
+    pending?: SortOrder
+    is3DSecure?: SortOrderInput | SortOrder
+    checkoutDate?: SortOrder
+    transactionDate?: SortOrderInput | SortOrder
+    shipmentFee?: SortOrderInput | SortOrder
+    deliveryStatus?: SortOrder
+    cardLastDigits?: SortOrderInput | SortOrder
+    products?: SortOrder
+    note?: SortOrderInput | SortOrder
+    totalPrice?: SortOrder
+    pay_methodType?: SortOrderInput | SortOrder
+    paymethod_sub_type?: SortOrderInput | SortOrder
+    shippingMethod?: SortOrderInput | SortOrder
+    otherCity?: SortOrderInput | SortOrder
+    isfreesample?: SortOrderInput | SortOrder
+  }
+
+  export type salesProductsWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    orderId?: string
+    AND?: salesProductsWhereInput | salesProductsWhereInput[]
+    OR?: salesProductsWhereInput[]
+    NOT?: salesProductsWhereInput | salesProductsWhereInput[]
+    firstName?: StringFilter<"salesProducts"> | string
+    lastName?: StringFilter<"salesProducts"> | string
+    email?: StringFilter<"salesProducts"> | string
+    phone?: StringFilter<"salesProducts"> | string
+    city?: StringFilter<"salesProducts"> | string
+    emirate?: StringNullableFilter<"salesProducts"> | string | null
+    country?: StringFilter<"salesProducts"> | string
+    address?: StringNullableFilter<"salesProducts"> | string | null
+    checkout?: BoolFilter<"salesProducts"> | boolean
+    paymentStatus?: BoolFilter<"salesProducts"> | boolean
+    isRefund?: BoolFilter<"salesProducts"> | boolean
+    currency?: StringNullableFilter<"salesProducts"> | string | null
+    transactionId?: StringNullableFilter<"salesProducts"> | string | null
+    integrationId?: StringNullableFilter<"salesProducts"> | string | null
+    amountCents?: StringNullableFilter<"salesProducts"> | string | null
+    success?: BoolFilter<"salesProducts"> | boolean
+    pending?: BoolFilter<"salesProducts"> | boolean
+    is3DSecure?: StringNullableFilter<"salesProducts"> | string | null
+    checkoutDate?: DateTimeFilter<"salesProducts"> | Date | string
+    transactionDate?: DateTimeNullableFilter<"salesProducts"> | Date | string | null
+    shipmentFee?: IntNullableFilter<"salesProducts"> | number | null
+    deliveryStatus?: BoolFilter<"salesProducts"> | boolean
+    cardLastDigits?: StringNullableFilter<"salesProducts"> | string | null
+    products?: JsonNullableListFilter<"salesProducts">
+    note?: StringNullableFilter<"salesProducts"> | string | null
+    totalPrice?: IntFilter<"salesProducts"> | number
+    pay_methodType?: StringNullableFilter<"salesProducts"> | string | null
+    paymethod_sub_type?: StringNullableFilter<"salesProducts"> | string | null
+    shippingMethod?: JsonNullableFilter<"salesProducts">
+    otherCity?: StringNullableFilter<"salesProducts"> | string | null
+    isfreesample?: BoolNullableFilter<"salesProducts"> | boolean | null
+  }, "id" | "orderId">
+
+  export type salesProductsOrderByWithAggregationInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    city?: SortOrder
+    emirate?: SortOrderInput | SortOrder
+    country?: SortOrder
+    address?: SortOrderInput | SortOrder
+    orderId?: SortOrder
+    checkout?: SortOrder
+    paymentStatus?: SortOrder
+    isRefund?: SortOrder
+    currency?: SortOrderInput | SortOrder
+    transactionId?: SortOrderInput | SortOrder
+    integrationId?: SortOrderInput | SortOrder
+    amountCents?: SortOrderInput | SortOrder
+    success?: SortOrder
+    pending?: SortOrder
+    is3DSecure?: SortOrderInput | SortOrder
+    checkoutDate?: SortOrder
+    transactionDate?: SortOrderInput | SortOrder
+    shipmentFee?: SortOrderInput | SortOrder
+    deliveryStatus?: SortOrder
+    cardLastDigits?: SortOrderInput | SortOrder
+    products?: SortOrder
+    note?: SortOrderInput | SortOrder
+    totalPrice?: SortOrder
+    pay_methodType?: SortOrderInput | SortOrder
+    paymethod_sub_type?: SortOrderInput | SortOrder
+    shippingMethod?: SortOrderInput | SortOrder
+    otherCity?: SortOrderInput | SortOrder
+    isfreesample?: SortOrderInput | SortOrder
+    _count?: salesProductsCountOrderByAggregateInput
+    _avg?: salesProductsAvgOrderByAggregateInput
+    _max?: salesProductsMaxOrderByAggregateInput
+    _min?: salesProductsMinOrderByAggregateInput
+    _sum?: salesProductsSumOrderByAggregateInput
+  }
+
+  export type salesProductsScalarWhereWithAggregatesInput = {
+    AND?: salesProductsScalarWhereWithAggregatesInput | salesProductsScalarWhereWithAggregatesInput[]
+    OR?: salesProductsScalarWhereWithAggregatesInput[]
+    NOT?: salesProductsScalarWhereWithAggregatesInput | salesProductsScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"salesProducts"> | number
+    firstName?: StringWithAggregatesFilter<"salesProducts"> | string
+    lastName?: StringWithAggregatesFilter<"salesProducts"> | string
+    email?: StringWithAggregatesFilter<"salesProducts"> | string
+    phone?: StringWithAggregatesFilter<"salesProducts"> | string
+    city?: StringWithAggregatesFilter<"salesProducts"> | string
+    emirate?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    country?: StringWithAggregatesFilter<"salesProducts"> | string
+    address?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    orderId?: StringWithAggregatesFilter<"salesProducts"> | string
+    checkout?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    paymentStatus?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    isRefund?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    currency?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    transactionId?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    integrationId?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    amountCents?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    success?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    pending?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    is3DSecure?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    checkoutDate?: DateTimeWithAggregatesFilter<"salesProducts"> | Date | string
+    transactionDate?: DateTimeNullableWithAggregatesFilter<"salesProducts"> | Date | string | null
+    shipmentFee?: IntNullableWithAggregatesFilter<"salesProducts"> | number | null
+    deliveryStatus?: BoolWithAggregatesFilter<"salesProducts"> | boolean
+    cardLastDigits?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    products?: JsonNullableListFilter<"salesProducts">
+    note?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    totalPrice?: IntWithAggregatesFilter<"salesProducts"> | number
+    pay_methodType?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    paymethod_sub_type?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    shippingMethod?: JsonNullableWithAggregatesFilter<"salesProducts">
+    otherCity?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
+    isfreesample?: BoolNullableWithAggregatesFilter<"salesProducts"> | boolean | null
   }
 
   export type categoriesCreateInput = {
@@ -25590,6 +27307,255 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type salesProductsCreateInput = {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    city: string
+    emirate?: string | null
+    country: string
+    address?: string | null
+    orderId: string
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: string | null
+    transactionId?: string | null
+    integrationId?: string | null
+    amountCents?: string | null
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: string | null
+    checkoutDate?: Date | string
+    transactionDate?: Date | string | null
+    shipmentFee?: number | null
+    deliveryStatus?: boolean
+    cardLastDigits?: string | null
+    products?: salesProductsCreateproductsInput | InputJsonValue[]
+    note?: string | null
+    totalPrice: number
+    pay_methodType?: string | null
+    paymethod_sub_type?: string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: string | null
+    isfreesample?: boolean | null
+  }
+
+  export type salesProductsUncheckedCreateInput = {
+    id?: number
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    city: string
+    emirate?: string | null
+    country: string
+    address?: string | null
+    orderId: string
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: string | null
+    transactionId?: string | null
+    integrationId?: string | null
+    amountCents?: string | null
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: string | null
+    checkoutDate?: Date | string
+    transactionDate?: Date | string | null
+    shipmentFee?: number | null
+    deliveryStatus?: boolean
+    cardLastDigits?: string | null
+    products?: salesProductsCreateproductsInput | InputJsonValue[]
+    note?: string | null
+    totalPrice: number
+    pay_methodType?: string | null
+    paymethod_sub_type?: string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: string | null
+    isfreesample?: boolean | null
+  }
+
+  export type salesProductsUpdateInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    emirate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
+    checkout?: BoolFieldUpdateOperationsInput | boolean
+    paymentStatus?: BoolFieldUpdateOperationsInput | boolean
+    isRefund?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    integrationId?: NullableStringFieldUpdateOperationsInput | string | null
+    amountCents?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: BoolFieldUpdateOperationsInput | boolean
+    pending?: BoolFieldUpdateOperationsInput | boolean
+    is3DSecure?: NullableStringFieldUpdateOperationsInput | string | null
+    checkoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    shipmentFee?: NullableIntFieldUpdateOperationsInput | number | null
+    deliveryStatus?: BoolFieldUpdateOperationsInput | boolean
+    cardLastDigits?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: salesProductsUpdateproductsInput | InputJsonValue[]
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalPrice?: IntFieldUpdateOperationsInput | number
+    pay_methodType?: NullableStringFieldUpdateOperationsInput | string | null
+    paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: NullableStringFieldUpdateOperationsInput | string | null
+    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type salesProductsUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    emirate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
+    checkout?: BoolFieldUpdateOperationsInput | boolean
+    paymentStatus?: BoolFieldUpdateOperationsInput | boolean
+    isRefund?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    integrationId?: NullableStringFieldUpdateOperationsInput | string | null
+    amountCents?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: BoolFieldUpdateOperationsInput | boolean
+    pending?: BoolFieldUpdateOperationsInput | boolean
+    is3DSecure?: NullableStringFieldUpdateOperationsInput | string | null
+    checkoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    shipmentFee?: NullableIntFieldUpdateOperationsInput | number | null
+    deliveryStatus?: BoolFieldUpdateOperationsInput | boolean
+    cardLastDigits?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: salesProductsUpdateproductsInput | InputJsonValue[]
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalPrice?: IntFieldUpdateOperationsInput | number
+    pay_methodType?: NullableStringFieldUpdateOperationsInput | string | null
+    paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: NullableStringFieldUpdateOperationsInput | string | null
+    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type salesProductsCreateManyInput = {
+    id?: number
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    city: string
+    emirate?: string | null
+    country: string
+    address?: string | null
+    orderId: string
+    checkout?: boolean
+    paymentStatus?: boolean
+    isRefund?: boolean
+    currency?: string | null
+    transactionId?: string | null
+    integrationId?: string | null
+    amountCents?: string | null
+    success?: boolean
+    pending?: boolean
+    is3DSecure?: string | null
+    checkoutDate?: Date | string
+    transactionDate?: Date | string | null
+    shipmentFee?: number | null
+    deliveryStatus?: boolean
+    cardLastDigits?: string | null
+    products?: salesProductsCreateproductsInput | InputJsonValue[]
+    note?: string | null
+    totalPrice: number
+    pay_methodType?: string | null
+    paymethod_sub_type?: string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: string | null
+    isfreesample?: boolean | null
+  }
+
+  export type salesProductsUpdateManyMutationInput = {
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    emirate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
+    checkout?: BoolFieldUpdateOperationsInput | boolean
+    paymentStatus?: BoolFieldUpdateOperationsInput | boolean
+    isRefund?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    integrationId?: NullableStringFieldUpdateOperationsInput | string | null
+    amountCents?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: BoolFieldUpdateOperationsInput | boolean
+    pending?: BoolFieldUpdateOperationsInput | boolean
+    is3DSecure?: NullableStringFieldUpdateOperationsInput | string | null
+    checkoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    shipmentFee?: NullableIntFieldUpdateOperationsInput | number | null
+    deliveryStatus?: BoolFieldUpdateOperationsInput | boolean
+    cardLastDigits?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: salesProductsUpdateproductsInput | InputJsonValue[]
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalPrice?: IntFieldUpdateOperationsInput | number
+    pay_methodType?: NullableStringFieldUpdateOperationsInput | string | null
+    paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: NullableStringFieldUpdateOperationsInput | string | null
+    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
+  export type salesProductsUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    city?: StringFieldUpdateOperationsInput | string
+    emirate?: NullableStringFieldUpdateOperationsInput | string | null
+    country?: StringFieldUpdateOperationsInput | string
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    orderId?: StringFieldUpdateOperationsInput | string
+    checkout?: BoolFieldUpdateOperationsInput | boolean
+    paymentStatus?: BoolFieldUpdateOperationsInput | boolean
+    isRefund?: BoolFieldUpdateOperationsInput | boolean
+    currency?: NullableStringFieldUpdateOperationsInput | string | null
+    transactionId?: NullableStringFieldUpdateOperationsInput | string | null
+    integrationId?: NullableStringFieldUpdateOperationsInput | string | null
+    amountCents?: NullableStringFieldUpdateOperationsInput | string | null
+    success?: BoolFieldUpdateOperationsInput | boolean
+    pending?: BoolFieldUpdateOperationsInput | boolean
+    is3DSecure?: NullableStringFieldUpdateOperationsInput | string | null
+    checkoutDate?: DateTimeFieldUpdateOperationsInput | Date | string
+    transactionDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    shipmentFee?: NullableIntFieldUpdateOperationsInput | number | null
+    deliveryStatus?: BoolFieldUpdateOperationsInput | boolean
+    cardLastDigits?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: salesProductsUpdateproductsInput | InputJsonValue[]
+    note?: NullableStringFieldUpdateOperationsInput | string | null
+    totalPrice?: IntFieldUpdateOperationsInput | number
+    pay_methodType?: NullableStringFieldUpdateOperationsInput | string | null
+    paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingMethod?: NullableJsonNullValueInput | InputJsonValue
+    otherCity?: NullableStringFieldUpdateOperationsInput | string | null
+    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -26995,6 +28961,135 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type BoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type salesProductsCountOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    city?: SortOrder
+    emirate?: SortOrder
+    country?: SortOrder
+    address?: SortOrder
+    orderId?: SortOrder
+    checkout?: SortOrder
+    paymentStatus?: SortOrder
+    isRefund?: SortOrder
+    currency?: SortOrder
+    transactionId?: SortOrder
+    integrationId?: SortOrder
+    amountCents?: SortOrder
+    success?: SortOrder
+    pending?: SortOrder
+    is3DSecure?: SortOrder
+    checkoutDate?: SortOrder
+    transactionDate?: SortOrder
+    shipmentFee?: SortOrder
+    deliveryStatus?: SortOrder
+    cardLastDigits?: SortOrder
+    products?: SortOrder
+    note?: SortOrder
+    totalPrice?: SortOrder
+    pay_methodType?: SortOrder
+    paymethod_sub_type?: SortOrder
+    shippingMethod?: SortOrder
+    otherCity?: SortOrder
+    isfreesample?: SortOrder
+  }
+
+  export type salesProductsAvgOrderByAggregateInput = {
+    id?: SortOrder
+    shipmentFee?: SortOrder
+    totalPrice?: SortOrder
+  }
+
+  export type salesProductsMaxOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    city?: SortOrder
+    emirate?: SortOrder
+    country?: SortOrder
+    address?: SortOrder
+    orderId?: SortOrder
+    checkout?: SortOrder
+    paymentStatus?: SortOrder
+    isRefund?: SortOrder
+    currency?: SortOrder
+    transactionId?: SortOrder
+    integrationId?: SortOrder
+    amountCents?: SortOrder
+    success?: SortOrder
+    pending?: SortOrder
+    is3DSecure?: SortOrder
+    checkoutDate?: SortOrder
+    transactionDate?: SortOrder
+    shipmentFee?: SortOrder
+    deliveryStatus?: SortOrder
+    cardLastDigits?: SortOrder
+    note?: SortOrder
+    totalPrice?: SortOrder
+    pay_methodType?: SortOrder
+    paymethod_sub_type?: SortOrder
+    otherCity?: SortOrder
+    isfreesample?: SortOrder
+  }
+
+  export type salesProductsMinOrderByAggregateInput = {
+    id?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    city?: SortOrder
+    emirate?: SortOrder
+    country?: SortOrder
+    address?: SortOrder
+    orderId?: SortOrder
+    checkout?: SortOrder
+    paymentStatus?: SortOrder
+    isRefund?: SortOrder
+    currency?: SortOrder
+    transactionId?: SortOrder
+    integrationId?: SortOrder
+    amountCents?: SortOrder
+    success?: SortOrder
+    pending?: SortOrder
+    is3DSecure?: SortOrder
+    checkoutDate?: SortOrder
+    transactionDate?: SortOrder
+    shipmentFee?: SortOrder
+    deliveryStatus?: SortOrder
+    cardLastDigits?: SortOrder
+    note?: SortOrder
+    totalPrice?: SortOrder
+    pay_methodType?: SortOrder
+    paymethod_sub_type?: SortOrder
+    otherCity?: SortOrder
+    isfreesample?: SortOrder
+  }
+
+  export type salesProductsSumOrderByAggregateInput = {
+    id?: SortOrder
+    shipmentFee?: SortOrder
+    totalPrice?: SortOrder
+  }
+
+  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
+  }
+
   export type categoriesCreatecategoryHeroImagesInput = {
     set: InputJsonValue[]
   }
@@ -27896,6 +29991,19 @@ export namespace Prisma {
     update?: XOR<XOR<blogsUpdateToOneWithWhereWithoutCommentsInput, blogsUpdateWithoutCommentsInput>, blogsUncheckedUpdateWithoutCommentsInput>
   }
 
+  export type salesProductsCreateproductsInput = {
+    set: InputJsonValue[]
+  }
+
+  export type salesProductsUpdateproductsInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type NullableBoolFieldUpdateOperationsInput = {
+    set?: boolean | null
+  }
+
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -28175,6 +30283,19 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolNullableFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
+  }
+
+  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
+    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedBoolNullableFilter<$PrismaModel>
+    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type subCategoriesCreateWithoutCategoryInput = {

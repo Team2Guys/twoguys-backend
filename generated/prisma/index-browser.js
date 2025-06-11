@@ -426,6 +426,42 @@ exports.Prisma.Blogs_commentsScalarFieldEnum = {
   last_editedBy: 'last_editedBy'
 };
 
+exports.Prisma.SalesProductsScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phone: 'phone',
+  city: 'city',
+  emirate: 'emirate',
+  country: 'country',
+  address: 'address',
+  orderId: 'orderId',
+  checkout: 'checkout',
+  paymentStatus: 'paymentStatus',
+  isRefund: 'isRefund',
+  currency: 'currency',
+  transactionId: 'transactionId',
+  integrationId: 'integrationId',
+  amountCents: 'amountCents',
+  success: 'success',
+  pending: 'pending',
+  is3DSecure: 'is3DSecure',
+  checkoutDate: 'checkoutDate',
+  transactionDate: 'transactionDate',
+  shipmentFee: 'shipmentFee',
+  deliveryStatus: 'deliveryStatus',
+  cardLastDigits: 'cardLastDigits',
+  products: 'products',
+  note: 'note',
+  totalPrice: 'totalPrice',
+  pay_methodType: 'pay_methodType',
+  paymethod_sub_type: 'paymethod_sub_type',
+  shippingMethod: 'shippingMethod',
+  otherCity: 'otherCity',
+  isfreesample: 'isfreesample'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -482,7 +518,8 @@ exports.Prisma.ModelName = {
   ProductReviews: 'ProductReviews',
   ProductQuestions: 'ProductQuestions',
   blogs: 'blogs',
-  blogs_comments: 'blogs_comments'
+  blogs_comments: 'blogs_comments',
+  salesProducts: 'salesProducts'
 };
 
 /**
