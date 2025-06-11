@@ -47,7 +47,7 @@ jobs:
           npm install 
           npx prisma generate
           npm run build
-          # npm run start:prod
+          pm2 restart twoguysdevbe
           exit
           EOF
 
