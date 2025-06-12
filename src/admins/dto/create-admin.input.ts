@@ -1,6 +1,7 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
 
+
 @InputType()
 export class CreateAdminInput {
   @Field()
