@@ -432,6 +432,7 @@ exports.Prisma.SalesProductsScalarFieldEnum = {
   paymethod_sub_type: 'paymethod_sub_type',
   shippingMethod: 'shippingMethod',
   otherCity: 'otherCity'
+  otherCity: 'otherCity'
 };
 
 exports.Prisma.SortOrder = {
@@ -504,7 +505,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Qul-tech\\twoguys\\server\\generated\\prisma",
+      "value": "/var/www/twoguys/server/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -513,12 +514,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "debian-openssl-3.0.x",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Qul-tech\\twoguys\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "/var/www/twoguys/server/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
