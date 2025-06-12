@@ -328,6 +328,7 @@ model User {
   email        String  @unique
   password     String
   phone        String?
+  loginMethod String
   userImageUrl Json?
 }
 
@@ -405,8 +406,6 @@ model blogs_comments {
   status        CommentStatus @default(PENDING)
   last_editedBy String?
 }
-
-
 
 
 model salesProducts {

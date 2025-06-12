@@ -26,9 +26,6 @@ export class SalesProductsResolver {
     return this.salesProductsService.findAll();
   }
 
-  
-
-
   @Public()
   @Query(() => paymentStatus, { name: 'Order' })
   findOne(@Args('orderId', { type: () => String }) orderId: string) {

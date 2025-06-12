@@ -364,6 +364,7 @@ exports.Prisma.UserScalarFieldEnum = {
   email: 'email',
   password: 'password',
   phone: 'phone',
+  loginMethod: 'loginMethod',
   userImageUrl: 'userImageUrl'
 };
 
@@ -458,8 +459,7 @@ exports.Prisma.SalesProductsScalarFieldEnum = {
   pay_methodType: 'pay_methodType',
   paymethod_sub_type: 'paymethod_sub_type',
   shippingMethod: 'shippingMethod',
-  otherCity: 'otherCity',
-  isfreesample: 'isfreesample'
+  otherCity: 'otherCity'
 };
 
 exports.Prisma.SortOrder = {

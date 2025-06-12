@@ -11,7 +11,7 @@ export class SalesProductsService {
 
   async create(createSalesProductInput: CreateOrderInput) {
     try {
-      const { totalPrice, shipmentFee, products, ...billing_data } = createSalesProductInput;
+      const { totalPrice, products, ...billing_data } = createSalesProductInput;
       const orderId = `ORD-${Date.now()}`;
       var myHeaders = new Headers();
       myHeaders.append("Authorization", `Token ${process.env.PAYMOB_SECRET_KEY}`);

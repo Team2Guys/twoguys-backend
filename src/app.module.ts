@@ -11,6 +11,7 @@ import { EComereceModule } from './e-comerece/e-comerece.module';
 import { AdminsModule } from './admins/admins.module';
 import { BlogsModule } from './blogs/blogs.module';
 import { SalesProductsModule } from './sales-products/sales-products.module';
+import { UserModule } from './user/user.module';
 @Module({
   imports: [
   GraphQLModule.forRoot<ApolloDriverConfig>({
@@ -30,7 +31,8 @@ import { SalesProductsModule } from './sales-products/sales-products.module';
   EComereceModule,
   AdminsModule,
   BlogsModule,
-  SalesProductsModule
+  SalesProductsModule,
+  UserModule
   ],
   providers:[PrismaService]
 })
