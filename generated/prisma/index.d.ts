@@ -21276,7 +21276,6 @@ export namespace Prisma {
     pay_methodType: string | null
     paymethod_sub_type: string | null
     otherCity: string | null
-    isfreesample: boolean | null
   }
 
   export type SalesProductsMaxAggregateOutputType = {
@@ -21310,7 +21309,6 @@ export namespace Prisma {
     pay_methodType: string | null
     paymethod_sub_type: string | null
     otherCity: string | null
-    isfreesample: boolean | null
   }
 
   export type SalesProductsCountAggregateOutputType = {
@@ -21346,7 +21344,6 @@ export namespace Prisma {
     paymethod_sub_type: number
     shippingMethod: number
     otherCity: number
-    isfreesample: number
     _all: number
   }
 
@@ -21394,7 +21391,6 @@ export namespace Prisma {
     pay_methodType?: true
     paymethod_sub_type?: true
     otherCity?: true
-    isfreesample?: true
   }
 
   export type SalesProductsMaxAggregateInputType = {
@@ -21428,7 +21424,6 @@ export namespace Prisma {
     pay_methodType?: true
     paymethod_sub_type?: true
     otherCity?: true
-    isfreesample?: true
   }
 
   export type SalesProductsCountAggregateInputType = {
@@ -21464,7 +21459,6 @@ export namespace Prisma {
     paymethod_sub_type?: true
     shippingMethod?: true
     otherCity?: true
-    isfreesample?: true
     _all?: true
   }
 
@@ -21587,7 +21581,6 @@ export namespace Prisma {
     paymethod_sub_type: string | null
     shippingMethod: JsonValue | null
     otherCity: string | null
-    isfreesample: boolean | null
     _count: SalesProductsCountAggregateOutputType | null
     _avg: SalesProductsAvgAggregateOutputType | null
     _sum: SalesProductsSumAggregateOutputType | null
@@ -21642,7 +21635,6 @@ export namespace Prisma {
     paymethod_sub_type?: boolean
     shippingMethod?: boolean
     otherCity?: boolean
-    isfreesample?: boolean
   }, ExtArgs["result"]["salesProducts"]>
 
   export type salesProductsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -21678,7 +21670,6 @@ export namespace Prisma {
     paymethod_sub_type?: boolean
     shippingMethod?: boolean
     otherCity?: boolean
-    isfreesample?: boolean
   }, ExtArgs["result"]["salesProducts"]>
 
   export type salesProductsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -21714,7 +21705,6 @@ export namespace Prisma {
     paymethod_sub_type?: boolean
     shippingMethod?: boolean
     otherCity?: boolean
-    isfreesample?: boolean
   }, ExtArgs["result"]["salesProducts"]>
 
   export type salesProductsSelectScalar = {
@@ -21750,10 +21740,9 @@ export namespace Prisma {
     paymethod_sub_type?: boolean
     shippingMethod?: boolean
     otherCity?: boolean
-    isfreesample?: boolean
   }
 
-  export type salesProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "city" | "emirate" | "country" | "address" | "orderId" | "checkout" | "paymentStatus" | "isRefund" | "currency" | "transactionId" | "integrationId" | "amountCents" | "success" | "pending" | "is3DSecure" | "checkoutDate" | "transactionDate" | "shipmentFee" | "deliveryStatus" | "cardLastDigits" | "products" | "note" | "totalPrice" | "pay_methodType" | "paymethod_sub_type" | "shippingMethod" | "otherCity" | "isfreesample", ExtArgs["result"]["salesProducts"]>
+  export type salesProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "firstName" | "lastName" | "email" | "phone" | "city" | "emirate" | "country" | "address" | "orderId" | "checkout" | "paymentStatus" | "isRefund" | "currency" | "transactionId" | "integrationId" | "amountCents" | "success" | "pending" | "is3DSecure" | "checkoutDate" | "transactionDate" | "shipmentFee" | "deliveryStatus" | "cardLastDigits" | "products" | "note" | "totalPrice" | "pay_methodType" | "paymethod_sub_type" | "shippingMethod" | "otherCity", ExtArgs["result"]["salesProducts"]>
 
   export type $salesProductsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "salesProducts"
@@ -21791,7 +21780,6 @@ export namespace Prisma {
       paymethod_sub_type: string | null
       shippingMethod: Prisma.JsonValue | null
       otherCity: string | null
-      isfreesample: boolean | null
     }, ExtArgs["result"]["salesProducts"]>
     composites: {}
   }
@@ -22247,7 +22235,6 @@ export namespace Prisma {
     readonly paymethod_sub_type: FieldRef<"salesProducts", 'String'>
     readonly shippingMethod: FieldRef<"salesProducts", 'Json'>
     readonly otherCity: FieldRef<"salesProducts", 'String'>
-    readonly isfreesample: FieldRef<"salesProducts", 'Boolean'>
   }
     
 
@@ -23011,8 +22998,7 @@ export namespace Prisma {
     pay_methodType: 'pay_methodType',
     paymethod_sub_type: 'paymethod_sub_type',
     shippingMethod: 'shippingMethod',
-    otherCity: 'otherCity',
-    isfreesample: 'isfreesample'
+    otherCity: 'otherCity'
   };
 
   export type SalesProductsScalarFieldEnum = (typeof SalesProductsScalarFieldEnum)[keyof typeof SalesProductsScalarFieldEnum]
@@ -25022,7 +25008,6 @@ export namespace Prisma {
     paymethod_sub_type?: StringNullableFilter<"salesProducts"> | string | null
     shippingMethod?: JsonNullableFilter<"salesProducts">
     otherCity?: StringNullableFilter<"salesProducts"> | string | null
-    isfreesample?: BoolNullableFilter<"salesProducts"> | boolean | null
   }
 
   export type salesProductsOrderByWithRelationInput = {
@@ -25058,7 +25043,6 @@ export namespace Prisma {
     paymethod_sub_type?: SortOrderInput | SortOrder
     shippingMethod?: SortOrderInput | SortOrder
     otherCity?: SortOrderInput | SortOrder
-    isfreesample?: SortOrderInput | SortOrder
   }
 
   export type salesProductsWhereUniqueInput = Prisma.AtLeast<{
@@ -25097,7 +25081,6 @@ export namespace Prisma {
     paymethod_sub_type?: StringNullableFilter<"salesProducts"> | string | null
     shippingMethod?: JsonNullableFilter<"salesProducts">
     otherCity?: StringNullableFilter<"salesProducts"> | string | null
-    isfreesample?: BoolNullableFilter<"salesProducts"> | boolean | null
   }, "id" | "orderId">
 
   export type salesProductsOrderByWithAggregationInput = {
@@ -25133,7 +25116,6 @@ export namespace Prisma {
     paymethod_sub_type?: SortOrderInput | SortOrder
     shippingMethod?: SortOrderInput | SortOrder
     otherCity?: SortOrderInput | SortOrder
-    isfreesample?: SortOrderInput | SortOrder
     _count?: salesProductsCountOrderByAggregateInput
     _avg?: salesProductsAvgOrderByAggregateInput
     _max?: salesProductsMaxOrderByAggregateInput
@@ -25177,7 +25159,6 @@ export namespace Prisma {
     paymethod_sub_type?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
     shippingMethod?: JsonNullableWithAggregatesFilter<"salesProducts">
     otherCity?: StringNullableWithAggregatesFilter<"salesProducts"> | string | null
-    isfreesample?: BoolNullableWithAggregatesFilter<"salesProducts"> | boolean | null
   }
 
   export type categoriesCreateInput = {
@@ -27339,7 +27320,6 @@ export namespace Prisma {
     paymethod_sub_type?: string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: string | null
-    isfreesample?: boolean | null
   }
 
   export type salesProductsUncheckedCreateInput = {
@@ -27375,7 +27355,6 @@ export namespace Prisma {
     paymethod_sub_type?: string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: string | null
-    isfreesample?: boolean | null
   }
 
   export type salesProductsUpdateInput = {
@@ -27410,7 +27389,6 @@ export namespace Prisma {
     paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: NullableStringFieldUpdateOperationsInput | string | null
-    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type salesProductsUncheckedUpdateInput = {
@@ -27446,7 +27424,6 @@ export namespace Prisma {
     paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: NullableStringFieldUpdateOperationsInput | string | null
-    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type salesProductsCreateManyInput = {
@@ -27482,7 +27459,6 @@ export namespace Prisma {
     paymethod_sub_type?: string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: string | null
-    isfreesample?: boolean | null
   }
 
   export type salesProductsUpdateManyMutationInput = {
@@ -27517,7 +27493,6 @@ export namespace Prisma {
     paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: NullableStringFieldUpdateOperationsInput | string | null
-    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type salesProductsUncheckedUpdateManyInput = {
@@ -27553,7 +27528,6 @@ export namespace Prisma {
     paymethod_sub_type?: NullableStringFieldUpdateOperationsInput | string | null
     shippingMethod?: NullableJsonNullValueInput | InputJsonValue
     otherCity?: NullableStringFieldUpdateOperationsInput | string | null
-    isfreesample?: NullableBoolFieldUpdateOperationsInput | boolean | null
   }
 
   export type IntFilter<$PrismaModel = never> = {
@@ -28961,11 +28935,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type BoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
   export type salesProductsCountOrderByAggregateInput = {
     id?: SortOrder
     firstName?: SortOrder
@@ -28999,7 +28968,6 @@ export namespace Prisma {
     paymethod_sub_type?: SortOrder
     shippingMethod?: SortOrder
     otherCity?: SortOrder
-    isfreesample?: SortOrder
   }
 
   export type salesProductsAvgOrderByAggregateInput = {
@@ -29039,7 +29007,6 @@ export namespace Prisma {
     pay_methodType?: SortOrder
     paymethod_sub_type?: SortOrder
     otherCity?: SortOrder
-    isfreesample?: SortOrder
   }
 
   export type salesProductsMinOrderByAggregateInput = {
@@ -29073,21 +29040,12 @@ export namespace Prisma {
     pay_methodType?: SortOrder
     paymethod_sub_type?: SortOrder
     otherCity?: SortOrder
-    isfreesample?: SortOrder
   }
 
   export type salesProductsSumOrderByAggregateInput = {
     id?: SortOrder
     shipmentFee?: SortOrder
     totalPrice?: SortOrder
-  }
-
-  export type BoolNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBoolNullableFilter<$PrismaModel>
-    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type categoriesCreatecategoryHeroImagesInput = {
@@ -30000,10 +29958,6 @@ export namespace Prisma {
     push?: InputJsonValue | InputJsonValue[]
   }
 
-  export type NullableBoolFieldUpdateOperationsInput = {
-    set?: boolean | null
-  }
-
   export type NestedIntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -30283,19 +30237,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedBoolNullableFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableFilter<$PrismaModel> | boolean | null
-  }
-
-  export type NestedBoolNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel> | null
-    not?: NestedBoolNullableWithAggregatesFilter<$PrismaModel> | boolean | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedBoolNullableFilter<$PrismaModel>
-    _max?: NestedBoolNullableFilter<$PrismaModel>
   }
 
   export type subCategoriesCreateWithoutCategoryInput = {
