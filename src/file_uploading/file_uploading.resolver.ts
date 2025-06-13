@@ -16,10 +16,24 @@ export class FileUploadingResolver {
    return this.fileUploadingService.create(file);
   }
 
+
+  @Public()
+  @Mutation(() => FileUploading)
+  async uploadFile(@Args({ name: 'file', type: () => GraphQLUpload }) file: FileUpload) {
+   return this.fileUploadingService.uploadFile(file);
+  }
+
   @Public()
   @Mutation(() => Boolean)
     async DeleteImage(@Args('RemoveUImage') updatedImageInput: UpdateFileUploadingInput) {
       return await this.fileUploadingService.delete(updatedImageInput.public_id);
+    }
+
+
+  @Public()
+  @Mutation(() => Boolean,{name:'Del_S3_file'})
+    async deleteFile(@Args('RemoveUImage') updatedImageInput: UpdateFileUploadingInput) {
+      return await this.fileUploadingService.deleteFile(updatedImageInput.public_id);
     }
 
 }
