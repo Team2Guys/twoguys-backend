@@ -433,7 +433,6 @@ exports.Prisma.SalesProductsScalarFieldEnum = {
   paymethod_sub_type: 'paymethod_sub_type',
   shippingMethod: 'shippingMethod',
   otherCity: 'otherCity'
-  otherCity: 'otherCity'
 };
 
 exports.Prisma.SortOrder = {
