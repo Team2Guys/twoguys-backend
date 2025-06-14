@@ -183,3 +183,89 @@ export class productQuestion {
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
 }
+
+
+
+@ObjectType()
+export class Jobs {
+    @Field(() => Int)
+  id: number;
+  @Field()
+  title: string;
+
+  @Field()
+  custom_url: string;
+
+  @Field()
+  location: string;
+
+  @Field()
+  jobType: string;
+
+  @Field()
+  salary: string;
+
+  @Field({ defaultValue: false })
+  isFilled?: boolean;
+
+  @Field()
+  description: string;
+
+  @Field(() => [GraphQLJSON], { defaultValue: [] })
+  responsibilities: any[];
+
+  @Field(() => [GraphQLJSON], { defaultValue: [] })
+  requirements: any[];
+
+  @Field(() => [GraphQLJSON], { defaultValue: [] })
+  benefits: any[];
+
+  @Field(() => [GraphQLJSON], { defaultValue: [] })
+  apply: any[];
+
+    @Field({ nullable: true })
+  Canonical_Tag?: string;
+
+  @Field({ nullable: true })
+  Meta_Description?: string;
+
+  @Field({ nullable: true })
+  Meta_Title?: string;
+}
+
+
+@ObjectType()
+export class JobsApplication {
+    @Field(() => Int)
+  id: number;
+
+  @Field()
+  firstName: string;
+
+  @Field()
+  lastName: string;
+
+  @Field()
+  email: string;
+
+  @Field()
+  phone: string;
+
+  @Field()
+  currentCTC: string;
+
+  @Field()
+  expectedCTC: string;
+
+  @Field()
+  noticePeriod: string;
+
+  @Field()
+  JobName: string;
+
+  @Field(() => GraphQLJSON)
+  resume: any;
+
+  @Field({ nullable: true })
+  portfolioLink?: string;
+}

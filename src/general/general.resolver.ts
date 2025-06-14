@@ -1,8 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { GeneralService } from './general.service';
-import { Appointments, General, productQuestion, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
+import { Appointments, General, Jobs, JobsApplication, productQuestion, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, CreateJobApplicationDto, CreateJobDto, productQuestionInput, productReviewInput } from './dto/create-general.input';
+import { UpdateCreateJobApplicationDto, UpdateCreateJobDto, UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 
 @Resolver(() => General)
 export class GeneralResolver {
@@ -90,19 +90,19 @@ export class GeneralResolver {
     return this.generalService.findAllRedirecturls();
   }
 
-// products reviews
+  // products reviews
 
   @Mutation(() => ProductReviews, { name: "Create_prod_Reviews", nullable: true })
   createProdReviews(@Args('productReviewInput') productReviewInput: productReviewInput) {
     return this.generalService.createProdReviews(productReviewInput);
   }
 
-   @Query(() => [ProductReviews], { name: 'get_All_prod_Reviews', nullable: true })
+  @Query(() => [ProductReviews], { name: 'get_All_prod_Reviews', nullable: true })
   getAllProdReviews() {
     return this.generalService.getAllProdReviews();
   }
 
-  @Mutation(() => ProductReviews, { name: "update_prod_Reviews", nullable:true })
+  @Mutation(() => ProductReviews, { name: "update_prod_Reviews", nullable: true })
   updateProdReviews(@Args('UpdateproductReviewInput') UpdateproductReviewInput: UpdateproductReviewInput) {
     return this.generalService.updateProdReviews(UpdateproductReviewInput);
   }
@@ -119,12 +119,12 @@ export class GeneralResolver {
     return this.generalService.createProdquestions(productQuestionInput);
   }
 
-   @Query(() => [productQuestion], { name: 'get_All_prod_Questions', nullable: true })
+  @Query(() => [productQuestion], { name: 'get_All_prod_Questions', nullable: true })
   getAllProdquestions() {
     return this.generalService.getAllProdquestions();
   }
 
-  @Mutation(() => productQuestion, { name: "update_prod_Questions", nullable:true })
+  @Mutation(() => productQuestion, { name: "update_prod_Questions", nullable: true })
   updateProdquestions(@Args('UpdateproductQuestionInput') UpdateproductQuestionInput: UpdateproductQuestionInput) {
     return this.generalService.updateProdquestions(UpdateproductQuestionInput);
   }
@@ -134,9 +134,63 @@ export class GeneralResolver {
     return this.generalService.removeProdquestions(id);
   }
 
+  // jobs
+
+  @Mutation(() => Jobs, { name: "Create_jobs", nullable: true })
+  createjob(@Args('CreateJobDto') CreateJobDto: CreateJobDto) {
+    return this.generalService.createjob(CreateJobDto);
+  }
+
+  @Query(() => [Jobs], { name: 'get_All_jobs', nullable: true })
+  getAlljob() {
+    return this.generalService.getAlljob();
+  }
 
 
 
-  
+  @Query(() => Jobs, { name: 'get_single_job', nullable: true })
+  findOne(
+    @Args('customUrl', { type: () => String }) customUrl: string
+  ) {
+    return this.generalService.getSingleJob(customUrl);
+  }
+
+  @Mutation(() => Jobs, { name: "update_jobs", nullable: true })
+  updatejob(@Args('UpdateCreateJobDto') UpdateCreateJobDto: UpdateCreateJobDto) {
+    return this.generalService.updatejob(UpdateCreateJobDto);
+  }
+
+  @Mutation(() => Jobs, { name: "Delete_jobs", nullable: true })
+  removejob(@Args('id', { type: () => Int }) id: number) {
+    return this.generalService.removejob(id);
+  }
+
+  // jobs Applications
+
+  @Mutation(() => JobsApplication, { name: "Create_jobs_applications", nullable: true })
+  createjobApplication(@Args('CreateJobDto') CreateJobDto: CreateJobApplicationDto) {
+    return this.generalService.createjobApplication(CreateJobDto);
+  }
+
+  @Query(() => [JobsApplication], { name: 'get_All_jobs_applications', nullable: true })
+  getAlljobApplication() {
+    return this.generalService.getAlljobApplication();
+  }
+
+  @Mutation(() => JobsApplication, { name: "update_jobs_applications", nullable: true })
+  updatejobApplication(@Args('UpdateCreateJobApplicationDto') UpdateCreateJobApplicationDto: UpdateCreateJobApplicationDto) {
+    return this.generalService.updatejobApplication(UpdateCreateJobApplicationDto);
+  }
+
+  @Mutation(() => JobsApplication, { name: "Delete_jobs_applications", nullable: true })
+  removejobApplication(@Args('id', { type: () => Int }) id: number) {
+    return this.generalService.removejobApplication(id);
+  }
+
+
+
+
+
+
 
 }

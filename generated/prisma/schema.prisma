@@ -441,3 +441,39 @@ model salesProducts {
   shippingMethod     Json?
   otherCity          String?
 }
+
+model Jobs {
+  id               Int       @id @default(autoincrement())
+  title            String    @unique
+  custom_url       String
+  location         String
+  jobType          String
+  salary           String
+  isFilled         Boolean   @default(false)
+  description      String
+  responsibilities Json[]    @default([])
+  requirements     Json[]    @default([])
+  benefits         Json[]    @default([])
+  apply            Json[]    @default([])
+  createdAt        DateTime? @default(now())
+  updatedAt        DateTime?
+  Canonical_Tag    String? //✅
+  Meta_Description String? //✅
+  Meta_Title       String? //✅
+}
+
+model JobApplication {
+  id            Int       @id @default(autoincrement())
+  firstName     String
+  lastName      String
+  email         String
+  phone         String
+  currentCTC    String
+  expectedCTC   String
+  noticePeriod  String
+  resume        Json
+  portfolioLink String?
+  JobName       String
+  createdAt     DateTime? @default(now())
+  updatedAt     DateTime?
+}

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './dto/create-general.input';
-import { UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
+import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, CreateJobApplicationDto, CreateJobDto, productQuestionInput, productReviewInput } from './dto/create-general.input';
+import { UpdateCreateJobApplicationDto, UpdateCreateJobDto, UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
 import { sendAppointmentEmail } from '../utils/EmailHanlders';
@@ -275,6 +275,102 @@ export class GeneralService {
   }
 
 
+
+
+// jobs
+
+  async createjob(CreateJobDto: CreateJobDto) {
+    try {
+
+      return await this.prisma.jobs.create({ data: CreateJobDto })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+
+  async getSingleJob(custom_url:string) {
+    try {
+
+     return  await this.prisma.jobs.findFirst({where:{custom_url}})
+
+
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+  async getAlljob() {
+    try {
+
+     return  await this.prisma.jobs.findMany({})
+
+
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async updatejob(UpdateCreateJobDto: UpdateCreateJobDto) {
+    try {
+      let update = new Date();
+
+      const { id, ...updatedData } = UpdateCreateJobDto
+      return await this.prisma.jobs.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async removejob(id: number) {
+    try {
+      return await this.prisma.jobs.delete({ where: { id } })
+    } catch (error) {
+      customHttpException(error)
+    }
+    return `This action removes a #${id} general`;
+  }
+
+  // Jobs applications
+
+  
+  async createjobApplication(CreateJobApplicationDto: CreateJobApplicationDto) {
+    try {
+
+      return await this.prisma.jobApplication.create({ data: CreateJobApplicationDto })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+  async getAlljobApplication() {
+    try {
+
+     return  await this.prisma.jobApplication.findMany({})
+
+
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async updatejobApplication(UpdateCreateJobDto: UpdateCreateJobApplicationDto) {
+    try {
+      let update = new Date();
+
+      const { id, ...updatedData } = UpdateCreateJobDto
+      return await this.prisma.jobApplication.update({ where: { id: Number(id) }, data: { ...updatedData, updatedAt: update } })
+    } catch (error) {
+      customHttpException(error)
+    }
+  }
+
+  async removejobApplication(id: number) {
+    try {
+      return await this.prisma.jobApplication.delete({ where: { id } })
+    } catch (error) {
+      customHttpException(error)
+    }
+    return `This action removes a #${id} general`;
+  }
 
 
 

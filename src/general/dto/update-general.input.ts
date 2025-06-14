@@ -1,4 +1,4 @@
-import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, productQuestionInput, productReviewInput } from './create-general.input';
+import { CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, CreateJobApplicationDto, CreateJobDto, productQuestionInput, productReviewInput } from './create-general.input';
 import { InputType, Field, PartialType, Int } from '@nestjs/graphql';
 import { CommentStatus } from './enums/enum';
 import GraphQLJSON from 'graphql-type-json';
@@ -45,4 +45,17 @@ export class UpdateproductQuestionInput {
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any[];
 
+}
+
+
+@InputType()
+export class UpdateCreateJobDto extends PartialType(CreateJobDto) {
+  @Field(() => Int)
+  id: number;
+}
+
+@InputType()
+export class UpdateCreateJobApplicationDto extends PartialType(CreateJobApplicationDto) {
+  @Field(() => Int)
+  id: number;
 }
