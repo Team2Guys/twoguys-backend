@@ -462,6 +462,42 @@ exports.Prisma.SalesProductsScalarFieldEnum = {
   otherCity: 'otherCity'
 };
 
+exports.Prisma.JobsScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  custom_url: 'custom_url',
+  location: 'location',
+  jobType: 'jobType',
+  salary: 'salary',
+  isFilled: 'isFilled',
+  description: 'description',
+  responsibilities: 'responsibilities',
+  requirements: 'requirements',
+  benefits: 'benefits',
+  apply: 'apply',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  Canonical_Tag: 'Canonical_Tag',
+  Meta_Description: 'Meta_Description',
+  Meta_Title: 'Meta_Title'
+};
+
+exports.Prisma.JobApplicationScalarFieldEnum = {
+  id: 'id',
+  firstName: 'firstName',
+  lastName: 'lastName',
+  email: 'email',
+  phone: 'phone',
+  currentCTC: 'currentCTC',
+  expectedCTC: 'expectedCTC',
+  noticePeriod: 'noticePeriod',
+  resume: 'resume',
+  portfolioLink: 'portfolioLink',
+  JobName: 'JobName',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -519,7 +555,9 @@ exports.Prisma.ModelName = {
   ProductQuestions: 'ProductQuestions',
   blogs: 'blogs',
   blogs_comments: 'blogs_comments',
-  salesProducts: 'salesProducts'
+  salesProducts: 'salesProducts',
+  Jobs: 'Jobs',
+  JobApplication: 'JobApplication'
 };
 
 /**
