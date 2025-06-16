@@ -20299,10 +20299,12 @@ export namespace Prisma {
     name: string | null
     Email: string | null
     description: string | null
+    phone: string | null
     createdAt: Date | null
     blogId: number | null
     status: $Enums.CommentStatus | null
     last_editedBy: string | null
+    updatedAt: Date | null
   }
 
   export type Blogs_commentsMaxAggregateOutputType = {
@@ -20310,10 +20312,12 @@ export namespace Prisma {
     name: string | null
     Email: string | null
     description: string | null
+    phone: string | null
     createdAt: Date | null
     blogId: number | null
     status: $Enums.CommentStatus | null
     last_editedBy: string | null
+    updatedAt: Date | null
   }
 
   export type Blogs_commentsCountAggregateOutputType = {
@@ -20321,11 +20325,13 @@ export namespace Prisma {
     name: number
     Email: number
     description: number
+    phone: number
     createdAt: number
     replies: number
     blogId: number
     status: number
     last_editedBy: number
+    updatedAt: number
     _all: number
   }
 
@@ -20345,10 +20351,12 @@ export namespace Prisma {
     name?: true
     Email?: true
     description?: true
+    phone?: true
     createdAt?: true
     blogId?: true
     status?: true
     last_editedBy?: true
+    updatedAt?: true
   }
 
   export type Blogs_commentsMaxAggregateInputType = {
@@ -20356,10 +20364,12 @@ export namespace Prisma {
     name?: true
     Email?: true
     description?: true
+    phone?: true
     createdAt?: true
     blogId?: true
     status?: true
     last_editedBy?: true
+    updatedAt?: true
   }
 
   export type Blogs_commentsCountAggregateInputType = {
@@ -20367,11 +20377,13 @@ export namespace Prisma {
     name?: true
     Email?: true
     description?: true
+    phone?: true
     createdAt?: true
     replies?: true
     blogId?: true
     status?: true
     last_editedBy?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -20466,11 +20478,13 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt: Date
     replies: JsonValue[]
     blogId: number
     status: $Enums.CommentStatus
     last_editedBy: string | null
+    updatedAt: Date | null
     _count: Blogs_commentsCountAggregateOutputType | null
     _avg: Blogs_commentsAvgAggregateOutputType | null
     _sum: Blogs_commentsSumAggregateOutputType | null
@@ -20497,11 +20511,13 @@ export namespace Prisma {
     name?: boolean
     Email?: boolean
     description?: boolean
+    phone?: boolean
     createdAt?: boolean
     replies?: boolean
     blogId?: boolean
     status?: boolean
     last_editedBy?: boolean
+    updatedAt?: boolean
     blog?: boolean | blogsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogs_comments"]>
 
@@ -20510,11 +20526,13 @@ export namespace Prisma {
     name?: boolean
     Email?: boolean
     description?: boolean
+    phone?: boolean
     createdAt?: boolean
     replies?: boolean
     blogId?: boolean
     status?: boolean
     last_editedBy?: boolean
+    updatedAt?: boolean
     blog?: boolean | blogsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogs_comments"]>
 
@@ -20523,11 +20541,13 @@ export namespace Prisma {
     name?: boolean
     Email?: boolean
     description?: boolean
+    phone?: boolean
     createdAt?: boolean
     replies?: boolean
     blogId?: boolean
     status?: boolean
     last_editedBy?: boolean
+    updatedAt?: boolean
     blog?: boolean | blogsDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["blogs_comments"]>
 
@@ -20536,14 +20556,16 @@ export namespace Prisma {
     name?: boolean
     Email?: boolean
     description?: boolean
+    phone?: boolean
     createdAt?: boolean
     replies?: boolean
     blogId?: boolean
     status?: boolean
     last_editedBy?: boolean
+    updatedAt?: boolean
   }
 
-  export type blogs_commentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "Email" | "description" | "createdAt" | "replies" | "blogId" | "status" | "last_editedBy", ExtArgs["result"]["blogs_comments"]>
+  export type blogs_commentsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "Email" | "description" | "phone" | "createdAt" | "replies" | "blogId" | "status" | "last_editedBy" | "updatedAt", ExtArgs["result"]["blogs_comments"]>
   export type blogs_commentsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     blog?: boolean | blogsDefaultArgs<ExtArgs>
   }
@@ -20564,11 +20586,13 @@ export namespace Prisma {
       name: string
       Email: string
       description: string
+      phone: string
       createdAt: Date
       replies: Prisma.JsonValue[]
       blogId: number
       status: $Enums.CommentStatus
       last_editedBy: string | null
+      updatedAt: Date | null
     }, ExtArgs["result"]["blogs_comments"]>
     composites: {}
   }
@@ -20997,11 +21021,13 @@ export namespace Prisma {
     readonly name: FieldRef<"blogs_comments", 'String'>
     readonly Email: FieldRef<"blogs_comments", 'String'>
     readonly description: FieldRef<"blogs_comments", 'String'>
+    readonly phone: FieldRef<"blogs_comments", 'String'>
     readonly createdAt: FieldRef<"blogs_comments", 'DateTime'>
     readonly replies: FieldRef<"blogs_comments", 'Json[]'>
     readonly blogId: FieldRef<"blogs_comments", 'Int'>
     readonly status: FieldRef<"blogs_comments", 'CommentStatus'>
     readonly last_editedBy: FieldRef<"blogs_comments", 'String'>
+    readonly updatedAt: FieldRef<"blogs_comments", 'DateTime'>
   }
     
 
@@ -25450,11 +25476,13 @@ export namespace Prisma {
     name: 'name',
     Email: 'Email',
     description: 'description',
+    phone: 'phone',
     createdAt: 'createdAt',
     replies: 'replies',
     blogId: 'blogId',
     status: 'status',
-    last_editedBy: 'last_editedBy'
+    last_editedBy: 'last_editedBy',
+    updatedAt: 'updatedAt'
   };
 
   export type Blogs_commentsScalarFieldEnum = (typeof Blogs_commentsScalarFieldEnum)[keyof typeof Blogs_commentsScalarFieldEnum]
@@ -27444,11 +27472,13 @@ export namespace Prisma {
     name?: StringFilter<"blogs_comments"> | string
     Email?: StringFilter<"blogs_comments"> | string
     description?: StringFilter<"blogs_comments"> | string
+    phone?: StringFilter<"blogs_comments"> | string
     createdAt?: DateTimeFilter<"blogs_comments"> | Date | string
     replies?: JsonNullableListFilter<"blogs_comments">
     blogId?: IntFilter<"blogs_comments"> | number
     status?: EnumCommentStatusFilter<"blogs_comments"> | $Enums.CommentStatus
     last_editedBy?: StringNullableFilter<"blogs_comments"> | string | null
+    updatedAt?: DateTimeNullableFilter<"blogs_comments"> | Date | string | null
     blog?: XOR<BlogsScalarRelationFilter, blogsWhereInput>
   }
 
@@ -27457,11 +27487,13 @@ export namespace Prisma {
     name?: SortOrder
     Email?: SortOrder
     description?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     replies?: SortOrder
     blogId?: SortOrder
     status?: SortOrder
     last_editedBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     blog?: blogsOrderByWithRelationInput
   }
 
@@ -27473,11 +27505,13 @@ export namespace Prisma {
     name?: StringFilter<"blogs_comments"> | string
     Email?: StringFilter<"blogs_comments"> | string
     description?: StringFilter<"blogs_comments"> | string
+    phone?: StringFilter<"blogs_comments"> | string
     createdAt?: DateTimeFilter<"blogs_comments"> | Date | string
     replies?: JsonNullableListFilter<"blogs_comments">
     blogId?: IntFilter<"blogs_comments"> | number
     status?: EnumCommentStatusFilter<"blogs_comments"> | $Enums.CommentStatus
     last_editedBy?: StringNullableFilter<"blogs_comments"> | string | null
+    updatedAt?: DateTimeNullableFilter<"blogs_comments"> | Date | string | null
     blog?: XOR<BlogsScalarRelationFilter, blogsWhereInput>
   }, "id">
 
@@ -27486,11 +27520,13 @@ export namespace Prisma {
     name?: SortOrder
     Email?: SortOrder
     description?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     replies?: SortOrder
     blogId?: SortOrder
     status?: SortOrder
     last_editedBy?: SortOrderInput | SortOrder
+    updatedAt?: SortOrderInput | SortOrder
     _count?: blogs_commentsCountOrderByAggregateInput
     _avg?: blogs_commentsAvgOrderByAggregateInput
     _max?: blogs_commentsMaxOrderByAggregateInput
@@ -27506,11 +27542,13 @@ export namespace Prisma {
     name?: StringWithAggregatesFilter<"blogs_comments"> | string
     Email?: StringWithAggregatesFilter<"blogs_comments"> | string
     description?: StringWithAggregatesFilter<"blogs_comments"> | string
+    phone?: StringWithAggregatesFilter<"blogs_comments"> | string
     createdAt?: DateTimeWithAggregatesFilter<"blogs_comments"> | Date | string
     replies?: JsonNullableListFilter<"blogs_comments">
     blogId?: IntWithAggregatesFilter<"blogs_comments"> | number
     status?: EnumCommentStatusWithAggregatesFilter<"blogs_comments"> | $Enums.CommentStatus
     last_editedBy?: StringNullableWithAggregatesFilter<"blogs_comments"> | string | null
+    updatedAt?: DateTimeNullableWithAggregatesFilter<"blogs_comments"> | Date | string | null
   }
 
   export type salesProductsWhereInput = {
@@ -29968,10 +30006,12 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
     blog: blogsCreateNestedOneWithoutCommentsInput
   }
 
@@ -29980,21 +30020,25 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     blogId: number
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
   }
 
   export type blogs_commentsUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     blog?: blogsUpdateOneRequiredWithoutCommentsNestedInput
   }
 
@@ -30003,11 +30047,13 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     blogId?: IntFieldUpdateOperationsInput | number
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type blogs_commentsCreateManyInput = {
@@ -30015,21 +30061,25 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     blogId: number
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
   }
 
   export type blogs_commentsUpdateManyMutationInput = {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type blogs_commentsUncheckedUpdateManyInput = {
@@ -30037,11 +30087,13 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     blogId?: IntFieldUpdateOperationsInput | number
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type salesProductsCreateInput = {
@@ -31887,11 +31939,13 @@ export namespace Prisma {
     name?: SortOrder
     Email?: SortOrder
     description?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     replies?: SortOrder
     blogId?: SortOrder
     status?: SortOrder
     last_editedBy?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type blogs_commentsAvgOrderByAggregateInput = {
@@ -31904,10 +31958,12 @@ export namespace Prisma {
     name?: SortOrder
     Email?: SortOrder
     description?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     blogId?: SortOrder
     status?: SortOrder
     last_editedBy?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type blogs_commentsMinOrderByAggregateInput = {
@@ -31915,10 +31971,12 @@ export namespace Prisma {
     name?: SortOrder
     Email?: SortOrder
     description?: SortOrder
+    phone?: SortOrder
     createdAt?: SortOrder
     blogId?: SortOrder
     status?: SortOrder
     last_editedBy?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type blogs_commentsSumOrderByAggregateInput = {
@@ -35878,10 +35936,12 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
   }
 
   export type blogs_commentsUncheckedCreateWithoutBlogInput = {
@@ -35889,10 +35949,12 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
   }
 
   export type blogs_commentsCreateOrConnectWithoutBlogInput = {
@@ -35929,11 +35991,13 @@ export namespace Prisma {
     name?: StringFilter<"blogs_comments"> | string
     Email?: StringFilter<"blogs_comments"> | string
     description?: StringFilter<"blogs_comments"> | string
+    phone?: StringFilter<"blogs_comments"> | string
     createdAt?: DateTimeFilter<"blogs_comments"> | Date | string
     replies?: JsonNullableListFilter<"blogs_comments">
     blogId?: IntFilter<"blogs_comments"> | number
     status?: EnumCommentStatusFilter<"blogs_comments"> | $Enums.CommentStatus
     last_editedBy?: StringNullableFilter<"blogs_comments"> | string | null
+    updatedAt?: DateTimeNullableFilter<"blogs_comments"> | Date | string | null
   }
 
   export type blogsCreateWithoutCommentsInput = {
@@ -37078,20 +37142,24 @@ export namespace Prisma {
     name: string
     Email: string
     description: string
+    phone: string
     createdAt?: Date | string
     replies?: blogs_commentsCreaterepliesInput | InputJsonValue[]
     status?: $Enums.CommentStatus
     last_editedBy?: string | null
+    updatedAt?: Date | string | null
   }
 
   export type blogs_commentsUpdateWithoutBlogInput = {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type blogs_commentsUncheckedUpdateWithoutBlogInput = {
@@ -37099,10 +37167,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type blogs_commentsUncheckedUpdateManyWithoutBlogInput = {
@@ -37110,10 +37180,12 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
     Email?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     replies?: blogs_commentsUpdaterepliesInput | InputJsonValue[]
     status?: EnumCommentStatusFieldUpdateOperationsInput | $Enums.CommentStatus
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
 

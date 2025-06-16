@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { BlogStatus } from 'general/dto/enums/enum';
+import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
 import GraphQLJSON from 'graphql-type-json';
 
 
@@ -53,5 +53,45 @@ export class Blog {
 
   @Field()
   isPublished: boolean;
+
+}
+
+
+
+
+@ObjectType()
+export class BlogComment {
+  @Field(() => Int)
+  id: number;
+
+  @Field()
+  name: string;
+
+  @Field()
+  Email: string;
+
+  @Field()
+  phone: string;
+
+  @Field()
+  description: string;
+
+  @Field()
+  createdAt: Date;
+
+  @Field(() => [GraphQLJSON])
+  replies: any[];
+
+  @Field(() => Int)
+  blogId: number;
+
+  @Field(() => CommentStatus)
+  status: CommentStatus;
+
+  @Field({ nullable: true })
+  last_editedBy?: string;
+
+  @Field(() => Blog, { nullable: true })
+  blog?: Blog;
 
 }

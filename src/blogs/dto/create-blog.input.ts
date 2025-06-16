@@ -1,5 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
-import { BlogStatus } from 'general/dto/enums/enum';
+import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
 import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
@@ -9,8 +9,8 @@ export class CreateBlogInput {
 
   @Field()
   content: string;
-  
-    @Field()
+
+  @Field()
   custom_url: string;
 
   @Field()
@@ -42,4 +42,80 @@ export class CreateBlogInput {
 
   @Field()
   isPublished: boolean;
+}
+
+
+@InputType()
+export class CreateCommentDto {
+  @Field()
+  name: string;
+
+  @Field()
+  Email: string;
+
+  @Field()
+  phone: string;
+
+  @Field()
+  description: string;
+
+  @Field(() => [String], { nullable: true })
+  replies?: string[];
+
+  @Field(() => Int)
+  blogId: number;
+
+  @Field(() => CommentStatus)
+  status: CommentStatus;
+
+  @Field({ nullable: true })
+  last_editedBy?: string;
+
+}
+@InputType()
+export class CreateReply {
+  @Field()
+  name: string;
+
+  @Field()
+  Email: string;
+
+  @Field()
+  phone: string;
+
+  @Field()
+  description: string;
+
+  @Field()
+  commentId: number;
+
+  @Field(() => CommentStatus)
+  status: CommentStatus;
+
+}
+
+@InputType()
+export class UpdateStatus {
+  @Field(() => Int)
+  id: number;
+
+  @Field(() => CommentStatus)
+  status: CommentStatus;
+
+
+}
+
+@InputType()
+export class updateReplystatus {
+  @Field()
+  id: string;
+
+  @Field(() => CommentStatus)
+  status: CommentStatus;
+
+
+  @Field()
+  commentId: number;
+
+
 }

@@ -40,8 +40,10 @@ export class EComereceService {
 
   async findOne(custom_url: string, category: string, subCategory: string) {
     try {
-      return await this.prisma.ecomereceProducts.findFirst({ where: { custom_url, category: { custom_url: category }, subcategory: { custom_url: subCategory } },
-         include: { subcategory: true, category: true, reviews:true, questions:true } })
+      return await this.prisma.ecomereceProducts.findFirst({
+        where: { custom_url, category: { custom_url: category }, subcategory: { custom_url: subCategory } },
+        include: { subcategory: true, category: true, reviews: true, questions: true }
+      })
     } catch (error) {
       return customHttpException(error)
     }
@@ -50,15 +52,17 @@ export class EComereceService {
   async update(updateProductInput: UpdateEComereceInput) {
     try {
       const { category, subcategory, id, ...updatedData } = updateProductInput
+      let updatedAt = new Date();
       if (!category || !subcategory) return customHttpException('Category or sub category not found', "NOT_FOUND")
       const dataToUpdate: any = {
         ...updatedData,
         categoryId: Number(category),
         subCategoryId: Number(subcategory),
+
       };
 
       return await this.prisma.ecomereceProducts.update({
-        where: { id }, data: dataToUpdate
+        where: { id }, data: { ...dataToUpdate, updatedAt }
       })
     } catch (error) {
       console.log(error, "error")
