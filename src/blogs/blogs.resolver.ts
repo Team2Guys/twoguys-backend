@@ -55,7 +55,14 @@ export class BlogsResolver {
   updatereplyStatus(@Args('updateReplystatus') updateReplystatus: updateReplystatus) {
     return this.blogsService.updatereplyStatus(updateReplystatus);
   }
+  
+  @Query(() => [BlogComment], { nullable: true })
+  Allcoments() {
+    return this.blogsService.Allcoments();
+  }
 
+
+  
 
 
 

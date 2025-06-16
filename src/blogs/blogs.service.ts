@@ -213,6 +213,19 @@ export class BlogsService {
 
 
 
+  async Allcoments() {
+    try {
+      let comoments =  await this.prisma.blogs_comments.findMany({ include: { blog: true } })
+      console.log(comoments, "comoments")
+      return comoments
+    } catch (error) {
+      customHttpException(error)
+    }
+
+  }
+
+
+
 
 
 }
