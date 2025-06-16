@@ -5,28 +5,28 @@ import { contactUsEmailInput, orderEmailInput } from 'sales-products/dto/create-
 
 
 const transporter = nodemailer.createTransport({
-    host: 'mail.blindsandcurtains.ae',
-    port: 587,
-    secure: false,
-    auth: {
-       user: process.env.EMAIL_USER,
-       pass: process.env.EMAIL_PASS,
-    },
- });
- 
- 
+   host: 'mail.blindsandcurtains.ae',
+   port: 587,
+   secure: false,
+   auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+   },
+});
 
- export const sendAppointmentEmail = async (appointmentData: createAppointments) => {
-    const {
-       name,
-       email,
-       phoneNumber,
-       whatsApp,
-       location,
-       subCategories,
-    } = appointmentData;
- 
-    const htmlTemplate = `<!DOCTYPE html>
+
+
+export const sendAppointmentEmail = async (appointmentData: createAppointments) => {
+   const {
+      name,
+      email,
+      phoneNumber,
+      whatsApp,
+      location,
+      subCategories,
+   } = appointmentData;
+
+   const htmlTemplate = `<!DOCTYPE html>
      <html>
        <head>
          <meta charset="UTF-8" />
@@ -121,24 +121,24 @@ const transporter = nodemailer.createTransport({
        </body>
      </html>
     `;
- 
-    try {
-       await transporter.sendMail({
-          from: `Appointment Confirmation ${process.env.EMAIL_USER}`,
-          to: email,
-          subject: `Appointment Confirmation - Two Guys`,
-          html: htmlTemplate,
-       });
-    } catch (error) {
-       console.error("Error sending appointment email:", error);
-       throw new Error("Failed to send appointment confirmation email");
-    }
- };
- 
+
+   try {
+      await transporter.sendMail({
+         from: `Appointment Confirmation ${process.env.EMAIL_USER}`,
+         to: email,
+         subject: `Appointment Confirmation - Two Guys`,
+         html: htmlTemplate,
+      });
+   } catch (error) {
+      console.error("Error sending appointment email:", error);
+      throw new Error("Failed to send appointment confirmation email");
+   }
+};
 
 
- export const contactusEmail = async (data: contactUsEmailInput) => {
-   const { firstName, LastName, email, phoneNumber, message } = data;
+
+export const contactusEmail = async (data: contactUsEmailInput) => {
+   const { name, email, phoneNumber, message, questionFlag } = data;
 
    const htmlTemplate = `
     <!DOCTYPE html>
@@ -152,9 +152,10 @@ const transporter = nodemailer.createTransport({
             padding: 20px;
             border: 1px solid #eee;
             border-radius: 5px;
+         color: #777;
           }
           .header {
-            background-color: #bc6838;
+            background-color: #2b2e2b;
             padding: 10px;
             text-align: center;
             border-radius: 5px 5px 0 0;
@@ -167,7 +168,7 @@ const transporter = nodemailer.createTransport({
           }
           .label {
             font-weight: bold;
-            color: #333;
+            color: #777;
           }
           .footer {
             text-align: center;
@@ -180,14 +181,12 @@ const transporter = nodemailer.createTransport({
       <body>
         <div class="container">
           <div class="header">
-            <h2>New Contact Us Submission</h2>
+            <h2>${questionFlag ? "Question" : "New Contact Us"} Submission</h2>
           </div>
           <div class="content">
+
             <div class="field">
-              <span class="label">First Name:</span> ${firstName}
-            </div>
-            <div class="field">
-              <span class="label">Last Name:</span> ${LastName}
+              <span class="label">Last Name:</span> ${name}
             </div>
             <div class="field">
               <span class="label">Email:</span> ${email}
@@ -209,9 +208,9 @@ const transporter = nodemailer.createTransport({
   `;
 
    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} TG ${process.env.EMAIL_USER}`,
       to: process.env.CONTACT_US_EMAIL,
-      subject: `New Contact Form Submission from ${firstName} ${LastName}`,
+      subject: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} ${name} `,
       html: htmlTemplate,
    });
 };
@@ -561,7 +560,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
        <p style="text-align:center;" class="order-para">Thank you very much for the order <br> you placed with <a
              href="https://easyfloors.ae/">https://easyfloors.ae/</a></p>
        <a href="#" class="order-button"> ${orderDetails.isfreesample ? "View Your Order" : "View Your Free Sample Order"}</a>
-       <p style="text-align:center;" class="order-para">Your ${orderDetails.isfreesample ? "Free Sample order" : "order" } has now been sent to the warehouse to prepare for packing and
+       <p style="text-align:center;" class="order-para">Your ${orderDetails.isfreesample ? "Free Sample order" : "order"} has now been sent to the warehouse to prepare for packing and
           dispatch.</p>
        <p style="text-align:center;" class="order-para">Our team will be in touch soon to arrange the delivery with you.</p>
        <p style="text-align:center;" class="order-para">All The Best,</p>

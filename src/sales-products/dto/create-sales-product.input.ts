@@ -28,11 +28,11 @@ export class CreateOrderInput {
   phone: string;
 
   @Field()
-  emirate: string; 
+  emirate: string;
 
 
-  @Field({nullable:true})
-  otherCity?: string; 
+  @Field({ nullable: true })
+  otherCity?: string;
 
   @Field(() => [GraphQLJSON])
   products: any[];
@@ -45,7 +45,7 @@ export class CreateOrderInput {
 
   @Field(() => GraphQLJSON)
   shippingMethod: any;
-  
+
 }
 
 
@@ -92,22 +92,31 @@ export class ProductInput {
 
 @InputType()
 export class contactUsEmailInput {
-    @Field()
-    firstName: string;
-    @Field()
-    LastName: string;
-    @Field()
-    email: string;
-    @Field()
-    phoneNumber: string;
-    @Field()
-    message: string;
+  @Field()
+  name: string;
+  @Field()
+  email: string;
+  @Field()
+  phoneNumber: string;
+  @Field()
+  message: string;
+  @Field(() => Boolean)
+  agree: boolean;
+
+  @Field(() => Boolean,{nullable:true})
+  questionFlag?: boolean;
+
+  
+  
+
+
+
 }
 
 
 @InputType()
 export class PaymentQueryDto {
-  @Field(()=>Boolean,{ nullable: true })
+  @Field(() => Boolean, { nullable: true })
   success?: boolean;
 
   @Field({ nullable: true })
@@ -116,7 +125,7 @@ export class PaymentQueryDto {
   @Field({ nullable: true })
   orderId?: string;
 
-  @Field(()=>Boolean,{ nullable: true })
+  @Field(() => Boolean, { nullable: true })
   pending?: boolean;
 
   @Field({ nullable: true })
@@ -140,7 +149,7 @@ export class orderEmailInput extends PartialType(CreateOrderInput) {
 
   @Field()
   transactionDate: Date;
-    @Field(()=>Boolean, {nullable:true})
+  @Field(() => Boolean, { nullable: true })
   isfreesample?: boolean;
 
 }
