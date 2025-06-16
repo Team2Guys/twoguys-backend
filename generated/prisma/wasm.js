@@ -420,11 +420,13 @@ exports.Prisma.Blogs_commentsScalarFieldEnum = {
   name: 'name',
   Email: 'Email',
   description: 'description',
+  phone: 'phone',
   createdAt: 'createdAt',
   replies: 'replies',
   blogId: 'blogId',
   status: 'status',
-  last_editedBy: 'last_editedBy'
+  last_editedBy: 'last_editedBy',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SalesProductsScalarFieldEnum = {

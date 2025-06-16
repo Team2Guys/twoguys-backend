@@ -1,3 +1,4 @@
+import { HttpStatus } from '@nestjs/common';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import { ApolloError } from 'apollo-server-express';
 
@@ -21,3 +22,11 @@ export const customHttpException = (error: any, status?: string) => {
 
    throw new ApolloError(error || 'An unexpected error occur.', error.status || 'INTERNAL_SERVER_ERROR');
 };
+
+
+
+export function getStatusNameByCode(code: number): string | undefined {
+    const entry = Object.entries(HttpStatus).find(([_, value]) => value === code);
+    console.log(entry)
+    return entry ? entry[0] : undefined;
+  }

@@ -399,12 +399,14 @@ model blogs_comments {
   name          String
   Email         String
   description   String
+  phone     String
   createdAt     DateTime      @default(now())
   replies       Json[]
   blogId        Int
   blog          blogs         @relation("BlogComments", fields: [blogId], references: [id])
   status        CommentStatus @default(PENDING)
   last_editedBy String?
+  updatedAt     DateTime?
 }
 
 model salesProducts {
