@@ -3,9 +3,9 @@ import { CreateBlogInput, CreateCommentDto, CreateReply, updateReplystatus } fro
 import { UpdateBlogInput, UpdateCommentDto } from './dto/update-blog.input';
 import { PrismaService } from 'prisma/prisma.service';
 import { customHttpException, getStatusNameByCode } from 'utils/helper';
-import { Prisma } from '@prisma/client';
 import { CommentStatus } from 'general/dto/enums/enum';
 import { randomUUID } from 'crypto';
+import { Prisma } from '../../generated/prisma';
 
 @Injectable()
 export class BlogsService {
