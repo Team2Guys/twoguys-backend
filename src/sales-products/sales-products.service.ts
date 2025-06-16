@@ -231,7 +231,7 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
 
   async contactUs(userDetails: contactUsEmailInput) {
     try {
-      let message = await contactusEmail(userDetails);
+   await contactusEmail(userDetails);
 
       return {
         'message': "Email sent successfully"
