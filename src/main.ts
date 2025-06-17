@@ -16,7 +16,7 @@ async function bootstrap() {
       "http://localhost:3000",
       'http://localhost:3001',
       "http://localhost:5008",
-      "http://192.168.1.18:5008/"
+      "http://192.168.1.18:5008"
     ],
     credentials: true,
     allowedHeaders: ["Authorization", "Content-Type"],
