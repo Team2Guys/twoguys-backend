@@ -170,5 +170,8 @@ export class InnerSubCategory {
 
   @Field(() => Subcategory, { nullable: true })
   subCategory?: Subcategory;
+  
+    @Field(() => GraphQLJSON, { nullable: true })
+    catalogue?: any;
 
 }

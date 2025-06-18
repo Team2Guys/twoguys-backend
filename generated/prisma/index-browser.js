@@ -323,7 +323,8 @@ exports.Prisma.InnersubCategoriesScalarFieldEnum = {
   subCategoryId: 'subCategoryId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  last_editedBy: 'last_editedBy'
+  last_editedBy: 'last_editedBy',
+  catalogue: 'catalogue'
 };
 
 exports.Prisma.EcomereceProductsScalarFieldEnum = {
