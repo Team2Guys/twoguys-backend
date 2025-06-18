@@ -136,11 +136,15 @@ export class CreateSubcategoryInput {
 
 
 @InputType()
-export class CreateInnerSubcategoryInput{
+export class CreateInnerSubcategoryInput {
   @Field()
   name: string;
   @Field()
   custom_url: string;
   @Field()
   subCategoryId: string;
+
+  @Field(() => GraphQLJSON, { nullable: true })
+  catalogue?: any;
+
 }

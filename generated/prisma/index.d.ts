@@ -12987,6 +12987,7 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     last_editedBy: number
+    catalogue: number
     _all: number
   }
 
@@ -13029,6 +13030,7 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     last_editedBy?: true
+    catalogue?: true
     _all?: true
   }
 
@@ -13126,6 +13128,7 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     last_editedBy: string | null
+    catalogue: JsonValue | null
     _count: InnersubCategoriesCountAggregateOutputType | null
     _avg: InnersubCategoriesAvgAggregateOutputType | null
     _sum: InnersubCategoriesSumAggregateOutputType | null
@@ -13155,6 +13158,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     last_editedBy?: boolean
+    catalogue?: boolean
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
     products?: boolean | InnersubCategories$productsArgs<ExtArgs>
     _count?: boolean | InnersubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
@@ -13168,6 +13172,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     last_editedBy?: boolean
+    catalogue?: boolean
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["innersubCategories"]>
 
@@ -13179,6 +13184,7 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     last_editedBy?: boolean
+    catalogue?: boolean
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
   }, ExtArgs["result"]["innersubCategories"]>
 
@@ -13190,9 +13196,10 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     last_editedBy?: boolean
+    catalogue?: boolean
   }
 
-  export type InnersubCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "custom_url" | "subCategoryId" | "createdAt" | "updatedAt" | "last_editedBy", ExtArgs["result"]["innersubCategories"]>
+  export type InnersubCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "custom_url" | "subCategoryId" | "createdAt" | "updatedAt" | "last_editedBy" | "catalogue", ExtArgs["result"]["innersubCategories"]>
   export type InnersubCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
     products?: boolean | InnersubCategories$productsArgs<ExtArgs>
@@ -13219,6 +13226,7 @@ export namespace Prisma {
       createdAt: Date | null
       updatedAt: Date | null
       last_editedBy: string | null
+      catalogue: Prisma.JsonValue | null
     }, ExtArgs["result"]["innersubCategories"]>
     composites: {}
   }
@@ -13651,6 +13659,7 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"InnersubCategories", 'DateTime'>
     readonly updatedAt: FieldRef<"InnersubCategories", 'DateTime'>
     readonly last_editedBy: FieldRef<"InnersubCategories", 'String'>
+    readonly catalogue: FieldRef<"InnersubCategories", 'Json'>
   }
     
 
@@ -25361,7 +25370,8 @@ export namespace Prisma {
     subCategoryId: 'subCategoryId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    last_editedBy: 'last_editedBy'
+    last_editedBy: 'last_editedBy',
+    catalogue: 'catalogue'
   };
 
   export type InnersubCategoriesScalarFieldEnum = (typeof InnersubCategoriesScalarFieldEnum)[keyof typeof InnersubCategoriesScalarFieldEnum]
@@ -26869,6 +26879,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
+    catalogue?: JsonNullableFilter<"InnersubCategories">
     subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     products?: ProductsListRelationFilter
   }
@@ -26881,6 +26892,7 @@ export namespace Prisma {
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     last_editedBy?: SortOrderInput | SortOrder
+    catalogue?: SortOrderInput | SortOrder
     subCategory?: subCategoriesOrderByWithRelationInput
     products?: ProductsOrderByRelationAggregateInput
   }
@@ -26896,6 +26908,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
+    catalogue?: JsonNullableFilter<"InnersubCategories">
     subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     products?: ProductsListRelationFilter
   }, "id">
@@ -26908,6 +26921,7 @@ export namespace Prisma {
     createdAt?: SortOrderInput | SortOrder
     updatedAt?: SortOrderInput | SortOrder
     last_editedBy?: SortOrderInput | SortOrder
+    catalogue?: SortOrderInput | SortOrder
     _count?: InnersubCategoriesCountOrderByAggregateInput
     _avg?: InnersubCategoriesAvgOrderByAggregateInput
     _max?: InnersubCategoriesMaxOrderByAggregateInput
@@ -26926,6 +26940,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableWithAggregatesFilter<"InnersubCategories"> | Date | string | null
     updatedAt?: DateTimeNullableWithAggregatesFilter<"InnersubCategories"> | Date | string | null
     last_editedBy?: StringNullableWithAggregatesFilter<"InnersubCategories"> | string | null
+    catalogue?: JsonNullableWithAggregatesFilter<"InnersubCategories">
   }
 
   export type EcomereceProductsWhereInput = {
@@ -29322,6 +29337,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
     products?: ProductsCreateNestedManyWithoutInnersubcategoryInput
   }
@@ -29334,6 +29350,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
   }
 
@@ -29343,6 +29360,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutInnersubcategoryNestedInput
   }
@@ -29355,6 +29373,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
   }
 
@@ -29366,6 +29385,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type InnersubCategoriesUpdateManyMutationInput = {
@@ -29374,6 +29394,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type InnersubCategoriesUncheckedUpdateManyInput = {
@@ -29384,6 +29405,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EcomereceProductsCreateInput = {
@@ -31522,6 +31544,7 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     last_editedBy?: SortOrder
+    catalogue?: SortOrder
   }
 
   export type InnersubCategoriesAvgOrderByAggregateInput = {
@@ -34084,6 +34107,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsCreateNestedManyWithoutInnersubcategoryInput
   }
 
@@ -34094,6 +34118,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
   }
 
@@ -34329,6 +34354,7 @@ export namespace Prisma {
     createdAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     updatedAt?: DateTimeNullableFilter<"InnersubCategories"> | Date | string | null
     last_editedBy?: StringNullableFilter<"InnersubCategories"> | string | null
+    catalogue?: JsonNullableFilter<"InnersubCategories">
   }
 
   export type EcomereceProductsUpsertWithWhereUniqueWithoutSubcategoryInput = {
@@ -34547,6 +34573,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
   }
 
@@ -34558,6 +34585,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type InnersubCategoriesCreateOrConnectWithoutProductsInput = {
@@ -34788,6 +34816,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
   }
 
@@ -34799,6 +34828,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type subCategoriesCreateWithoutInnersubCategoriesInput = {
@@ -36600,6 +36630,7 @@ export namespace Prisma {
     createdAt?: Date | string | null
     updatedAt?: Date | string | null
     last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EcomereceProductsCreateManySubcategoryInput = {
@@ -36758,6 +36789,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUpdateManyWithoutInnersubcategoryNestedInput
   }
 
@@ -36768,6 +36800,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
   }
 
@@ -36778,6 +36811,7 @@ export namespace Prisma {
     createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
   }
 
   export type EcomereceProductsUpdateWithoutSubcategoryInput = {

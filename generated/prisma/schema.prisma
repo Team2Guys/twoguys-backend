@@ -283,6 +283,7 @@ model InnersubCategories {
   updatedAt     DateTime?
   last_editedBy String?
   products      Products[]     @relation()
+  catalogue     Json?
 }
 
 model EcomereceProducts {
