@@ -74,6 +74,9 @@ export class ProductInput {
   sizes: string;
 
   @Field()
+  dimension: string;
+
+  @Field()
   variant: string;
 
   @Field(() => Int)

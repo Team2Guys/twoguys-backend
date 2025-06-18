@@ -39,38 +39,41 @@ export class contactUsEmail {
 
 @ObjectType()
 export class Products {
-  @Field()
-  id: string;
+    @Field()
+    id: string;
 
-  @Field()
-  name: string;
+    @Field()
+    name: string;
 
-  @Field(() => Float)
-  price: number;
+    @Field(() => Float)
+    price: number;
 
-  @Field(() => Float)
-  discountPrice: number;
+    @Field(() => Float)
+    discountPrice: number;
 
-  @Field()
-  colors: string;
+    @Field()
+    colors: string;
 
-  @Field()
-  sizes: string;
+    @Field()
+    sizes: string;
 
-  @Field()
-  variant: string;
+    @Field()
+    variant: string;
 
-  @Field(() => Int)
-  stock: number;
+    @Field(() => Int)
+    stock: number;
 
-  @Field(() => Int)
-  quantity: number;
+    @Field(() => Int)
+    quantity: number;
 
-  @Field(() => Float)
-  totalPrice: number;
+    @Field(() => Float)
+    totalPrice: number;
 
-  @Field(() => GraphQLJSON)
-  image: any;
+    @Field(() => GraphQLJSON)
+    image: any;
+
+    @Field()
+    dimension: string;
 }
 
 @ObjectType()
@@ -105,7 +108,7 @@ export class paymentStatus {
     @Field()
     orderId: string;
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     transactionDate: Date;
 
     @Field(() => [Products])
@@ -118,45 +121,45 @@ export class paymentStatus {
     totalPrice: number;
 
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     pay_methodType: string;
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     paymethod_sub_type: string;
 
-    @Field(()=>Int,{nullable:true})
+    @Field(() => Int, { nullable: true })
     cardLastDigits: number;
 
 
-    @Field(()=>Boolean,{nullable:true})
+    @Field(() => Boolean, { nullable: true })
     checkout: boolean;
-    
-    @Field(()=>Boolean,{nullable:true})
+
+    @Field(() => Boolean, { nullable: true })
     paymentStatus: boolean;
 
-    @Field(()=>Boolean,{nullable:true})
+    @Field(() => Boolean, { nullable: true })
     isRefund: boolean;
 
-    @Field(()=>Boolean,{nullable:true})
+    @Field(() => Boolean, { nullable: true })
     success: boolean;
 
-    @Field(()=>Boolean,{nullable:true})
+    @Field(() => Boolean, { nullable: true })
     pending: boolean;
 
-    @Field(()=>Boolean,{nullable:true})
+    @Field(() => Boolean, { nullable: true })
     isfreesample: boolean;
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     currency: string;
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     is3DSecure: string;
 
 
-    @Field({nullable:true})
+    @Field({ nullable: true })
     checkoutDate: Date;
 
 
-    @Field(() => GraphQLJSON,{nullable:true})
-      shippingMethod: any
+    @Field(() => GraphQLJSON, { nullable: true })
+    shippingMethod: any
 }
