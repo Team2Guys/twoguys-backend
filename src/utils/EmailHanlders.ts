@@ -219,15 +219,17 @@ export const contactusEmail = async (data: contactUsEmailInput) => {
 export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEmail?: string,) => {
    const { products, firstName, lastName, orderId, email, phone, address, emirate, totalPrice, shipmentFee } = orderDetails;
 
+   console.log(products, "products")
+
    const formattedDate = new Date().toLocaleDateString("en-US", {
       month: "short",
       day: "2-digit",
       year: "numeric",
    }).toUpperCase();
    const mailOptions = {
-      from: `Order Confirmation @EF ${process.env.EMAIL_USER}`,
-      to: CustomerEmail ? CustomerEmail : `${process.env.EMAIL_USER},${process.env.ORDER_MAIL1},${process.env.ORDER_MAIL2}`,
-      subject: `Order has been confirmed @ EF against Order # ${orderId}`,
+      from: `Order Confirmation @TG ${process.env.FROMMAIL}`,
+      to: CustomerEmail ? CustomerEmail : `${process.env.FROMMAIL},${process.env.ORDER_MAIL1},${process.env.ORDER_MAIL2}`,
+      subject: `Order has been confirmed @TG against Order # ${orderId}`,
 
       html: `<!DOCTYPE html>
 <html lang="en">
@@ -248,9 +250,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
        max-width: 500px;
        margin: 20px auto;
        background-color: #fff;
-       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-       border-top: 5px solid #BF6933;
-       border-bottom: 5px solid #BF6933;
+   
     }
 
     .main-container {
@@ -300,7 +300,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
        display: block;
        width: 200px;
        text-align: center;
-       background-color: #BF6933;
+       background-color: #2b2e2b;
        color: white !important;
        padding: 10px;
        margin: 20px auto;
@@ -416,7 +416,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
        text-decoration: none;
        color: rgb(255, 255, 255);
        padding: 10px 15px;
-       background-color: #BF6933;
+       background-color: #2b2e2b;
        display: inline-block;
     }
 
@@ -545,7 +545,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
     <div class="main-container">
        <div class="header" style="text-align:center;">
           <img
-             src="https://res.cloudinary.com/dmmeqgdhv/image/upload/v1742982252/easyfloor_logo_2_goghap.jpg"
+             src="https://res.cloudinary.com/dsnhtfuef/image/upload/v1750153657/logo_dfk3ub.png"
              alt="Brand Logo">
        </div>
        <h3 style="text-align:center; margin:0; padding:0; color: black;">ORDER#${orderId}</h3>
@@ -553,18 +553,18 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
        <h1 style="text-align:center; color: black;">Order Confirmed</h1>
 
        <div class="progress-container" style="text-align:center;">
-          <img src="https://res.cloudinary.com/dmmeqgdhv/image/upload/v1742982267/easyfloor_order_bhi6l1.jpg"
+          <img src="https://res.cloudinary.com/dsnhtfuef/image/upload/v1750153703/order_jyuuas.png"
              alt="Progress Status" style="width: 100%;">
        </div>
        <p style="text-align:center;" class="order-para">Dear <b>Customer,</b></p>
        <p style="text-align:center;" class="order-para">Thank you very much for the order <br> you placed with <a
-             href="https://easyfloors.ae/">https://easyfloors.ae/</a></p>
-       <a href="#" class="order-button"> ${orderDetails.isfreesample ? "View Your Order" : "View Your Free Sample Order"}</a>
+             href="https://www.twoguys.ae/">https://www.twoguys.ae/</a></p>
+       <a href="https://twoguys.ae/track-order/${orderId}/" class="order-button">View Your Order</a>
        <p style="text-align:center;" class="order-para">Your ${orderDetails.isfreesample ? "Free Sample order" : "order"} has now been sent to the warehouse to prepare for packing and
           dispatch.</p>
        <p style="text-align:center;" class="order-para">Our team will be in touch soon to arrange the delivery with you.</p>
        <p style="text-align:center;" class="order-para">All The Best,</p>
-       <p style="text-align:center;" class="order-para">The Team at<strong> @"Easyfloors"</strong></p>
+       <p style="text-align:center;" class="order-para">The Team at<strong> @"Two Guys"</strong></p>
        <div class="purchase-details">
           <h3>Purchase Details</h3>
           <table class="purchase-table">
@@ -577,25 +577,71 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
              </thead>
 
 
-             <tbody>
+                  <tbody>
                 ${products?.map((product, index) => `
                 <tr key="${index}">
                    <td style="padding: 10px 2px;" class="product-title-wrapper">
                       <div style="display:flex; gap:5px; align-items:center; justify-content:center;">
                          <img
-                            src="${product.image}"
-                            alt="${product.name}" style="height:70px; width:70px;" class="product-img">
+                            src="${product?.image?.imageUrl}"
+                            alt="${product?.name}" style="height:70px; width:70px;" class="product-img">
                          <div>
-                            <p class="table-font" style="margin-left: 5px; margin-bottom: 0px; margin-top: 0px; color: black; font-weight: 600;">${product.name}</p>
-                            <p class="table-font" style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;"><b>No .of Boxes:</b> ${product.requiredBoxes}(${product.squareMeter} SQM)</p>
+                            <p class="table-font" style="margin-left: 5px; margin-bottom: 0px; margin-top: 0px; color: black; font-weight: 600;">
+                            ${product?.name}</p>
+                  <p class="table-font" 
+                  style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
+                  <b>Quantity 
+                  :</b>
+                     ${product?.quantity}
+                              
+                             </p>
+
+                           
+
+         ${
+            product?.variant ?
+            `  <p class="table-font" 
+                            style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
+                              <b>Variant</b>
+                     ${product?.variant}
+                              
+                             </p>` : ""
+   }
+
+
+
+
+         
+
+               ${
+               product?.sizes ?
+               `  <p class="table-font" 
+                            style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
+                              <b>Size</b>
+                     ${product?.sizes || ""})
+                              
+                             </p>` 
+                             
+                             : ""
+
+
+
+
+
+         }
+
+
+         
+                             
                          </div>
                       </div>
                    </td>
-                   <td class="table-font" style="text-align:center; padding: 10px 2px;">${product.price || "Free"}</td>
+                   <td class="table-font" style="text-align:center; padding: 10px 2px;">${product.discountPrice || product.price || "Free"}</td>
                    <td class="table-font" style="text-align:center; padding: 10px 2px;">${product.totalPrice || "Free"}</td>
                 </tr>
                 `).join('')}
              </tbody>
+        
 
 
           </table>
@@ -646,7 +692,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
                       <table style="border-collapse: collapse;">
                          <tr>
                             <td colspan="5" style="padding: 8px;" class="table-font">Subtotal</td>
-                            <td style="padding: 8px;" class="table-font">${totalPrice || "Free"}</td>
+                            <td style="padding: 8px;" class="table-font">${(totalPrice && shipmentFee) ? totalPrice - shipmentFee : totalPrice || "Free"}</td>
                          </tr>
                          <tr style="border-bottom: 2px solid #ccc;">
                             <td colspan="5" style="padding: 8px;" class="table-font">Shipment</td>
@@ -654,7 +700,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
                          </tr>
                          <tr>
                             <td colspan="5" style="padding: 8px; font-weight: bold; " class="table-font">Total Incl. VAT</td>
-                            <td style="padding: 8px; font-weight: bold;" class="table-font">${(totalPrice && Number(shipmentFee) + totalPrice) || "Free"}</td>
+                            <td style="padding: 8px; font-weight: bold;" class="table-font">${(totalPrice) || "Free"}</td>
                          </tr>
                       </table>
                    </td>
@@ -665,23 +711,27 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
              </table>
        </div>
 
-       <div style="text-align: center; margin-top: 20px; background-color: #BF6933; padding: 14px;">
+       <div style="text-align: center; margin-top: 20px; background-color: #2B2E2B; padding: 14px;">
           <img src="https://res.cloudinary.com/dgwsc8f0g/image/upload/v1739185483/features_lbnmr6.png" alt="features"
              style="display: block; margin: auto; max-width: 100%; height: auto;">
        </div>
 </body>
 <div class="categories">
- <a target="_blank" href=https://easyfloors.ae/spc-flooring>SPC Flooring</a>
- <a target="_blank" href=https://easyfloors.ae/lvt-flooring>LVT Flooring    </a>
- <a target="_blank" href=https://easyfloors.ae/richmond-flooring> Richmond Flooring </a>
- <a target="_blank" href=https://easyfloors.ae/polar-flooring>Polar Flooring </a>
+ <a target="_blank" href=https://twoguys.ae/window-coverings/>Window Covering</a>
+ <a target="_blank" href=https://twoguys.ae/flooring/>Flooring</a>
+ <a target="_blank" href=https://twoguys.ae/wall-decor/>Wall Decor  </a>
+ <a target="_blank" href=https://twoguys.ae/furniture/>Furniture </a>
 
 </div>
 <div class="social-icons">
- <a href="https://www.facebook.com/easyfloorsuae" target="_blank"> <img
-       src="https://res.cloudinary.com/dgwsc8f0g/image/upload/v1739185482/facebook-icon_tdqcrw.png"></a>
- <a href="https://www.pinterest.com/easyfloorsuae/" target="_blank"> <img
-       src="https://res.cloudinary.com/dgwsc8f0g/image/upload/v1739185483/pinterest-icon_dsvge7.png"
+ <a href="https://www.facebook.com/twoguysuae/" target="_blank"> <img
+       src="https://res.cloudinary.com/dsnhtfuef/image/upload/v1750157134/icon_nss4rt.png"></a>
+
+ <a href="https://www.instagram.com/twoguysuae/" target="_blank"> <img
+       src="https://res.cloudinary.com/dsnhtfuef/image/upload/v1750157229/Black_l6a8cj.png"></a>
+
+       <a href="https://www.pinterest.com/twoguysuae/" target="_blank"> <img
+       src="https://res.cloudinary.com/dsnhtfuef/image/upload/v1750157131/Vector-1_xpouvt.png"
        alt="pinterest"></a>
 </div>
 </div>
