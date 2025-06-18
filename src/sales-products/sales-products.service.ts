@@ -3,7 +3,7 @@ import { contactUsEmailInput, CreateOrderInput, orderEmailInput, PaymentQueryDto
 import { customHttpException } from '../utils/helper';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
-import {contactusEmail, sendEmailHandler } from 'utils/EmailHanlders';
+import { contactusEmail, sendEmailHandler } from 'utils/EmailHanlders';
 
 @Injectable()
 export class SalesProductsService {
@@ -24,10 +24,10 @@ export class SalesProductsService {
         "amount": Math.ceil(totalPrice * 100),
         "currency": process.env.PAYMOD_CURRENCY,
         "payment_methods": [
-   57660,
-   52375,
-   52374,
-   52172
+          57660,
+          52375,
+          52374,
+          52172
         ],
         "items": totalAmount,
         "billing_data": {
@@ -56,7 +56,7 @@ export class SalesProductsService {
       let result = await response.json();
 
       console.log(result.intention_order_id, "intention id")
-if(!result.intention_order_id) return customHttpException("Order Id not found ", 'NOT_FOUND');
+      if (!result.intention_order_id) return customHttpException("Order Id not found ", 'NOT_FOUND');
 
       await this.prisma.salesProducts.create({
         data: {
@@ -196,7 +196,7 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
       //   console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
       //   return customHttpException("Payment status already updated", 'BAD_REQUEST');
       // }
-    
+
 
       const paymentStatus = await this.prisma.salesProducts.update({
         where: { orderId },
@@ -206,16 +206,82 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
       const products: ProductInput[] = JSON.parse(JSON.stringify(existingOrder.products)) as ProductInput[];
 
 
+      // if (Array.isArray(products) && products.length > 0) {
+      //   for (const prod of products) {
+      //     if (prod.variant || prod.sizes) {
+      //       let existingproduct = await this.prisma.ecomereceProducts.findUnique({ where: { id: Number(prod.id) } })
+      //       let sizeFlag = prod.sizes ? "sizes" : "variant"
+      //       if (!existingproduct) return
+      //       let updatedStock = existingproduct[sizeFlag].map((variant: any) => ({
+      //         ...variant,
+      //         stock: variant.stock - prod.quantity,
+      //       }));
+
+
+      //     }
+
+
+
+
+
+
+      //     await this.prisma.ecomereceProducts.update({
+      //       where: { id: Number(prod.id) },
+      //       data: {
+      //         stock: {
+      //           decrement: prod.quantity,
+      //         },
+      //       },
+      //     });
+      //   }
+      // }
+
+      
+
+
       if (Array.isArray(products) && products.length > 0) {
         for (const prod of products) {
-          await this.prisma.ecomereceProducts.update({
+          const existingProduct = await this.prisma.ecomereceProducts.findUnique({
             where: { id: Number(prod.id) },
-            data: {
-              stock: {
-                decrement: prod.quantity,
-              },
-            },
           });
+
+          if (!existingProduct) continue;
+
+          const hasVariants = !!prod.variant;
+          const hasSizes = !!prod.sizes;
+
+          // Handle size or variant stock update
+          if (hasVariants || hasSizes) {
+            const key = hasSizes ? 'sizes' : 'variant';
+
+            const updatedItems = existingProduct[key].map((item: any) => {
+              if (item.name === prod.sizes || prod.variant) {
+                return {
+                  ...item,
+                  stock: item.stock - prod.quantity,
+                };
+              }
+              return item;
+            });
+
+            // Save the updated array back
+            await this.prisma.ecomereceProducts.update({
+              where: { id: Number(prod.id) },
+              data: {
+                [key]: updatedItems,
+              },
+            });
+          } else {
+            // Simple product with no variants/sizes
+            await this.prisma.ecomereceProducts.update({
+              where: { id: Number(prod.id) },
+              data: {
+                stock: {
+                  decrement: prod.quantity,
+                },
+              },
+            });
+          }
         }
       }
 
@@ -231,7 +297,7 @@ if(!result.intention_order_id) return customHttpException("Order Id not found ",
 
   async contactUs(userDetails: contactUsEmailInput) {
     try {
-   await contactusEmail(userDetails);
+      await contactusEmail(userDetails);
 
       return {
         'message': "Email sent successfully"
