@@ -72,8 +72,8 @@ export class Products {
     @Field(() => GraphQLJSON)
     image: any;
 
-    @Field()
-    dimension: string;
+    @Field(() => [GraphQLJSON])
+    dimension?: string[];
 }
 
 @ObjectType()

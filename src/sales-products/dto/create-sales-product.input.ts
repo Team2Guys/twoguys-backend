@@ -73,8 +73,8 @@ export class ProductInput {
   @Field()
   sizes: string;
 
-  @Field()
-  dimension: string;
+  @Field(()=>[GraphQLJSON])
+  dimension?: string[];
 
   @Field()
   variant: string;
