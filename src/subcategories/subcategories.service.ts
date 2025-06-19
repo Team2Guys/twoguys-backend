@@ -47,7 +47,7 @@ export class SubcategoriesService {
         where: { custom_url, category: { custom_url: category } }, include: {
           category: true,
           products: true,
-          EcomereceProducts:true, 
+          EcomereceProducts:{include:{category:true, subcategory:true}}, 
           InnersubCategories: { include: { products: true } }
 
         }
