@@ -3,7 +3,7 @@ import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGene
 import { UpdateCreateJobApplicationDto, UpdateCreateJobDto, UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
 import { PrismaService } from '../prisma/prisma.service';
 import { customHttpException } from '../utils/helper';
-import { sendAppointmentEmail } from '../utils/EmailHanlders';
+import { sendAppointmentEmail, sendJobApplicationEmails } from '../utils/EmailHanlders';
 
 @Injectable()
 export class GeneralService {
@@ -336,7 +336,9 @@ export class GeneralService {
   async createjobApplication(CreateJobApplicationDto: CreateJobApplicationDto) {
     try {
 
-      return await this.prisma.jobApplication.create({ data: CreateJobApplicationDto })
+     let applicant =   await this.prisma.jobApplication.create({ data: CreateJobApplicationDto })
+      sendJobApplicationEmails(CreateJobApplicationDto)
+      return applicant
     } catch (error) {
       customHttpException(error)
     }

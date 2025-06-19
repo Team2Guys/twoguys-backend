@@ -1,4 +1,4 @@
-import { createAppointments } from 'general/dto/create-general.input';
+import { createAppointments, CreateJobApplicationDto } from 'general/dto/create-general.input';
 import nodemailer from 'nodemailer';
 import { contactUsEmailInput, orderEmailInput } from 'sales-products/dto/create-sales-product.input';
 
@@ -598,31 +598,29 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
 
                            
 
-         ${
-            product?.variant ?
+         ${product?.variant ?
             `  <p class="table-font" 
                             style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
                               <b>Variant</b>
                      ${product?.variant}
                               
                              </p>` : ""
-   }
+         }
 
 
 
 
          
 
-               ${
-               product?.sizes ?
-               `  <p class="table-font" 
+               ${product?.sizes ?
+            `  <p class="table-font" 
                             style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
                               <b>Size</b>
                      ${product?.sizes || ""})
                               
-                             </p>` 
-                             
-                             : ""
+                             </p>`
+
+            : ""
 
 
 
@@ -757,4 +755,160 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
    }
 
 
+};
+
+
+
+
+
+export const sendJobApplicationEmails = async (data: CreateJobApplicationDto) => {
+   const {
+      firstName,
+      lastName,
+      email,
+      phone,
+      currentCTC,
+      expectedCTC,
+      noticePeriod,
+      JobName,
+      resume,
+      portfolioLink,
+   } = data;
+
+   const adminHtmlTemplate = `
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <style>
+         .container {
+           font-family: Arial, sans-serif;
+           max-width: 600px;
+           margin: 0 auto;
+           padding: 20px;
+           border: 1px solid #eee;
+           border-radius: 5px;
+           color: #555;
+         }
+         .header {
+           background-color: #2b2e2b;
+           padding: 10px;
+           text-align: center;
+           border-radius: 5px 5px 0 0;
+           color: white;
+         }
+         .content {
+           padding: 20px;
+         }
+         .field {
+           margin-bottom: 10px;
+         }
+         .label {
+           font-weight: bold;
+           color: #444;
+         }
+         .footer {
+           text-align: center;
+           color: #888;
+           font-size: 12px;
+           padding: 10px;
+         }
+         a {
+           color: #1a0dab;
+         }
+       </style>
+     </head>
+     <body>
+       <div class="container">
+         <div class="header">
+           <h2>New Job Application - ${JobName}</h2>
+         </div>
+         <div class="content">
+           <div class="field"><span class="label">First Name:</span> ${firstName}</div>
+           <div class="field"><span class="label">Last Name:</span> ${lastName}</div>
+           <div class="field"><span class="label">Email:</span> ${email}</div>
+           <div class="field"><span class="label">Phone:</span> ${phone}</div>
+           <div class="field"><span class="label">Current CTC:</span> ${currentCTC}</div>
+           <div class="field"><span class="label">Expected CTC:</span> ${expectedCTC}</div>
+           <div class="field"><span class="label">Notice Period:</span> ${noticePeriod}</div>
+           ${
+             portfolioLink
+               ? `<div class="field"><span class="label">Portfolio:</span> <a href="${portfolioLink}" target="_blank">${portfolioLink}</a></div>`
+               : ''
+           }
+           <div class="field"><span class="label">Resume:</span> <a href="${resume.imageUrl}" target="_blank">View Resume</a></div>
+         </div>
+         <div class="footer">
+           This application was submitted via the website careers page.
+         </div>
+       </div>
+     </body>
+   </html>
+   `;
+
+   const candidateHtmlTemplate = `
+   <!DOCTYPE html>
+   <html>
+     <head>
+       <style>
+         .container {
+           font-family: Arial, sans-serif;
+           max-width: 600px;
+           margin: 0 auto;
+           padding: 20px;
+           border: 1px solid #eee;
+           border-radius: 5px;
+           color: #555;
+         }
+         .header {
+           background-color: #2b2e2b;
+           padding: 10px;
+           text-align: center;
+           border-radius: 5px 5px 0 0;
+           color: white;
+         }
+         .content {
+           padding: 20px;
+         }
+         .footer {
+           text-align: center;
+           color: #888;
+           font-size: 12px;
+           padding: 10px;
+         }
+       </style>
+     </head>
+     <body>
+       <div class="container">
+         <div class="header">
+           <h2>Thank you for applying!</h2>
+         </div>
+         <div class="content">
+           <p>Dear ${firstName},</p>
+           <p>We have received your application for the position of <strong>${JobName}</strong>.</p>
+           <p>Our team will review your submission and get back to you if you are shortlisted.</p>
+           <p>Best regards,<br/>Two Guys Furnishing HR Team</p>
+         </div>
+         <div class="footer">
+           This is an automated confirmation email.
+         </div>
+       </div>
+     </body>
+   </html>
+   `;
+
+   // ✅ Send email to candidate
+   await transporter.sendMail({
+      from: `"Two Guys Careers" ${process.env.CAREER}`,
+      to: email,
+      subject: `Application Received for ${JobName}`,
+      html: candidateHtmlTemplate,
+   });
+
+   // ✅ Send email to HR/admin
+   await transporter.sendMail({
+      from: `"Two Guys Careers" ${process.env.CAREER}`,
+      to:`${process.env.CAREER}` ,
+      subject: `New Job Application - ${JobName} (${firstName} ${lastName})`,
+      html: adminHtmlTemplate,
+   });
 };
