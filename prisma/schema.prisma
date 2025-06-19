@@ -283,7 +283,7 @@ model InnersubCategories {
   updatedAt     DateTime?
   last_editedBy String?
   products      Products[]     @relation()
-  catalogue Json?
+  catalogue     Json?
 }
 
 model EcomereceProducts {
@@ -321,6 +321,7 @@ model EcomereceProducts {
   seoSchema             String?
   reviews               ProductReviews[]   @relation()
   questions             ProductQuestions[] @relation()
+  shippingOptions       Json[]             @default([])
 }
 
 model User {
@@ -400,7 +401,7 @@ model blogs_comments {
   name          String
   Email         String
   description   String
-  phone     String
+  phone         String
   createdAt     DateTime      @default(now())
   replies       Json[]
   blogId        Int

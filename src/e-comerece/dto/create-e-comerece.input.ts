@@ -65,6 +65,9 @@ export class CreateEComereceInput {
   @Field(() => [GraphQLJSON], { nullable: true })
   variant?: any[];
 
+  @Field(() => [GraphQLJSON], { nullable: true })
+  shippingOptions?: any[];
+
   @Field({ nullable: true })
   Canonical_Tag?: string;
 

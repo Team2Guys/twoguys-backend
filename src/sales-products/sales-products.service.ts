@@ -4,6 +4,8 @@ import { customHttpException } from '../utils/helper';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { contactusEmail, sendEmailHandler } from 'utils/EmailHanlders';
+import { count } from 'console';
+import { paymentStatus } from './entities/sales-product.entity';
 
 @Injectable()
 export class SalesProductsService {
@@ -120,61 +122,30 @@ export class SalesProductsService {
       let totalAdmins = await this.prisma.admins.count({});
       let totalAccessories = await this.prisma.ecomereceProducts.count({});
       let appointments = await this.prisma.appointments.count({});
-      let sales = [];
-
-      // await this.prisma.sales_record.findMany({
-      //   include: { products: true },
-      // });
-
-      const reducer_handler = (arr: any[]) => {
-        return arr.reduce((totalQuantity: number, currentValue: any) => {
-          const productQuantitySum = currentValue.products.reduce(
-            (productTotal: number, value: any) => {
-              console.log(value, 'valued');
-              return productTotal + value.productData.quantity;
-            },
-            0,
-          );
-          return totalQuantity + productQuantitySum;
-        }, 0);
-      };
-
-      let sucessfulpayment = sales.filter(
-        (prod: any) => prod.paymentStatus.paymentStatus,
-      );
-
-      let totalSales = reducer_handler(sucessfulpayment);
-
-      let abdundant = sales.filter(
-        (prod: any) => prod.paymentStatus.checkoutStatus,
-      );
-      let Total_abandant_order = reducer_handler(abdundant);
-
-      let totalRevenue = sucessfulpayment.reduce(
-        (accumulator: any, currentValue: any) => {
-          return currentValue.products.reduce((accum: number, value: any) => {
-            let price =
-              value.productData.discountPrice &&
-                Number(value.productData.discountPrice) > 0
-                ? value.productData.discountPrice
-                : value.productData.price;
-            let finalPrice = Number(value.productData.quantity) * Number(price);
-            return (accum += finalPrice);
-          }, 0);
-        },
-        0,
-      );
-
+      let totalorders = await this.prisma.salesProducts.count({ where: { paymentStatus: true } });
+      let Total_abandant_order = await this.prisma.salesProducts.count({ where: { paymentStatus: false } });
+      let ecomereceProducts = await this.prisma.ecomereceProducts.count({});
+      let redirecturls = await this.prisma.redirecturls.count({});
+      let blogs = await this.prisma.blogs.count({});
+      let blogs_comments = await this.prisma.blogs_comments.count({});
+      let jobs = await this.prisma.jobs.count({});
+      let jobApplication = await this.prisma.jobApplication.count({});
       return {
         totalSubCategories,
         totalProducts,
         totalCategories,
         totalAdmins,
-        totalRevenue,
-        totalSales,
+        totalorders,
         totalUsers,
         Total_abandant_order,
-        totalAccessories
+        totalAccessories,
+        appointments,
+        ecomereceProducts,
+        redirecturls,
+        blogs,
+        blogs_comments,
+        jobs,
+        jobApplication
       };
     } catch (error) {
       customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
@@ -192,10 +163,10 @@ export class SalesProductsService {
         return;
       }
 
-      // if (existingOrder.paymentStatus) {
-      //   console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
-      //   return customHttpException("Payment status already updated", 'BAD_REQUEST');
-      // }
+      if (existingOrder.paymentStatus) {
+        console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus")
+        return customHttpException("Payment status already updated", 'BAD_REQUEST');
+      }
 
 
       const paymentStatus = await this.prisma.salesProducts.update({
@@ -204,40 +175,6 @@ export class SalesProductsService {
       });
 
       const products: ProductInput[] = JSON.parse(JSON.stringify(existingOrder.products)) as ProductInput[];
-
-
-      // if (Array.isArray(products) && products.length > 0) {
-      //   for (const prod of products) {
-      //     if (prod.variant || prod.sizes) {
-      //       let existingproduct = await this.prisma.ecomereceProducts.findUnique({ where: { id: Number(prod.id) } })
-      //       let sizeFlag = prod.sizes ? "sizes" : "variant"
-      //       if (!existingproduct) return
-      //       let updatedStock = existingproduct[sizeFlag].map((variant: any) => ({
-      //         ...variant,
-      //         stock: variant.stock - prod.quantity,
-      //       }));
-
-
-      //     }
-
-
-
-
-
-
-      //     await this.prisma.ecomereceProducts.update({
-      //       where: { id: Number(prod.id) },
-      //       data: {
-      //         stock: {
-      //           decrement: prod.quantity,
-      //         },
-      //       },
-      //     });
-      //   }
-      // }
-
-      
-
 
       if (Array.isArray(products) && products.length > 0) {
         for (const prod of products) {

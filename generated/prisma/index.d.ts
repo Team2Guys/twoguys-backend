@@ -14219,6 +14219,7 @@ export namespace Prisma {
     categoryId: number
     subCategoryId: number
     seoSchema: number
+    shippingOptions: number
     _all: number
   }
 
@@ -14313,6 +14314,7 @@ export namespace Prisma {
     categoryId?: true
     subCategoryId?: true
     seoSchema?: true
+    shippingOptions?: true
     _all?: true
   }
 
@@ -14432,6 +14434,7 @@ export namespace Prisma {
     categoryId: number | null
     subCategoryId: number | null
     seoSchema: string | null
+    shippingOptions: JsonValue[]
     _count: EcomereceProductsCountAggregateOutputType | null
     _avg: EcomereceProductsAvgAggregateOutputType | null
     _sum: EcomereceProductsSumAggregateOutputType | null
@@ -14483,6 +14486,7 @@ export namespace Prisma {
     categoryId?: boolean
     subCategoryId?: boolean
     seoSchema?: boolean
+    shippingOptions?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
     reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
@@ -14520,6 +14524,7 @@ export namespace Prisma {
     categoryId?: boolean
     subCategoryId?: boolean
     seoSchema?: boolean
+    shippingOptions?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
@@ -14554,6 +14559,7 @@ export namespace Prisma {
     categoryId?: boolean
     subCategoryId?: boolean
     seoSchema?: boolean
+    shippingOptions?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
@@ -14588,9 +14594,10 @@ export namespace Prisma {
     categoryId?: boolean
     subCategoryId?: boolean
     seoSchema?: boolean
+    shippingOptions?: boolean
   }
 
-  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "seoSchema", ExtArgs["result"]["ecomereceProducts"]>
+  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "seoSchema" | "shippingOptions", ExtArgs["result"]["ecomereceProducts"]>
   export type EcomereceProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
@@ -14645,6 +14652,7 @@ export namespace Prisma {
       categoryId: number | null
       subCategoryId: number | null
       seoSchema: string | null
+      shippingOptions: Prisma.JsonValue[]
     }, ExtArgs["result"]["ecomereceProducts"]>
     composites: {}
   }
@@ -15101,6 +15109,7 @@ export namespace Prisma {
     readonly categoryId: FieldRef<"EcomereceProducts", 'Int'>
     readonly subCategoryId: FieldRef<"EcomereceProducts", 'Int'>
     readonly seoSchema: FieldRef<"EcomereceProducts", 'String'>
+    readonly shippingOptions: FieldRef<"EcomereceProducts", 'Json[]'>
   }
     
 
@@ -25406,7 +25415,8 @@ export namespace Prisma {
     Meta_Title: 'Meta_Title',
     categoryId: 'categoryId',
     subCategoryId: 'subCategoryId',
-    seoSchema: 'seoSchema'
+    seoSchema: 'seoSchema',
+    shippingOptions: 'shippingOptions'
   };
 
   export type EcomereceProductsScalarFieldEnum = (typeof EcomereceProductsScalarFieldEnum)[keyof typeof EcomereceProductsScalarFieldEnum]
@@ -26976,6 +26986,7 @@ export namespace Prisma {
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
+    shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
@@ -27012,6 +27023,7 @@ export namespace Prisma {
     categoryId?: SortOrderInput | SortOrder
     subCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    shippingOptions?: SortOrder
     category?: categoriesOrderByWithRelationInput
     subcategory?: subCategoriesOrderByWithRelationInput
     reviews?: ProductReviewsOrderByRelationAggregateInput
@@ -27051,6 +27063,7 @@ export namespace Prisma {
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
+    shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
@@ -27087,6 +27100,7 @@ export namespace Prisma {
     categoryId?: SortOrderInput | SortOrder
     subCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    shippingOptions?: SortOrder
     _count?: EcomereceProductsCountOrderByAggregateInput
     _avg?: EcomereceProductsAvgOrderByAggregateInput
     _max?: EcomereceProductsMaxOrderByAggregateInput
@@ -27127,6 +27141,7 @@ export namespace Prisma {
     categoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableWithAggregatesFilter<"EcomereceProducts"> | string | null
+    shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
   }
 
   export type UserWhereInput = {
@@ -29435,6 +29450,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
@@ -29471,6 +29487,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -29502,6 +29519,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
@@ -29538,6 +29556,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -29572,6 +29591,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
   }
 
   export type EcomereceProductsUpdateManyMutationInput = {
@@ -29601,6 +29621,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
   }
 
   export type EcomereceProductsUncheckedUpdateManyInput = {
@@ -29633,6 +29654,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
   }
 
   export type UserCreateInput = {
@@ -31627,6 +31649,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     subCategoryId?: SortOrder
     seoSchema?: SortOrder
+    shippingOptions?: SortOrder
   }
 
   export type EcomereceProductsAvgOrderByAggregateInput = {
@@ -32866,6 +32889,10 @@ export namespace Prisma {
     set: InputJsonValue[]
   }
 
+  export type EcomereceProductsCreateshippingOptionsInput = {
+    set: InputJsonValue[]
+  }
+
   export type categoriesCreateNestedOneWithoutEcomereceProductsInput = {
     create?: XOR<categoriesCreateWithoutEcomereceProductsInput, categoriesUncheckedCreateWithoutEcomereceProductsInput>
     connectOrCreate?: categoriesCreateOrConnectWithoutEcomereceProductsInput
@@ -32942,6 +32969,11 @@ export namespace Prisma {
   }
 
   export type EcomereceProductsUpdatevariantInput = {
+    set?: InputJsonValue[]
+    push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type EcomereceProductsUpdateshippingOptionsInput = {
     set?: InputJsonValue[]
     push?: InputJsonValue | InputJsonValue[]
   }
@@ -33692,6 +33724,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -33726,6 +33759,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -33912,6 +33946,7 @@ export namespace Prisma {
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
+    shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
   }
 
   export type categoriesCreateWithoutSubCategoriesInput = {
@@ -34159,6 +34194,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -34193,6 +34229,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -35697,6 +35734,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -35732,6 +35770,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -35778,6 +35817,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -35813,6 +35853,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -35843,6 +35884,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
@@ -35878,6 +35920,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -35924,6 +35967,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
@@ -35959,6 +36003,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -36232,6 +36277,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
   }
 
   export type subCategoriesUpdateWithoutCategoryInput = {
@@ -36514,6 +36560,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -36548,6 +36595,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -36581,6 +36629,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
   }
 
   export type ProductsCreateManySubcategoryInput = {
@@ -36662,6 +36711,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
   }
 
   export type ProductsUpdateWithoutSubcategoryInput = {
@@ -36841,6 +36891,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -36875,6 +36926,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -36908,6 +36960,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
   }
 
   export type ProductsCreateManyInnersubcategoryInput = {
