@@ -2,6 +2,7 @@ import { ObjectType, Field, ID } from '@nestjs/graphql';
 import { Category } from '../../categories/entities/category.entity';
 import GraphQLJSON from 'graphql-type-json';
 import { Product } from '../../products/entities/product.entity';
+import { EComerece } from 'e-comerece/entities/e-comerece.entity';
 
 @ObjectType()
 export class Subcategory {
@@ -138,7 +139,8 @@ export class Subcategory {
 
   @Field(() => Category, { nullable: true })
   category?: Category;
-
+  @Field(() => [EComerece], { nullable: true })
+  EcomereceProducts?: EComerece[];
 
 
 }
@@ -167,6 +169,7 @@ export class InnerSubCategory {
 
   @Field(() => [Product], { nullable: true })
   products?: Product[];
+
 
   @Field(() => Subcategory, { nullable: true })
   subCategory?: Subcategory;

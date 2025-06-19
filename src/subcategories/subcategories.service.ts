@@ -31,7 +31,8 @@ export class SubcategoriesService {
             select: { id: true, name: true, custom_url: true },
           },
           products: true,
-          InnersubCategories: { include: { products: true } }
+          EcomereceProducts:true,
+          InnersubCategories: { include: { products: true,  } }
 
         }
       })
@@ -46,6 +47,7 @@ export class SubcategoriesService {
         where: { custom_url, category: { custom_url: category } }, include: {
           category: true,
           products: true,
+          EcomereceProducts:true, 
           InnersubCategories: { include: { products: true } }
 
         }
