@@ -356,7 +356,8 @@ exports.Prisma.EcomereceProductsScalarFieldEnum = {
   Meta_Title: 'Meta_Title',
   categoryId: 'categoryId',
   subCategoryId: 'subCategoryId',
-  seoSchema: 'seoSchema'
+  seoSchema: 'seoSchema',
+  shippingOptions: 'shippingOptions'
 };
 
 exports.Prisma.UserScalarFieldEnum = {

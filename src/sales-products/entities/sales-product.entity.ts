@@ -19,15 +19,27 @@ export class ALL_RECORDS {
     @Field(() => Int)
     totalAdmins: number;
     @Field(() => Int)
-    totalRevenue: number;
-    @Field(() => Int)
-    totalSales: number;
-    @Field(() => Int)
     totalUsers: number;
     @Field(() => Int)
     Total_abandant_order: number;
     @Field(() => Int)
     totalAccessories: number;
+    @Field(() => Int)
+    totalorders: number;
+    @Field(() => Int)
+    appointments: number;
+    @Field(() => Int)
+    ecomereceProducts: number;
+    @Field(() => Int)
+    redirecturls: number;
+    @Field(() => Int)
+    blogs: number;
+    @Field(() => Int)
+    blogs_comments: number;
+    @Field(() => Int)
+    jobs: number;
+    @Field(() => Int)
+    jobApplication: number;
 
 }
 

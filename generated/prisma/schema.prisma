@@ -321,6 +321,7 @@ model EcomereceProducts {
   seoSchema             String?
   reviews               ProductReviews[]   @relation()
   questions             ProductQuestions[] @relation()
+  shippingOptions       Json[]             @default([])
 }
 
 model User {

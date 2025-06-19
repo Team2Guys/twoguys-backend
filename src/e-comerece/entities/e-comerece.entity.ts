@@ -95,11 +95,14 @@ export class EComerece {
   @Field({ nullable: true })
   updatedAt?: Date;
 
-    @Field(() => [ProductReviews], { nullable: true })
+  @Field(() => [ProductReviews], { nullable: true })
   reviews?: ProductReviews;
 
-    @Field(() => [productQuestion], { nullable: true })
+  @Field(() => [productQuestion], { nullable: true })
   questions?: productQuestion;
+
+  @Field(() => [GraphQLJSON], { nullable: true })
+  shippingOptions?: any[];
 
 }
 @ObjectType()
@@ -112,7 +115,7 @@ export class eComereceProducts {
 
   @Field(() => Int, { nullable: true })
   totalPages?: number
-    
+
   @Field(() => Int, { nullable: true })
   totalEcomereceProduct?: number
 
