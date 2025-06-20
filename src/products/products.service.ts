@@ -47,10 +47,12 @@ export class ProductsService {
 
   async update(updateProductInput: UpdateProductInput) {
     try {
+    let  updatedAt = new Date()
       const { category, subcategory, Innersubcategory, id, ...updatedData } = updateProductInput
       if (!category || !subcategory) return customHttpException('Category or sub category not found', "NOT_FOUND")
       const dataToUpdate: any = {
         ...updatedData,
+        updatedAt,
         categoryId: Number(category),
         subCategoryId: Number(subcategory),
       };

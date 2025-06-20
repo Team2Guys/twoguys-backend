@@ -155,8 +155,8 @@ export class InnerSubCategory {
   @Field()
   custom_url: string;
 
-  @Field()
-  subCategoryId: string;
+  @Field({ nullable: true })
+  subCategoryId?: string;
 
   @Field(() => ID, { nullable: true })
   id?: number;
