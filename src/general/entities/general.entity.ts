@@ -231,6 +231,11 @@ export class Jobs {
 
   @Field({ nullable: true })
   Meta_Title?: string;
+    @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 }
 
 
@@ -268,4 +273,9 @@ export class JobsApplication {
 
   @Field({ nullable: true })
   portfolioLink?: string;
+    @Field(() => Date, { nullable: true })
+  createdAt?: Date;
+
+  @Field(() => Date, { nullable: true })
+  updatedAt?: Date;
 }
