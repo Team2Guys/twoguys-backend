@@ -84,7 +84,7 @@ export class Products {
     @Field(() => GraphQLJSON)
     image: any;
 
-    @Field(() => [GraphQLJSON],{nullable:true})
+    @Field(() => [GraphQLJSON], { nullable: true })
     dimension?: string[];
 }
 
@@ -174,4 +174,31 @@ export class paymentStatus {
 
     @Field(() => GraphQLJSON, { nullable: true })
     shippingMethod: any
+}
+
+
+
+@ObjectType()
+export class MonthlyAppointmentStats {
+    @Field(() => [GraphQLJSON], { nullable: true })
+    appointments?: any[];
+
+    @Field(() => [GraphQLJSON], { nullable: true })
+    orders?: any[];
+}
+
+@ObjectType()
+export class WEEKLY_STATS {
+    @Field({nullable:true})
+    date?: string;
+
+    @Field({nullable:true})
+    day?: string;
+
+    @Field(() => Int, { nullable: true })
+
+    Appointments?: number;
+    @Field(() => Int, { nullable: true })
+    Orders?: number;
+
 }

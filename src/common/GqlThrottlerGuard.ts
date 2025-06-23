@@ -7,8 +7,6 @@ export class GqlThrottlerGuard extends ThrottlerGuard {
   getRequestResponse(context: ExecutionContext) {
     const gqlCtx = GqlExecutionContext.create(context);
     const ctx = gqlCtx.getContext();
-        console.log('GRAPHQL CONTEXT:', ctx.req);
-
     return { req: ctx.req, res: ctx.res };
   }
 }

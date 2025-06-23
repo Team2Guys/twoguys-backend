@@ -5,7 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
 import { contactusEmail, sendEmailHandler } from 'utils/EmailHanlders';
 import { count } from 'console';
-import { paymentStatus } from './entities/sales-product.entity';
+import { MonthlyAppointmentStats, paymentStatus } from './entities/sales-product.entity';
 
 @Injectable()
 export class SalesProductsService {
@@ -246,6 +246,228 @@ export class SalesProductsService {
   }
 
 
+
+  // Charts Queries
+
+  async getMonthlyOrders() {
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth();
+
+  const orders = await this.prisma.salesProducts.findMany({
+    where: {
+      paymentStatus: true,
+      checkoutDate: {
+        gte: new Date(currentYear, 0, 1),
+        lt: new Date(currentYear, currentMonth + 1, 1),
+      },
+    },
+  });
+
+  const monthlyData = orders.reduce(
+    (acc, order) => {
+      const date = new Date(order.checkoutDate);
+      const year = date.getFullYear();
+      const month = date.getMonth(); // 0-based
+      const key = `${year}-${month}`;
+
+      if (!acc[key]) {
+        acc[key] = {
+          year,
+          month,
+          totalRevenue: 0,
+          totalOrders: 0,
+        };
+      }
+
+      acc[key].totalRevenue += Number(order.totalPrice);
+      acc[key].totalOrders += 1;
+
+      return acc;
+    },
+    {} as Record<
+      string,
+      {
+        year: number;
+        month: number;
+        totalRevenue: number;
+        totalOrders: number;
+      }
+    >,
+  );
+
+  const result = Object.values(monthlyData).map((data) => ({
+    year: data.year,
+    month: data.month + 1, // 1-based for readability
+    totalRevenue: data.totalRevenue,
+    totalOrders: data.totalOrders,
+  }));
+
+  result.sort((a, b) => a.year - b.year || a.month - b.month);
+
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+  ];
+
+  const completeMonthlyData = Array.from({ length: currentMonth + 1 }, (_, index) => ({
+    month: `${monthNames[index]} ${currentYear}`,
+    Revenue: 0,
+    Orders: 0,
+  }));
+
+  result.forEach((order) => {
+    const index = order.month - 1;
+    completeMonthlyData[index] = {
+      month: `${monthNames[index]} ${order.year}`,
+      Revenue: order.totalRevenue,
+      Orders: order.totalOrders,
+    };
+  });
+
+  return completeMonthlyData;
+}
+
+async getMonthlyAppointments() {
+  const today = new Date();
+  const currentYear = today.getFullYear();
+  const currentMonth = today.getMonth(); // 0-based
+
+  // Fetch appointments from Jan 1st to end of current month
+  const appointments = await this.prisma.appointments.findMany({
+    where: {
+      createdAt: {
+        gte: new Date(currentYear, 0, 1),
+        lt: new Date(currentYear, currentMonth + 1, 1),
+      },
+    },
+  });
+
+  // Group appointments by year and month
+  const monthlyData = appointments.reduce(
+    (acc, appointment) => {
+      const date = new Date(appointment?.createdAt ?? "");
+      const year = date.getFullYear();
+      const month = date.getMonth(); 
+      const key = `${year}-${month}`;
+
+      if (!acc[key]) {
+        acc[key] = {
+          year,
+          month,
+          count: 0,
+        };
+      }
+
+      acc[key].count += 1;
+
+      return acc;
+    },
+    {} as Record<string, { year: number; month: number; count: number }>,
+  );
+
+  const result = Object.values(monthlyData).map((data:any) => ({
+    year: data.year,
+    month: data.month + 1,
+    count: data.count,
+  }));
+
+  // Sort by year/month
+  result.sort((a, b) => a.year - b.year || a.month - b.month);
+
+  // Generate a complete array with all months till current one
+  const monthNames = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December',
+  ];
+
+  const completeMonthlyData = Array.from({ length: currentMonth + 1 }, (_, i) => ({
+    month: `${monthNames[i]} ${currentYear}`,
+    Appointments: 0,
+  }));
+
+  // Fill in the counts
+  result.forEach((item) => {
+    const index = item.month - 1;
+    completeMonthlyData[index] = {
+      month: `${monthNames[index]} ${item.year}`,
+      Appointments: item.count,
+    };
+  });
+
+  let orders = await this.getMonthlyOrders()
+console.log(orders, "orders")
+
+  return {appointments: completeMonthlyData, orders};
+}
+
+
+async getLast7DaysStats() {
+  const today = new Date();
+  const startDate = new Date();
+  startDate.setDate(today.getDate() - 6); // last 7 days including today
+
+  const dateKeys = Array.from({ length: 7 }, (_, i) => {
+    const d = new Date(startDate);
+    d.setDate(d.getDate() + i);
+    return d.toISOString().split('T')[0]; // e.g., "2025-06-23"
+  });
+
+  // Fetch orders
+  const orders = await this.prisma.salesProducts.findMany({
+    where: {
+      paymentStatus: true,
+      checkoutDate: {
+        gte: startDate,
+        lte: today,
+      },
+    },
+  });
+
+  const dailyOrdersMap = orders.reduce((acc, order) => {
+    const key = new Date(order.checkoutDate).toISOString().split('T')[0];
+    if (!acc[key]) {
+      acc[key] = { Revenue: 0, Orders: 0 };
+    }
+    acc[key].Revenue += Number(order.totalPrice);
+    acc[key].Orders += 1;
+    return acc;
+  }, {} as Record<string, { Revenue: number; Orders: number }>);
+
+  // Fetch appointments
+  const appointments = await this.prisma.appointments.findMany({
+    where: {
+      createdAt: {
+        gte: startDate,
+        lte: today,
+      },
+    },
+  });
+
+  const dailyAppointmentsMap = appointments.reduce((acc, appointment) => {
+    const key = new Date(appointment?.createdAt ?? "").toISOString().split('T')[0];
+    if (!acc[key]) acc[key] = 0;
+    acc[key] += 1;
+    return acc;
+  }, {} as Record<string, number>);
+
+  // Merge data with day name
+  const finalStats = dateKeys.map((dateStr) => {
+    const dateObj = new Date(dateStr);
+    const dayName = dateObj.toLocaleDateString('en-US', { weekday: 'short' }); // "Mon", "Tue", etc.
+
+    return {
+      date: dateStr,
+      day: dayName,
+      Appointments: dailyAppointmentsMap[dateStr] || 0,
+      Orders: dailyOrdersMap[dateStr]?.Orders || 0,
+      Revenue: dailyOrdersMap[dateStr]?.Revenue || 0,
+    };
+  });
+
+  console.log(finalStats, "finalStats");
+  return finalStats;
+}
 
 
 
