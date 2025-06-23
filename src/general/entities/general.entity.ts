@@ -1,7 +1,7 @@
 import { ObjectType, Field, Int, ID, registerEnumType } from '@nestjs/graphql';
 import { EComerece } from '../../e-comerece/entities/e-comerece.entity';
 import GraphQLJSON from 'graphql-type-json';
-import { CommentStatus } from '../../general/dto/enums/enum';
+import { BlogStatus, CommentStatus } from '../../general/dto/enums/enum';
 
 @ObjectType()
 export class General {
@@ -236,6 +236,9 @@ export class Jobs {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
+
+        @Field(() => BlogStatus, { nullable: true })
+        status?: BlogStatus
 }
 
 

@@ -1,9 +1,13 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { graphqlUploadExpress } from 'graphql-upload-ts';
+import { ThrottlerGuard } from '@nestjs/throttler';
+import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.set('trust proxy', 'loopback'); // Trust requests from the loopback address
+
   console.log(process.env.PORT, "PORTED")
   app.use(graphqlUploadExpress({
     maxFileSize: 20 * 1024 * 1024, // 10MB

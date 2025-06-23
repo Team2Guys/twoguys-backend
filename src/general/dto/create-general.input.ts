@@ -1,6 +1,6 @@
 import { InputType, Int, Field, registerEnumType } from '@nestjs/graphql';
 import GraphQLJSON from 'graphql-type-json';
-import { CommentStatus } from './enums/enum';
+import { BlogStatus, CommentStatus } from './enums/enum';
 
 @InputType()
 export class CreateGeneralInput {
@@ -183,6 +183,8 @@ export class CreateJobDto {
   
     @Field({ nullable: true })
     Meta_Title?: string;
+      @Field(() => BlogStatus, { nullable: true })
+      status?: BlogStatus
 }
 
 
