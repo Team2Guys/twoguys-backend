@@ -1,5 +1,6 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
 import { GraphQLJSON } from 'graphql-type-json';
+import { CommentStatus } from '../../../generated/prisma';
 
 
 
@@ -84,6 +85,10 @@ export class CreateEComereceInput {
   subcategory?: number;
   @Field({ nullable: true })
   seoSchema?: string
+
+  
+      @Field(() => CommentStatus, { nullable: true })
+          status?: CommentStatus
 }
 
 

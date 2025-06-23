@@ -78,6 +78,7 @@ model categories {
   // category SCHEMA
   seoSchema         String?
   EcomereceProducts EcomereceProducts[] @relation()
+  status            BlogStatus          @default(PUBLISHED)
 }
 
 model subCategories {
@@ -149,6 +150,7 @@ model subCategories {
   seoSchema          String?
   InnersubCategories InnersubCategories[]
   EcomereceProducts  EcomereceProducts[]
+  status             BlogStatus           @default(PUBLISHED)
 }
 
 model Products {
@@ -205,6 +207,7 @@ model Products {
 
   // product schema
   seoSchema String?
+  status    BlogStatus @default(PUBLISHED)
 }
 
 model Admins {
@@ -322,6 +325,7 @@ model EcomereceProducts {
   reviews               ProductReviews[]   @relation()
   questions             ProductQuestions[] @relation()
   shippingOptions       Json[]             @default([])
+  status                BlogStatus         @default(PUBLISHED)
 }
 
 model User {
@@ -447,23 +451,24 @@ model salesProducts {
 }
 
 model Jobs {
-  id               Int       @id @default(autoincrement())
-  title            String    @unique
+  id               Int        @id @default(autoincrement())
+  title            String     @unique
   custom_url       String
   location         String
   jobType          String
   salary           String
-  isFilled         Boolean   @default(false)
+  isFilled         Boolean    @default(false)
   description      String
-  responsibilities Json[]    @default([])
-  requirements     Json[]    @default([])
-  benefits         Json[]    @default([])
-  apply            Json[]    @default([])
-  createdAt        DateTime? @default(now())
+  responsibilities Json[]     @default([])
+  requirements     Json[]     @default([])
+  benefits         Json[]     @default([])
+  apply            Json[]     @default([])
+  createdAt        DateTime?  @default(now())
   updatedAt        DateTime?
   Canonical_Tag    String? //✅
   Meta_Description String? //✅
   Meta_Title       String? //✅
+  status           BlogStatus @default(PUBLISHED)
 }
 
 model JobApplication {

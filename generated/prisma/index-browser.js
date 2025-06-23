@@ -162,7 +162,8 @@ exports.Prisma.CategoriesScalarFieldEnum = {
   Canonical_Tag: 'Canonical_Tag',
   Meta_Description: 'Meta_Description',
   Meta_Title: 'Meta_Title',
-  seoSchema: 'seoSchema'
+  seoSchema: 'seoSchema',
+  status: 'status'
 };
 
 exports.Prisma.SubCategoriesScalarFieldEnum = {
@@ -206,7 +207,8 @@ exports.Prisma.SubCategoriesScalarFieldEnum = {
   Canonical_Tag: 'Canonical_Tag',
   Meta_Description: 'Meta_Description',
   Meta_Title: 'Meta_Title',
-  seoSchema: 'seoSchema'
+  seoSchema: 'seoSchema',
+  status: 'status'
 };
 
 exports.Prisma.ProductsScalarFieldEnum = {
@@ -247,7 +249,8 @@ exports.Prisma.ProductsScalarFieldEnum = {
   categoryId: 'categoryId',
   subCategoryId: 'subCategoryId',
   innersubCategoryId: 'innersubCategoryId',
-  seoSchema: 'seoSchema'
+  seoSchema: 'seoSchema',
+  status: 'status'
 };
 
 exports.Prisma.AdminsScalarFieldEnum = {
@@ -357,7 +360,8 @@ exports.Prisma.EcomereceProductsScalarFieldEnum = {
   categoryId: 'categoryId',
   subCategoryId: 'subCategoryId',
   seoSchema: 'seoSchema',
-  shippingOptions: 'shippingOptions'
+  shippingOptions: 'shippingOptions',
+  status: 'status'
 };
 
 exports.Prisma.UserScalarFieldEnum = {
@@ -483,7 +487,8 @@ exports.Prisma.JobsScalarFieldEnum = {
   updatedAt: 'updatedAt',
   Canonical_Tag: 'Canonical_Tag',
   Meta_Description: 'Meta_Description',
-  Meta_Title: 'Meta_Title'
+  Meta_Title: 'Meta_Title',
+  status: 'status'
 };
 
 exports.Prisma.JobApplicationScalarFieldEnum = {
@@ -531,16 +536,16 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-exports.CommentStatus = exports.$Enums.CommentStatus = {
-  PENDING: 'PENDING',
-  APPROVED: 'APPROVED',
-  REJECTED: 'REJECTED'
-};
-
 exports.BlogStatus = exports.$Enums.BlogStatus = {
   DRAFT: 'DRAFT',
   PUBLISHED: 'PUBLISHED',
   ARCHIVED: 'ARCHIVED'
+};
+
+exports.CommentStatus = exports.$Enums.CommentStatus = {
+  PENDING: 'PENDING',
+  APPROVED: 'APPROVED',
+  REJECTED: 'REJECTED'
 };
 
 exports.Prisma.ModelName = {

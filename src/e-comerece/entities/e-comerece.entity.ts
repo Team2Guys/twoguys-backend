@@ -3,6 +3,7 @@ import { Category } from '../../categories/entities/category.entity';
 import GraphQLJSON from 'graphql-type-json';
 import { Subcategory } from '../../subcategories/entities/subcategory.entity';
 import { productQuestion, ProductReviews } from '../../general/entities/general.entity';
+import { CommentStatus } from 'general/dto/enums/enum';
 
 
 @ObjectType()
@@ -104,6 +105,8 @@ export class EComerece {
   @Field(() => [GraphQLJSON], { nullable: true })
   shippingOptions?: any[];
 
+        @Field(() => CommentStatus, { nullable: true })
+            status?: CommentStatus
 }
 @ObjectType()
 
