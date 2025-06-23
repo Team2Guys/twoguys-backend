@@ -1,4 +1,5 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
+import { BlogStatus } from 'general/dto/enums/enum';
 import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
@@ -122,6 +123,9 @@ export class CreateCategoryInput {
 
   @Field({ nullable: true })
   seoSchema?: string;
+
+      @Field(() => BlogStatus, { nullable: true })
+          status?: BlogStatus
 }
 
 
