@@ -1,6 +1,6 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 import { SalesProductsService } from './sales-products.service';
-import { ALL_RECORDS, contactUsEmail, paymentStatus, SalesProduct } from './entities/sales-product.entity';
+import { ALL_RECORDS, contactUsEmail, MonthlyAppointmentStats, paymentStatus, SalesProduct, WEEKLY_STATS } from './entities/sales-product.entity';
 import { contactUsEmailInput, CreateOrderInput, PaymentQueryDto, } from './dto/create-sales-product.input';
 import { Public } from '../decorators/public.decorator';
 
@@ -43,12 +43,28 @@ export class SalesProductsResolver {
     return this.salesProductsService.get_all_records();
   }
 
+
+
   @Public()
   @Mutation(() => contactUsEmail)
   Contact_email(@Args('contactUsEmail') contactUsEmail: contactUsEmailInput) {
     return this.salesProductsService.contactUs(contactUsEmail);
   }
+// queries
+
+  @Query(() => MonthlyAppointmentStats, {nullable:true, name: 'MONTHLY_COUNT' })
+  getMonthlyAppointments() {
+    return this.salesProductsService.getMonthlyAppointments();
+  }
 
 
+  @Query(() => [WEEKLY_STATS], {nullable:true, name: 'WEEKLY_STATS' })
+  getLast7DaysStats() {
+    return this.salesProductsService.getLast7DaysStats();
+  }
+
+
+
+  
 
 }
