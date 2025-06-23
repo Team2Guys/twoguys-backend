@@ -12,43 +12,48 @@ import { AdminsModule } from './admins/admins.module';
 import { BlogsModule } from './blogs/blogs.module';
 import { SalesProductsModule } from './sales-products/sales-products.module';
 import { UserModule } from './user/user.module';
-import { ThrottlerModule } from '@nestjs/throttler';
+import {  ThrottlerModule } from '@nestjs/throttler';
+import { APP_GUARD } from '@nestjs/core';
+import { GqlThrottlerGuard } from 'common/GqlThrottlerGuard';
 
 @Module({
   imports: [
-     ThrottlerModule.forRoot({
-     throttlers: [
+        ThrottlerModule.forRoot({
+      throttlers: [
         {
-          ttl: 60,
-          limit: 10,
+          ttl: 10,
+          limit: 2,
         },
       ],
-    })
-    
-    ,
-  GraphQLModule.forRoot<ApolloDriverConfig>({
+    }),
+    GraphQLModule.forRoot<ApolloDriverConfig>({
       path: 'backend/graphql',
 
-    driver:ApolloDriver,
-    autoSchemaFile:true,
-    csrfPrevention:false,
-    playground:true,
-    context: ({ req, res }) => ({ req, res }),
-  }),
-  CategoriesModule,
-  FileUploadingModule,
-  SubcategoriesModule,
-  ProductsModule,
-  GeneralModule,
-  EComereceModule,
-  AdminsModule,
-  BlogsModule,
-  SalesProductsModule,
-  UserModule
+      driver: ApolloDriver,
+      autoSchemaFile: true,
+      csrfPrevention: false,
+      playground: true,
+      context: ({ req, res }) => ({ req, res }),
+    }),
+    CategoriesModule,
+    FileUploadingModule,
+    SubcategoriesModule,
+    ProductsModule,
+    GeneralModule,
+    EComereceModule,
+    AdminsModule,
+    BlogsModule,
+    SalesProductsModule,
+    UserModule
   ],
-  providers:[PrismaService]
+  providers: [PrismaService, {
+    provide: APP_GUARD,
+    useClass: GqlThrottlerGuard, // ✅ Let Nest inject required dependencies
+
+  
+  },]
 })
-export class AppModule {}
+export class AppModule { }
 
 
 
