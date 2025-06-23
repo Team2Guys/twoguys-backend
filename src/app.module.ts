@@ -12,8 +12,20 @@ import { AdminsModule } from './admins/admins.module';
 import { BlogsModule } from './blogs/blogs.module';
 import { SalesProductsModule } from './sales-products/sales-products.module';
 import { UserModule } from './user/user.module';
+import { ThrottlerModule } from '@nestjs/throttler';
+
 @Module({
   imports: [
+     ThrottlerModule.forRoot({
+     throttlers: [
+        {
+          ttl: 60,
+          limit: 10,
+        },
+      ],
+    })
+    
+    ,
   GraphQLModule.forRoot<ApolloDriverConfig>({
       path: 'backend/graphql',
 

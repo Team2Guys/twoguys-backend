@@ -1,6 +1,7 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
 import { GraphQLJSON } from 'graphql-type-json';
 import { CommentStatus } from '../../../generated/prisma';
+import { BlogStatus } from 'general/dto/enums/enum';
 
 
 
@@ -87,8 +88,8 @@ export class CreateEComereceInput {
   seoSchema?: string
 
   
-      @Field(() => CommentStatus, { nullable: true })
-          status?: CommentStatus
+      @Field(() => BlogStatus, { nullable: true })
+          status?: BlogStatus
 }
 
 
