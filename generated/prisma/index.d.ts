@@ -2701,6 +2701,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type CategoriesMaxAggregateOutputType = {
@@ -2738,6 +2739,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type CategoriesCountAggregateOutputType = {
@@ -2783,6 +2785,7 @@ export namespace Prisma {
     Meta_Description: number
     Meta_Title: number
     seoSchema: number
+    status: number
     _all: number
   }
 
@@ -2830,6 +2833,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
   }
 
   export type CategoriesMaxAggregateInputType = {
@@ -2867,6 +2871,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
   }
 
   export type CategoriesCountAggregateInputType = {
@@ -2912,6 +2917,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
     _all?: true
   }
 
@@ -3044,6 +3050,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
     _count: CategoriesCountAggregateOutputType | null
     _avg: CategoriesAvgAggregateOutputType | null
     _sum: CategoriesSumAggregateOutputType | null
@@ -3108,6 +3115,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
     subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
     products?: boolean | categories$productsArgs<ExtArgs>
     EcomereceProducts?: boolean | categories$EcomereceProductsArgs<ExtArgs>
@@ -3157,6 +3165,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
   }, ExtArgs["result"]["categories"]>
 
   export type categoriesSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3202,6 +3211,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
   }, ExtArgs["result"]["categories"]>
 
   export type categoriesSelectScalar = {
@@ -3247,9 +3257,10 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
   }
 
-  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "salesBannerImage" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["categories"]>
+  export type categoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "Banners" | "BannerText" | "BannerHeading" | "RecallUrl" | "breadCrum" | "topHeading" | "topDescription" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "leftHeading" | "categoryText" | "Heading" | "paras" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "Bannerdiscount" | "salesBannerHeading" | "paraText" | "Bannercounter" | "salesBannerImage" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema" | "status", ExtArgs["result"]["categories"]>
   export type categoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategories?: boolean | categories$subCategoriesArgs<ExtArgs>
     products?: boolean | categories$productsArgs<ExtArgs>
@@ -3309,6 +3320,7 @@ export namespace Prisma {
       Meta_Description: string | null
       Meta_Title: string | null
       seoSchema: string | null
+      status: $Enums.BlogStatus | null
     }, ExtArgs["result"]["categories"]>
     composites: {}
   }
@@ -3777,6 +3789,7 @@ export namespace Prisma {
     readonly Meta_Description: FieldRef<"categories", 'String'>
     readonly Meta_Title: FieldRef<"categories", 'String'>
     readonly seoSchema: FieldRef<"categories", 'String'>
+    readonly status: FieldRef<"categories", 'BlogStatus'>
   }
     
 
@@ -4307,6 +4320,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type SubCategoriesMaxAggregateOutputType = {
@@ -4339,6 +4353,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type SubCategoriesCountAggregateOutputType = {
@@ -4383,6 +4398,7 @@ export namespace Prisma {
     Meta_Description: number
     Meta_Title: number
     seoSchema: number
+    status: number
     _all: number
   }
 
@@ -4427,6 +4443,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
   }
 
   export type SubCategoriesMaxAggregateInputType = {
@@ -4459,6 +4476,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
   }
 
   export type SubCategoriesCountAggregateInputType = {
@@ -4503,6 +4521,7 @@ export namespace Prisma {
     Meta_Description?: true
     Meta_Title?: true
     seoSchema?: true
+    status?: true
     _all?: true
   }
 
@@ -4634,6 +4653,7 @@ export namespace Prisma {
     Meta_Description: string | null
     Meta_Title: string | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
     _count: SubCategoriesCountAggregateOutputType | null
     _avg: SubCategoriesAvgAggregateOutputType | null
     _sum: SubCategoriesSumAggregateOutputType | null
@@ -4697,6 +4717,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
     products?: boolean | subCategories$productsArgs<ExtArgs>
     InnersubCategories?: boolean | subCategories$InnersubCategoriesArgs<ExtArgs>
@@ -4746,6 +4767,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
@@ -4791,6 +4813,7 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | subCategories$categoryArgs<ExtArgs>
   }, ExtArgs["result"]["subCategories"]>
 
@@ -4836,9 +4859,10 @@ export namespace Prisma {
     Meta_Description?: boolean
     Meta_Title?: boolean
     seoSchema?: boolean
+    status?: boolean
   }
 
-  export type subCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "categoryId" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "leftHeading" | "categoryText" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "collectionHeading" | "collectionMainHeading" | "QualityHeadings" | "QualityText" | "QualityImages" | "CustomHeading" | "CustomText" | "Product_Section_heading" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema", ExtArgs["result"]["subCategories"]>
+  export type subCategoriesOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "createdAt" | "updatedAt" | "posterImageUrl" | "last_editedBy" | "short_description" | "custom_url" | "categoryId" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "leftHeading" | "categoryText" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "collectionHeading" | "collectionMainHeading" | "QualityHeadings" | "QualityText" | "QualityImages" | "CustomHeading" | "CustomText" | "Product_Section_heading" | "bottomText" | "bodyHeading" | "bodyMainHeading" | "bodyText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "seoSchema" | "status", ExtArgs["result"]["subCategories"]>
   export type subCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | subCategories$categoryArgs<ExtArgs>
     products?: boolean | subCategories$productsArgs<ExtArgs>
@@ -4912,6 +4936,7 @@ export namespace Prisma {
       Meta_Description: string | null
       Meta_Title: string | null
       seoSchema: string | null
+      status: $Enums.BlogStatus | null
     }, ExtArgs["result"]["subCategories"]>
     composites: {}
   }
@@ -5380,6 +5405,7 @@ export namespace Prisma {
     readonly Meta_Description: FieldRef<"subCategories", 'String'>
     readonly Meta_Title: FieldRef<"subCategories", 'String'>
     readonly seoSchema: FieldRef<"subCategories", 'String'>
+    readonly status: FieldRef<"subCategories", 'BlogStatus'>
   }
     
 
@@ -5946,6 +5972,7 @@ export namespace Prisma {
     subCategoryId: number | null
     innersubCategoryId: number | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type ProductsMaxAggregateOutputType = {
@@ -5977,6 +6004,7 @@ export namespace Prisma {
     subCategoryId: number | null
     innersubCategoryId: number | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type ProductsCountAggregateOutputType = {
@@ -6018,6 +6046,7 @@ export namespace Prisma {
     subCategoryId: number
     innersubCategoryId: number
     seoSchema: number
+    status: number
     _all: number
   }
 
@@ -6071,6 +6100,7 @@ export namespace Prisma {
     subCategoryId?: true
     innersubCategoryId?: true
     seoSchema?: true
+    status?: true
   }
 
   export type ProductsMaxAggregateInputType = {
@@ -6102,6 +6132,7 @@ export namespace Prisma {
     subCategoryId?: true
     innersubCategoryId?: true
     seoSchema?: true
+    status?: true
   }
 
   export type ProductsCountAggregateInputType = {
@@ -6143,6 +6174,7 @@ export namespace Prisma {
     subCategoryId?: true
     innersubCategoryId?: true
     seoSchema?: true
+    status?: true
     _all?: true
   }
 
@@ -6271,6 +6303,7 @@ export namespace Prisma {
     subCategoryId: number | null
     innersubCategoryId: number | null
     seoSchema: string | null
+    status: $Enums.BlogStatus
     _count: ProductsCountAggregateOutputType | null
     _avg: ProductsAvgAggregateOutputType | null
     _sum: ProductsSumAggregateOutputType | null
@@ -6331,6 +6364,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     innersubCategoryId?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | Products$categoryArgs<ExtArgs>
     subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
     Innersubcategory?: boolean | Products$InnersubcategoryArgs<ExtArgs>
@@ -6375,6 +6409,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     innersubCategoryId?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | Products$categoryArgs<ExtArgs>
     subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
     Innersubcategory?: boolean | Products$InnersubcategoryArgs<ExtArgs>
@@ -6419,6 +6454,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     innersubCategoryId?: boolean
     seoSchema?: boolean
+    status?: boolean
     category?: boolean | Products$categoryArgs<ExtArgs>
     subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
     Innersubcategory?: boolean | Products$InnersubcategoryArgs<ExtArgs>
@@ -6463,9 +6499,10 @@ export namespace Prisma {
     subCategoryId?: boolean
     innersubCategoryId?: boolean
     seoSchema?: boolean
+    status?: boolean
   }
 
-  export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "right_side_Heading" | "left_side_Text" | "left_side_image" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "categoryId" | "subCategoryId" | "innersubCategoryId" | "seoSchema", ExtArgs["result"]["products"]>
+  export type ProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "BannerText" | "BannerHeading" | "categoryHeroImages" | "categoryHeroToptext" | "categoryHeroHeading" | "categoryHeroText" | "categoryFaqs" | "right_side_Heading" | "left_side_Text" | "left_side_image" | "Product_Section_heading" | "bottomText" | "explore_Heading" | "explore_main_heading" | "explore_description" | "professionalServiceImage" | "categoryId" | "subCategoryId" | "innersubCategoryId" | "seoSchema" | "status", ExtArgs["result"]["products"]>
   export type ProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | Products$categoryArgs<ExtArgs>
     subcategory?: boolean | Products$subcategoryArgs<ExtArgs>
@@ -6531,6 +6568,7 @@ export namespace Prisma {
       subCategoryId: number | null
       innersubCategoryId: number | null
       seoSchema: string | null
+      status: $Enums.BlogStatus
     }, ExtArgs["result"]["products"]>
     composites: {}
   }
@@ -6995,6 +7033,7 @@ export namespace Prisma {
     readonly subCategoryId: FieldRef<"Products", 'Int'>
     readonly innersubCategoryId: FieldRef<"Products", 'Int'>
     readonly seoSchema: FieldRef<"Products", 'String'>
+    readonly status: FieldRef<"Products", 'BlogStatus'>
   }
     
 
@@ -14166,6 +14205,7 @@ export namespace Prisma {
     categoryId: number | null
     subCategoryId: number | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type EcomereceProductsMaxAggregateOutputType = {
@@ -14187,6 +14227,7 @@ export namespace Prisma {
     categoryId: number | null
     subCategoryId: number | null
     seoSchema: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type EcomereceProductsCountAggregateOutputType = {
@@ -14220,6 +14261,7 @@ export namespace Prisma {
     subCategoryId: number
     seoSchema: number
     shippingOptions: number
+    status: number
     _all: number
   }
 
@@ -14261,6 +14303,7 @@ export namespace Prisma {
     categoryId?: true
     subCategoryId?: true
     seoSchema?: true
+    status?: true
   }
 
   export type EcomereceProductsMaxAggregateInputType = {
@@ -14282,6 +14325,7 @@ export namespace Prisma {
     categoryId?: true
     subCategoryId?: true
     seoSchema?: true
+    status?: true
   }
 
   export type EcomereceProductsCountAggregateInputType = {
@@ -14315,6 +14359,7 @@ export namespace Prisma {
     subCategoryId?: true
     seoSchema?: true
     shippingOptions?: true
+    status?: true
     _all?: true
   }
 
@@ -14435,6 +14480,7 @@ export namespace Prisma {
     subCategoryId: number | null
     seoSchema: string | null
     shippingOptions: JsonValue[]
+    status: $Enums.BlogStatus | null
     _count: EcomereceProductsCountAggregateOutputType | null
     _avg: EcomereceProductsAvgAggregateOutputType | null
     _sum: EcomereceProductsSumAggregateOutputType | null
@@ -14487,6 +14533,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
+    status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
     reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
@@ -14525,6 +14572,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
+    status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
@@ -14560,6 +14608,7 @@ export namespace Prisma {
     subCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
+    status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
@@ -14595,9 +14644,10 @@ export namespace Prisma {
     subCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
+    status?: boolean
   }
 
-  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "seoSchema" | "shippingOptions", ExtArgs["result"]["ecomereceProducts"]>
+  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "seoSchema" | "shippingOptions" | "status", ExtArgs["result"]["ecomereceProducts"]>
   export type EcomereceProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
@@ -14653,6 +14703,7 @@ export namespace Prisma {
       subCategoryId: number | null
       seoSchema: string | null
       shippingOptions: Prisma.JsonValue[]
+      status: $Enums.BlogStatus | null
     }, ExtArgs["result"]["ecomereceProducts"]>
     composites: {}
   }
@@ -15110,6 +15161,7 @@ export namespace Prisma {
     readonly subCategoryId: FieldRef<"EcomereceProducts", 'Int'>
     readonly seoSchema: FieldRef<"EcomereceProducts", 'String'>
     readonly shippingOptions: FieldRef<"EcomereceProducts", 'Json[]'>
+    readonly status: FieldRef<"EcomereceProducts", 'BlogStatus'>
   }
     
 
@@ -22874,6 +22926,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type JobsMaxAggregateOutputType = {
@@ -22890,6 +22943,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    status: $Enums.BlogStatus | null
   }
 
   export type JobsCountAggregateOutputType = {
@@ -22910,6 +22964,7 @@ export namespace Prisma {
     Canonical_Tag: number
     Meta_Description: number
     Meta_Title: number
+    status: number
     _all: number
   }
 
@@ -22936,6 +22991,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    status?: true
   }
 
   export type JobsMaxAggregateInputType = {
@@ -22952,6 +23008,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    status?: true
   }
 
   export type JobsCountAggregateInputType = {
@@ -22972,6 +23029,7 @@ export namespace Prisma {
     Canonical_Tag?: true
     Meta_Description?: true
     Meta_Title?: true
+    status?: true
     _all?: true
   }
 
@@ -23079,6 +23137,7 @@ export namespace Prisma {
     Canonical_Tag: string | null
     Meta_Description: string | null
     Meta_Title: string | null
+    status: $Enums.BlogStatus | null
     _count: JobsCountAggregateOutputType | null
     _avg: JobsAvgAggregateOutputType | null
     _sum: JobsSumAggregateOutputType | null
@@ -23118,6 +23177,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    status?: boolean
   }, ExtArgs["result"]["jobs"]>
 
   export type JobsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23138,6 +23198,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    status?: boolean
   }, ExtArgs["result"]["jobs"]>
 
   export type JobsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -23158,6 +23219,7 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    status?: boolean
   }, ExtArgs["result"]["jobs"]>
 
   export type JobsSelectScalar = {
@@ -23178,9 +23240,10 @@ export namespace Prisma {
     Canonical_Tag?: boolean
     Meta_Description?: boolean
     Meta_Title?: boolean
+    status?: boolean
   }
 
-  export type JobsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "custom_url" | "location" | "jobType" | "salary" | "isFilled" | "description" | "responsibilities" | "requirements" | "benefits" | "apply" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title", ExtArgs["result"]["jobs"]>
+  export type JobsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "custom_url" | "location" | "jobType" | "salary" | "isFilled" | "description" | "responsibilities" | "requirements" | "benefits" | "apply" | "createdAt" | "updatedAt" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "status", ExtArgs["result"]["jobs"]>
 
   export type $JobsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Jobs"
@@ -23203,6 +23266,7 @@ export namespace Prisma {
       Canonical_Tag: string | null
       Meta_Description: string | null
       Meta_Title: string | null
+      status: $Enums.BlogStatus | null
     }, ExtArgs["result"]["jobs"]>
     composites: {}
   }
@@ -23643,6 +23707,7 @@ export namespace Prisma {
     readonly Canonical_Tag: FieldRef<"Jobs", 'String'>
     readonly Meta_Description: FieldRef<"Jobs", 'String'>
     readonly Meta_Title: FieldRef<"Jobs", 'String'>
+    readonly status: FieldRef<"Jobs", 'BlogStatus'>
   }
     
 
@@ -25194,7 +25259,8 @@ export namespace Prisma {
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
     Meta_Title: 'Meta_Title',
-    seoSchema: 'seoSchema'
+    seoSchema: 'seoSchema',
+    status: 'status'
   };
 
   export type CategoriesScalarFieldEnum = (typeof CategoriesScalarFieldEnum)[keyof typeof CategoriesScalarFieldEnum]
@@ -25241,7 +25307,8 @@ export namespace Prisma {
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
     Meta_Title: 'Meta_Title',
-    seoSchema: 'seoSchema'
+    seoSchema: 'seoSchema',
+    status: 'status'
   };
 
   export type SubCategoriesScalarFieldEnum = (typeof SubCategoriesScalarFieldEnum)[keyof typeof SubCategoriesScalarFieldEnum]
@@ -25285,7 +25352,8 @@ export namespace Prisma {
     categoryId: 'categoryId',
     subCategoryId: 'subCategoryId',
     innersubCategoryId: 'innersubCategoryId',
-    seoSchema: 'seoSchema'
+    seoSchema: 'seoSchema',
+    status: 'status'
   };
 
   export type ProductsScalarFieldEnum = (typeof ProductsScalarFieldEnum)[keyof typeof ProductsScalarFieldEnum]
@@ -25416,7 +25484,8 @@ export namespace Prisma {
     categoryId: 'categoryId',
     subCategoryId: 'subCategoryId',
     seoSchema: 'seoSchema',
-    shippingOptions: 'shippingOptions'
+    shippingOptions: 'shippingOptions',
+    status: 'status'
   };
 
   export type EcomereceProductsScalarFieldEnum = (typeof EcomereceProductsScalarFieldEnum)[keyof typeof EcomereceProductsScalarFieldEnum]
@@ -25563,7 +25632,8 @@ export namespace Prisma {
     updatedAt: 'updatedAt',
     Canonical_Tag: 'Canonical_Tag',
     Meta_Description: 'Meta_Description',
-    Meta_Title: 'Meta_Title'
+    Meta_Title: 'Meta_Title',
+    status: 'status'
   };
 
   export type JobsScalarFieldEnum = (typeof JobsScalarFieldEnum)[keyof typeof JobsScalarFieldEnum]
@@ -25705,6 +25775,20 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'BlogStatus'
+   */
+  export type EnumBlogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlogStatus'>
+    
+
+
+  /**
+   * Reference to a field of type 'BlogStatus[]'
+   */
+  export type ListEnumBlogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlogStatus[]'>
+    
+
+
+  /**
    * Reference to a field of type 'Boolean'
    */
   export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
@@ -25722,20 +25806,6 @@ export namespace Prisma {
    * Reference to a field of type 'CommentStatus[]'
    */
   export type ListEnumCommentStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'CommentStatus[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'BlogStatus'
-   */
-  export type EnumBlogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlogStatus'>
-    
-
-
-  /**
-   * Reference to a field of type 'BlogStatus[]'
-   */
-  export type ListEnumBlogStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'BlogStatus[]'>
     
 
 
@@ -25802,6 +25872,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
     seoSchema?: StringNullableFilter<"categories"> | string | null
+    status?: EnumBlogStatusNullableFilter<"categories"> | $Enums.BlogStatus | null
     subCategories?: SubCategoriesListRelationFilter
     products?: ProductsListRelationFilter
     EcomereceProducts?: EcomereceProductsListRelationFilter
@@ -25850,6 +25921,7 @@ export namespace Prisma {
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
     subCategories?: subCategoriesOrderByRelationAggregateInput
     products?: ProductsOrderByRelationAggregateInput
     EcomereceProducts?: EcomereceProductsOrderByRelationAggregateInput
@@ -25901,6 +25973,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableFilter<"categories"> | string | null
     Meta_Title?: StringNullableFilter<"categories"> | string | null
     seoSchema?: StringNullableFilter<"categories"> | string | null
+    status?: EnumBlogStatusNullableFilter<"categories"> | $Enums.BlogStatus | null
     subCategories?: SubCategoriesListRelationFilter
     products?: ProductsListRelationFilter
     EcomereceProducts?: EcomereceProductsListRelationFilter
@@ -25949,6 +26022,7 @@ export namespace Prisma {
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
     _count?: categoriesCountOrderByAggregateInput
     _avg?: categoriesAvgOrderByAggregateInput
     _max?: categoriesMaxOrderByAggregateInput
@@ -26002,6 +26076,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableWithAggregatesFilter<"categories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"categories"> | string | null
     seoSchema?: StringNullableWithAggregatesFilter<"categories"> | string | null
+    status?: EnumBlogStatusNullableWithAggregatesFilter<"categories"> | $Enums.BlogStatus | null
   }
 
   export type subCategoriesWhereInput = {
@@ -26049,6 +26124,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
     seoSchema?: StringNullableFilter<"subCategories"> | string | null
+    status?: EnumBlogStatusNullableFilter<"subCategories"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     products?: ProductsListRelationFilter
     InnersubCategories?: InnersubCategoriesListRelationFilter
@@ -26097,6 +26173,7 @@ export namespace Prisma {
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
     products?: ProductsOrderByRelationAggregateInput
     InnersubCategories?: InnersubCategoriesOrderByRelationAggregateInput
@@ -26148,6 +26225,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
     seoSchema?: StringNullableFilter<"subCategories"> | string | null
+    status?: EnumBlogStatusNullableFilter<"subCategories"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     products?: ProductsListRelationFilter
     InnersubCategories?: InnersubCategoriesListRelationFilter
@@ -26196,6 +26274,7 @@ export namespace Prisma {
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
     _count?: subCategoriesCountOrderByAggregateInput
     _avg?: subCategoriesAvgOrderByAggregateInput
     _max?: subCategoriesMaxOrderByAggregateInput
@@ -26248,6 +26327,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
     seoSchema?: StringNullableWithAggregatesFilter<"subCategories"> | string | null
+    status?: EnumBlogStatusNullableWithAggregatesFilter<"subCategories"> | $Enums.BlogStatus | null
   }
 
   export type ProductsWhereInput = {
@@ -26292,6 +26372,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"Products"> | number | null
     innersubCategoryId?: IntNullableFilter<"Products"> | number | null
     seoSchema?: StringNullableFilter<"Products"> | string | null
+    status?: EnumBlogStatusFilter<"Products"> | $Enums.BlogStatus
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     Innersubcategory?: XOR<InnersubCategoriesNullableScalarRelationFilter, InnersubCategoriesWhereInput> | null
@@ -26336,6 +26417,7 @@ export namespace Prisma {
     subCategoryId?: SortOrderInput | SortOrder
     innersubCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrder
     category?: categoriesOrderByWithRelationInput
     subcategory?: subCategoriesOrderByWithRelationInput
     Innersubcategory?: InnersubCategoriesOrderByWithRelationInput
@@ -26383,6 +26465,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"Products"> | number | null
     innersubCategoryId?: IntNullableFilter<"Products"> | number | null
     seoSchema?: StringNullableFilter<"Products"> | string | null
+    status?: EnumBlogStatusFilter<"Products"> | $Enums.BlogStatus
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     Innersubcategory?: XOR<InnersubCategoriesNullableScalarRelationFilter, InnersubCategoriesWhereInput> | null
@@ -26427,6 +26510,7 @@ export namespace Prisma {
     subCategoryId?: SortOrderInput | SortOrder
     innersubCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
+    status?: SortOrder
     _count?: ProductsCountOrderByAggregateInput
     _avg?: ProductsAvgOrderByAggregateInput
     _max?: ProductsMaxOrderByAggregateInput
@@ -26476,6 +26560,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableWithAggregatesFilter<"Products"> | number | null
     innersubCategoryId?: IntNullableWithAggregatesFilter<"Products"> | number | null
     seoSchema?: StringNullableWithAggregatesFilter<"Products"> | string | null
+    status?: EnumBlogStatusWithAggregatesFilter<"Products"> | $Enums.BlogStatus
   }
 
   export type AdminsWhereInput = {
@@ -26987,6 +27072,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
+    status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
@@ -27024,6 +27110,7 @@ export namespace Prisma {
     subCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
     shippingOptions?: SortOrder
+    status?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
     subcategory?: subCategoriesOrderByWithRelationInput
     reviews?: ProductReviewsOrderByRelationAggregateInput
@@ -27064,6 +27151,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
+    status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
@@ -27101,6 +27189,7 @@ export namespace Prisma {
     subCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
     shippingOptions?: SortOrder
+    status?: SortOrderInput | SortOrder
     _count?: EcomereceProductsCountOrderByAggregateInput
     _avg?: EcomereceProductsAvgOrderByAggregateInput
     _max?: EcomereceProductsMaxOrderByAggregateInput
@@ -27142,6 +27231,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableWithAggregatesFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
+    status?: EnumBlogStatusNullableWithAggregatesFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
   }
 
   export type UserWhereInput = {
@@ -27791,6 +27881,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"Jobs"> | string | null
     Meta_Description?: StringNullableFilter<"Jobs"> | string | null
     Meta_Title?: StringNullableFilter<"Jobs"> | string | null
+    status?: EnumBlogStatusNullableFilter<"Jobs"> | $Enums.BlogStatus | null
   }
 
   export type JobsOrderByWithRelationInput = {
@@ -27811,6 +27902,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
   }
 
   export type JobsWhereUniqueInput = Prisma.AtLeast<{
@@ -27834,6 +27926,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableFilter<"Jobs"> | string | null
     Meta_Description?: StringNullableFilter<"Jobs"> | string | null
     Meta_Title?: StringNullableFilter<"Jobs"> | string | null
+    status?: EnumBlogStatusNullableFilter<"Jobs"> | $Enums.BlogStatus | null
   }, "id" | "title">
 
   export type JobsOrderByWithAggregationInput = {
@@ -27854,6 +27947,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrderInput | SortOrder
     Meta_Description?: SortOrderInput | SortOrder
     Meta_Title?: SortOrderInput | SortOrder
+    status?: SortOrderInput | SortOrder
     _count?: JobsCountOrderByAggregateInput
     _avg?: JobsAvgOrderByAggregateInput
     _max?: JobsMaxOrderByAggregateInput
@@ -27882,6 +27976,7 @@ export namespace Prisma {
     Canonical_Tag?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
     Meta_Description?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
     Meta_Title?: StringNullableWithAggregatesFilter<"Jobs"> | string | null
+    status?: EnumBlogStatusNullableWithAggregatesFilter<"Jobs"> | $Enums.BlogStatus | null
   }
 
   export type JobApplicationWhereInput = {
@@ -28020,6 +28115,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
     products?: ProductsCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutCategoryInput
@@ -28068,6 +28164,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
     products?: ProductsUncheckedCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutCategoryInput
@@ -28115,6 +28212,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
     products?: ProductsUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutCategoryNestedInput
@@ -28163,6 +28261,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
     products?: ProductsUncheckedUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutCategoryNestedInput
@@ -28211,6 +28310,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type categoriesUpdateManyMutationInput = {
@@ -28255,6 +28355,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type categoriesUncheckedUpdateManyInput = {
@@ -28300,6 +28401,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type subCategoriesCreateInput = {
@@ -28342,6 +28444,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
@@ -28390,6 +28493,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutSubcategoryInput
@@ -28435,6 +28539,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
@@ -28483,6 +28588,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
@@ -28530,6 +28636,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type subCategoriesUpdateManyMutationInput = {
@@ -28572,6 +28679,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type subCategoriesUncheckedUpdateManyInput = {
@@ -28616,6 +28724,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type ProductsCreateInput = {
@@ -28653,6 +28762,7 @@ export namespace Prisma {
     explore_description?: string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
     category?: categoriesCreateNestedOneWithoutProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutProductsInput
     Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutProductsInput
@@ -28697,6 +28807,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsUpdateInput = {
@@ -28734,6 +28845,7 @@ export namespace Prisma {
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
     category?: categoriesUpdateOneWithoutProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutProductsNestedInput
     Innersubcategory?: InnersubCategoriesUpdateOneWithoutProductsNestedInput
@@ -28778,6 +28890,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductsCreateManyInput = {
@@ -28819,6 +28932,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsUpdateManyMutationInput = {
@@ -28856,6 +28970,7 @@ export namespace Prisma {
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductsUncheckedUpdateManyInput = {
@@ -28897,6 +29012,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type AdminsCreateInput = {
@@ -29451,6 +29567,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
@@ -29488,6 +29605,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -29520,6 +29638,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
@@ -29557,6 +29676,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -29592,6 +29712,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
   }
 
   export type EcomereceProductsUpdateManyMutationInput = {
@@ -29622,6 +29743,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type EcomereceProductsUncheckedUpdateManyInput = {
@@ -29655,6 +29777,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type UserCreateInput = {
@@ -30399,6 +30522,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type JobsUncheckedCreateInput = {
@@ -30419,6 +30543,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type JobsUpdateInput = {
@@ -30438,6 +30563,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type JobsUncheckedUpdateInput = {
@@ -30458,6 +30584,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type JobsCreateManyInput = {
@@ -30478,6 +30605,7 @@ export namespace Prisma {
     Canonical_Tag?: string | null
     Meta_Description?: string | null
     Meta_Title?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type JobsUpdateManyMutationInput = {
@@ -30497,6 +30625,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type JobsUncheckedUpdateManyInput = {
@@ -30517,6 +30646,7 @@ export namespace Prisma {
     Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type JobApplicationCreateInput = {
@@ -30740,6 +30870,13 @@ export namespace Prisma {
     isEmpty?: boolean
   }
 
+  export type EnumBlogStatusNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumBlogStatusNullableFilter<$PrismaModel> | $Enums.BlogStatus | null
+  }
+
   export type SubCategoriesListRelationFilter = {
     every?: subCategoriesWhereInput
     some?: subCategoriesWhereInput
@@ -30818,6 +30955,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type categoriesAvgOrderByAggregateInput = {
@@ -30859,6 +30997,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type categoriesMinOrderByAggregateInput = {
@@ -30896,6 +31035,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type categoriesSumOrderByAggregateInput = {
@@ -31020,6 +31160,16 @@ export namespace Prisma {
     _max?: NestedJsonNullableFilter<$PrismaModel>
   }
 
+  export type EnumBlogStatusNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumBlogStatusNullableWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumBlogStatusNullableFilter<$PrismaModel>
+    _max?: NestedEnumBlogStatusNullableFilter<$PrismaModel>
+  }
+
   export type IntNullableFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -31088,6 +31238,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type subCategoriesAvgOrderByAggregateInput = {
@@ -31125,6 +31276,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type subCategoriesMinOrderByAggregateInput = {
@@ -31157,6 +31309,7 @@ export namespace Prisma {
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type subCategoriesSumOrderByAggregateInput = {
@@ -31178,6 +31331,13 @@ export namespace Prisma {
     _sum?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedIntNullableFilter<$PrismaModel>
     _max?: NestedIntNullableFilter<$PrismaModel>
+  }
+
+  export type EnumBlogStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBlogStatusFilter<$PrismaModel> | $Enums.BlogStatus
   }
 
   export type SubCategoriesNullableScalarRelationFilter = {
@@ -31229,6 +31389,7 @@ export namespace Prisma {
     subCategoryId?: SortOrder
     innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type ProductsAvgOrderByAggregateInput = {
@@ -31270,6 +31431,7 @@ export namespace Prisma {
     subCategoryId?: SortOrder
     innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type ProductsMinOrderByAggregateInput = {
@@ -31301,6 +31463,7 @@ export namespace Prisma {
     subCategoryId?: SortOrder
     innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type ProductsSumOrderByAggregateInput = {
@@ -31311,6 +31474,16 @@ export namespace Prisma {
     categoryId?: SortOrder
     subCategoryId?: SortOrder
     innersubCategoryId?: SortOrder
+  }
+
+  export type EnumBlogStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBlogStatusFilter<$PrismaModel>
+    _max?: NestedEnumBlogStatusFilter<$PrismaModel>
   }
 
   export type BoolFilter<$PrismaModel = never> = {
@@ -31650,6 +31823,7 @@ export namespace Prisma {
     subCategoryId?: SortOrder
     seoSchema?: SortOrder
     shippingOptions?: SortOrder
+    status?: SortOrder
   }
 
   export type EcomereceProductsAvgOrderByAggregateInput = {
@@ -31680,6 +31854,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     subCategoryId?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type EcomereceProductsMinOrderByAggregateInput = {
@@ -31701,6 +31876,7 @@ export namespace Prisma {
     categoryId?: SortOrder
     subCategoryId?: SortOrder
     seoSchema?: SortOrder
+    status?: SortOrder
   }
 
   export type EcomereceProductsSumOrderByAggregateInput = {
@@ -31874,13 +32050,6 @@ export namespace Prisma {
     ecomereceProductsId?: SortOrder
   }
 
-  export type EnumBlogStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBlogStatusFilter<$PrismaModel> | $Enums.BlogStatus
-  }
-
   export type Blogs_commentsListRelationFilter = {
     every?: blogs_commentsWhereInput
     some?: blogs_commentsWhereInput
@@ -31952,16 +32121,6 @@ export namespace Prisma {
 
   export type blogsSumOrderByAggregateInput = {
     id?: SortOrder
-  }
-
-  export type EnumBlogStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBlogStatusFilter<$PrismaModel>
-    _max?: NestedEnumBlogStatusFilter<$PrismaModel>
   }
 
   export type DateTimeFilter<$PrismaModel = never> = {
@@ -32175,6 +32334,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    status?: SortOrder
   }
 
   export type JobsAvgOrderByAggregateInput = {
@@ -32195,6 +32355,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    status?: SortOrder
   }
 
   export type JobsMinOrderByAggregateInput = {
@@ -32211,6 +32372,7 @@ export namespace Prisma {
     Canonical_Tag?: SortOrder
     Meta_Description?: SortOrder
     Meta_Title?: SortOrder
+    status?: SortOrder
   }
 
   export type JobsSumOrderByAggregateInput = {
@@ -32368,6 +32530,10 @@ export namespace Prisma {
   export type categoriesUpdateparasInput = {
     set?: InputJsonValue[]
     push?: InputJsonValue | InputJsonValue[]
+  }
+
+  export type NullableEnumBlogStatusFieldUpdateOperationsInput = {
+    set?: $Enums.BlogStatus | null
   }
 
   export type subCategoriesUpdateManyWithoutCategoryNestedInput = {
@@ -32756,6 +32922,10 @@ export namespace Prisma {
     push?: InputJsonValue | InputJsonValue[]
   }
 
+  export type EnumBlogStatusFieldUpdateOperationsInput = {
+    set?: $Enums.BlogStatus
+  }
+
   export type categoriesUpdateOneWithoutProductsNestedInput = {
     create?: XOR<categoriesCreateWithoutProductsInput, categoriesUncheckedCreateWithoutProductsInput>
     connectOrCreate?: categoriesCreateOrConnectWithoutProductsInput
@@ -33122,10 +33292,6 @@ export namespace Prisma {
     connect?: blogs_commentsWhereUniqueInput | blogs_commentsWhereUniqueInput[]
   }
 
-  export type EnumBlogStatusFieldUpdateOperationsInput = {
-    set?: $Enums.BlogStatus
-  }
-
   export type blogs_commentsUpdateManyWithoutBlogNestedInput = {
     create?: XOR<blogs_commentsCreateWithoutBlogInput, blogs_commentsUncheckedCreateWithoutBlogInput> | blogs_commentsCreateWithoutBlogInput[] | blogs_commentsUncheckedCreateWithoutBlogInput[]
     connectOrCreate?: blogs_commentsCreateOrConnectWithoutBlogInput | blogs_commentsCreateOrConnectWithoutBlogInput[]
@@ -33276,6 +33442,13 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
+  export type NestedEnumBlogStatusNullableFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumBlogStatusNullableFilter<$PrismaModel> | $Enums.BlogStatus | null
+  }
+
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -33408,6 +33581,16 @@ export namespace Prisma {
     not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
+  export type NestedEnumBlogStatusNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel> | null
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel> | null
+    not?: NestedEnumBlogStatusNullableWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedEnumBlogStatusNullableFilter<$PrismaModel>
+    _max?: NestedEnumBlogStatusNullableFilter<$PrismaModel>
+  }
+
   export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel> | null
     in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
@@ -33433,6 +33616,23 @@ export namespace Prisma {
     gt?: number | FloatFieldRefInput<$PrismaModel>
     gte?: number | FloatFieldRefInput<$PrismaModel>
     not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
+  export type NestedEnumBlogStatusFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBlogStatusFilter<$PrismaModel> | $Enums.BlogStatus
+  }
+
+  export type NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
+    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
+    not?: NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumBlogStatusFilter<$PrismaModel>
+    _max?: NestedEnumBlogStatusFilter<$PrismaModel>
   }
 
   export type NestedBoolFilter<$PrismaModel = never> = {
@@ -33463,23 +33663,6 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedEnumCommentStatusFilter<$PrismaModel>
     _max?: NestedEnumCommentStatusFilter<$PrismaModel>
-  }
-
-  export type NestedEnumBlogStatusFilter<$PrismaModel = never> = {
-    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBlogStatusFilter<$PrismaModel> | $Enums.BlogStatus
-  }
-
-  export type NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: $Enums.BlogStatus | EnumBlogStatusFieldRefInput<$PrismaModel>
-    in?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    notIn?: $Enums.BlogStatus[] | ListEnumBlogStatusFieldRefInput<$PrismaModel>
-    not?: NestedEnumBlogStatusWithAggregatesFilter<$PrismaModel> | $Enums.BlogStatus
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedEnumBlogStatusFilter<$PrismaModel>
-    _max?: NestedEnumBlogStatusFilter<$PrismaModel>
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -33547,6 +33730,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutSubcategoryInput
@@ -33593,6 +33777,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutSubcategoryInput
@@ -33643,6 +33828,7 @@ export namespace Prisma {
     explore_description?: string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
     subcategory?: subCategoriesCreateNestedOneWithoutProductsInput
     Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutProductsInput
   }
@@ -33685,6 +33871,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsCreateOrConnectWithoutCategoryInput = {
@@ -33725,6 +33912,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -33760,6 +33948,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -33835,6 +34024,7 @@ export namespace Prisma {
     Meta_Description?: StringNullableFilter<"subCategories"> | string | null
     Meta_Title?: StringNullableFilter<"subCategories"> | string | null
     seoSchema?: StringNullableFilter<"subCategories"> | string | null
+    status?: EnumBlogStatusNullableFilter<"subCategories"> | $Enums.BlogStatus | null
   }
 
   export type ProductsUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -33895,6 +34085,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"Products"> | number | null
     innersubCategoryId?: IntNullableFilter<"Products"> | number | null
     seoSchema?: StringNullableFilter<"Products"> | string | null
+    status?: EnumBlogStatusFilter<"Products"> | $Enums.BlogStatus
   }
 
   export type EcomereceProductsUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -33947,6 +34138,7 @@ export namespace Prisma {
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
+    status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
   }
 
   export type categoriesCreateWithoutSubCategoriesInput = {
@@ -33991,6 +34183,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutCategoryInput
   }
@@ -34038,6 +34231,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsUncheckedCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutCategoryInput
   }
@@ -34082,6 +34276,7 @@ export namespace Prisma {
     explore_description?: string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
     category?: categoriesCreateNestedOneWithoutProductsInput
     Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutProductsInput
   }
@@ -34124,6 +34319,7 @@ export namespace Prisma {
     categoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsCreateOrConnectWithoutSubcategoryInput = {
@@ -34195,6 +34391,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -34230,6 +34427,7 @@ export namespace Prisma {
     categoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -34297,6 +34495,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutCategoryNestedInput
   }
@@ -34344,6 +34543,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUncheckedUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutCategoryNestedInput
   }
@@ -34452,6 +34652,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutCategoryInput
   }
@@ -34499,6 +34700,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutCategoryInput
   }
@@ -34548,6 +34750,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
     InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutSubcategoryInput
@@ -34595,6 +34798,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutSubcategoryInput
   }
@@ -34683,6 +34887,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutCategoryNestedInput
   }
@@ -34730,6 +34935,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutCategoryNestedInput
   }
@@ -34785,6 +34991,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
     InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutSubcategoryNestedInput
@@ -34832,6 +35039,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
   }
@@ -34908,6 +35116,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
     EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutSubcategoryInput
@@ -34955,6 +35164,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
     EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutSubcategoryInput
   }
@@ -34999,6 +35209,7 @@ export namespace Prisma {
     explore_description?: string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
     category?: categoriesCreateNestedOneWithoutProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutProductsInput
   }
@@ -35041,6 +35252,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsCreateOrConnectWithoutInnersubcategoryInput = {
@@ -35104,6 +35316,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutSubcategoryNestedInput
@@ -35151,6 +35364,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
   }
@@ -35213,6 +35427,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesCreateNestedManyWithoutCategoryInput
     products?: ProductsCreateNestedManyWithoutCategoryInput
   }
@@ -35260,6 +35475,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedCreateNestedManyWithoutCategoryInput
     products?: ProductsUncheckedCreateNestedManyWithoutCategoryInput
   }
@@ -35309,6 +35525,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutSubCategoriesInput
     products?: ProductsCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesCreateNestedManyWithoutSubCategoryInput
@@ -35356,6 +35573,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
     products?: ProductsUncheckedCreateNestedManyWithoutSubcategoryInput
     InnersubCategories?: InnersubCategoriesUncheckedCreateNestedManyWithoutSubCategoryInput
   }
@@ -35488,6 +35706,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUpdateManyWithoutCategoryNestedInput
     products?: ProductsUpdateManyWithoutCategoryNestedInput
   }
@@ -35535,6 +35754,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subCategories?: subCategoriesUncheckedUpdateManyWithoutCategoryNestedInput
     products?: ProductsUncheckedUpdateManyWithoutCategoryNestedInput
   }
@@ -35590,6 +35810,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutSubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
@@ -35637,6 +35858,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
   }
@@ -35735,6 +35957,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
@@ -35771,6 +35994,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -35818,6 +36042,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -35854,6 +36079,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -35885,6 +36111,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
@@ -35921,6 +36148,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -35968,6 +36196,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
@@ -36004,6 +36233,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -36206,6 +36436,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus | null
   }
 
   export type ProductsCreateManyCategoryInput = {
@@ -36246,6 +36477,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type EcomereceProductsCreateManyCategoryInput = {
@@ -36278,6 +36510,7 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
   }
 
   export type subCategoriesUpdateWithoutCategoryInput = {
@@ -36320,6 +36553,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUpdateManyWithoutSubCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUpdateManyWithoutSubcategoryNestedInput
@@ -36366,6 +36600,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     products?: ProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
     EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutSubcategoryNestedInput
@@ -36412,6 +36647,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type ProductsUpdateWithoutCategoryInput = {
@@ -36449,6 +36685,7 @@ export namespace Prisma {
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
     subcategory?: subCategoriesUpdateOneWithoutProductsNestedInput
     Innersubcategory?: InnersubCategoriesUpdateOneWithoutProductsNestedInput
   }
@@ -36491,6 +36728,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductsUncheckedUpdateManyWithoutCategoryInput = {
@@ -36531,6 +36769,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type EcomereceProductsUpdateWithoutCategoryInput = {
@@ -36561,6 +36800,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -36596,6 +36836,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -36630,6 +36871,7 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type ProductsCreateManySubcategoryInput = {
@@ -36670,6 +36912,7 @@ export namespace Prisma {
     categoryId?: number | null
     innersubCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type InnersubCategoriesCreateManySubCategoryInput = {
@@ -36712,6 +36955,7 @@ export namespace Prisma {
     categoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
   }
 
   export type ProductsUpdateWithoutSubcategoryInput = {
@@ -36749,6 +36993,7 @@ export namespace Prisma {
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
     category?: categoriesUpdateOneWithoutProductsNestedInput
     Innersubcategory?: InnersubCategoriesUpdateOneWithoutProductsNestedInput
   }
@@ -36791,6 +37036,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductsUncheckedUpdateManyWithoutSubcategoryInput = {
@@ -36831,6 +37077,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type InnersubCategoriesUpdateWithoutSubCategoryInput = {
@@ -36892,6 +37139,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
@@ -36927,6 +37175,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -36961,6 +37210,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type ProductsCreateManyInnersubcategoryInput = {
@@ -37001,6 +37251,7 @@ export namespace Prisma {
     categoryId?: number | null
     subCategoryId?: number | null
     seoSchema?: string | null
+    status?: $Enums.BlogStatus
   }
 
   export type ProductsUpdateWithoutInnersubcategoryInput = {
@@ -37038,6 +37289,7 @@ export namespace Prisma {
     explore_description?: NullableStringFieldUpdateOperationsInput | string | null
     professionalServiceImage?: NullableJsonNullValueInput | InputJsonValue
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
     category?: categoriesUpdateOneWithoutProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutProductsNestedInput
   }
@@ -37080,6 +37332,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductsUncheckedUpdateManyWithoutInnersubcategoryInput = {
@@ -37120,6 +37373,7 @@ export namespace Prisma {
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
   }
 
   export type ProductReviewsCreateManyEcomereceProductsInput = {

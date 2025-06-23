@@ -1,4 +1,5 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
 import GraphQLJSON from 'graphql-type-json';
 
 @InputType()
@@ -129,6 +130,10 @@ export class CreateProductInput {
 
   @Field(() => Int)
   Innersubcategory?: Number;
+
+  
+    @Field(() => BlogStatus, { nullable: true })
+    status?: BlogStatus
 
 
 }
