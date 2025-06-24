@@ -15,7 +15,7 @@ export class CategoriesResolver {
   }
 
   
-
+  @Public()
   @Query(() => [Category], { name: 'categories' })
   findAll() {
     return this.categoriesService.findAll();

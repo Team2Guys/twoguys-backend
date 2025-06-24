@@ -16,8 +16,6 @@ export class AuthGuard implements CanActivate {
     if (isPublic) return true;
 
     let req: any;
-
-    // ✅ Detect GraphQL with helper instead of comparing types
     if (context.getType() === 'http') {
       req = context.switchToHttp().getRequest();
     } else {
@@ -25,15 +23,17 @@ export class AuthGuard implements CanActivate {
       req = gqlContext.getContext().req;
     }
 
-    console.log(req, "req")
+    console.log(req.headers, "req", process.env.TOKEN_SECRET)
     if (!req) throw new UnauthorizedException('Request is undefined');
 
     const authHeader = req.headers?.authorization;
     if (!authHeader?.startsWith('Bearer ')) {
-      throw new UnauthorizedException('Authorization token missing');
+      throw new UnauthorizedException('authorization token missing');
     }
 
-    const token = authHeader.split('')[1];
+const token = authHeader.split(' ')[1];
+
+    console.log(token, "token")
 
     try {
       const decoded = jwt.verify(token, process.env.TOKEN_SECRET);

@@ -6,7 +6,7 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.set('trust proxy', 'loopback'); // Trust requests from the loopback address
+app.set('trust proxy', 1);
 
   console.log(process.env.PORT, "PORTED")
   app.use(graphqlUploadExpress({
@@ -23,7 +23,7 @@ async function bootstrap() {
       "http://192.168.1.18:5008"
     ],
     credentials: true,
-    allowedHeaders: ["Authorization", "Content-Type"],
+    allowedHeaders: ["authorization", "Content-Type"],
 
   })
   await app.listen(process.env.PORT ?? 5001,()=>console.log('Server is working on ' ));

@@ -22,7 +22,7 @@ export class UserResolver {
     return this.userService.userLogin(userLogin, res);
   }
 
-
+  @Public()
   @Query(() => [User], { name: 'All_user' })
   findAll() {
     return this.userService.findAll();

@@ -3,6 +3,7 @@ import { ProductsService } from './products.service';
 import { Product } from './entities/product.entity';
 import { CreateProductInput } from './dto/create-product.input';
 import { UpdateProductInput } from './dto/update-product.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => Product)
 export class ProductsResolver {
@@ -14,12 +15,13 @@ export class ProductsResolver {
   }
 
   
-
+  @Public()
   @Query(() => [Product], { name: 'All_products', nullable: true })
   findAll() {
     return this.productsService.findAll();
   }
 
+    @Public()
   @Query(() => Product, { name: 'single_product', nullable: true })
   findOne(
     @Args('custom_url', { type: () => String }) custom_url: string,

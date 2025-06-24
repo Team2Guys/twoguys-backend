@@ -3,10 +3,13 @@ import { SalesProductsService } from './sales-products.service';
 import { ALL_RECORDS, contactUsEmail, MonthlyAppointmentStats, paymentStatus, SalesProduct, WEEKLY_STATS } from './entities/sales-product.entity';
 import { contactUsEmailInput, CreateOrderInput, PaymentQueryDto, } from './dto/create-sales-product.input';
 import { Public } from '../decorators/public.decorator';
+import { Throttle, ThrottlerGuard } from '@nestjs/throttler';
+import { UseGuards } from '@nestjs/common';
+import { GqlThrottlerGuard } from 'common/GqlThrottlerGuard';
 
 @Resolver(() => SalesProduct)
 export class SalesProductsResolver {
-  constructor(private readonly salesProductsService: SalesProductsService) {}
+  constructor(private readonly salesProductsService: SalesProductsService) { }
 
   @Public()
   @Mutation(() => SalesProduct)
@@ -15,7 +18,7 @@ export class SalesProductsResolver {
   }
 
   @Public()
-  @Mutation(() => paymentStatus,{nullable:true})
+  @Mutation(() => paymentStatus, { nullable: true })
   postpaymentStatus(@Args('postpaymentStatus') updatepaymentstatusInput: PaymentQueryDto) {
     return this.salesProductsService.postpaymentStatus(updatepaymentstatusInput);
   }
@@ -50,21 +53,29 @@ export class SalesProductsResolver {
   Contact_email(@Args('contactUsEmail') contactUsEmail: contactUsEmailInput) {
     return this.salesProductsService.contactUs(contactUsEmail);
   }
-// queries
+  // queries
 
-  @Query(() => MonthlyAppointmentStats, {nullable:true, name: 'MONTHLY_COUNT' })
+  @Query(() => MonthlyAppointmentStats, { nullable: true, name: 'MONTHLY_COUNT' })
+  @UseGuards(GqlThrottlerGuard)
+@Throttle({
+  '0': {
+    limit: 2,
+    ttl: 60,
+  },
+})
   getMonthlyAppointments() {
+    console.log('monthly function works')
     return this.salesProductsService.getMonthlyAppointments();
   }
 
 
-  @Query(() => [WEEKLY_STATS], {nullable:true, name: 'WEEKLY_STATS' })
+  @Query(() => [WEEKLY_STATS], { nullable: true, name: 'WEEKLY_STATS' })
   getLast7DaysStats() {
     return this.salesProductsService.getLast7DaysStats();
   }
 
 
 
-  
+
 
 }
