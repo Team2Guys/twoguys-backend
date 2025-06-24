@@ -3,6 +3,7 @@ import { GeneralService } from './general.service';
 import { Appointments, General, Jobs, JobsApplication, productQuestion, ProductReviews, Redirecturls, SocialLinks } from './entities/general.entity';
 import { createAppointments, CreatedRedirecturls, CreateGeneralInput, CreateGeneralsocial, CreateJobApplicationDto, CreateJobDto, productQuestionInput, productReviewInput } from './dto/create-general.input';
 import { UpdateCreateJobApplicationDto, UpdateCreateJobDto, UpdateGeneralInput, UpdateGeneralsocial, UpdateproductQuestionInput, UpdateproductReviewInput, UpdateRedirecturls } from './dto/update-general.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => General)
 export class GeneralResolver {
@@ -13,6 +14,7 @@ export class GeneralResolver {
     return this.generalService.create(createGeneralInput);
   }
 
+  @Public()
   @Query(() => [General], { name: 'get_All_Reviews', nullable: true })
   findAll() {
     return this.generalService.findAll();
@@ -33,6 +35,7 @@ export class GeneralResolver {
     return this.generalService.createSocial(CreateGeneralsocial);
   }
 
+  @Public()
   @Query(() => [SocialLinks], { nullable: true })
   SocialLinks() {
     return this.generalService.getall();
@@ -55,6 +58,7 @@ export class GeneralResolver {
     return this.generalService.createAppointment(createAppointments);
   }
 
+  @Public()
   @Query(() => [Appointments], { name: "Get_Appointments", nullable: true })
   GetAllAppointments() {
     return this.generalService.GetAllAppointments();
@@ -80,11 +84,13 @@ export class GeneralResolver {
     return this.generalService.updateRedirecturls(UpdateRedirecturls);
   }
 
+    @Public()
   @Mutation(() => Redirecturls, { nullable: true })
   findOneRedirecturls(@Args('url', { type: () => String }) url: string) {
     return this.generalService.findOneRedirecturls(url);
   }
 
+    @Public()
   @Query(() => [Redirecturls], { nullable: true })
   findAllRedirecturls() {
     return this.generalService.findAllRedirecturls();
@@ -96,7 +102,7 @@ export class GeneralResolver {
   createProdReviews(@Args('productReviewInput') productReviewInput: productReviewInput) {
     return this.generalService.createProdReviews(productReviewInput);
   }
-
+  @Public()
   @Query(() => [ProductReviews], { name: 'get_All_prod_Reviews', nullable: true })
   getAllProdReviews() {
     return this.generalService.getAllProdReviews();
@@ -118,7 +124,7 @@ export class GeneralResolver {
   createProdquestions(@Args('productQuestionInput') productQuestionInput: productQuestionInput) {
     return this.generalService.createProdquestions(productQuestionInput);
   }
-
+  @Public()
   @Query(() => [productQuestion], { name: 'get_All_prod_Questions', nullable: true })
   getAllProdquestions() {
     return this.generalService.getAllProdquestions();
@@ -140,14 +146,14 @@ export class GeneralResolver {
   createjob(@Args('CreateJobDto') CreateJobDto: CreateJobDto) {
     return this.generalService.createjob(CreateJobDto);
   }
-
+  @Public()
   @Query(() => [Jobs], { name: 'get_All_jobs', nullable: true })
   getAlljob() {
     return this.generalService.getAlljob();
   }
 
 
-
+  @Public()
   @Query(() => Jobs, { name: 'get_single_job', nullable: true })
   findOne(
     @Args('customUrl', { type: () => String }) customUrl: string
@@ -171,7 +177,7 @@ export class GeneralResolver {
   createjobApplication(@Args('CreateJobDto') CreateJobDto: CreateJobApplicationDto) {
     return this.generalService.createjobApplication(CreateJobDto);
   }
-
+  @Public()
   @Query(() => [JobsApplication], { name: 'get_All_jobs_applications', nullable: true })
   getAlljobApplication() {
     return this.generalService.getAlljobApplication();

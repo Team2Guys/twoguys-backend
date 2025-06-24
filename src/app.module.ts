@@ -12,20 +12,21 @@ import { AdminsModule } from './admins/admins.module';
 import { BlogsModule } from './blogs/blogs.module';
 import { SalesProductsModule } from './sales-products/sales-products.module';
 import { UserModule } from './user/user.module';
-import {  ThrottlerModule } from '@nestjs/throttler';
+import {  ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
 import { GqlThrottlerGuard } from 'common/GqlThrottlerGuard';
+import { AuthGuard } from 'guards/auth.guard';
 
 @Module({
   imports: [
-        ThrottlerModule.forRoot({
-      throttlers: [
-        {
-          ttl: 10,
-          limit: 2,
-        },
-      ],
-    }),
+ThrottlerModule.forRoot({
+  throttlers: [
+    {
+      ttl: 60,
+      limit: 2,
+    },
+  ],
+}),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       path: 'backend/graphql',
 
@@ -48,7 +49,7 @@ import { GqlThrottlerGuard } from 'common/GqlThrottlerGuard';
   ],
   providers: [PrismaService, {
     provide: APP_GUARD,
-    useClass: GqlThrottlerGuard, // ✅ Let Nest inject required dependencies
+    useClass: AuthGuard, // ✅ Let Nest inject required dependencies
 
   
   },]

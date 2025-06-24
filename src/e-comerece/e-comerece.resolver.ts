@@ -3,6 +3,7 @@ import { EComereceService } from './e-comerece.service';
 import { EComerece, eComereceProducts } from './entities/e-comerece.entity';
 import { CreateEComereceInput, PaginatedPrducts } from './dto/create-e-comerece.input';
 import { UpdateEComereceInput } from './dto/update-e-comerece.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => EComerece)
 export class EComereceResolver {
@@ -13,11 +14,13 @@ export class EComereceResolver {
     return this.eComereceService.create(createEComereceInput);
   }
 
+    @Public()
   @Query(() => [EComerece], { name: 'eComerece' })
   findAll() {
     return this.eComereceService.findAll();
   }
 
+    @Public()
   @Query(() => EComerece, { name: 'single_product_ecomerece', nullable: true })
   findOne(
     @Args('custom_url', { type: () => String }) custom_url: string,

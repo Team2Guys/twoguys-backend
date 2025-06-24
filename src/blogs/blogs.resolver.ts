@@ -3,6 +3,7 @@ import { BlogsService } from './blogs.service';
 import { Blog, BlogComment } from './entities/blog.entity';
 import { CreateBlogInput, CreateCommentDto, CreateReply, updateReplystatus, UpdateStatus } from './dto/create-blog.input';
 import { UpdateBlogInput } from './dto/update-blog.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => Blog)
 export class BlogsResolver {
@@ -12,12 +13,13 @@ export class BlogsResolver {
   createBlog(@Args('createBlogInput') createBlogInput: CreateBlogInput) {
     return this.blogsService.create(createBlogInput);
   }
-
+  @Public()
   @Query(() => [Blog], { name: 'get_all_blogs', nullable: true })
   findAll() {
     return this.blogsService.findAll();
   }
 
+    @Public()
   @Query(() => Blog, { name: 'findone_blog', nullable: true })
   findOne(@Args('customUrl', { type: () => String }) customUrl: string) {
     return this.blogsService.findOne(customUrl);
@@ -56,6 +58,7 @@ export class BlogsResolver {
     return this.blogsService.updatereplyStatus(updateReplystatus);
   }
   
+    @Public()
   @Query(() => [BlogComment], { nullable: true })
   Allcoments() {
     return this.blogsService.Allcoments();

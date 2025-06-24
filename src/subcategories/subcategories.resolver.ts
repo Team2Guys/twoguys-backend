@@ -3,6 +3,7 @@ import { SubcategoriesService } from './subcategories.service';
 import { InnerSubCategory, Subcategory } from './entities/subcategory.entity';
 import { CreateInnerSubcategoryInput, CreateSubcategoryInput } from './dto/create-subcategory.input';
 import { UpdateInnerSubcategoryInput, UpdateSubcategoryInput } from './dto/update-subcategory.input';
+import { Public } from 'decorators/public.decorator';
 
 @Resolver(() => Subcategory)
 export class SubcategoriesResolver {
@@ -12,20 +13,20 @@ export class SubcategoriesResolver {
   createSubcategory(@Args('createSubcategoryInput') createSubcategoryInput: CreateSubcategoryInput) {
     return this.subcategoriesService.create(createSubcategoryInput);
   }
-
+  @Public()
   @Query(() => [Subcategory], { name: 'subcategories', nullable: true })
   findAll() {
     return this.subcategoriesService.findAll();
 
   }
-
+  @Public()
   @Query(() => Subcategory, { name: 'find_one_subcategory', nullable: true })
   findOne(@Args('custom_url', { type: () => String }) custom_url: string,
     @Args('category', { type: () => String }) category: string) {
     return this.subcategoriesService.findOne(custom_url, category);
   }
 
-
+  @Public()
   @Query(() => Subcategory, { name: 'find_one_meta_subcategory' })
   metaHandler(@Args('custom_url', { type: () => String }) custom_url: string) {
     return this.subcategoriesService.metaHandler(custom_url);
@@ -48,13 +49,13 @@ export class SubcategoriesResolver {
   CreateInnerSubcategoryInput(@Args('CreateInnerSubcategoryInput') CreateInnerSubcategoryInput: CreateInnerSubcategoryInput) {
     return this.subcategoriesService.InnerSubcreate(CreateInnerSubcategoryInput);
   }
-
+  @Public()
   @Query(() => [InnerSubCategory], { name: 'Innersubcategories', nullable: true })
   InnerSubfindAll() {
     return this.subcategoriesService.InnerSubfindAll();
 
   }
-
+  
    @Mutation(() => InnerSubCategory, { name: "update_Innersubcategories" })
   InnerSubupdate(@Args('UpdateInnerSubcategoryInput') UpdateInnerSubcategoryInput: UpdateInnerSubcategoryInput) {
     return this.subcategoriesService.InnerSubupdate(UpdateInnerSubcategoryInput);
