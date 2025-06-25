@@ -54,6 +54,9 @@ export class Blog {
   @Field()
   isPublished: boolean;
 
+  @Field(() => [BlogComment])
+  comments: BlogComment[];
+
 }
 
 
