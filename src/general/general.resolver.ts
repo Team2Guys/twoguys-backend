@@ -53,6 +53,7 @@ export class GeneralResolver {
   }
 
   // Appointments
+   @Public()
   @Mutation(() => Appointments, { name: "Create_Appointments", nullable: true })
   createAppointment(@Args('createAppointments',) createAppointments: createAppointments) {
     return this.generalService.createAppointment(createAppointments);
@@ -172,11 +173,12 @@ export class GeneralResolver {
   }
 
   // jobs Applications
-
+ @Public()
   @Mutation(() => JobsApplication, { name: "Create_jobs_applications", nullable: true })
   createjobApplication(@Args('CreateJobDto') CreateJobDto: CreateJobApplicationDto) {
     return this.generalService.createjobApplication(CreateJobDto);
   }
+
   @Public()
   @Query(() => [JobsApplication], { name: 'get_All_jobs_applications', nullable: true })
   getAlljobApplication() {
