@@ -36,12 +36,12 @@ export class BlogsResolver {
   }
 
   // comments
-
+    @Public()
   @Mutation(() => BlogComment, { nullable: true })
   addComment(@Args('CreateCommentDto') CreateCommentDto: CreateCommentDto) {
     return this.blogsService.addComment(CreateCommentDto);
   }
-
+    @Public()
   @Mutation(() => BlogComment, { nullable: true })
   CreateReply(@Args('CreateReply') CreateReply: CreateReply) {
     return this.blogsService.updateComment(CreateReply);
@@ -53,6 +53,7 @@ export class BlogsResolver {
   }
 
   // updateReply status
+  
   @Mutation(() => BlogComment, { nullable: true })
   updatereplyStatus(@Args('updateReplystatus') updateReplystatus: updateReplystatus) {
     return this.blogsService.updatereplyStatus(updateReplystatus);
