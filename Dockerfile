@@ -1,17 +1,25 @@
-FROM node:20-alpine
+# Use Node.js 20.11.1 base image
+FROM node:20.11.1-alpine
 
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-COPY prisma ./prisma
+# Install dependencies
+RUN npm cache clean --force
 
+RUN npm install --legacy-peer-deps
+
+# Copy the rest of the application code
 COPY . .
 
-RUN npm install
-
+# Generate Prisma Client code
 RUN npx prisma generate
 
-RUN npm run build
+# Expose the port the app runs on, here, I was using port 3333
+EXPOSE 5200
 
-CMD ["npm", "run", "start:prod"]
+# Command to run the app
+CMD [  "npm", "run", "start:migrate:prod" ]

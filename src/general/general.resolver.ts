@@ -9,6 +9,7 @@ import { Public } from 'decorators/public.decorator';
 export class GeneralResolver {
   constructor(private readonly generalService: GeneralService) { }
 
+  
   @Mutation(() => General, { name: "Create_reviews", nullable: true })
   createGeneral(@Args('createGeneralInput') createGeneralInput: CreateGeneralInput) {
     return this.generalService.create(createGeneralInput);
@@ -98,7 +99,7 @@ export class GeneralResolver {
   }
 
   // products reviews
-
+    @Public()
   @Mutation(() => ProductReviews, { name: "Create_prod_Reviews", nullable: true })
   createProdReviews(@Args('productReviewInput') productReviewInput: productReviewInput) {
     return this.generalService.createProdReviews(productReviewInput);
@@ -120,7 +121,7 @@ export class GeneralResolver {
   }
 
   // Questoins
-
+    @Public()
   @Mutation(() => productQuestion, { name: "Create_prod_Questions", nullable: true })
   createProdquestions(@Args('productQuestionInput') productQuestionInput: productQuestionInput) {
     return this.generalService.createProdquestions(productQuestionInput);
@@ -147,6 +148,7 @@ export class GeneralResolver {
   createjob(@Args('CreateJobDto') CreateJobDto: CreateJobDto) {
     return this.generalService.createjob(CreateJobDto);
   }
+
   @Public()
   @Query(() => [Jobs], { name: 'get_All_jobs', nullable: true })
   getAlljob() {
