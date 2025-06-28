@@ -4,7 +4,7 @@ FROM postgres:latest
 # Set environment variables used in prisma service
 ENV POSTGRES_DB = twoguysdb 
 ENV POSTGRES_USER = twoguys
-ENV POSTGRES_PASSWORD = woguys@3223
+ENV POSTGRES_PASSWORD = twoguys@3223
 
 # Expose the PostgreSQL port
 EXPOSE 5432
