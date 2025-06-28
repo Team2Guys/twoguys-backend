@@ -1,5 +1,3 @@
-version: '3.8'
-
 # Define services
 services:
 
@@ -7,9 +5,9 @@ services:
   database:
     image: postgres:latest  # Use the latest PostgreSQL image from Docker Hub
     environment:
-      POSTGRES_DB: databasename  # Define the name of the database
-      POSTGRES_USER: username    # Define the username for accessing the database
-      POSTGRES_PASSWORD: password  # Define the password for the user
+      POSTGRES_DB: twoguys  # Define the name of the database
+      POSTGRES_USER: twoguysdb    # Define the username for accessing the database
+      POSTGRES_PASSWORD: twoguys@3223  # Define the password for the user
     ports:
       - "5432:5432"  # Forward the container's port 5432 to the host machine's port 5432 for accessing PostgreSQL
 
@@ -17,7 +15,7 @@ services:
   backend:
     build: .  # Build the Docker image using the Dockerfile in the current directory
     ports:
-      - "3333:3333"  # Forward the container's port 3333 to the host machine's port 3333 for accessing the backend service
+      - "3200:5200"  # Forward the container's port 3333 to the host machine's port 3333 for accessing the backend service
     depends_on:
       - database  # Ensure that the backend service starts after the database service is up and running
     env_file:
