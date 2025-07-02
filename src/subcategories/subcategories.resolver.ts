@@ -39,7 +39,7 @@ export class SubcategoriesResolver {
 
   @Mutation(() => Subcategory, { name: "Removesubcategory" })
   removeSubcategory(@Args('id', { type: () => Int }) id: number) {
-    return this.subcategoriesService.InnerSubremove(id);
+    return this.subcategoriesService.remove(id);
   }
 
 
