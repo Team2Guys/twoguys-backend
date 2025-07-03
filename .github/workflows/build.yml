@@ -48,4 +48,3 @@ jobs:
             docker compose up -d
             exit
             EOF
-
