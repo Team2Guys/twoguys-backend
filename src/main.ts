@@ -8,8 +8,6 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.set("trust proxy", 1);
 
-  console.log(process.env.PORT, "PORTED");
-  console.log(process.env.DATABASE_URL, "DATABASE_URL");
   app.use(
     graphqlUploadExpress({
       maxFileSize: 20 * 1024 * 1024, // 10MB

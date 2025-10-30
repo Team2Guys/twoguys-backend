@@ -21,7 +21,7 @@ export class UserService {
       }
 
       let user = await this.prisma.user.create({ data: createUserInput });
-      console.log(user, "user");
+
       return user;
     } catch (error) {
       throw customHttpException(error, "INTERNAL_SERVER_ERROR");

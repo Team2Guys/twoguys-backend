@@ -27,7 +27,6 @@ export class EComereceService {
         data: dataToUpdate,
       });
     } catch (error) {
-      console.log(error, "error");
       customHttpException(error);
     }
   }
@@ -83,7 +82,6 @@ export class EComereceService {
         data: { ...dataToUpdate, updatedAt },
       });
     } catch (error) {
-      console.log(error, "error");
       return customHttpException(error);
     }
   }
@@ -111,8 +109,6 @@ export class EComereceService {
         },
       }),
     };
-
-    console.log(whereCondition, "whereCondition");
 
     const otherProducts = await this.prisma.ecomereceProducts.findMany({
       where: whereCondition,

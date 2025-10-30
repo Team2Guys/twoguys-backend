@@ -78,7 +78,6 @@ export class ProductsService {
         data: dataToUpdate,
       });
     } catch (error) {
-      console.log(error, "error");
       return customHttpException(error);
     }
   }

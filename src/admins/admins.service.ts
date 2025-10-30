@@ -15,7 +15,7 @@ export class AdminsService {
       let existingAdmin = await this.prisma.admins.findUnique({
         where: { email: createAdminInput.email },
       });
-      console.log(existingAdmin, "EXISTINTMADMIND");
+
       if (existingAdmin) {
         return customHttpException("User Already Exist", "BAD_REQUEST");
       }
@@ -137,7 +137,6 @@ export class AdminsService {
         };
       }
       let admin = await this.prisma.admins.findUnique({ where: { id } });
-      console.log(admin, "admins");
       return admin;
     } catch (error) {
       return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
@@ -199,7 +198,6 @@ export class AdminsService {
         return arr.reduce((totalQuantity: number, currentValue: any) => {
           const productQuantitySum = currentValue.products.reduce(
             (productTotal: number, value: any) => {
-              console.log(value, "valued");
               return productTotal + value.productData.quantity;
             },
             0,

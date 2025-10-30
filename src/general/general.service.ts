@@ -46,7 +46,7 @@ export class GeneralService {
       let update = new Date();
 
       const { id, ...updatedData } = updateGeneralInput;
-      console.log(updatedData, id, "updatedData");
+
       return await this.prisma.reviews.update({
         where: { id: Number(id) },
         data: { ...updatedData, updatedAt: update },
@@ -90,7 +90,7 @@ export class GeneralService {
       let update = new Date();
 
       const { id, ...updatedData } = UpdateGeneralsocial;
-      console.log(updatedData, id, "updatedData");
+
       return await this.prisma.socialLinks.update({
         where: { id: Number(id) },
         data: { ...updatedData, updatedAt: update },
@@ -274,7 +274,6 @@ export class GeneralService {
         include: { EcomereceProducts: true },
       });
 
-      console.log(questions, "questions");
       return questions;
     } catch (error) {
       customHttpException(error);

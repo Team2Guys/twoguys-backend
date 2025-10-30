@@ -22,6 +22,5 @@ export const customHttpException = (error: any, status?: string) => {
 
 export function getStatusNameByCode(code: number): string | undefined {
   const entry = Object.entries(HttpStatus).find(([_, value]) => value === code);
-  console.log(entry);
   return entry ? entry[0] : undefined;
 }

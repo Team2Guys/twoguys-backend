@@ -51,11 +51,9 @@ export class SalesProductsService {
       };
 
       let response = await fetch("https://uae.paymob.com/v1/intention/", requestOptions);
-      console.log(response, "response");
 
       let result = await response.json();
 
-      console.log(result.intention_order_id, "intention id");
       if (!result.intention_order_id)
         return customHttpException("Order Id not found ", "NOT_FOUND");
 
@@ -69,10 +67,8 @@ export class SalesProductsService {
         },
       });
 
-      console.log(result, "result");
       return { paymentKey: result };
     } catch (error) {
-      console.log(error, "error");
       customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
@@ -97,11 +93,10 @@ export class SalesProductsService {
 
   async findOrderByMail(email: string) {
     try {
-      console.log(email, "email");
       let users = await this.prisma.salesProducts.findMany({
         where: { email },
       });
-      console.log(users, "users");
+
       return users;
     } catch (error) {
       customHttpException(error.message, "INTERNAL_SERVER_ERROR");
@@ -164,7 +159,6 @@ export class SalesProductsService {
       }
 
       if (existingOrder.paymentStatus) {
-        console.log(existingOrder.paymentStatus, "existingOrder.paymentStatus");
         return customHttpException("Payment status already updated", "BAD_REQUEST");
       }
 
@@ -418,7 +412,6 @@ export class SalesProductsService {
     });
 
     let orders = await this.getMonthlyOrders();
-    console.log(orders, "orders");
 
     return { appointments: completeMonthlyData, orders };
   }
@@ -492,7 +485,6 @@ export class SalesProductsService {
       };
     });
 
-    console.log(finalStats, "finalStats");
     return finalStats;
   }
 }

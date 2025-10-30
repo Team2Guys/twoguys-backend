@@ -40,10 +40,8 @@ export class CategoriesService {
           products: true,
         },
       });
-      console.log(categories[2]);
       return categories;
     } catch (error) {
-      console.log(error, "error");
       customHttpException(error, "INTERNAL_SERVER_ERROR");
     }
   }
@@ -88,7 +86,6 @@ export class CategoriesService {
       });
 
       if (!category) return customHttpException("Category not found", "NOT_FOUND");
-      console.log(updateCategoryInput.explore_Heading, "create Input");
 
       const updatedCategory = await this.prisma.categories.update({
         where: { id: id },
@@ -109,8 +106,6 @@ export class CategoriesService {
 
   async remove(id: number) {
     try {
-      console.log(id, "id", typeof id);
-
       const category = await this.prisma.categories.findUnique({
         where: { id: id },
       });
@@ -123,7 +118,6 @@ export class CategoriesService {
         where: { id: id },
       });
 
-      console.log(response, "response");
       return response;
     } catch (error) {
       return customHttpException(

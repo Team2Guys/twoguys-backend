@@ -76,7 +76,6 @@ export class SalesProductsResolver {
     },
   })
   getMonthlyAppointments() {
-    console.log("monthly function works");
     return this.salesProductsService.getMonthlyAppointments();
   }
 

@@ -172,7 +172,7 @@ export class SubcategoriesService {
           subCategory: true,
         },
       });
-      console.log(inner_sub, "inner_sub");
+
       return inner_sub;
     } catch (error) {
       return customHttpException(error);

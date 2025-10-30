@@ -227,8 +227,6 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
     shipmentFee,
   } = orderDetails;
 
-  console.log(products, "products");
-
   const formattedDate = new Date()
     .toLocaleDateString("en-US", {
       month: "short",
@@ -757,7 +755,6 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
         console.error("Error sending email:", error);
         throw new Error(error.message || JSON.stringify(error));
       } else {
-        console.log("Email sent:", info.response);
         return info.response;
       }
     });

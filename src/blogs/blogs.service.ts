@@ -85,7 +85,6 @@ export class BlogsService {
         },
       });
     } catch (error) {
-      console.log(error.status, "error");
       let flag = error.status && error.status;
       return customHttpException(
         error.message,
@@ -129,7 +128,6 @@ export class BlogsService {
         },
       });
     } catch (error) {
-      console.log(error.status, "error");
       let flag = error.status && error.status;
       return customHttpException(
         error.message,
@@ -176,7 +174,6 @@ export class BlogsService {
 
       const previousReplies = (withoutIdcomments.replies ?? []).filter((reply) => reply !== null);
 
-      console.log(previousReplies, "preivous");
       let replyobject = previousReplies.find((value: any) => value.id == updateReplystatus.id);
 
       if (!replyobject) return customHttpException("Object Not found", "NOT_FOUND");
@@ -197,7 +194,6 @@ export class BlogsService {
         },
       });
     } catch (error) {
-      console.log(error.status, "error");
       let flag = error.status && error.status;
       return customHttpException(
         error.message,
@@ -211,7 +207,7 @@ export class BlogsService {
       let comoments = await this.prisma.blogs_comments.findMany({
         include: { blog: true },
       });
-      console.log(comoments, "comoments");
+      
       return comoments;
     } catch (error) {
       customHttpException(error);
