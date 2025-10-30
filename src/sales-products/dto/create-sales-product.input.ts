@@ -1,5 +1,5 @@
-import { InputType, Int, Field, Float, PartialType } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
+import { InputType, Int, Field, Float, PartialType } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
 export class CreateOrderInput {
@@ -30,7 +30,6 @@ export class CreateOrderInput {
   @Field()
   emirate: string;
 
-
   @Field({ nullable: true })
   otherCity?: string;
 
@@ -45,15 +44,10 @@ export class CreateOrderInput {
 
   @Field(() => GraphQLJSON)
   shippingMethod: any;
-
 }
-
-
-
 
 // Input DTO for the Product (used within CreateOrderInput)
 @InputType()
-
 export class ProductInput {
   @Field()
   id: string;
@@ -73,7 +67,7 @@ export class ProductInput {
   @Field()
   sizes: string;
 
-  @Field(()=>[GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   dimension?: string[];
 
   @Field()
@@ -92,7 +86,6 @@ export class ProductInput {
   image: any;
 }
 
-
 @InputType()
 export class contactUsEmailInput {
   @Field()
@@ -106,16 +99,9 @@ export class contactUsEmailInput {
   @Field(() => Boolean)
   agree: boolean;
 
-  @Field(() => Boolean,{nullable:true})
+  @Field(() => Boolean, { nullable: true })
   questionFlag?: boolean;
-
-  
-  
-
-
-
 }
-
 
 @InputType()
 export class PaymentQueryDto {
@@ -144,7 +130,6 @@ export class PaymentQueryDto {
   paymethod_sub_type?: string;
 }
 
-
 @InputType()
 export class orderEmailInput extends PartialType(CreateOrderInput) {
   @Field()
@@ -154,6 +139,4 @@ export class orderEmailInput extends PartialType(CreateOrderInput) {
   transactionDate: Date;
   @Field(() => Boolean, { nullable: true })
   isfreesample?: boolean;
-
 }
-

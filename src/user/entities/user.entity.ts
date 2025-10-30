@@ -1,29 +1,26 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
+import { ObjectType, Field, Int } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
 
 @ObjectType()
 export class User {
-  @Field(() => Int, { description: 'user ID' })
+  @Field(() => Int, { description: "user ID" })
   id: number;
 
-  @Field(() => String, { description: 'user ID' })
+  @Field(() => String, { description: "user ID" })
   email: string;
 
-  @Field(() => String, { description: 'user ID' })
+  @Field(() => String, { description: "user ID" })
   name: string;
 
   @Field(() => String, { nullable: true })
   phone: string;
 
-  @Field(() => String, {nullable:true})
+  @Field(() => String, { nullable: true })
   token: string;
 
-  @Field(() => GraphQLJSON, {nullable:true})
+  @Field(() => GraphQLJSON, { nullable: true })
   userImageUrl: string;
 
-  @Field(() => String, { description: 'Login Method' })
+  @Field(() => String, { description: "Login Method" })
   loginMethod: string;
-
-  
-
 }

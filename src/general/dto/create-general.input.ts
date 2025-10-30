@@ -1,30 +1,27 @@
-import { InputType, Int, Field, registerEnumType } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
-import { BlogStatus, CommentStatus } from './enums/enum';
+import { InputType, Int, Field, registerEnumType } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
+import { BlogStatus, CommentStatus } from "./enums/enum";
 
 @InputType()
 export class CreateGeneralInput {
   @Field(() => Int)
   starRating: number;
 
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
   @Field(() => String)
   ReviewsDescription: string;
-  
-  @Field(() => String,{nullable:true})
+
+  @Field(() => String, { nullable: true })
   reviewDate?: string;
-  
-  @Field(() => GraphQLJSON,{nullable:true})
+
+  @Field(() => GraphQLJSON, { nullable: true })
   posterImageUrl?: any;
 }
 
-
-
 @InputType()
 export class CreateGeneralsocial {
-  
   @Field(() => String)
   post_links: string;
 
@@ -32,85 +29,65 @@ export class CreateGeneralsocial {
   posterImageUrl: any;
 }
 
-
-
 @InputType()
 export class createAppointments {
-
   @Field(() => String)
   phoneNumber: string;
 
   @Field(() => String)
   email: string;
 
-
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
-  @Field(() => String,)
+  @Field(() => String)
   message: string;
 
   @Field()
   location: string;
 
-  @Field(()=>String,{nullable:true})
+  @Field(() => String, { nullable: true })
   whatsApp?: string;
 
-
-  @Field(()=>[GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   subCategories?: any;
-
-  
-
-
 }
 
 @InputType()
 export class CreatedRedirecturls {
-
   @Field(() => String)
   url: string;
 
   @Field(() => String)
   redirectedUrl: string;
-
-
-  
-
-
 }
-
 
 @InputType()
 export class productReviewInput {
   @Field(() => Int)
   starRating: number;
-  
+
   @Field(() => Int)
   product: number;
 
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
   @Field(() => String)
   ReviewsDescription: string;
-  
-  @Field(() => String,{nullable:true})
+
+  @Field(() => String, { nullable: true })
   reviewDate?: string;
-  
-  @Field(() => GraphQLJSON,{nullable:true})
+
+  @Field(() => GraphQLJSON, { nullable: true })
   posterImageUrl?: any;
 
-  @Field(() => [GraphQLJSON],{nullable:true})
+  @Field(() => [GraphQLJSON], { nullable: true })
   productsImage?: any;
 
-
   @Field(() => CommentStatus, { nullable: true })
-  status?: CommentStatus
-
-
+  status?: CommentStatus;
 }
-
 
 @InputType()
 export class productQuestionInput {
@@ -132,14 +109,11 @@ export class productQuestionInput {
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any;
 
-    @Field(() => Int)
+  @Field(() => Int)
   product: number;
-
 }
 
-
-
-// jobs 
+// jobs
 
 @InputType()
 export class CreateJobDto {
@@ -175,18 +149,17 @@ export class CreateJobDto {
 
   @Field(() => [GraphQLJSON], { defaultValue: [] })
   apply: any[];
-    @Field({ nullable: true })
-    Canonical_Tag?: string;
-  
-    @Field({ nullable: true })
-    Meta_Description?: string;
-  
-    @Field({ nullable: true })
-    Meta_Title?: string;
-      @Field(() => BlogStatus, { nullable: true })
-      status?: BlogStatus
-}
+  @Field({ nullable: true })
+  Canonical_Tag?: string;
 
+  @Field({ nullable: true })
+  Meta_Description?: string;
+
+  @Field({ nullable: true })
+  Meta_Title?: string;
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
+}
 
 @InputType()
 export class CreateJobApplicationDto {

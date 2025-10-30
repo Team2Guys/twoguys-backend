@@ -1,8 +1,8 @@
-import { ExecutionContext, Injectable, CanActivate, UnauthorizedException } from '@nestjs/common';
-import { GqlExecutionContext } from '@nestjs/graphql';
-import { Reflector } from '@nestjs/core';
-import * as jwt from 'jsonwebtoken';
-import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
+import { ExecutionContext, Injectable, CanActivate, UnauthorizedException } from "@nestjs/common";
+import { GqlExecutionContext } from "@nestjs/graphql";
+import { Reflector } from "@nestjs/core";
+import * as jwt from "jsonwebtoken";
+import { IS_PUBLIC_KEY } from "../decorators/public.decorator";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
@@ -16,32 +16,32 @@ export class AuthGuard implements CanActivate {
     if (isPublic) return true;
 
     let req: any;
-    if (context.getType() === 'http') {
+    if (context.getType() === "http") {
       req = context.switchToHttp().getRequest();
     } else {
       const gqlContext = GqlExecutionContext.create(context);
       req = gqlContext.getContext().req;
     }
 
-    console.log(req.headers, "req", process.env.TOKEN_SECRET)
-    if (!req) throw new UnauthorizedException('Request is undefined');
+    console.log(req.headers, "req", process.env.TOKEN_SECRET);
+    if (!req) throw new UnauthorizedException("Request is undefined");
 
     const authHeader = req.headers?.authorization;
-    if (!authHeader?.startsWith('Bearer ')) {
-      throw new UnauthorizedException('authorization token missing');
+    if (!authHeader?.startsWith("Bearer ")) {
+      throw new UnauthorizedException("authorization token missing");
     }
 
-const token = authHeader.split(' ')[1];
+    const token = authHeader.split(" ")[1];
 
-    console.log(token, "token")
+    console.log(token, "token");
 
     try {
       const decoded = jwt.verify(token, process.env.TOKEN_SECRET);
       req.user = decoded;
       return true;
     } catch (err) {
-      console.error('[AuthGuard] Token verification failed:', err.message);
-      throw new UnauthorizedException('Invalid or expired token');
+      console.error("[AuthGuard] Token verification failed:", err.message);
+      throw new UnauthorizedException("Invalid or expired token");
     }
   }
 }

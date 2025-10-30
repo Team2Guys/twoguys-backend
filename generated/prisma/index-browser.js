@@ -359,6 +359,7 @@ exports.Prisma.EcomereceProductsScalarFieldEnum = {
   Meta_Title: 'Meta_Title',
   categoryId: 'categoryId',
   subCategoryId: 'subCategoryId',
+  innersubCategoryId: 'innersubCategoryId',
   seoSchema: 'seoSchema',
   shippingOptions: 'shippingOptions',
   status: 'status'

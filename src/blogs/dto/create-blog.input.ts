@@ -1,6 +1,6 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
-import GraphQLJSON from 'graphql-type-json';
+import { InputType, Int, Field } from "@nestjs/graphql";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
 export class CreateBlogInput {
@@ -44,7 +44,6 @@ export class CreateBlogInput {
   isPublished: boolean;
 }
 
-
 @InputType()
 export class CreateCommentDto {
   @Field()
@@ -70,7 +69,6 @@ export class CreateCommentDto {
 
   @Field({ nullable: true })
   last_editedBy?: string;
-
 }
 @InputType()
 export class CreateReply {
@@ -91,7 +89,6 @@ export class CreateReply {
 
   @Field(() => CommentStatus)
   status: CommentStatus;
-
 }
 
 @InputType()
@@ -101,8 +98,6 @@ export class UpdateStatus {
 
   @Field(() => CommentStatus)
   status: CommentStatus;
-
-
 }
 
 @InputType()
@@ -113,9 +108,6 @@ export class updateReplystatus {
   @Field(() => CommentStatus)
   status: CommentStatus;
 
-
   @Field()
   commentId: number;
-
-
 }

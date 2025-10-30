@@ -1,9 +1,6 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
-import GraphQLJSON from 'graphql-type-json';
-
-
-
+import { ObjectType, Field, Int } from "@nestjs/graphql";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import GraphQLJSON from "graphql-type-json";
 
 @ObjectType()
 export class Blog {
@@ -56,11 +53,7 @@ export class Blog {
 
   @Field(() => [BlogComment])
   comments: BlogComment[];
-
 }
-
-
-
 
 @ObjectType()
 export class BlogComment {
@@ -96,5 +89,4 @@ export class BlogComment {
 
   @Field(() => Blog, { nullable: true })
   blog?: Blog;
-
 }

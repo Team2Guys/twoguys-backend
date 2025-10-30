@@ -1,9 +1,9 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { FileUploadingService } from './file_uploading.service';
-import { FileUploading } from './entities/file_uploading.entity';
-import { GraphQLUpload, FileUpload } from 'graphql-upload-ts';
-import { UpdateFileUploadingInput } from './dto/update-file_uploading.input';
-import { Public } from '../decorators/public.decorator';
+import { Resolver, Query, Mutation, Args, Int } from "@nestjs/graphql";
+import { FileUploadingService } from "./file_uploading.service";
+import { FileUploading } from "./entities/file_uploading.entity";
+import { GraphQLUpload, FileUpload } from "graphql-upload-ts";
+import { UpdateFileUploadingInput } from "./dto/update-file_uploading.input";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => FileUploading)
 export class FileUploadingResolver {
@@ -11,29 +11,25 @@ export class FileUploadingResolver {
 
   @Public()
   @Mutation(() => FileUploading)
-  async createFileUploading(
-    @Args({ name: 'file', type: () => GraphQLUpload }) file: FileUpload) {
-   return this.fileUploadingService.create(file);
+  async createFileUploading(@Args({ name: "file", type: () => GraphQLUpload }) file: FileUpload) {
+    return this.fileUploadingService.create(file);
   }
-
 
   @Public()
   @Mutation(() => FileUploading)
-  async uploadFile(@Args({ name: 'file', type: () => GraphQLUpload }) file: FileUpload) {
-   return this.fileUploadingService.uploadFile(file);
+  async uploadFile(@Args({ name: "file", type: () => GraphQLUpload }) file: FileUpload) {
+    return this.fileUploadingService.uploadFile(file);
   }
 
   @Public()
   @Mutation(() => Boolean)
-    async DeleteImage(@Args('RemoveUImage') updatedImageInput: UpdateFileUploadingInput) {
-      return await this.fileUploadingService.delete(updatedImageInput.public_id);
-    }
-
+  async DeleteImage(@Args("RemoveUImage") updatedImageInput: UpdateFileUploadingInput) {
+    return await this.fileUploadingService.delete(updatedImageInput.public_id);
+  }
 
   @Public()
-  @Mutation(() => Boolean,{name:'Del_S3_file'})
-    async deleteFile(@Args('RemoveUImage') updatedImageInput: UpdateFileUploadingInput) {
-      return await this.fileUploadingService.deleteFile(updatedImageInput.public_id);
-    }
-
+  @Mutation(() => Boolean, { name: "Del_S3_file" })
+  async deleteFile(@Args("RemoveUImage") updatedImageInput: UpdateFileUploadingInput) {
+    return await this.fileUploadingService.deleteFile(updatedImageInput.public_id);
+  }
 }

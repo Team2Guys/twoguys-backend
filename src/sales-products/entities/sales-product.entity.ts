@@ -1,204 +1,195 @@
-import { ObjectType, Field, Int, Float } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
+import { ObjectType, Field, Int, Float } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
 
 @ObjectType()
 export class SalesProduct {
-    @Field(() => GraphQLJSON)
-    paymentKey: any
+  @Field(() => GraphQLJSON)
+  paymentKey: any;
 }
 
 @ObjectType()
 export class ALL_RECORDS {
-    @Field(() => Int)
-    totalSubCategories: number;
-    @Field(() => Int)
-    totalProducts: number;
+  @Field(() => Int)
+  totalSubCategories: number;
+  @Field(() => Int)
+  totalProducts: number;
 
-    @Field(() => Int)
-    totalCategories: number;
-    @Field(() => Int)
-    totalAdmins: number;
-    @Field(() => Int)
-    totalUsers: number;
-    @Field(() => Int)
-    Total_abandant_order: number;
-    @Field(() => Int)
-    totalAccessories: number;
-    @Field(() => Int)
-    totalorders: number;
-    @Field(() => Int)
-    appointments: number;
-    @Field(() => Int)
-    ecomereceProducts: number;
-    @Field(() => Int)
-    redirecturls: number;
-    @Field(() => Int)
-    blogs: number;
-    @Field(() => Int)
-    blogs_comments: number;
-    @Field(() => Int)
-    jobs: number;
-    @Field(() => Int)
-    jobApplication: number;
-
+  @Field(() => Int)
+  totalCategories: number;
+  @Field(() => Int)
+  totalAdmins: number;
+  @Field(() => Int)
+  totalUsers: number;
+  @Field(() => Int)
+  Total_abandant_order: number;
+  @Field(() => Int)
+  totalAccessories: number;
+  @Field(() => Int)
+  totalorders: number;
+  @Field(() => Int)
+  appointments: number;
+  @Field(() => Int)
+  ecomereceProducts: number;
+  @Field(() => Int)
+  redirecturls: number;
+  @Field(() => Int)
+  blogs: number;
+  @Field(() => Int)
+  blogs_comments: number;
+  @Field(() => Int)
+  jobs: number;
+  @Field(() => Int)
+  jobApplication: number;
 }
 
 @ObjectType()
 export class contactUsEmail {
-    @Field()
-    message: string;
+  @Field()
+  message: string;
 }
 
 @ObjectType()
 export class Products {
-    @Field()
-    id: string;
+  @Field()
+  id: string;
 
-    @Field()
-    name: string;
+  @Field()
+  name: string;
 
-    @Field(() => Float)
-    price: number;
+  @Field(() => Float)
+  price: number;
 
-    @Field(() => Float)
-    discountPrice: number;
+  @Field(() => Float)
+  discountPrice: number;
 
-    @Field()
-    colors: string;
+  @Field()
+  colors: string;
 
-    @Field()
-    sizes: string;
+  @Field()
+  sizes: string;
 
-    @Field()
-    variant: string;
+  @Field()
+  variant: string;
 
-    @Field(() => Int)
-    stock: number;
+  @Field(() => Int)
+  stock: number;
 
-    @Field(() => Int)
-    quantity: number;
+  @Field(() => Int)
+  quantity: number;
 
-    @Field(() => Float)
-    totalPrice: number;
+  @Field(() => Float)
+  totalPrice: number;
 
-    @Field(() => GraphQLJSON)
-    image: any;
+  @Field(() => GraphQLJSON)
+  image: any;
 
-    @Field(() => [GraphQLJSON], { nullable: true })
-    dimension?: string[];
+  @Field(() => [GraphQLJSON], { nullable: true })
+  dimension?: string[];
 }
 
 @ObjectType()
 export class paymentStatus {
-    @Field()
-    firstName: string;
+  @Field()
+  firstName: string;
 
-    @Field()
-    lastName: string;
+  @Field()
+  lastName: string;
 
-    @Field()
-    email: string;
+  @Field()
+  email: string;
 
-    @Field()
-    country: string;
+  @Field()
+  country: string;
 
-    @Field()
-    city: string;
+  @Field()
+  city: string;
 
-    @Field()
-    address: string;
+  @Field()
+  address: string;
 
-    @Field()
-    note: string;
+  @Field()
+  note: string;
 
-    @Field()
-    phone: string;
+  @Field()
+  phone: string;
 
-    @Field()
-    emirate: string;
+  @Field()
+  emirate: string;
 
-    @Field()
-    orderId: string;
+  @Field()
+  orderId: string;
 
-    @Field({ nullable: true })
-    transactionDate: Date;
+  @Field({ nullable: true })
+  transactionDate: Date;
 
-    @Field(() => [Products])
-    products?: Products[] | undefined;
+  @Field(() => [Products])
+  products?: Products[] | undefined;
 
-    @Field(() => Float)
-    shipmentFee: number;
+  @Field(() => Float)
+  shipmentFee: number;
 
-    @Field(() => Float)
-    totalPrice: number;
+  @Field(() => Float)
+  totalPrice: number;
 
+  @Field({ nullable: true })
+  pay_methodType: string;
 
-    @Field({ nullable: true })
-    pay_methodType: string;
+  @Field({ nullable: true })
+  paymethod_sub_type: string;
 
-    @Field({ nullable: true })
-    paymethod_sub_type: string;
+  @Field(() => Int, { nullable: true })
+  cardLastDigits: number;
 
-    @Field(() => Int, { nullable: true })
-    cardLastDigits: number;
+  @Field(() => Boolean, { nullable: true })
+  checkout: boolean;
 
+  @Field(() => Boolean, { nullable: true })
+  paymentStatus: boolean;
 
-    @Field(() => Boolean, { nullable: true })
-    checkout: boolean;
+  @Field(() => Boolean, { nullable: true })
+  isRefund: boolean;
 
-    @Field(() => Boolean, { nullable: true })
-    paymentStatus: boolean;
+  @Field(() => Boolean, { nullable: true })
+  success: boolean;
 
-    @Field(() => Boolean, { nullable: true })
-    isRefund: boolean;
+  @Field(() => Boolean, { nullable: true })
+  pending: boolean;
 
-    @Field(() => Boolean, { nullable: true })
-    success: boolean;
+  @Field(() => Boolean, { nullable: true })
+  isfreesample: boolean;
 
-    @Field(() => Boolean, { nullable: true })
-    pending: boolean;
+  @Field({ nullable: true })
+  currency: string;
 
-    @Field(() => Boolean, { nullable: true })
-    isfreesample: boolean;
+  @Field({ nullable: true })
+  is3DSecure: string;
 
-    @Field({ nullable: true })
-    currency: string;
+  @Field({ nullable: true })
+  checkoutDate: Date;
 
-    @Field({ nullable: true })
-    is3DSecure: string;
-
-
-    @Field({ nullable: true })
-    checkoutDate: Date;
-
-
-    @Field(() => GraphQLJSON, { nullable: true })
-    shippingMethod: any
+  @Field(() => GraphQLJSON, { nullable: true })
+  shippingMethod: any;
 }
-
-
 
 @ObjectType()
 export class MonthlyAppointmentStats {
-    @Field(() => [GraphQLJSON], { nullable: true })
-    appointments?: any[];
+  @Field(() => [GraphQLJSON], { nullable: true })
+  appointments?: any[];
 
-    @Field(() => [GraphQLJSON], { nullable: true })
-    orders?: any[];
+  @Field(() => [GraphQLJSON], { nullable: true })
+  orders?: any[];
 }
 
 @ObjectType()
 export class WEEKLY_STATS {
-    @Field({nullable:true})
-    date?: string;
+  @Field({ nullable: true })
+  date?: string;
 
-    @Field({nullable:true})
-    day?: string;
+  @Field({ nullable: true })
+  day?: string;
 
-    @Field(() => Int, { nullable: true })
-
-    Appointments?: number;
-    @Field(() => Int, { nullable: true })
-    Orders?: number;
-
+  @Field(() => Int, { nullable: true })
+  Appointments?: number;
+  @Field(() => Int, { nullable: true })
+  Orders?: number;
 }

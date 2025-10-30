@@ -1,18 +1,17 @@
-import { ObjectType, Field, Int, ID, registerEnumType } from '@nestjs/graphql';
-import { EComerece } from '../../e-comerece/entities/e-comerece.entity';
-import GraphQLJSON from 'graphql-type-json';
-import { BlogStatus, CommentStatus } from '../../general/dto/enums/enum';
+import { ObjectType, Field, Int, ID, registerEnumType } from "@nestjs/graphql";
+import { EComerece } from "../../e-comerece/entities/e-comerece.entity";
+import GraphQLJSON from "graphql-type-json";
+import { BlogStatus, CommentStatus } from "../../general/dto/enums/enum";
 
 @ObjectType()
 export class General {
-
   @Field(() => ID)
   id: number;
 
   @Field(() => Int)
   starRating: number;
 
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
   @Field(() => String)
@@ -24,16 +23,12 @@ export class General {
   @Field(() => GraphQLJSON, { nullable: true })
   posterImageUrl?: any;
 
-
   @Field(() => Date, { nullable: true })
   createdAt?: Date;
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
-
 }
-
-
 
 @ObjectType()
 export class SocialLinks {
@@ -53,8 +48,6 @@ export class SocialLinks {
   updatedAt?: Date;
 }
 
-
-
 @ObjectType()
 export class Appointments {
   @Field(() => Int)
@@ -66,7 +59,7 @@ export class Appointments {
   @Field(() => String)
   email: string;
 
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
   @Field()
@@ -75,9 +68,8 @@ export class Appointments {
   @Field(() => String, { nullable: true })
   whatsApp?: string;
 
-  @Field(() => String,)
+  @Field(() => String)
   message: string;
-
 
   @Field(() => [GraphQLJSON], { nullable: true })
   subCategories?: any;
@@ -87,9 +79,7 @@ export class Appointments {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
-
 }
-
 
 @ObjectType()
 export class Redirecturls {
@@ -109,7 +99,6 @@ export class Redirecturls {
   updatedAt?: Date;
 }
 
-
 @ObjectType()
 export class ProductReviews {
   @Field(() => Int)
@@ -118,7 +107,7 @@ export class ProductReviews {
   @Field(() => Int)
   starRating: number;
 
-  @Field(() => String,)
+  @Field(() => String)
   name: string;
 
   @Field(() => String)
@@ -133,10 +122,8 @@ export class ProductReviews {
   @Field(() => [GraphQLJSON], { nullable: true })
   productsImage?: any;
 
-
   @Field(() => CommentStatus, { nullable: true })
   status?: CommentStatus;
-
 
   @Field(() => EComerece, { nullable: true })
   EcomereceProducts?: EComerece;
@@ -146,9 +133,7 @@ export class ProductReviews {
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
-
 }
-
 
 @ObjectType()
 export class productQuestion {
@@ -167,15 +152,13 @@ export class productQuestion {
   productId?: number;
 
   @Field(() => CommentStatus, { nullable: true })
-  status?: CommentStatus
+  status?: CommentStatus;
 
   @Field(() => [GraphQLJSON], { nullable: true })
   replies?: any;
 
   @Field(() => EComerece, { nullable: true })
   EcomereceProducts?: EComerece;
-
-
 
   @Field(() => Date, { nullable: true })
   createdAt?: Date;
@@ -184,11 +167,9 @@ export class productQuestion {
   updatedAt?: Date;
 }
 
-
-
 @ObjectType()
 export class Jobs {
-    @Field(() => Int)
+  @Field(() => Int)
   id: number;
   @Field()
   title: string;
@@ -223,7 +204,7 @@ export class Jobs {
   @Field(() => [GraphQLJSON], { defaultValue: [] })
   apply: any[];
 
-    @Field({ nullable: true })
+  @Field({ nullable: true })
   Canonical_Tag?: string;
 
   @Field({ nullable: true })
@@ -231,20 +212,19 @@ export class Jobs {
 
   @Field({ nullable: true })
   Meta_Title?: string;
-    @Field(() => Date, { nullable: true })
+  @Field(() => Date, { nullable: true })
   createdAt?: Date;
 
   @Field(() => Date, { nullable: true })
   updatedAt?: Date;
 
-        @Field(() => BlogStatus, { nullable: true })
-        status?: BlogStatus
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
-
 
 @ObjectType()
 export class JobsApplication {
-    @Field(() => Int)
+  @Field(() => Int)
   id: number;
 
   @Field()
@@ -276,7 +256,7 @@ export class JobsApplication {
 
   @Field({ nullable: true })
   portfolioLink?: string;
-    @Field(() => Date, { nullable: true })
+  @Field(() => Date, { nullable: true })
   createdAt?: Date;
 
   @Field(() => Date, { nullable: true })

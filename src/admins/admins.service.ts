@@ -1,27 +1,27 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { Admin_login, CreateAdminInput } from './dto/create-admin.input';
-import { UpdateAdminInput } from './dto/update-admin.input';
-import { customHttpException } from '../utils/helper';
-import { PrismaService } from '../prisma/prisma.service';
-import * as jwt from 'jsonwebtoken';
-import { Request, Response } from 'express';
-import { AuthenticatedRequest } from '../types/express';
+import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { Admin_login, CreateAdminInput } from "./dto/create-admin.input";
+import { UpdateAdminInput } from "./dto/update-admin.input";
+import { customHttpException } from "../utils/helper";
+import { PrismaService } from "../prisma/prisma.service";
+import * as jwt from "jsonwebtoken";
+import { Request, Response } from "express";
+import { AuthenticatedRequest } from "../types/express";
 
 @Injectable()
 export class AdminsService {
-  constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
   async create(createAdminInput: CreateAdminInput) {
-
     try {
-      let existingAdmin = await this.prisma.admins.findUnique({ where: { email: createAdminInput.email } })
-      console.log(existingAdmin, "EXISTINTMADMIND")
+      let existingAdmin = await this.prisma.admins.findUnique({
+        where: { email: createAdminInput.email },
+      });
+      console.log(existingAdmin, "EXISTINTMADMIND");
       if (existingAdmin) {
-        return customHttpException("User Already Exist", 'BAD_REQUEST');
+        return customHttpException("User Already Exist", "BAD_REQUEST");
       }
-      return await this.prisma.admins.create({ data: { ...createAdminInput } })
+      return await this.prisma.admins.create({ data: { ...createAdminInput } });
     } catch (error) {
-      customHttpException(error, 'INTERNAL_SERVER_ERROR');
-
+      customHttpException(error, "INTERNAL_SERVER_ERROR");
     }
   }
 
@@ -32,25 +32,21 @@ export class AdminsService {
         where: { email },
       });
 
-      if (!existingUser)
-        return customHttpException('User Not found', 'NOT_FOUND');
+      if (!existingUser) return customHttpException("User Not found", "NOT_FOUND");
       if (existingUser) {
-        const isPasswordValid = existingUser.password === password
+        const isPasswordValid = existingUser.password === password;
 
-
-        if (!isPasswordValid)
-          throw new UnauthorizedException('Invalid username or password');
-
+        if (!isPasswordValid) throw new UnauthorizedException("Invalid username or password");
 
         const { password: _, ...userWithoutPassword } = existingUser;
         const token = jwt.sign(userWithoutPassword, process.env.TOKEN_SECRET, {
-          expiresIn: '24h',
+          expiresIn: "24h",
         });
-        res.cookie('admin_access_token', token, {
+        res.cookie("admin_access_token", token, {
           httpOnly: true,
           secure: true, // Required when using SameSite: 'None'
-          sameSite: 'none', // Allows cross-origin cookie
-          path: '/',
+          sameSite: "none", // Allows cross-origin cookie
+          path: "/",
           maxAge: 24 * 60 * 60 * 1000, // 24 hours
         });
 
@@ -60,10 +56,7 @@ export class AdminsService {
         };
       }
     } catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
-
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
 
@@ -74,29 +67,28 @@ export class AdminsService {
       let super_admin_pasword = process.env.SUPER_AMDIN_PASSWORD || " ";
 
       if (email !== superAdmin_email) {
-        return customHttpException('User Not found', 'NOT_FOUND');
+        return customHttpException("User Not found", "NOT_FOUND");
       }
       if (super_admin_pasword !== password) {
-        throw new UnauthorizedException('Invalid username or password');
+        throw new UnauthorizedException("Invalid username or password");
       }
-
 
       let userWithoutPassword = {
         id: "7",
         fullname: "Shiraz Ossman",
         email: superAdmin_email,
-        role: "super_admin"
-      }
+        role: "super_admin",
+      };
 
       const token = jwt.sign(userWithoutPassword, process.env.TOKEN_SECRET, {
-        expiresIn: '24h',
+        expiresIn: "24h",
       });
 
-      res.cookie('super_admin_access_token', token, {
+      res.cookie("super_admin_access_token", token, {
         httpOnly: true,
         secure: true, // Required when using SameSite: 'None'
-        sameSite: 'none', // Allows cross-origin cookie
-        path: '/',
+        sameSite: "none", // Allows cross-origin cookie
+        path: "/",
         maxAge: 24 * 60 * 60 * 1000, // 24 hours
       });
 
@@ -104,27 +96,18 @@ export class AdminsService {
         ...userWithoutPassword,
         token,
       };
-    }
-    catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
-
+    } catch (error) {
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
-
 
   findAll() {
     try {
-      return this.prisma.admins.findMany({})
-
+      return this.prisma.admins.findMany({});
     } catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
-    };
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
+    }
   }
-
 
   async findOne(req: AuthenticatedRequest) {
     const { id, role } = req.user;
@@ -132,8 +115,8 @@ export class AdminsService {
       if (role == "super_admin") {
         let superAdmin_email = process.env.SUPER_AMDIN_EMAIL || " ";
         return {
-          "id": 1,
-          "fullname": 'Shiraz Osman',
+          id: 1,
+          fullname: "Shiraz Osman",
           email: superAdmin_email,
           canAddProduct: true,
           canEditProduct: true,
@@ -150,16 +133,14 @@ export class AdminsService {
           canVeiwTotalproducts: true,
           canVeiwTotalCategories: true,
           posterImageUrl: null,
-          role: 'super_admin',
-        }
+          role: "super_admin",
+        };
       }
-      let admin = await this.prisma.admins.findUnique({ where: { id } })
-      console.log(admin, "admins")
-      return admin
+      let admin = await this.prisma.admins.findUnique({ where: { id } });
+      console.log(admin, "admins");
+      return admin;
     } catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
 
@@ -169,7 +150,7 @@ export class AdminsService {
 
       const admin = await this.prisma.admins.findUnique({ where: { id } });
       if (!admin) {
-        return customHttpException('User not found😴', 'FORBIDDEN');
+        return customHttpException("User not found😴", "FORBIDDEN");
       }
 
       // Check if the email is used by another admin (not the same one)
@@ -179,7 +160,7 @@ export class AdminsService {
         });
 
         if (existingAdmin && existingAdmin.id !== id) {
-          return customHttpException('Email already in use by another admin', 'BAD_REQUEST');
+          return customHttpException("Email already in use by another admin", "BAD_REQUEST");
         }
       }
 
@@ -188,21 +169,17 @@ export class AdminsService {
         data: withoutId,
       });
     } catch (error) {
-      return customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
-
 
   async remove(id: number) {
     try {
-      return await this.prisma.admins.delete({ where: { id } })
+      return await this.prisma.admins.delete({ where: { id } });
     } catch (error) {
-      return customHttpException(error.message,
-        'INTERNAL_SERVER_ERROR',
-      );
+      return customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
-
 
   async get_all_records() {
     try {
@@ -222,7 +199,7 @@ export class AdminsService {
         return arr.reduce((totalQuantity: number, currentValue: any) => {
           const productQuantitySum = currentValue.products.reduce(
             (productTotal: number, value: any) => {
-              console.log(value, 'valued');
+              console.log(value, "valued");
               return productTotal + value.productData.quantity;
             },
             0,
@@ -231,31 +208,23 @@ export class AdminsService {
         }, 0);
       };
 
-      let sucessfulpayment = sales.filter(
-        (prod: any) => prod.paymentStatus.paymentStatus,
-      );
+      let sucessfulpayment = sales.filter((prod: any) => prod.paymentStatus.paymentStatus);
 
       let totalSales = reducer_handler(sucessfulpayment);
 
-      let abdundant = sales.filter(
-        (prod: any) => prod.paymentStatus.checkoutStatus,
-      );
+      let abdundant = sales.filter((prod: any) => prod.paymentStatus.checkoutStatus);
       let Total_abandant_order = reducer_handler(abdundant);
 
-      let totalRevenue = sucessfulpayment.reduce(
-        (accumulator: any, currentValue: any) => {
-          return currentValue.products.reduce((accum: number, value: any) => {
-            let price =
-              value.productData.discountPrice &&
-                Number(value.productData.discountPrice) > 0
-                ? value.productData.discountPrice
-                : value.productData.price;
-            let finalPrice = Number(value.productData.quantity) * Number(price);
-            return (accum += finalPrice);
-          }, 0);
-        },
-        0,
-      );
+      let totalRevenue = sucessfulpayment.reduce((accumulator: any, currentValue: any) => {
+        return currentValue.products.reduce((accum: number, value: any) => {
+          let price =
+            value.productData.discountPrice && Number(value.productData.discountPrice) > 0
+              ? value.productData.discountPrice
+              : value.productData.price;
+          let finalPrice = Number(value.productData.quantity) * Number(price);
+          return (accum += finalPrice);
+        }, 0);
+      }, 0);
 
       return {
         totalSubCategories,
@@ -266,11 +235,10 @@ export class AdminsService {
         totalSales,
         totalUsers,
         Total_abandant_order,
-        totalAccessories
+        totalAccessories,
       };
     } catch (error) {
-      customHttpException(error.message, 'INTERNAL_SERVER_ERROR');
+      customHttpException(error.message, "INTERNAL_SERVER_ERROR");
     }
   }
-
 }

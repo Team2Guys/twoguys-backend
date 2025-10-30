@@ -1,7 +1,6 @@
-import { InputType, Int, Field, ID } from '@nestjs/graphql';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
-import GraphQLJSON from 'graphql-type-json';
-
+import { InputType, Int, Field, ID } from "@nestjs/graphql";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
 export class CreateSubcategoryInput {
@@ -128,13 +127,9 @@ export class CreateSubcategoryInput {
   @Field({ nullable: true })
   Meta_Title?: string;
 
-      @Field(() => BlogStatus, { nullable: true, defaultValue:"PUBLISHED" })
-      status?: BlogStatus
-
+  @Field(() => BlogStatus, { nullable: true, defaultValue: "PUBLISHED" })
+  status?: BlogStatus;
 }
-
-
-
 
 @InputType()
 export class CreateInnerSubcategoryInput {
@@ -147,5 +142,4 @@ export class CreateInnerSubcategoryInput {
 
   @Field(() => GraphQLJSON, { nullable: true })
   catalogue?: any;
-
 }

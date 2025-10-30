@@ -1,9 +1,8 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
-import GraphQLJSON from 'graphql-type-json';
+import { InputType, Int, Field } from "@nestjs/graphql";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
-
 export class CreateProductInput {
   @Field()
   name: string;
@@ -123,17 +122,14 @@ export class CreateProductInput {
   seoSchema?: string;
 
   @Field(() => Int)
-  category?: Number;
+  category?: number;
 
   @Field(() => Int)
-  subcategory?: Number;
+  subcategory?: number;
 
   @Field(() => Int)
-  Innersubcategory?: Number;
+  Innersubcategory?: number;
 
-  
-    @Field(() => BlogStatus, { nullable: true })
-    status?: BlogStatus
-
-
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
