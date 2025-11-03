@@ -12,9 +12,8 @@ import { AdminsModule } from "./admins/admins.module";
 import { BlogsModule } from "./blogs/blogs.module";
 import { SalesProductsModule } from "./sales-products/sales-products.module";
 import { UserModule } from "./user/user.module";
-import { ThrottlerGuard, ThrottlerModule } from "@nestjs/throttler";
+import { ThrottlerModule } from "@nestjs/throttler";
 import { APP_GUARD } from "@nestjs/core";
-import { GqlThrottlerGuard } from "common/GqlThrottlerGuard";
 import { AuthGuard } from "guards/auth.guard";
 
 @Module({

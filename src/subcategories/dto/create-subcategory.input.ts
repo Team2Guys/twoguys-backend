@@ -129,6 +129,8 @@ export class CreateSubcategoryInput {
 
   @Field(() => BlogStatus, { nullable: true, defaultValue: "PUBLISHED" })
   status?: BlogStatus;
+  @Field(() => Int)
+  Innersubcategory?: number;
 }
 
 @InputType()
