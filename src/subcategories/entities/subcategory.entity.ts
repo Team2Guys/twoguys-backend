@@ -1,10 +1,10 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
-import { Category } from '../../categories/entities/category.entity';
-import GraphQLJSON from 'graphql-type-json';
-import { Product } from '../../products/entities/product.entity';
-import { EComerece } from 'e-comerece/entities/e-comerece.entity';
-import { CommentStatus } from '../../../generated/prisma';
-import { BlogStatus } from 'general/dto/enums/enum';
+import { ObjectType, Field, ID } from "@nestjs/graphql";
+import { Category } from "../../categories/entities/category.entity";
+import GraphQLJSON from "graphql-type-json";
+import { Product } from "../../products/entities/product.entity";
+import { EComerece } from "e-comerece/entities/e-comerece.entity";
+import { CommentStatus } from "../../../generated/prisma";
+import { BlogStatus } from "general/dto/enums/enum";
 
 @ObjectType()
 export class Subcategory {
@@ -134,24 +134,17 @@ export class Subcategory {
   @Field(() => [Product], { nullable: true })
   products?: Product[];
 
-
   @Field(() => [InnerSubCategory], { nullable: true })
   InnersubCategories?: InnerSubCategory[];
-
 
   @Field(() => Category, { nullable: true })
   category?: Category;
   @Field(() => [EComerece], { nullable: true })
   EcomereceProducts?: EComerece[];
 
-    @Field(() => BlogStatus, { nullable: true })
-        status?: BlogStatus
-
-
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
-
-
-
 
 @ObjectType()
 export class InnerSubCategory {
@@ -175,11 +168,9 @@ export class InnerSubCategory {
   @Field(() => [Product], { nullable: true })
   products?: Product[];
 
-
   @Field(() => Subcategory, { nullable: true })
   subCategory?: Subcategory;
-  
-    @Field(() => GraphQLJSON, { nullable: true })
-    catalogue?: any;
 
+  @Field(() => GraphQLJSON, { nullable: true })
+  catalogue?: any;
 }

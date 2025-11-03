@@ -1,32 +1,24 @@
-import { createAppointments, CreateJobApplicationDto } from 'general/dto/create-general.input';
-import nodemailer from 'nodemailer';
-import { contactUsEmailInput, orderEmailInput } from 'sales-products/dto/create-sales-product.input';
-
-
+import { createAppointments, CreateJobApplicationDto } from "general/dto/create-general.input";
+import nodemailer from "nodemailer";
+import {
+  contactUsEmailInput,
+  orderEmailInput,
+} from "sales-products/dto/create-sales-product.input";
 
 const transporter = nodemailer.createTransport({
-   host: 'mail.blindsandcurtains.ae',
-   port: 587,
-   secure: false,
-   auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-   },
+  host: "mail.blindsandcurtains.ae",
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
 });
 
-
-
 export const sendAppointmentEmail = async (appointmentData: createAppointments) => {
-   const {
-      name,
-      email,
-      phoneNumber,
-      whatsApp,
-      location,
-      subCategories,
-   } = appointmentData;
+  const { name, email, phoneNumber, whatsApp, location, subCategories } = appointmentData;
 
-   const htmlTemplate = `<!DOCTYPE html>
+  const htmlTemplate = `<!DOCTYPE html>
      <html>
        <head>
          <meta charset="UTF-8" />
@@ -92,24 +84,32 @@ export const sendAppointmentEmail = async (appointmentData: createAppointments) 
                <span class="label">Phone Number:</span> ${phoneNumber}
              </div>
  
-             ${whatsApp ? `
+             ${
+               whatsApp
+                 ? `
                <div class="field">
                  <span class="label">WhatsApp Number:</span> ${whatsApp}
                </div>
-             ` : ""}
+             `
+                 : ""
+             }
  
              <div class="field">
                <span class="label">Location:</span> ${location}
              </div>
  
-             ${subCategories?.length ? `
+             ${
+               subCategories?.length
+                 ? `
                <div class="field">
                  <span class="label">Sub Categories:</span>
                  <ul>
                    ${subCategories.map((cat: any) => `<li>${JSON.stringify(cat)}</li>`).join("")}
                  </ul>
                </div>
-             ` : ""}
+             `
+                 : ""
+             }
  
              <p>We will contact you shortly. If you need to make changes or have any questions, please reply to this email or contact us at 052 933 2833.</p>
            </div>
@@ -122,25 +122,23 @@ export const sendAppointmentEmail = async (appointmentData: createAppointments) 
      </html>
     `;
 
-   try {
-      await transporter.sendMail({
-         from: `Appointment Confirmation ${process.env.EMAIL_USER}`,
-         to: email,
-         subject: `Appointment Confirmation - Two Guys`,
-         html: htmlTemplate,
-      });
-   } catch (error) {
-      console.error("Error sending appointment email:", error);
-      throw new Error("Failed to send appointment confirmation email");
-   }
+  try {
+    await transporter.sendMail({
+      from: `Appointment Confirmation ${process.env.EMAIL_USER}`,
+      to: email,
+      subject: `Appointment Confirmation - Two Guys`,
+      html: htmlTemplate,
+    });
+  } catch (error) {
+    console.error("Error sending appointment email:", error);
+    throw new Error("Failed to send appointment confirmation email");
+  }
 };
 
-
-
 export const contactusEmail = async (data: contactUsEmailInput) => {
-   const { name, email, phoneNumber, message, questionFlag } = data;
+  const { name, email, phoneNumber, message, questionFlag } = data;
 
-   const htmlTemplate = `
+  const htmlTemplate = `
     <!DOCTYPE html>
     <html>
       <head>
@@ -207,31 +205,43 @@ export const contactusEmail = async (data: contactUsEmailInput) => {
     </html>
   `;
 
-   await transporter.sendMail({
-      from: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} TG ${process.env.EMAIL_USER}`,
-      to: process.env.CONTACT_US_EMAIL,
-      subject: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} ${name} `,
-      html: htmlTemplate,
-   });
+  await transporter.sendMail({
+    from: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} TG ${process.env.EMAIL_USER}`,
+    to: process.env.CONTACT_US_EMAIL,
+    subject: `${questionFlag ? "Question Sumitted " : "Contact us form Submbission"} ${name} `,
+    html: htmlTemplate,
+  });
 };
 
+export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEmail?: string) => {
+  const {
+    products,
+    firstName,
+    lastName,
+    orderId,
+    email,
+    phone,
+    address,
+    emirate,
+    totalPrice,
+    shipmentFee,
+  } = orderDetails;
 
-export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEmail?: string,) => {
-   const { products, firstName, lastName, orderId, email, phone, address, emirate, totalPrice, shipmentFee } = orderDetails;
-
-   console.log(products, "products")
-
-   const formattedDate = new Date().toLocaleDateString("en-US", {
+  const formattedDate = new Date()
+    .toLocaleDateString("en-US", {
       month: "short",
       day: "2-digit",
       year: "numeric",
-   }).toUpperCase();
-   const mailOptions = {
-      from: `Order Confirmation @TG ${process.env.FROMMAIL}`,
-      to: CustomerEmail ? CustomerEmail : `${process.env.FROMMAIL},${process.env.ORDER_MAIL1},${process.env.ORDER_MAIL2}`,
-      subject: `Order has been confirmed @TG against Order # ${orderId}`,
+    })
+    .toUpperCase();
+  const mailOptions = {
+    from: `Order Confirmation @TG ${process.env.FROMMAIL}`,
+    to: CustomerEmail
+      ? CustomerEmail
+      : `${process.env.FROMMAIL},${process.env.ORDER_MAIL1},${process.env.ORDER_MAIL2}`,
+    subject: `Order has been confirmed @TG against Order # ${orderId}`,
 
-      html: `<!DOCTYPE html>
+    html: `<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -578,7 +588,9 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
 
 
                   <tbody>
-                ${products?.map((product, index) => `
+                ${products
+                  ?.map(
+                    (product, index) => `
                 <tr key="${index}">
                    <td style="padding: 10px 2px;" class="product-title-wrapper">
                       <div style="display:flex; gap:5px; align-items:center; justify-content:center;">
@@ -598,13 +610,15 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
 
                            
 
-         ${product?.variant ?
-            `  <p class="table-font" 
+         ${
+           product?.variant
+             ? `  <p class="table-font" 
                             style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
                               <b>Variant</b>
                      ${product?.variant}
                               
-                             </p>` : ""
+                             </p>`
+             : ""
          }
 
 
@@ -612,21 +626,16 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
 
          
 
-               ${product?.sizes ?
-            `  <p class="table-font" 
+               ${
+                 product?.sizes
+                   ? `  <p class="table-font" 
                             style="margin-left: 5px; margin-bottom: 0px; margin-top: 8px; color: black;">
                               <b>Size</b>
                      ${product?.sizes || ""})
                               
                              </p>`
-
-            : ""
-
-
-
-
-
-         }
+                   : ""
+               }
 
 
          
@@ -637,7 +646,9 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
                    <td class="table-font" style="text-align:center; padding: 10px 2px;">${product.discountPrice || product.price || "Free"}</td>
                    <td class="table-font" style="text-align:center; padding: 10px 2px;">${product.totalPrice || "Free"}</td>
                 </tr>
-                `).join('')}
+                `,
+                  )
+                  .join("")}
              </tbody>
         
 
@@ -690,7 +701,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
                       <table style="border-collapse: collapse;">
                          <tr>
                             <td colspan="5" style="padding: 8px;" class="table-font">Subtotal</td>
-                            <td style="padding: 8px;" class="table-font">${(totalPrice && shipmentFee) ? totalPrice - shipmentFee : totalPrice || "Free"}</td>
+                            <td style="padding: 8px;" class="table-font">${totalPrice && shipmentFee ? totalPrice - shipmentFee : totalPrice || "Free"}</td>
                          </tr>
                          <tr style="border-bottom: 2px solid #ccc;">
                             <td colspan="5" style="padding: 8px;" class="table-font">Shipment</td>
@@ -698,7 +709,7 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
                          </tr>
                          <tr>
                             <td colspan="5" style="padding: 8px; font-weight: bold; " class="table-font">Total Incl. VAT</td>
-                            <td style="padding: 8px; font-weight: bold;" class="table-font">${(totalPrice) || "Free"}</td>
+                            <td style="padding: 8px; font-weight: bold;" class="table-font">${totalPrice || "Free"}</td>
                          </tr>
                       </table>
                    </td>
@@ -735,47 +746,38 @@ export const sendEmailHandler = async (orderDetails: orderEmailInput, CustomerEm
 </div>
 </body>
 
-</html>`
-   };
+</html>`,
+  };
 
-
-   try {
-      transporter.sendMail(mailOptions, function (error, info) {
-         if (error) {
-            console.error('Error sending email:', error);
-            throw new Error(error.message || JSON.stringify(error))
-
-         } else {
-            console.log('Email sent:', info.response);
-            return info.response
-         }
-      });
-   } catch (error) {
-      throw new Error(error.message)
-   }
-
-
+  try {
+    transporter.sendMail(mailOptions, function (error, info) {
+      if (error) {
+        console.error("Error sending email:", error);
+        throw new Error(error.message || JSON.stringify(error));
+      } else {
+        return info.response;
+      }
+    });
+  } catch (error) {
+    throw new Error(error.message);
+  }
 };
 
-
-
-
-
 export const sendJobApplicationEmails = async (data: CreateJobApplicationDto) => {
-   const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      currentCTC,
-      expectedCTC,
-      noticePeriod,
-      JobName,
-      resume,
-      portfolioLink,
-   } = data;
+  const {
+    firstName,
+    lastName,
+    email,
+    phone,
+    currentCTC,
+    expectedCTC,
+    noticePeriod,
+    JobName,
+    resume,
+    portfolioLink,
+  } = data;
 
-   const adminHtmlTemplate = `
+  const adminHtmlTemplate = `
    <!DOCTYPE html>
    <html>
      <head>
@@ -833,7 +835,7 @@ export const sendJobApplicationEmails = async (data: CreateJobApplicationDto) =>
            ${
              portfolioLink
                ? `<div class="field"><span class="label">Portfolio:</span> <a href="${portfolioLink}" target="_blank">${portfolioLink}</a></div>`
-               : ''
+               : ""
            }
            <div class="field"><span class="label">Resume:</span> <a href="${resume.imageUrl}" target="_blank">View Resume</a></div>
          </div>
@@ -845,7 +847,7 @@ export const sendJobApplicationEmails = async (data: CreateJobApplicationDto) =>
    </html>
    `;
 
-   const candidateHtmlTemplate = `
+  const candidateHtmlTemplate = `
    <!DOCTYPE html>
    <html>
      <head>
@@ -896,19 +898,19 @@ export const sendJobApplicationEmails = async (data: CreateJobApplicationDto) =>
    </html>
    `;
 
-   // ✅ Send email to candidate
-   await transporter.sendMail({
-      from: `"Two Guys Careers" ${process.env.CAREER}`,
-      to: email,
-      subject: `Application Received for ${JobName}`,
-      html: candidateHtmlTemplate,
-   });
+  // ✅ Send email to candidate
+  await transporter.sendMail({
+    from: `"Two Guys Careers" ${process.env.CAREER}`,
+    to: email,
+    subject: `Application Received for ${JobName}`,
+    html: candidateHtmlTemplate,
+  });
 
-   // ✅ Send email to HR/admin
-   await transporter.sendMail({
-      from: `"Two Guys Careers" ${process.env.CAREER}`,
-      to:`${process.env.CAREER}` ,
-      subject: `New Job Application - ${JobName} (${firstName} ${lastName})`,
-      html: adminHtmlTemplate,
-   });
+  // ✅ Send email to HR/admin
+  await transporter.sendMail({
+    from: `"Two Guys Careers" ${process.env.CAREER}`,
+    to: `${process.env.CAREER}`,
+    subject: `New Job Application - ${JobName} (${firstName} ${lastName})`,
+    html: adminHtmlTemplate,
+  });
 };

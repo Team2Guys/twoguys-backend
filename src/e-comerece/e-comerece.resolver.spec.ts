@@ -1,8 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { EComereceResolver } from './e-comerece.resolver';
-import { EComereceService } from './e-comerece.service';
+import { Test, TestingModule } from "@nestjs/testing";
+import { EComereceResolver } from "./e-comerece.resolver";
+import { EComereceService } from "./e-comerece.service";
 
-describe('EComereceResolver', () => {
+describe("EComereceResolver", () => {
   let resolver: EComereceResolver;
 
   beforeEach(async () => {
@@ -13,7 +13,7 @@ describe('EComereceResolver', () => {
     resolver = module.get<EComereceResolver>(EComereceResolver);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(resolver).toBeDefined();
   });
 });

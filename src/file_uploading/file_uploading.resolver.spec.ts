@@ -1,8 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { FileUploadingResolver } from './file_uploading.resolver';
-import { FileUploadingService } from './file_uploading.service';
+import { Test, TestingModule } from "@nestjs/testing";
+import { FileUploadingResolver } from "./file_uploading.resolver";
+import { FileUploadingService } from "./file_uploading.service";
 
-describe('FileUploadingResolver', () => {
+describe("FileUploadingResolver", () => {
   let resolver: FileUploadingResolver;
 
   beforeEach(async () => {
@@ -13,7 +13,7 @@ describe('FileUploadingResolver', () => {
     resolver = module.get<FileUploadingResolver>(FileUploadingResolver);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(resolver).toBeDefined();
   });
 });

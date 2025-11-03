@@ -1,8 +1,8 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { GeneralResolver } from './general.resolver';
-import { GeneralService } from './general.service';
+import { Test, TestingModule } from "@nestjs/testing";
+import { GeneralResolver } from "./general.resolver";
+import { GeneralService } from "./general.service";
 
-describe('GeneralResolver', () => {
+describe("GeneralResolver", () => {
   let resolver: GeneralResolver;
 
   beforeEach(async () => {
@@ -13,7 +13,7 @@ describe('GeneralResolver', () => {
     resolver = module.get<GeneralResolver>(GeneralResolver);
   });
 
-  it('should be defined', () => {
+  it("should be defined", () => {
     expect(resolver).toBeDefined();
   });
 });

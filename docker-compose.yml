@@ -1,17 +1,18 @@
-version: '3.8'
 
 services:
   database:
     image: postgres:latest
     ports:
-      - "5432:5432"
+      - "5433:5432"
     env_file:
       - .env
     volumes:
       - pgdata:/var/lib/postgresql/data
 
   backend:
-    image: twoguys/twoguys-backend:latest
+    build: 
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "5200:5200"
     env_file:
@@ -22,3 +23,4 @@ services:
 
 volumes:
   pgdata:
+

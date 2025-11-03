@@ -2546,10 +2546,12 @@ export namespace Prisma {
 
   export type InnersubCategoriesCountOutputType = {
     products: number
+    EcomereceProducts: number
   }
 
   export type InnersubCategoriesCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | InnersubCategoriesCountOutputTypeCountProductsArgs
+    EcomereceProducts?: boolean | InnersubCategoriesCountOutputTypeCountEcomereceProductsArgs
   }
 
   // Custom InputTypes
@@ -2568,6 +2570,13 @@ export namespace Prisma {
    */
   export type InnersubCategoriesCountOutputTypeCountProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: ProductsWhereInput
+  }
+
+  /**
+   * InnersubCategoriesCountOutputType without action
+   */
+  export type InnersubCategoriesCountOutputTypeCountEcomereceProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: EcomereceProductsWhereInput
   }
 
 
@@ -13200,6 +13209,7 @@ export namespace Prisma {
     catalogue?: boolean
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
     products?: boolean | InnersubCategories$productsArgs<ExtArgs>
+    EcomereceProducts?: boolean | InnersubCategories$EcomereceProductsArgs<ExtArgs>
     _count?: boolean | InnersubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["innersubCategories"]>
 
@@ -13242,6 +13252,7 @@ export namespace Prisma {
   export type InnersubCategoriesInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     subCategory?: boolean | InnersubCategories$subCategoryArgs<ExtArgs>
     products?: boolean | InnersubCategories$productsArgs<ExtArgs>
+    EcomereceProducts?: boolean | InnersubCategories$EcomereceProductsArgs<ExtArgs>
     _count?: boolean | InnersubCategoriesCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type InnersubCategoriesIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13256,6 +13267,7 @@ export namespace Prisma {
     objects: {
       subCategory: Prisma.$subCategoriesPayload<ExtArgs> | null
       products: Prisma.$ProductsPayload<ExtArgs>[]
+      EcomereceProducts: Prisma.$EcomereceProductsPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -13662,6 +13674,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     subCategory<T extends InnersubCategories$subCategoryArgs<ExtArgs> = {}>(args?: Subset<T, InnersubCategories$subCategoryArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     products<T extends InnersubCategories$productsArgs<ExtArgs> = {}>(args?: Subset<T, InnersubCategories$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    EcomereceProducts<T extends InnersubCategories$EcomereceProductsArgs<ExtArgs> = {}>(args?: Subset<T, InnersubCategories$EcomereceProductsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EcomereceProductsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -14138,6 +14151,30 @@ export namespace Prisma {
   }
 
   /**
+   * InnersubCategories.EcomereceProducts
+   */
+  export type InnersubCategories$EcomereceProductsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the EcomereceProducts
+     */
+    select?: EcomereceProductsSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the EcomereceProducts
+     */
+    omit?: EcomereceProductsOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: EcomereceProductsInclude<ExtArgs> | null
+    where?: EcomereceProductsWhereInput
+    orderBy?: EcomereceProductsOrderByWithRelationInput | EcomereceProductsOrderByWithRelationInput[]
+    cursor?: EcomereceProductsWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: EcomereceProductsScalarFieldEnum | EcomereceProductsScalarFieldEnum[]
+  }
+
+  /**
    * InnersubCategories without action
    */
   export type InnersubCategoriesDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14175,6 +14212,7 @@ export namespace Prisma {
     discountPrice: number | null
     categoryId: number | null
     subCategoryId: number | null
+    innersubCategoryId: number | null
   }
 
   export type EcomereceProductsSumAggregateOutputType = {
@@ -14184,6 +14222,7 @@ export namespace Prisma {
     discountPrice: number | null
     categoryId: number | null
     subCategoryId: number | null
+    innersubCategoryId: number | null
   }
 
   export type EcomereceProductsMinAggregateOutputType = {
@@ -14204,6 +14243,7 @@ export namespace Prisma {
     Meta_Title: string | null
     categoryId: number | null
     subCategoryId: number | null
+    innersubCategoryId: number | null
     seoSchema: string | null
     status: $Enums.BlogStatus | null
   }
@@ -14226,6 +14266,7 @@ export namespace Prisma {
     Meta_Title: string | null
     categoryId: number | null
     subCategoryId: number | null
+    innersubCategoryId: number | null
     seoSchema: string | null
     status: $Enums.BlogStatus | null
   }
@@ -14259,6 +14300,7 @@ export namespace Prisma {
     Meta_Title: number
     categoryId: number
     subCategoryId: number
+    innersubCategoryId: number
     seoSchema: number
     shippingOptions: number
     status: number
@@ -14273,6 +14315,7 @@ export namespace Prisma {
     discountPrice?: true
     categoryId?: true
     subCategoryId?: true
+    innersubCategoryId?: true
   }
 
   export type EcomereceProductsSumAggregateInputType = {
@@ -14282,6 +14325,7 @@ export namespace Prisma {
     discountPrice?: true
     categoryId?: true
     subCategoryId?: true
+    innersubCategoryId?: true
   }
 
   export type EcomereceProductsMinAggregateInputType = {
@@ -14302,6 +14346,7 @@ export namespace Prisma {
     Meta_Title?: true
     categoryId?: true
     subCategoryId?: true
+    innersubCategoryId?: true
     seoSchema?: true
     status?: true
   }
@@ -14324,6 +14369,7 @@ export namespace Prisma {
     Meta_Title?: true
     categoryId?: true
     subCategoryId?: true
+    innersubCategoryId?: true
     seoSchema?: true
     status?: true
   }
@@ -14357,6 +14403,7 @@ export namespace Prisma {
     Meta_Title?: true
     categoryId?: true
     subCategoryId?: true
+    innersubCategoryId?: true
     seoSchema?: true
     shippingOptions?: true
     status?: true
@@ -14478,6 +14525,7 @@ export namespace Prisma {
     Meta_Title: string | null
     categoryId: number | null
     subCategoryId: number | null
+    innersubCategoryId: number | null
     seoSchema: string | null
     shippingOptions: JsonValue[]
     status: $Enums.BlogStatus | null
@@ -14531,11 +14579,13 @@ export namespace Prisma {
     Meta_Title?: boolean
     categoryId?: boolean
     subCategoryId?: boolean
+    innersubCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
     status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
     reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
     questions?: boolean | EcomereceProducts$questionsArgs<ExtArgs>
     _count?: boolean | EcomereceProductsCountOutputTypeDefaultArgs<ExtArgs>
@@ -14570,11 +14620,13 @@ export namespace Prisma {
     Meta_Title?: boolean
     categoryId?: boolean
     subCategoryId?: boolean
+    innersubCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
     status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
 
   export type EcomereceProductsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -14606,11 +14658,13 @@ export namespace Prisma {
     Meta_Title?: boolean
     categoryId?: boolean
     subCategoryId?: boolean
+    innersubCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
     status?: boolean
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
   }, ExtArgs["result"]["ecomereceProducts"]>
 
   export type EcomereceProductsSelectScalar = {
@@ -14642,15 +14696,17 @@ export namespace Prisma {
     Meta_Title?: boolean
     categoryId?: boolean
     subCategoryId?: boolean
+    innersubCategoryId?: boolean
     seoSchema?: boolean
     shippingOptions?: boolean
     status?: boolean
   }
 
-  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "seoSchema" | "shippingOptions" | "status", ExtArgs["result"]["ecomereceProducts"]>
+  export type EcomereceProductsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "price" | "description" | "stock" | "discountPrice" | "short_description" | "posterImageUrl" | "hoverImageUrl" | "productImages" | "createdAt" | "updatedAt" | "last_editedBy" | "custom_url" | "breadCrum" | "Banners" | "DescriptionBullets" | "Additionalinformation" | "Questions" | "materialType" | "colors" | "sizes" | "variant" | "Canonical_Tag" | "Meta_Description" | "Meta_Title" | "categoryId" | "subCategoryId" | "innersubCategoryId" | "seoSchema" | "shippingOptions" | "status", ExtArgs["result"]["ecomereceProducts"]>
   export type EcomereceProductsInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
     reviews?: boolean | EcomereceProducts$reviewsArgs<ExtArgs>
     questions?: boolean | EcomereceProducts$questionsArgs<ExtArgs>
     _count?: boolean | EcomereceProductsCountOutputTypeDefaultArgs<ExtArgs>
@@ -14658,10 +14714,12 @@ export namespace Prisma {
   export type EcomereceProductsIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
   }
   export type EcomereceProductsIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     category?: boolean | EcomereceProducts$categoryArgs<ExtArgs>
     subcategory?: boolean | EcomereceProducts$subcategoryArgs<ExtArgs>
+    Innersubcategory?: boolean | EcomereceProducts$InnersubcategoryArgs<ExtArgs>
   }
 
   export type $EcomereceProductsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -14669,6 +14727,7 @@ export namespace Prisma {
     objects: {
       category: Prisma.$categoriesPayload<ExtArgs> | null
       subcategory: Prisma.$subCategoriesPayload<ExtArgs> | null
+      Innersubcategory: Prisma.$InnersubCategoriesPayload<ExtArgs> | null
       reviews: Prisma.$ProductReviewsPayload<ExtArgs>[]
       questions: Prisma.$ProductQuestionsPayload<ExtArgs>[]
     }
@@ -14701,6 +14760,7 @@ export namespace Prisma {
       Meta_Title: string | null
       categoryId: number | null
       subCategoryId: number | null
+      innersubCategoryId: number | null
       seoSchema: string | null
       shippingOptions: Prisma.JsonValue[]
       status: $Enums.BlogStatus | null
@@ -15100,6 +15160,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     category<T extends EcomereceProducts$categoryArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$categoryArgs<ExtArgs>>): Prisma__categoriesClient<$Result.GetResult<Prisma.$categoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     subcategory<T extends EcomereceProducts$subcategoryArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$subcategoryArgs<ExtArgs>>): Prisma__subCategoriesClient<$Result.GetResult<Prisma.$subCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Innersubcategory<T extends EcomereceProducts$InnersubcategoryArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$InnersubcategoryArgs<ExtArgs>>): Prisma__InnersubCategoriesClient<$Result.GetResult<Prisma.$InnersubCategoriesPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     reviews<T extends EcomereceProducts$reviewsArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$reviewsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductReviewsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     questions<T extends EcomereceProducts$questionsArgs<ExtArgs> = {}>(args?: Subset<T, EcomereceProducts$questionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductQuestionsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -15159,6 +15220,7 @@ export namespace Prisma {
     readonly Meta_Title: FieldRef<"EcomereceProducts", 'String'>
     readonly categoryId: FieldRef<"EcomereceProducts", 'Int'>
     readonly subCategoryId: FieldRef<"EcomereceProducts", 'Int'>
+    readonly innersubCategoryId: FieldRef<"EcomereceProducts", 'Int'>
     readonly seoSchema: FieldRef<"EcomereceProducts", 'String'>
     readonly shippingOptions: FieldRef<"EcomereceProducts", 'Json[]'>
     readonly status: FieldRef<"EcomereceProducts", 'BlogStatus'>
@@ -15593,6 +15655,25 @@ export namespace Prisma {
      */
     include?: subCategoriesInclude<ExtArgs> | null
     where?: subCategoriesWhereInput
+  }
+
+  /**
+   * EcomereceProducts.Innersubcategory
+   */
+  export type EcomereceProducts$InnersubcategoryArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the InnersubCategories
+     */
+    select?: InnersubCategoriesSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the InnersubCategories
+     */
+    omit?: InnersubCategoriesOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: InnersubCategoriesInclude<ExtArgs> | null
+    where?: InnersubCategoriesWhereInput
   }
 
   /**
@@ -25483,6 +25564,7 @@ export namespace Prisma {
     Meta_Title: 'Meta_Title',
     categoryId: 'categoryId',
     subCategoryId: 'subCategoryId',
+    innersubCategoryId: 'innersubCategoryId',
     seoSchema: 'seoSchema',
     shippingOptions: 'shippingOptions',
     status: 'status'
@@ -26977,6 +27059,7 @@ export namespace Prisma {
     catalogue?: JsonNullableFilter<"InnersubCategories">
     subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     products?: ProductsListRelationFilter
+    EcomereceProducts?: EcomereceProductsListRelationFilter
   }
 
   export type InnersubCategoriesOrderByWithRelationInput = {
@@ -26990,6 +27073,7 @@ export namespace Prisma {
     catalogue?: SortOrderInput | SortOrder
     subCategory?: subCategoriesOrderByWithRelationInput
     products?: ProductsOrderByRelationAggregateInput
+    EcomereceProducts?: EcomereceProductsOrderByRelationAggregateInput
   }
 
   export type InnersubCategoriesWhereUniqueInput = Prisma.AtLeast<{
@@ -27006,6 +27090,7 @@ export namespace Prisma {
     catalogue?: JsonNullableFilter<"InnersubCategories">
     subCategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
     products?: ProductsListRelationFilter
+    EcomereceProducts?: EcomereceProductsListRelationFilter
   }, "id">
 
   export type InnersubCategoriesOrderByWithAggregationInput = {
@@ -27070,11 +27155,13 @@ export namespace Prisma {
     Meta_Title?: StringNullableFilter<"EcomereceProducts"> | string | null
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
+    innersubCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+    Innersubcategory?: XOR<InnersubCategoriesNullableScalarRelationFilter, InnersubCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
     questions?: ProductQuestionsListRelationFilter
   }
@@ -27108,11 +27195,13 @@ export namespace Prisma {
     Meta_Title?: SortOrderInput | SortOrder
     categoryId?: SortOrderInput | SortOrder
     subCategoryId?: SortOrderInput | SortOrder
+    innersubCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
     shippingOptions?: SortOrder
     status?: SortOrderInput | SortOrder
     category?: categoriesOrderByWithRelationInput
     subcategory?: subCategoriesOrderByWithRelationInput
+    Innersubcategory?: InnersubCategoriesOrderByWithRelationInput
     reviews?: ProductReviewsOrderByRelationAggregateInput
     questions?: ProductQuestionsOrderByRelationAggregateInput
   }
@@ -27149,11 +27238,13 @@ export namespace Prisma {
     Meta_Title?: StringNullableFilter<"EcomereceProducts"> | string | null
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
+    innersubCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
     category?: XOR<CategoriesNullableScalarRelationFilter, categoriesWhereInput> | null
     subcategory?: XOR<SubCategoriesNullableScalarRelationFilter, subCategoriesWhereInput> | null
+    Innersubcategory?: XOR<InnersubCategoriesNullableScalarRelationFilter, InnersubCategoriesWhereInput> | null
     reviews?: ProductReviewsListRelationFilter
     questions?: ProductQuestionsListRelationFilter
   }, "id">
@@ -27187,6 +27278,7 @@ export namespace Prisma {
     Meta_Title?: SortOrderInput | SortOrder
     categoryId?: SortOrderInput | SortOrder
     subCategoryId?: SortOrderInput | SortOrder
+    innersubCategoryId?: SortOrderInput | SortOrder
     seoSchema?: SortOrderInput | SortOrder
     shippingOptions?: SortOrder
     status?: SortOrderInput | SortOrder
@@ -27229,6 +27321,7 @@ export namespace Prisma {
     Meta_Title?: StringNullableWithAggregatesFilter<"EcomereceProducts"> | string | null
     categoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
+    innersubCategoryId?: IntNullableWithAggregatesFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableWithAggregatesFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     status?: EnumBlogStatusNullableWithAggregatesFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
@@ -29471,6 +29564,7 @@ export namespace Prisma {
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
     products?: ProductsCreateNestedManyWithoutInnersubcategoryInput
+    EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesUncheckedCreateInput = {
@@ -29483,6 +29577,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
+    EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesUpdateInput = {
@@ -29494,6 +29589,7 @@ export namespace Prisma {
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
     products?: ProductsUpdateManyWithoutInnersubcategoryNestedInput
+    EcomereceProducts?: EcomereceProductsUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type InnersubCategoriesUncheckedUpdateInput = {
@@ -29506,6 +29602,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
+    EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type InnersubCategoriesCreateManyInput = {
@@ -29570,6 +29667,7 @@ export namespace Prisma {
     status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -29603,6 +29701,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -29641,6 +29740,7 @@ export namespace Prisma {
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    Innersubcategory?: InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -29674,6 +29774,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -29710,6 +29811,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -29775,6 +29877,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -31821,6 +31924,7 @@ export namespace Prisma {
     Meta_Title?: SortOrder
     categoryId?: SortOrder
     subCategoryId?: SortOrder
+    innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
     shippingOptions?: SortOrder
     status?: SortOrder
@@ -31833,6 +31937,7 @@ export namespace Prisma {
     discountPrice?: SortOrder
     categoryId?: SortOrder
     subCategoryId?: SortOrder
+    innersubCategoryId?: SortOrder
   }
 
   export type EcomereceProductsMaxOrderByAggregateInput = {
@@ -31853,6 +31958,7 @@ export namespace Prisma {
     Meta_Title?: SortOrder
     categoryId?: SortOrder
     subCategoryId?: SortOrder
+    innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
     status?: SortOrder
   }
@@ -31875,6 +31981,7 @@ export namespace Prisma {
     Meta_Title?: SortOrder
     categoryId?: SortOrder
     subCategoryId?: SortOrder
+    innersubCategoryId?: SortOrder
     seoSchema?: SortOrder
     status?: SortOrder
   }
@@ -31886,6 +31993,7 @@ export namespace Prisma {
     discountPrice?: SortOrder
     categoryId?: SortOrder
     subCategoryId?: SortOrder
+    innersubCategoryId?: SortOrder
   }
 
   export type UserCountOrderByAggregateInput = {
@@ -32982,11 +33090,25 @@ export namespace Prisma {
     connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
   }
 
+  export type EcomereceProductsCreateNestedManyWithoutInnersubcategoryInput = {
+    create?: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput> | EcomereceProductsCreateWithoutInnersubcategoryInput[] | EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput[]
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput | EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput[]
+    createMany?: EcomereceProductsCreateManyInnersubcategoryInputEnvelope
+    connect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+  }
+
   export type ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput = {
     create?: XOR<ProductsCreateWithoutInnersubcategoryInput, ProductsUncheckedCreateWithoutInnersubcategoryInput> | ProductsCreateWithoutInnersubcategoryInput[] | ProductsUncheckedCreateWithoutInnersubcategoryInput[]
     connectOrCreate?: ProductsCreateOrConnectWithoutInnersubcategoryInput | ProductsCreateOrConnectWithoutInnersubcategoryInput[]
     createMany?: ProductsCreateManyInnersubcategoryInputEnvelope
     connect?: ProductsWhereUniqueInput | ProductsWhereUniqueInput[]
+  }
+
+  export type EcomereceProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput = {
+    create?: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput> | EcomereceProductsCreateWithoutInnersubcategoryInput[] | EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput[]
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput | EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput[]
+    createMany?: EcomereceProductsCreateManyInnersubcategoryInputEnvelope
+    connect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
   }
 
   export type subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput = {
@@ -33013,6 +33135,20 @@ export namespace Prisma {
     deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
   }
 
+  export type EcomereceProductsUpdateManyWithoutInnersubcategoryNestedInput = {
+    create?: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput> | EcomereceProductsCreateWithoutInnersubcategoryInput[] | EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput[]
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput | EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput[]
+    upsert?: EcomereceProductsUpsertWithWhereUniqueWithoutInnersubcategoryInput | EcomereceProductsUpsertWithWhereUniqueWithoutInnersubcategoryInput[]
+    createMany?: EcomereceProductsCreateManyInnersubcategoryInputEnvelope
+    set?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    disconnect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    delete?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    connect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    update?: EcomereceProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput | EcomereceProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput[]
+    updateMany?: EcomereceProductsUpdateManyWithWhereWithoutInnersubcategoryInput | EcomereceProductsUpdateManyWithWhereWithoutInnersubcategoryInput[]
+    deleteMany?: EcomereceProductsScalarWhereInput | EcomereceProductsScalarWhereInput[]
+  }
+
   export type ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput = {
     create?: XOR<ProductsCreateWithoutInnersubcategoryInput, ProductsUncheckedCreateWithoutInnersubcategoryInput> | ProductsCreateWithoutInnersubcategoryInput[] | ProductsUncheckedCreateWithoutInnersubcategoryInput[]
     connectOrCreate?: ProductsCreateOrConnectWithoutInnersubcategoryInput | ProductsCreateOrConnectWithoutInnersubcategoryInput[]
@@ -33025,6 +33161,20 @@ export namespace Prisma {
     update?: ProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput | ProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput[]
     updateMany?: ProductsUpdateManyWithWhereWithoutInnersubcategoryInput | ProductsUpdateManyWithWhereWithoutInnersubcategoryInput[]
     deleteMany?: ProductsScalarWhereInput | ProductsScalarWhereInput[]
+  }
+
+  export type EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput = {
+    create?: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput> | EcomereceProductsCreateWithoutInnersubcategoryInput[] | EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput[]
+    connectOrCreate?: EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput | EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput[]
+    upsert?: EcomereceProductsUpsertWithWhereUniqueWithoutInnersubcategoryInput | EcomereceProductsUpsertWithWhereUniqueWithoutInnersubcategoryInput[]
+    createMany?: EcomereceProductsCreateManyInnersubcategoryInputEnvelope
+    set?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    disconnect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    delete?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    connect?: EcomereceProductsWhereUniqueInput | EcomereceProductsWhereUniqueInput[]
+    update?: EcomereceProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput | EcomereceProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput[]
+    updateMany?: EcomereceProductsUpdateManyWithWhereWithoutInnersubcategoryInput | EcomereceProductsUpdateManyWithWhereWithoutInnersubcategoryInput[]
+    deleteMany?: EcomereceProductsScalarWhereInput | EcomereceProductsScalarWhereInput[]
   }
 
   export type EcomereceProductsCreateproductImagesInput = {
@@ -33073,6 +33223,12 @@ export namespace Prisma {
     create?: XOR<subCategoriesCreateWithoutEcomereceProductsInput, subCategoriesUncheckedCreateWithoutEcomereceProductsInput>
     connectOrCreate?: subCategoriesCreateOrConnectWithoutEcomereceProductsInput
     connect?: subCategoriesWhereUniqueInput
+  }
+
+  export type InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedCreateWithoutEcomereceProductsInput>
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutEcomereceProductsInput
+    connect?: InnersubCategoriesWhereUniqueInput
   }
 
   export type ProductReviewsCreateNestedManyWithoutEcomereceProductsInput = {
@@ -33166,6 +33322,16 @@ export namespace Prisma {
     delete?: subCategoriesWhereInput | boolean
     connect?: subCategoriesWhereUniqueInput
     update?: XOR<XOR<subCategoriesUpdateToOneWithWhereWithoutEcomereceProductsInput, subCategoriesUpdateWithoutEcomereceProductsInput>, subCategoriesUncheckedUpdateWithoutEcomereceProductsInput>
+  }
+
+  export type InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput = {
+    create?: XOR<InnersubCategoriesCreateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedCreateWithoutEcomereceProductsInput>
+    connectOrCreate?: InnersubCategoriesCreateOrConnectWithoutEcomereceProductsInput
+    upsert?: InnersubCategoriesUpsertWithoutEcomereceProductsInput
+    disconnect?: InnersubCategoriesWhereInput | boolean
+    delete?: InnersubCategoriesWhereInput | boolean
+    connect?: InnersubCategoriesWhereUniqueInput
+    update?: XOR<XOR<InnersubCategoriesUpdateToOneWithWhereWithoutEcomereceProductsInput, InnersubCategoriesUpdateWithoutEcomereceProductsInput>, InnersubCategoriesUncheckedUpdateWithoutEcomereceProductsInput>
   }
 
   export type ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput = {
@@ -33914,6 +34080,7 @@ export namespace Prisma {
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -33946,6 +34113,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -34136,6 +34304,7 @@ export namespace Prisma {
     Meta_Title?: StringNullableFilter<"EcomereceProducts"> | string | null
     categoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     subCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
+    innersubCategoryId?: IntNullableFilter<"EcomereceProducts"> | number | null
     seoSchema?: StringNullableFilter<"EcomereceProducts"> | string | null
     shippingOptions?: JsonNullableListFilter<"EcomereceProducts">
     status?: EnumBlogStatusNullableFilter<"EcomereceProducts"> | $Enums.BlogStatus | null
@@ -34340,6 +34509,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsCreateNestedManyWithoutInnersubcategoryInput
+    EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesUncheckedCreateWithoutSubCategoryInput = {
@@ -34351,6 +34521,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
+    EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesCreateOrConnectWithoutSubCategoryInput = {
@@ -34393,6 +34564,7 @@ export namespace Prisma {
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
+    Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
@@ -34425,6 +34597,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     categoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -34816,6 +34989,7 @@ export namespace Prisma {
     last_editedBy?: string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
+    EcomereceProducts?: EcomereceProductsCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesUncheckedCreateWithoutProductsInput = {
@@ -34827,6 +35001,7 @@ export namespace Prisma {
     updatedAt?: Date | string | null
     last_editedBy?: string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
+    EcomereceProducts?: EcomereceProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
   }
 
   export type InnersubCategoriesCreateOrConnectWithoutProductsInput = {
@@ -35063,6 +35238,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
+    EcomereceProducts?: EcomereceProductsUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type InnersubCategoriesUncheckedUpdateWithoutProductsInput = {
@@ -35074,6 +35250,7 @@ export namespace Prisma {
     updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
+    EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type subCategoriesCreateWithoutInnersubCategoriesInput = {
@@ -35265,6 +35442,87 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type EcomereceProductsCreateWithoutInnersubcategoryInput = {
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
+    category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
+    subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
+    reviews?: ProductReviewsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+    questions?: ProductQuestionsUncheckedCreateNestedManyWithoutEcomereceProductsInput
+  }
+
+  export type EcomereceProductsCreateOrConnectWithoutInnersubcategoryInput = {
+    where: EcomereceProductsWhereUniqueInput
+    create: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput>
+  }
+
+  export type EcomereceProductsCreateManyInnersubcategoryInputEnvelope = {
+    data: EcomereceProductsCreateManyInnersubcategoryInput | EcomereceProductsCreateManyInnersubcategoryInput[]
+    skipDuplicates?: boolean
+  }
+
   export type subCategoriesUpsertWithoutInnersubCategoriesInput = {
     update: XOR<subCategoriesUpdateWithoutInnersubCategoriesInput, subCategoriesUncheckedUpdateWithoutInnersubCategoriesInput>
     create: XOR<subCategoriesCreateWithoutInnersubCategoriesInput, subCategoriesUncheckedCreateWithoutInnersubCategoriesInput>
@@ -35383,6 +35641,22 @@ export namespace Prisma {
   export type ProductsUpdateManyWithWhereWithoutInnersubcategoryInput = {
     where: ProductsScalarWhereInput
     data: XOR<ProductsUpdateManyMutationInput, ProductsUncheckedUpdateManyWithoutInnersubcategoryInput>
+  }
+
+  export type EcomereceProductsUpsertWithWhereUniqueWithoutInnersubcategoryInput = {
+    where: EcomereceProductsWhereUniqueInput
+    update: XOR<EcomereceProductsUpdateWithoutInnersubcategoryInput, EcomereceProductsUncheckedUpdateWithoutInnersubcategoryInput>
+    create: XOR<EcomereceProductsCreateWithoutInnersubcategoryInput, EcomereceProductsUncheckedCreateWithoutInnersubcategoryInput>
+  }
+
+  export type EcomereceProductsUpdateWithWhereUniqueWithoutInnersubcategoryInput = {
+    where: EcomereceProductsWhereUniqueInput
+    data: XOR<EcomereceProductsUpdateWithoutInnersubcategoryInput, EcomereceProductsUncheckedUpdateWithoutInnersubcategoryInput>
+  }
+
+  export type EcomereceProductsUpdateManyWithWhereWithoutInnersubcategoryInput = {
+    where: EcomereceProductsScalarWhereInput
+    data: XOR<EcomereceProductsUpdateManyMutationInput, EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryInput>
   }
 
   export type categoriesCreateWithoutEcomereceProductsInput = {
@@ -35581,6 +35855,34 @@ export namespace Prisma {
   export type subCategoriesCreateOrConnectWithoutEcomereceProductsInput = {
     where: subCategoriesWhereUniqueInput
     create: XOR<subCategoriesCreateWithoutEcomereceProductsInput, subCategoriesUncheckedCreateWithoutEcomereceProductsInput>
+  }
+
+  export type InnersubCategoriesCreateWithoutEcomereceProductsInput = {
+    name: string
+    custom_url: string
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
+    subCategory?: subCategoriesCreateNestedOneWithoutInnersubCategoriesInput
+    products?: ProductsCreateNestedManyWithoutInnersubcategoryInput
+  }
+
+  export type InnersubCategoriesUncheckedCreateWithoutEcomereceProductsInput = {
+    id?: number
+    name: string
+    custom_url: string
+    subCategoryId?: number | null
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
+    products?: ProductsUncheckedCreateNestedManyWithoutInnersubcategoryInput
+  }
+
+  export type InnersubCategoriesCreateOrConnectWithoutEcomereceProductsInput = {
+    where: InnersubCategoriesWhereUniqueInput
+    create: XOR<InnersubCategoriesCreateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedCreateWithoutEcomereceProductsInput>
   }
 
   export type ProductReviewsCreateWithoutEcomereceProductsInput = {
@@ -35863,6 +36165,40 @@ export namespace Prisma {
     InnersubCategories?: InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryNestedInput
   }
 
+  export type InnersubCategoriesUpsertWithoutEcomereceProductsInput = {
+    update: XOR<InnersubCategoriesUpdateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedUpdateWithoutEcomereceProductsInput>
+    create: XOR<InnersubCategoriesCreateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedCreateWithoutEcomereceProductsInput>
+    where?: InnersubCategoriesWhereInput
+  }
+
+  export type InnersubCategoriesUpdateToOneWithWhereWithoutEcomereceProductsInput = {
+    where?: InnersubCategoriesWhereInput
+    data: XOR<InnersubCategoriesUpdateWithoutEcomereceProductsInput, InnersubCategoriesUncheckedUpdateWithoutEcomereceProductsInput>
+  }
+
+  export type InnersubCategoriesUpdateWithoutEcomereceProductsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
+    subCategory?: subCategoriesUpdateOneWithoutInnersubCategoriesNestedInput
+    products?: ProductsUpdateManyWithoutInnersubcategoryNestedInput
+  }
+
+  export type InnersubCategoriesUncheckedUpdateWithoutEcomereceProductsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    custom_url?: StringFieldUpdateOperationsInput | string
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    catalogue?: NullableJsonNullValueInput | InputJsonValue
+    products?: ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
+  }
+
   export type ProductReviewsUpsertWithWhereUniqueWithoutEcomereceProductsInput = {
     where: ProductReviewsWhereUniqueInput
     update: XOR<ProductReviewsUpdateWithoutEcomereceProductsInput, ProductReviewsUncheckedUpdateWithoutEcomereceProductsInput>
@@ -35960,6 +36296,7 @@ export namespace Prisma {
     status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput
     questions?: ProductQuestionsCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -35992,6 +36329,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -36045,6 +36383,7 @@ export namespace Prisma {
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    Innersubcategory?: InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -36077,6 +36416,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -36114,6 +36454,7 @@ export namespace Prisma {
     status?: $Enums.BlogStatus | null
     category?: categoriesCreateNestedOneWithoutEcomereceProductsInput
     subcategory?: subCategoriesCreateNestedOneWithoutEcomereceProductsInput
+    Innersubcategory?: InnersubCategoriesCreateNestedOneWithoutEcomereceProductsInput
     reviews?: ProductReviewsCreateNestedManyWithoutEcomereceProductsInput
   }
 
@@ -36146,6 +36487,7 @@ export namespace Prisma {
     Meta_Title?: string | null
     categoryId?: number | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -36199,6 +36541,7 @@ export namespace Prisma {
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    Innersubcategory?: InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
   }
 
@@ -36231,6 +36574,7 @@ export namespace Prisma {
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -36508,6 +36852,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     subCategoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -36802,6 +37147,7 @@ export namespace Prisma {
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    Innersubcategory?: InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -36834,6 +37180,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -36869,6 +37216,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -36953,6 +37301,7 @@ export namespace Prisma {
     Meta_Description?: string | null
     Meta_Title?: string | null
     categoryId?: number | null
+    innersubCategoryId?: number | null
     seoSchema?: string | null
     shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
     status?: $Enums.BlogStatus | null
@@ -37088,6 +37437,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUpdateManyWithoutInnersubcategoryNestedInput
+    EcomereceProducts?: EcomereceProductsUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type InnersubCategoriesUncheckedUpdateWithoutSubCategoryInput = {
@@ -37099,6 +37449,7 @@ export namespace Prisma {
     last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
     catalogue?: NullableJsonNullValueInput | InputJsonValue
     products?: ProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
+    EcomereceProducts?: EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryNestedInput
   }
 
   export type InnersubCategoriesUncheckedUpdateManyWithoutSubCategoryInput = {
@@ -37141,6 +37492,7 @@ export namespace Prisma {
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
     category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
+    Innersubcategory?: InnersubCategoriesUpdateOneWithoutEcomereceProductsNestedInput
     reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
     questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
   }
@@ -37173,6 +37525,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -37208,6 +37561,7 @@ export namespace Prisma {
     Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
     Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
     categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    innersubCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
     status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
@@ -37252,6 +37606,40 @@ export namespace Prisma {
     subCategoryId?: number | null
     seoSchema?: string | null
     status?: $Enums.BlogStatus
+  }
+
+  export type EcomereceProductsCreateManyInnersubcategoryInput = {
+    id?: number
+    name: string
+    price: number
+    description: string
+    stock: number
+    discountPrice?: number | null
+    short_description?: string | null
+    posterImageUrl: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsCreateproductImagesInput | InputJsonValue[]
+    createdAt?: Date | string | null
+    updatedAt?: Date | string | null
+    last_editedBy?: string | null
+    custom_url: string
+    breadCrum: string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsCreateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsCreateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsCreateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsCreatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsCreatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsCreatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsCreatevariantInput | InputJsonValue[]
+    Canonical_Tag?: string | null
+    Meta_Description?: string | null
+    Meta_Title?: string | null
+    categoryId?: number | null
+    subCategoryId?: number | null
+    seoSchema?: string | null
+    shippingOptions?: EcomereceProductsCreateshippingOptionsInput | InputJsonValue[]
+    status?: $Enums.BlogStatus | null
   }
 
   export type ProductsUpdateWithoutInnersubcategoryInput = {
@@ -37374,6 +37762,111 @@ export namespace Prisma {
     subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
     seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
     status?: EnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus
+  }
+
+  export type EcomereceProductsUpdateWithoutInnersubcategoryInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
+    category?: categoriesUpdateOneWithoutEcomereceProductsNestedInput
+    subcategory?: subCategoriesUpdateOneWithoutEcomereceProductsNestedInput
+    reviews?: ProductReviewsUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUpdateManyWithoutEcomereceProductsNestedInput
+  }
+
+  export type EcomereceProductsUncheckedUpdateWithoutInnersubcategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
+    reviews?: ProductReviewsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+    questions?: ProductQuestionsUncheckedUpdateManyWithoutEcomereceProductsNestedInput
+  }
+
+  export type EcomereceProductsUncheckedUpdateManyWithoutInnersubcategoryInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
+    description?: StringFieldUpdateOperationsInput | string
+    stock?: IntFieldUpdateOperationsInput | number
+    discountPrice?: NullableIntFieldUpdateOperationsInput | number | null
+    short_description?: NullableStringFieldUpdateOperationsInput | string | null
+    posterImageUrl?: JsonNullValueInput | InputJsonValue
+    hoverImageUrl?: NullableJsonNullValueInput | InputJsonValue
+    productImages?: EcomereceProductsUpdateproductImagesInput | InputJsonValue[]
+    createdAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    updatedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    last_editedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    custom_url?: StringFieldUpdateOperationsInput | string
+    breadCrum?: StringFieldUpdateOperationsInput | string
+    Banners?: NullableJsonNullValueInput | InputJsonValue
+    DescriptionBullets?: EcomereceProductsUpdateDescriptionBulletsInput | InputJsonValue[]
+    Additionalinformation?: EcomereceProductsUpdateAdditionalinformationInput | InputJsonValue[]
+    Questions?: EcomereceProductsUpdateQuestionsInput | InputJsonValue[]
+    materialType?: EcomereceProductsUpdatematerialTypeInput | InputJsonValue[]
+    colors?: EcomereceProductsUpdatecolorsInput | InputJsonValue[]
+    sizes?: EcomereceProductsUpdatesizesInput | InputJsonValue[]
+    variant?: EcomereceProductsUpdatevariantInput | InputJsonValue[]
+    Canonical_Tag?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Description?: NullableStringFieldUpdateOperationsInput | string | null
+    Meta_Title?: NullableStringFieldUpdateOperationsInput | string | null
+    categoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    subCategoryId?: NullableIntFieldUpdateOperationsInput | number | null
+    seoSchema?: NullableStringFieldUpdateOperationsInput | string | null
+    shippingOptions?: EcomereceProductsUpdateshippingOptionsInput | InputJsonValue[]
+    status?: NullableEnumBlogStatusFieldUpdateOperationsInput | $Enums.BlogStatus | null
   }
 
   export type ProductReviewsCreateManyEcomereceProductsInput = {

@@ -1,8 +1,8 @@
-import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Category } from '../../categories/entities/category.entity';
-import { GraphQLJSON } from 'graphql-type-json';
-import { InnerSubCategory, Subcategory } from '../../subcategories/entities/subcategory.entity';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
+import { ObjectType, Field, Int } from "@nestjs/graphql";
+import { Category } from "../../categories/entities/category.entity";
+import { GraphQLJSON } from "graphql-type-json";
+import { InnerSubCategory, Subcategory } from "../../subcategories/entities/subcategory.entity";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
 
 @ObjectType()
 export class Product {
@@ -123,7 +123,7 @@ export class Product {
   @Field(() => Int, { nullable: true })
   subCategoryId?: number;
 
-    @Field(() => Int, { nullable: true })
+  @Field(() => Int, { nullable: true })
   innersubCategoryId?: number;
 
   @Field({ nullable: true })
@@ -138,6 +138,6 @@ export class Product {
   @Field(() => InnerSubCategory, { nullable: true })
   Innersubcategory?: InnerSubCategory;
 
-    @Field(() => BlogStatus, { nullable: true })
-    status?: BlogStatus
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }

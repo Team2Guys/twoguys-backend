@@ -1,45 +1,38 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
-import { CategoriesService } from './categories.service';
-import { Category } from './entities/category.entity';
-import { CreateCategoryInput } from './dto/create-category.input';
-import { UpdateCategoryInput } from './dto/update-category.input';
-import { Public } from '../decorators/public.decorator';
+import { Resolver, Query, Mutation, Args, Int } from "@nestjs/graphql";
+import { CategoriesService } from "./categories.service";
+import { Category } from "./entities/category.entity";
+import { CreateCategoryInput } from "./dto/create-category.input";
+import { UpdateCategoryInput } from "./dto/update-category.input";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => Category)
 export class CategoriesResolver {
   constructor(private readonly categoriesService: CategoriesService) {}
 
   @Mutation(() => Category)
-  createCategory(@Args('createCategoryInput') createCategoryInput: CreateCategoryInput) {
+  createCategory(@Args("createCategoryInput") createCategoryInput: CreateCategoryInput) {
     return this.categoriesService.create(createCategoryInput);
   }
 
-  
   @Public()
-  @Query(() => [Category], { name: 'categories' })
+  @Query(() => [Category], { name: "categories" })
   findAll() {
     return this.categoriesService.findAll();
   }
 
   @Public()
-  @Query(() => Category, { name: 'category', nullable:true })
-  findOne(
-    @Args('customUrl', { type: () => String }) customUrl: string
-  ) {
+  @Query(() => Category, { name: "category", nullable: true })
+  findOne(@Args("customUrl", { type: () => String }) customUrl: string) {
     return this.categoriesService.findOne(customUrl);
   }
 
-
   @Mutation(() => Category)
-  updateCategory(@Args('updateCategoryInput') updateCategoryInput: UpdateCategoryInput) {
+  updateCategory(@Args("updateCategoryInput") updateCategoryInput: UpdateCategoryInput) {
     return this.categoriesService.update(updateCategoryInput.id, updateCategoryInput);
   }
 
-  @Mutation(() => Category,{name:"RemoveCategory", nullable:true})
-  removeCategory(@Args('id', { type: () => Int }) id: number) {
+  @Mutation(() => Category, { name: "RemoveCategory", nullable: true })
+  removeCategory(@Args("id", { type: () => Int }) id: number) {
     return this.categoriesService.remove(id);
   }
-
-
-  
 }

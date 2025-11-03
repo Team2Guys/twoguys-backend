@@ -1,9 +1,9 @@
-import { Field, ObjectType } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
-import { Subcategory } from '../subcategories/entities/subcategory.entity';
-import { Product } from '../products/entities/product.entity';
-import { EComerece } from '../e-comerece/entities/e-comerece.entity';
-import { BlogStatus } from 'general/dto/enums/enum';
+import { Field, ObjectType } from "@nestjs/graphql";
+import { GraphQLJSON } from "graphql-type-json";
+import { Subcategory } from "../subcategories/entities/subcategory.entity";
+import { Product } from "../products/entities/product.entity";
+import { EComerece } from "../e-comerece/entities/e-comerece.entity";
+import { BlogStatus } from "general/dto/enums/enum";
 
 @ObjectType({ isAbstract: true })
 export abstract class CategoryBase {
@@ -97,7 +97,6 @@ export abstract class CategoryBase {
   @Field({ nullable: true })
   Bannercounter?: Date;
 
-
   @Field({ nullable: true })
   explore_Heading?: string;
 
@@ -110,8 +109,6 @@ export abstract class CategoryBase {
   @Field({ nullable: true })
   Product_Section_heading?: string;
 
-
-
   @Field({ nullable: true })
   Canonical_Tag?: string;
 
@@ -121,10 +118,8 @@ export abstract class CategoryBase {
   @Field({ nullable: true })
   Meta_Title?: string;
 
-
   @Field({ nullable: true })
   seoSchema?: string;
-
 
   @Field(() => [GraphQLJSON], { nullable: true })
   salesBannerImage?: any[];
@@ -132,15 +127,12 @@ export abstract class CategoryBase {
   @Field(() => [Subcategory], { nullable: true })
   subCategories?: Subcategory[];
 
-
   @Field(() => [Product], { nullable: true })
   products?: Product[];
 
   @Field(() => [EComerece], { nullable: true })
   EcomereceProducts?: EComerece[];
 
-
   @Field(() => BlogStatus, { nullable: true })
-  status?: BlogStatus
-
+  status?: BlogStatus;
 }

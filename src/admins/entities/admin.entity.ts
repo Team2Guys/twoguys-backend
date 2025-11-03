@@ -1,5 +1,5 @@
-import { ObjectType, Field, Int, PartialType, ID, Float } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
+import { ObjectType, Field, Int, PartialType, ID, Float } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
 @ObjectType()
 export class Admin {
   @Field(() => Int)
@@ -56,34 +56,31 @@ export class Admin {
   @Field(() => Boolean, { defaultValue: false })
   canVeiwTotalCategories: boolean;
 
-  @Field(() => GraphQLJSON,{nullable:true})
-   posterImageUrl: any
+  @Field(() => GraphQLJSON, { nullable: true })
+  posterImageUrl: any;
 
-  @Field(() => String, { defaultValue: 'Admin' })
+  @Field(() => String, { defaultValue: "Admin" })
   role: string;
 }
 
 @ObjectType()
 export class admin_with_token extends PartialType(Admin) {
   @Field()
-  token:string
+  token: string;
 
-  @Field({nullable:true})
+  @Field({ nullable: true })
   password?: string;
 }
 
-
-
 @ObjectType()
 export class super_admin {
-  @Field(()=>ID)
-  id:number
+  @Field(() => ID)
+  id: number;
   @Field()
   email: string;
   @Field()
   role: string;
 }
-
 
 @ObjectType()
 export class DashboardStats {

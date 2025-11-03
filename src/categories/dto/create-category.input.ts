@@ -1,6 +1,6 @@
-import { Field, InputType, Int } from '@nestjs/graphql';
-import { BlogStatus } from 'general/dto/enums/enum';
-import GraphQLJSON from 'graphql-type-json';
+import { Field, InputType, Int } from "@nestjs/graphql";
+import { BlogStatus } from "general/dto/enums/enum";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
 export class CreateCategoryInput {
@@ -94,7 +94,6 @@ export class CreateCategoryInput {
   @Field({ nullable: true })
   Bannercounter?: Date;
 
-
   @Field({ nullable: true })
   explore_Heading?: string;
 
@@ -106,8 +105,6 @@ export class CreateCategoryInput {
 
   @Field({ nullable: true })
   Product_Section_heading?: string;
-
-
 
   @Field({ nullable: true })
   Canonical_Tag?: string;
@@ -124,12 +121,9 @@ export class CreateCategoryInput {
   @Field({ nullable: true })
   seoSchema?: string;
 
-      @Field(() => BlogStatus, { nullable: true })
-          status?: BlogStatus
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
-
-
-
 
 @InputType()
 export class PaginatedProducts {
@@ -140,5 +134,4 @@ export class PaginatedProducts {
 
   @Field(() => Int)
   pageSize: number;
-
 }

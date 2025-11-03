@@ -1,9 +1,7 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-import { GraphQLJSON } from 'graphql-type-json';
-import { CommentStatus } from '../../../generated/prisma';
-import { BlogStatus } from 'general/dto/enums/enum';
-
-
+import { InputType, Int, Field } from "@nestjs/graphql";
+import { GraphQLJSON } from "graphql-type-json";
+import { CommentStatus } from "../../../generated/prisma";
+import { BlogStatus } from "general/dto/enums/enum";
 
 @InputType()
 export class CreateEComereceInput {
@@ -84,29 +82,28 @@ export class CreateEComereceInput {
 
   @Field(() => Int, { nullable: true })
   subcategory?: number;
-  @Field({ nullable: true })
-  seoSchema?: string
-
   
-      @Field(() => BlogStatus, { nullable: true })
-          status?: BlogStatus
+  @Field(() => Int, { nullable: true })
+  Innersubcategory?: number;
+
+  @Field({ nullable: true })
+  seoSchema?: string;
+
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
-
-
 
 @InputType()
 export class PaginatedPrducts {
   @Field()
-  categoryname: string
+  categoryname: string;
 
   @Field(() => Int)
-  page: number
+  page: number;
 
-  @Field(()=>Int)
-  pageSize: number
+  @Field(() => Int)
+  pageSize: number;
 
-  @Field({nullable:true})
-  subcategory?: string
-
-
+  @Field({ nullable: true })
+  subcategory?: string;
 }

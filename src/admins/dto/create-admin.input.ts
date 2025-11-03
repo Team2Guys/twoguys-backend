@@ -1,6 +1,5 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
-import GraphQLJSON from 'graphql-type-json';
-
+import { InputType, Int, Field } from "@nestjs/graphql";
+import GraphQLJSON from "graphql-type-json";
 
 @InputType()
 export class CreateAdminInput {
@@ -55,22 +54,18 @@ export class CreateAdminInput {
   @Field(() => Boolean, { defaultValue: false })
   canVeiwTotalCategories: boolean;
 
-  @Field(() => GraphQLJSON,{nullable:true})
-   posterImageUrl: any
+  @Field(() => GraphQLJSON, { nullable: true })
+  posterImageUrl: any;
 
-  @Field(() => String, { defaultValue: 'Admin' })
+  @Field(() => String, { defaultValue: "Admin" })
   role: string;
 }
-
-
-
-
 
 @InputType()
 export class Admin_login {
   @Field()
-  email:string
+  email: string;
 
   @Field()
-  password:string
+  password: string;
 }

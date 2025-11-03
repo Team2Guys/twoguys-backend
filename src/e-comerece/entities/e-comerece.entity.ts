@@ -1,14 +1,12 @@
-import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
-import { Category } from '../../categories/entities/category.entity';
-import GraphQLJSON from 'graphql-type-json';
-import { Subcategory } from '../../subcategories/entities/subcategory.entity';
-import { productQuestion, ProductReviews } from '../../general/entities/general.entity';
-import { BlogStatus, CommentStatus } from 'general/dto/enums/enum';
-
+import { ObjectType, Field, Int, ID } from "@nestjs/graphql";
+import { Category } from "../../categories/entities/category.entity";
+import GraphQLJSON from "graphql-type-json";
+import { Subcategory, InnerSubCategory } from "../../subcategories/entities/subcategory.entity";
+import { productQuestion, ProductReviews } from "../../general/entities/general.entity";
+import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
 
 @ObjectType()
 export class EComerece {
-
   @Field(() => ID)
   id: number;
 
@@ -87,8 +85,11 @@ export class EComerece {
   @Field(() => Subcategory, { nullable: true })
   subcategory?: Subcategory;
 
+  @Field(() => InnerSubCategory, { nullable: true })
+  innerSubcategory?: InnerSubCategory;
+
   @Field({ nullable: true })
-  seoSchema?: string
+  seoSchema?: string;
 
   @Field({ nullable: true })
   createdAt?: Date;
@@ -105,21 +106,17 @@ export class EComerece {
   @Field(() => [GraphQLJSON], { nullable: true })
   shippingOptions?: any[];
 
-        @Field(() => BlogStatus, { nullable: true })
-            status?: BlogStatus
+  @Field(() => BlogStatus, { nullable: true })
+  status?: BlogStatus;
 }
 @ObjectType()
-
 export class eComereceProducts {
-
   @Field(() => [EComerece], { nullable: true })
-  products?: EComerece[]
-
-
-  @Field(() => Int, { nullable: true })
-  totalPages?: number
+  products?: EComerece[];
 
   @Field(() => Int, { nullable: true })
-  totalEcomereceProduct?: number
+  totalPages?: number;
 
+  @Field(() => Int, { nullable: true })
+  totalEcomereceProduct?: number;
 }
