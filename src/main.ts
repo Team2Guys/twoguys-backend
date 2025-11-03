@@ -1,7 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
 import { graphqlUploadExpress } from "graphql-upload-ts";
-import { ThrottlerGuard } from "@nestjs/throttler";
 import { NestExpressApplication } from "@nestjs/platform-express";
 
 async function bootstrap() {

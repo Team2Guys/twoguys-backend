@@ -1,3 +1,4 @@
+import { EcomereceProducts } from "./../../generated/prisma/index.d";
 import { Injectable } from "@nestjs/common";
 import { CreateEComereceInput } from "./dto/create-e-comerece.input";
 import { UpdateEComereceInput } from "./dto/update-e-comerece.input";
@@ -34,7 +35,7 @@ export class EComereceService {
   async findAll() {
     try {
       return await this.prisma.ecomereceProducts.findMany({
-        include: { category: true, subcategory: true },
+        include: { category: true, subcategory: true, Innersubcategory: true },
       });
     } catch (error) {
       customHttpException(error);
@@ -43,7 +44,7 @@ export class EComereceService {
 
   async findOne(custom_url: string, category: string, subCategory: string) {
     try {
-      return await this.prisma.ecomereceProducts.findFirst({
+      let proudct = await this.prisma.ecomereceProducts.findFirst({
         where: {
           custom_url,
           category: { custom_url: category },
@@ -54,8 +55,13 @@ export class EComereceService {
           category: true,
           reviews: true,
           questions: true,
+          Innersubcategory: true,
         },
       });
+
+      console.log("proudct", proudct);
+
+      return proudct;
     } catch (error) {
       return customHttpException(error);
     }
