@@ -86,7 +86,7 @@ export class EComerece {
   subcategory?: Subcategory;
 
   @Field(() => InnerSubCategory, { nullable: true })
-  innerSubcategory?: InnerSubCategory;
+  Innersubcategory?: InnerSubCategory;
 
   @Field({ nullable: true })
   seoSchema?: string;
