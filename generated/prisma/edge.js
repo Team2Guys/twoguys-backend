@@ -580,11 +580,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://twoguys:twoguys@3223@185.151.51.28:5432/twoguysdb?schema=public"
+        "value": null
       }
     }
   },
