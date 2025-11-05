@@ -553,7 +553,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "D:\\Qul-tech\\twoguys\\server\\generated\\prisma",
+      "value": "D:\\projects\\twoguys\\twoguys-backend\\generated\\prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -567,7 +567,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "D:\\Qul-tech\\twoguys\\server\\prisma\\schema.prisma",
+    "sourceFilePath": "D:\\projects\\twoguys\\twoguys-backend\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -581,11 +581,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://twoguys:twoguys@3223@185.151.51.28:5432/twoguysdb?schema=public"
+        "value": null
       }
     }
   },

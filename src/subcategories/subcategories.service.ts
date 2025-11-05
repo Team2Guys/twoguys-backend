@@ -56,7 +56,9 @@ export class SubcategoriesService {
         include: {
           category: true,
           products: true,
-          EcomereceProducts: { include: { category: true, subcategory: true } },
+          EcomereceProducts: {
+            include: { category: true, subcategory: true, Innersubcategory: true },
+          },
           InnersubCategories: { include: { products: true } },
         },
       });
