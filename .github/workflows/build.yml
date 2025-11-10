@@ -1,4 +1,4 @@
-name: CI/CD - Build & Deploy with Docker
+name: Build on PR
 
 on:
   push:
@@ -9,44 +9,45 @@ on:
       - server
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Login to DockerHub
-        uses: docker/login-action@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v3
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}   # <-- Should be "twoguys"
-          password: ${{ secrets.DOCKER_PASSWORD }}
+          node-version: '20'
 
-      - name: Build & Push Docker Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: true
-          tags: twoguys/twoguys-backend:latest
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Build
+        run: npm run build
 
       - name: Install sshpass
-        run: sudo apt-get install -y sshpass
+        run: sudo apt-get install sshpass
 
-      - name: Deploy to VPS via SSH
+      - name: Deploy via SSH
         env:
           SSH_PASS: ${{ secrets.VPS_PASSWORD }}
           VPS_HOST: ${{ secrets.VPS_HOST }}
           VPS_USER: ${{ secrets.VPS_USER }}
           VPS_PORT: ${{ secrets.VPS_PORT }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-
         run: |
           sshpass -p $SSH_PASS ssh -o StrictHostKeyChecking=no -p $VPS_PORT $VPS_USER@$VPS_HOST <<EOF
-            cd /var/www/twoguys/server
-            git pull origin server --no-rebase
-            npm install --legaycy-peer-deps
-            npx prisma generate
-            npm run build
-            pm2 restart twoguysdevbe --update-env
-            exit
-            EOF
+          export NVM_DIR="\$HOME/.nvm"
+          [ -s "\$NVM_DIR/nvm.sh" ] && \. "\$NVM_DIR/nvm.sh" # This loads nvm
+          [ -s "\$NVM_DIR/bash_completion" ] && \. "\$NVM_DIR/bash_completion" # This loads nvm bash_completion
+          nvm use 20
+          cd /var/www/twoguys/server
+          git pull origin server --no-rebase
+          
+          npm install 
+          npx prisma generate
+          npm run build
+          pm2 restart twoguysdevbe --update-env
+          exit
+          EOF
+
