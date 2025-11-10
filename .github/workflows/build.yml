@@ -43,10 +43,10 @@ jobs:
         run: |
           sshpass -p $SSH_PASS ssh -o StrictHostKeyChecking=no -p $VPS_PORT $VPS_USER@$VPS_HOST <<EOF
             cd /var/www/twoguys/server
-            git pull origin server
-                      npm install --legaycy-peer-deps
-          npx prisma generate
-          npm run build
-          pm2 restart twoguysdevbe --update-env
+            git pull origin server --no-rebase
+            npm install --legaycy-peer-deps
+            npx prisma generate
+            npm run build
+            pm2 restart twoguysdevbe --update-env
             exit
             EOF
