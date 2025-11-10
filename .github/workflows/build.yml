@@ -42,9 +42,11 @@ jobs:
 
         run: |
           sshpass -p $SSH_PASS ssh -o StrictHostKeyChecking=no -p $VPS_PORT $VPS_USER@$VPS_HOST <<EOF
-            cd /var/www/twoguys/dock-server
-            docker login -u twoguys -p $DOCKER_PASSWORD
-            docker compose pull
-            docker compose up -d
+            cd /var/www/twoguys/server
+            git pull origin server
+                      npm install --legaycy-peer-deps
+          npx prisma generate
+          npm run build
+          pm2 restart twoguysdevbe --update-env
             exit
             EOF
