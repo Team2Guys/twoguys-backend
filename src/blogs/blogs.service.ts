@@ -7,7 +7,7 @@ import {
 } from "./dto/create-blog.input";
 import { UpdateBlogInput, UpdateCommentDto } from "./dto/update-blog.input";
 import { PrismaService } from "../prisma/prisma.service";
-import { customHttpException, getStatusNameByCode } from "utils/helper";
+import { customHttpException, getStatusNameByCode } from "../utils/helper";
 import { CommentStatus } from "../general/dto/enums/enum";
 import { randomUUID } from "crypto";
 import { Prisma } from "../../generated/prisma";
