@@ -2,7 +2,7 @@ import { ObjectType, Field, ID } from "@nestjs/graphql";
 import { Category } from "../../categories/entities/category.entity";
 import GraphQLJSON from "graphql-type-json";
 import { Product } from "../../products/entities/product.entity";
-import { EComerece } from "e-comerece/entities/e-comerece.entity";
+import { EComerece } from "../../e-comerece/entities/e-comerece.entity";
 import { BlogStatus } from "../../general/dto/enums/enum";
 
 @ObjectType()
