@@ -29,7 +29,7 @@ import {
   UpdateproductReviewInput,
   UpdateRedirecturls,
 } from "./dto/update-general.input";
-import { Public } from "decorators/public.decorator";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => General)
 export class GeneralResolver {

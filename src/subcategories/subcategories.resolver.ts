@@ -9,7 +9,7 @@ import {
   UpdateInnerSubcategoryInput,
   UpdateSubcategoryInput,
 } from "./dto/update-subcategory.input";
-import { Public } from "decorators/public.decorator";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => Subcategory)
 export class SubcategoriesResolver {
