@@ -9,7 +9,7 @@ import {
   UpdateStatus,
 } from "./dto/create-blog.input";
 import { UpdateBlogInput } from "./dto/update-blog.input";
-import { Public } from "decorators/public.decorator";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => Blog)
 export class BlogsResolver {

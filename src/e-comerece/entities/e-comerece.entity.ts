@@ -3,7 +3,7 @@ import { Category } from "../../categories/entities/category.entity";
 import GraphQLJSON from "graphql-type-json";
 import { Subcategory, InnerSubCategory } from "../../subcategories/entities/subcategory.entity";
 import { productQuestion, ProductReviews } from "../../general/entities/general.entity";
-import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import { BlogStatus } from "../../general/dto/enums/enum";
 
 @ObjectType()
 export class EComerece {

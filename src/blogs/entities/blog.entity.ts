@@ -1,5 +1,5 @@
 import { ObjectType, Field, Int } from "@nestjs/graphql";
-import { BlogStatus, CommentStatus } from "general/dto/enums/enum";
+import { BlogStatus, CommentStatus } from "../../general/dto/enums/enum";
 import GraphQLJSON from "graphql-type-json";
 
 @ObjectType()

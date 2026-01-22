@@ -14,7 +14,7 @@ import { SalesProductsModule } from "./sales-products/sales-products.module";
 import { UserModule } from "./user/user.module";
 import { ThrottlerModule } from "@nestjs/throttler";
 import { APP_GUARD } from "@nestjs/core";
-import { AuthGuard } from "guards/auth.guard";
+import { AuthGuard } from "./guards/auth.guard";
 
 @Module({
   imports: [

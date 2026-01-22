@@ -3,7 +3,7 @@ import { EComereceService } from "./e-comerece.service";
 import { EComerece, eComereceProducts } from "./entities/e-comerece.entity";
 import { CreateEComereceInput, PaginatedPrducts } from "./dto/create-e-comerece.input";
 import { UpdateEComereceInput } from "./dto/update-e-comerece.input";
-import { Public } from "decorators/public.decorator";
+import { Public } from "../decorators/public.decorator";
 
 @Resolver(() => EComerece)
 export class EComereceResolver {

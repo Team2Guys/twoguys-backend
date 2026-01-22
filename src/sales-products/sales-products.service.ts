@@ -9,9 +9,7 @@ import {
 import { customHttpException } from "../utils/helper";
 import { PrismaService } from "../prisma/prisma.service";
 import { Prisma } from "@prisma/client";
-import { contactusEmail, sendEmailHandler } from "utils/EmailHanlders";
-import { count } from "console";
-import { MonthlyAppointmentStats, paymentStatus } from "./entities/sales-product.entity";
+import { contactusEmail, sendEmailHandler } from "../utils/EmailHanlders";
 
 @Injectable()
 export class SalesProductsService {
