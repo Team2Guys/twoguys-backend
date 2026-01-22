@@ -1,7 +1,6 @@
 import { InputType, Int, Field } from "@nestjs/graphql";
 import { GraphQLJSON } from "graphql-type-json";
-import { CommentStatus } from "../../../generated/prisma";
-import { BlogStatus } from "general/dto/enums/enum";
+import { BlogStatus } from "../../general/dto/enums/enum";
 
 @InputType()
 export class CreateEComereceInput {
@@ -82,7 +81,7 @@ export class CreateEComereceInput {
 
   @Field(() => Int, { nullable: true })
   subcategory?: number;
-  
+
   @Field(() => Int, { nullable: true })
   Innersubcategory?: number;
 

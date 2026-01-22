@@ -3,8 +3,7 @@ import { Category } from "../../categories/entities/category.entity";
 import GraphQLJSON from "graphql-type-json";
 import { Product } from "../../products/entities/product.entity";
 import { EComerece } from "e-comerece/entities/e-comerece.entity";
-import { CommentStatus } from "../../../generated/prisma";
-import { BlogStatus } from "general/dto/enums/enum";
+import { BlogStatus } from "../../general/dto/enums/enum";
 
 @ObjectType()
 export class Subcategory {
