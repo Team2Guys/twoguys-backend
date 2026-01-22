@@ -21,6 +21,7 @@ async function bootstrap() {
       "http://localhost:3001",
       "http://localhost:5008",
       "http://192.168.1.18:5008",
+      "https://twoguys-frontend.vercel.app",
     ],
     credentials: true,
     allowedHeaders: ["authorization", "Content-Type"],
