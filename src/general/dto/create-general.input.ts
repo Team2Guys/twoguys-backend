@@ -46,6 +46,12 @@ export class createAppointments {
   @Field()
   location: string;
 
+  @Field(() => String)
+  preferredDate: string;
+
+  @Field(() => String)
+  preferredTime: string;
+
   @Field(() => String, { nullable: true })
   whatsApp?: string;
 
