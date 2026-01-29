@@ -1,5 +1,5 @@
 import { Field, InputType, Int } from "@nestjs/graphql";
-import { BlogStatus } from "general/dto/enums/enum";
+import { BlogStatus } from "../../general/dto/enums/enum";
 import GraphQLJSON from "graphql-type-json";
 
 @InputType()

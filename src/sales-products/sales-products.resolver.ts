@@ -16,7 +16,7 @@ import {
 import { Public } from "../decorators/public.decorator";
 import { Throttle, ThrottlerGuard } from "@nestjs/throttler";
 import { UseGuards } from "@nestjs/common";
-import { GqlThrottlerGuard } from "common/GqlThrottlerGuard";
+import { GqlThrottlerGuard } from "../common/GqlThrottlerGuard";
 
 @Resolver(() => SalesProduct)
 export class SalesProductsResolver {
